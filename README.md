@@ -23,3 +23,7 @@
 # Fingerprint Pro iOS
 
 This repository contains the full source code of the official Fingerprint Pro Demo App for iOS.
+
+## License
+
+The content of this project is licensed under the [MIT license](LICENSE).
