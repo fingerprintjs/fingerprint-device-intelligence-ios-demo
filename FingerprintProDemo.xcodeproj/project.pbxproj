@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */; };
 		156D06482B0F5FA60015A456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156D06472B0F5FA60015A456 /* Assets.xcassets */; };
+		156D06542B0FB48F0015A456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +17,7 @@
 		156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintProDemoApp.swift; sourceTree = "<group>"; };
 		156D06472B0F5FA60015A456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		156D06522B0F63F80015A456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 				156D06522B0F63F80015A456 /* Info.plist */,
 				156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */,
 				156D06472B0F5FA60015A456 /* Assets.xcassets */,
+				156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */,
 			);
 			path = FingerprintProDemo;
 			sourceTree = "<group>";
@@ -114,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				156D06482B0F5FA60015A456 /* Assets.xcassets in Resources */,
+				156D06542B0FB48F0015A456 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +270,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -301,7 +305,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
