@@ -10,7 +10,7 @@ struct FingerprintProDemoApp: App {
                 Button(
                     action: {},
                     label: {
-                        Image("FingerprintButtonImage")
+                        Image("Button/FingerprintImage")
                     }
                 )
                 .buttonStyle(.fingerprint)
