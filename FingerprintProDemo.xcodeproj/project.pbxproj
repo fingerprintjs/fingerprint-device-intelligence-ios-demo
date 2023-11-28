@@ -10,6 +10,7 @@
 		156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */; };
 		156D06482B0F5FA60015A456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156D06472B0F5FA60015A456 /* Assets.xcassets */; };
 		156D06542B0FB48F0015A456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */; };
+		156D06582B1600A80015A456 /* FingerprintButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06572B1600A80015A456 /* FingerprintButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		156D06472B0F5FA60015A456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		156D06522B0F63F80015A456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		156D06572B1600A80015A456 /* FingerprintButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +52,29 @@
 		156D06422B0F5FA50015A456 /* FingerprintProDemo */ = {
 			isa = PBXGroup;
 			children = (
+				156D06552B16008C0015A456 /* UI */,
 				156D06522B0F63F80015A456 /* Info.plist */,
 				156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */,
 				156D06472B0F5FA60015A456 /* Assets.xcassets */,
 				156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */,
 			);
 			path = FingerprintProDemo;
+			sourceTree = "<group>";
+		};
+		156D06552B16008C0015A456 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				156D06562B1600930015A456 /* Styles */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		156D06562B1600930015A456 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				156D06572B1600A80015A456 /* FingerprintButtonStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156D06582B1600A80015A456 /* FingerprintButtonStyle.swift in Sources */,
 				156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
