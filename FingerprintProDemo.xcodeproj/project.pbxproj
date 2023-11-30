@@ -11,6 +11,12 @@
 		156D06482B0F5FA60015A456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156D06472B0F5FA60015A456 /* Assets.xcassets */; };
 		156D06542B0FB48F0015A456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */; };
 		156D06582B1600A80015A456 /* FingerprintButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06572B1600A80015A456 /* FingerprintButtonStyle.swift */; };
+		156D065B2B1657D40015A456 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D065A2B1657D40015A456 /* HomeView.swift */; };
+		156D06642B1772AB0015A456 /* URL+StaticString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06632B1772AB0015A456 /* URL+StaticString.swift */; };
+		156D06672B1772FF0015A456 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06662B1772FF0015A456 /* Constants.swift */; };
+		156D06712B18948C0015A456 /* Inter-VariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 156D06702B18948C0015A456 /* Inter-VariableFont.ttf */; };
+		156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06722B18A7B10015A456 /* Font+Inter.swift */; };
+		156D06752B18B0190015A456 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 156D06742B18B0190015A456 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +26,12 @@
 		156D06522B0F63F80015A456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		156D06572B1600A80015A456 /* FingerprintButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintButtonStyle.swift; sourceTree = "<group>"; };
+		156D065A2B1657D40015A456 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		156D06632B1772AB0015A456 /* URL+StaticString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+StaticString.swift"; sourceTree = "<group>"; };
+		156D06662B1772FF0015A456 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		156D06702B18948C0015A456 /* Inter-VariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont.ttf"; sourceTree = "<group>"; };
+		156D06722B18A7B10015A456 /* Font+Inter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Inter.swift"; sourceTree = "<group>"; };
+		156D06742B18B0190015A456 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +64,14 @@
 		156D06422B0F5FA50015A456 /* FingerprintProDemo */ = {
 			isa = PBXGroup;
 			children = (
-				156D06552B16008C0015A456 /* UI */,
 				156D06522B0F63F80015A456 /* Info.plist */,
 				156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */,
-				156D06472B0F5FA60015A456 /* Assets.xcassets */,
 				156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */,
+				156D06652B1772E80015A456 /* Constants */,
+				156D065E2B1772140015A456 /* Extensions */,
+				156D065C2B17574C0015A456 /* Features */,
+				156D06682B188EA80015A456 /* Resources */,
+				156D06552B16008C0015A456 /* UI */,
 			);
 			path = FingerprintProDemo;
 			sourceTree = "<group>";
@@ -75,6 +90,81 @@
 				156D06572B1600A80015A456 /* FingerprintButtonStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		156D06592B1657910015A456 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				156D065A2B1657D40015A456 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		156D065C2B17574C0015A456 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				156D065D2B1757770015A456 /* Home */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		156D065D2B1757770015A456 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				156D06592B1657910015A456 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		156D065E2B1772140015A456 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				156D065F2B1772270015A456 /* Foundation */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		156D065F2B1772270015A456 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				156D06622B17727A0015A456 /* URL */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		156D06622B17727A0015A456 /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				156D06632B1772AB0015A456 /* URL+StaticString.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
+		156D06652B1772E80015A456 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				156D06662B1772FF0015A456 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		156D06682B188EA80015A456 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				156D06472B0F5FA60015A456 /* Assets.xcassets */,
+				156D06692B188EC20015A456 /* Fonts */,
+				156D06742B18B0190015A456 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		156D06692B188EC20015A456 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				156D06722B18A7B10015A456 /* Font+Inter.swift */,
+				156D06702B18948C0015A456 /* Inter-VariableFont.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +225,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156D06712B18948C0015A456 /* Inter-VariableFont.ttf in Resources */,
 				156D06482B0F5FA60015A456 /* Assets.xcassets in Resources */,
+				156D06752B18B0190015A456 /* Localizable.xcstrings in Resources */,
 				156D06542B0FB48F0015A456 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,7 +239,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156D06672B1772FF0015A456 /* Constants.swift in Sources */,
+				156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */,
+				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
 				156D06582B1600A80015A456 /* FingerprintButtonStyle.swift in Sources */,
+				156D06642B1772AB0015A456 /* URL+StaticString.swift in Sources */,
 				156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
