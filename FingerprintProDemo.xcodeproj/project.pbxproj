@@ -17,6 +17,8 @@
 		156D06712B18948C0015A456 /* Inter-VariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 156D06702B18948C0015A456 /* Inter-VariableFont.ttf */; };
 		156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06722B18A7B10015A456 /* Font+Inter.swift */; };
 		156D06752B18B0190015A456 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 156D06742B18B0190015A456 /* Localizable.xcstrings */; };
+		156D06782B1DF99E0015A456 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06772B1DF99E0015A456 /* ErrorView.swift */; };
+		156D067A2B1E49390015A456 /* DefaultButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06792B1E49390015A456 /* DefaultButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		156D06702B18948C0015A456 /* Inter-VariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont.ttf"; sourceTree = "<group>"; };
 		156D06722B18A7B10015A456 /* Font+Inter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Inter.swift"; sourceTree = "<group>"; };
 		156D06742B18B0190015A456 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		156D06772B1DF99E0015A456 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		156D06792B1E49390015A456 /* DefaultButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		156D06552B16008C0015A456 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				156D06762B1DF97A0015A456 /* Views */,
 				156D06562B1600930015A456 /* Styles */,
 			);
 			path = UI;
@@ -87,6 +92,7 @@
 		156D06562B1600930015A456 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				156D06792B1E49390015A456 /* DefaultButtonStyle.swift */,
 				156D06572B1600A80015A456 /* FingerprintButtonStyle.swift */,
 			);
 			path = Styles;
@@ -167,6 +173,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		156D06762B1DF97A0015A456 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				156D06772B1DF99E0015A456 /* ErrorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,6 +257,8 @@
 				156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
 				156D06582B1600A80015A456 /* FingerprintButtonStyle.swift in Sources */,
+				156D06782B1DF99E0015A456 /* ErrorView.swift in Sources */,
+				156D067A2B1E49390015A456 /* DefaultButtonStyle.swift in Sources */,
 				156D06642B1772AB0015A456 /* URL+StaticString.swift in Sources */,
 				156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */,
 			);
