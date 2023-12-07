@@ -19,6 +19,16 @@
 		156D06752B18B0190015A456 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 156D06742B18B0190015A456 /* Localizable.xcstrings */; };
 		156D06782B1DF99E0015A456 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06772B1DF99E0015A456 /* ErrorView.swift */; };
 		156D067A2B1E49390015A456 /* DefaultButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06792B1E49390015A456 /* DefaultButtonStyle.swift */; };
+		156D067C2B20994E0015A456 /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D067B2B20994E0015A456 /* EventDetailsView.swift */; };
+		156D06802B20DEEE0015A456 /* View+RedactedIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D067F2B20DEEE0015A456 /* View+RedactedIf.swift */; };
+		156D06842B20EC230015A456 /* String+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06832B20EC230015A456 /* String+Placeholder.swift */; };
+		156D06882B25F8AF0015A456 /* EventPresentability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06872B25F8AF0015A456 /* EventPresentability.swift */; };
+		156D068A2B25F8F90015A456 /* BasicResponseEventPresentability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06892B25F8F90015A456 /* BasicResponseEventPresentability.swift */; };
+		156D068C2B2726800015A456 /* EventDetailsView+VisualState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D068B2B2726800015A456 /* EventDetailsView+VisualState.swift */; };
+		156D068E2B2728A10015A456 /* ExtendedResponseEventPresentability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D068D2B2728A10015A456 /* ExtendedResponseEventPresentability.swift */; };
+		156D06902B272E3B0015A456 /* ClientResponseEventPresentability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D068F2B272E3B0015A456 /* ClientResponseEventPresentability.swift */; };
+		156D06922B27503B0015A456 /* String+LinesCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06912B27503B0015A456 /* String+LinesCount.swift */; };
+		156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06932B276E6F0015A456 /* UIFont+Inter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +46,16 @@
 		156D06742B18B0190015A456 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		156D06772B1DF99E0015A456 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		156D06792B1E49390015A456 /* DefaultButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButtonStyle.swift; sourceTree = "<group>"; };
+		156D067B2B20994E0015A456 /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
+		156D067F2B20DEEE0015A456 /* View+RedactedIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+RedactedIf.swift"; sourceTree = "<group>"; };
+		156D06832B20EC230015A456 /* String+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Placeholder.swift"; sourceTree = "<group>"; };
+		156D06872B25F8AF0015A456 /* EventPresentability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPresentability.swift; sourceTree = "<group>"; };
+		156D06892B25F8F90015A456 /* BasicResponseEventPresentability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicResponseEventPresentability.swift; sourceTree = "<group>"; };
+		156D068B2B2726800015A456 /* EventDetailsView+VisualState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventDetailsView+VisualState.swift"; sourceTree = "<group>"; };
+		156D068D2B2728A10015A456 /* ExtendedResponseEventPresentability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedResponseEventPresentability.swift; sourceTree = "<group>"; };
+		156D068F2B272E3B0015A456 /* ClientResponseEventPresentability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientResponseEventPresentability.swift; sourceTree = "<group>"; };
+		156D06912B27503B0015A456 /* String+LinesCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LinesCount.swift"; sourceTree = "<group>"; };
+		156D06932B276E6F0015A456 /* UIFont+Inter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Inter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +145,8 @@
 		156D065E2B1772140015A456 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				156D06812B20EC0B0015A456 /* Swift */,
+				156D067D2B20DEBF0015A456 /* SwiftUI */,
 				156D065F2B1772270015A456 /* Foundation */,
 			);
 			path = Extensions;
@@ -168,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				156D06722B18A7B10015A456 /* Font+Inter.swift */,
+				156D06932B276E6F0015A456 /* UIFont+Inter.swift */,
 				156D06702B18948C0015A456 /* Inter-VariableFont.ttf */,
 			);
 			path = Fonts;
@@ -177,8 +200,63 @@
 			isa = PBXGroup;
 			children = (
 				156D06772B1DF99E0015A456 /* ErrorView.swift */,
+				156D06852B25F8010015A456 /* EventDetailsView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		156D067D2B20DEBF0015A456 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				156D067E2B20DECA0015A456 /* View */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		156D067E2B20DECA0015A456 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				156D067F2B20DEEE0015A456 /* View+RedactedIf.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		156D06812B20EC0B0015A456 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				156D06822B20EC120015A456 /* String */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		156D06822B20EC120015A456 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				156D06912B27503B0015A456 /* String+LinesCount.swift */,
+				156D06832B20EC230015A456 /* String+Placeholder.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		156D06852B25F8010015A456 /* EventDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				156D067B2B20994E0015A456 /* EventDetailsView.swift */,
+				156D068B2B2726800015A456 /* EventDetailsView+VisualState.swift */,
+				156D06862B25F8120015A456 /* Presentation */,
+			);
+			path = EventDetailsView;
+			sourceTree = "<group>";
+		};
+		156D06862B25F8120015A456 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				156D06872B25F8AF0015A456 /* EventPresentability.swift */,
+				156D068F2B272E3B0015A456 /* ClientResponseEventPresentability.swift */,
+				156D06892B25F8F90015A456 /* BasicResponseEventPresentability.swift */,
+				156D068D2B2728A10015A456 /* ExtendedResponseEventPresentability.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,11 +332,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				156D06672B1772FF0015A456 /* Constants.swift in Sources */,
+				156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */,
+				156D06902B272E3B0015A456 /* ClientResponseEventPresentability.swift in Sources */,
+				156D06882B25F8AF0015A456 /* EventPresentability.swift in Sources */,
+				156D06802B20DEEE0015A456 /* View+RedactedIf.swift in Sources */,
+				156D068A2B25F8F90015A456 /* BasicResponseEventPresentability.swift in Sources */,
+				156D06922B27503B0015A456 /* String+LinesCount.swift in Sources */,
 				156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
 				156D06582B1600A80015A456 /* FingerprintButtonStyle.swift in Sources */,
+				156D06842B20EC230015A456 /* String+Placeholder.swift in Sources */,
+				156D068C2B2726800015A456 /* EventDetailsView+VisualState.swift in Sources */,
+				156D067C2B20994E0015A456 /* EventDetailsView.swift in Sources */,
 				156D06782B1DF99E0015A456 /* ErrorView.swift in Sources */,
 				156D067A2B1E49390015A456 /* DefaultButtonStyle.swift in Sources */,
+				156D068E2B2728A10015A456 /* ExtendedResponseEventPresentability.swift in Sources */,
 				156D06642B1772AB0015A456 /* URL+StaticString.swift in Sources */,
 				156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */,
 			);
