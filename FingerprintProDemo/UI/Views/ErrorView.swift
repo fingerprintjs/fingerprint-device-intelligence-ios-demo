@@ -28,10 +28,13 @@ struct ErrorView: View {
                 Text(title)
                     .font(.inter(size: 16.0, weight: .medium))
                     .foregroundStyle(.extraDarkGray)
+                    .multilineTextAlignment(.center)
                     .lineLimit(2)
                 Text(description)
                     .font(.inter(size: 14.0))
+                    .kerning(0.056)
                     .foregroundStyle(.semiDarkGray)
+                    .multilineTextAlignment(.center)
             }
             Button("Try again", action: retryAction)
                 .buttonStyle(.default)
