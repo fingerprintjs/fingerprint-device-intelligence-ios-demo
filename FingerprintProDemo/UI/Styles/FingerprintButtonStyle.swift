@@ -25,7 +25,7 @@ struct FingerprintButtonStyle: ButtonStyle {
             .onChange(of: isEnabled) { value in
                 isAnimating = value
             }
-            .onTapGesture {
+            .onChange(of: configuration.isPressed) { _ in
                 isAnimating = false
             }
     }
