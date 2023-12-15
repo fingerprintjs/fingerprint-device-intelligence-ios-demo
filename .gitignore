@@ -9,3 +9,8 @@ xcuserdata/
 ### SwiftPM ###
 
 /.build/
+
+### Other ###
+
+# Swift Confidential
+confidential.yml

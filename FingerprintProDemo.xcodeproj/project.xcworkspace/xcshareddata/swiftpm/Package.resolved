@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "swift-confidential",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/securevale/swift-confidential.git",
+      "state" : {
+        "revision" : "5992894cdf45e14d5c4a5ccfbaf3ad9e18173faf",
+        "version" : "0.3.0"
+      }
+    },
+    {
+      "identity" : "swift-confidential-plugin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/securevale/swift-confidential-plugin.git",
+      "state" : {
+        "revision" : "08b2d1d2be8b01ed6c256a031f6313984a823f58",
+        "version" : "0.3.0"
+      }
+    }
+  ],
+  "version" : 2
+}
