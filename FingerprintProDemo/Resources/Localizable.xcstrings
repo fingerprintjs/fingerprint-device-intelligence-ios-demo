@@ -131,6 +131,16 @@
         }
       }
     },
+    "Privacy Policy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
     "RAW" : {
       "localizations" : {
         "en" : {
