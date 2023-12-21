@@ -14,20 +14,30 @@ struct EventDetailsView<Presentation: EventPresentability>: View {
     }
 
     var body: some View {
-        VStack(spacing: .zero) {
-            if showHeading {
-                heading
+        switch state {
+        case .loading, .presenting:
+            VStack(spacing: .zero) {
+                if showHeading {
+                    heading
+                    Spacer()
+                        .frame(height: 32.0)
+                }
+                foremostField
                 Spacer()
-                    .frame(height: 32.0)
+                    .frame(height: isLoading ? 16.0 : 24.0)
+                details
+                Spacer(minLength: 32.0)
             }
-            foremostField
-            Spacer()
-                .frame(height: isLoading ? 16.0 : 24.0)
-            details
-            Spacer(minLength: 32.0)
+            .redacted(if: isLoading)
+            .animation(.easeInOut(duration: 0.35), value: state)
+        case let .error(error, retryAction):
+            ErrorView(
+                systemImage: error.image.rawValue,
+                title: error.localizedTitle,
+                description: error.localizedDescription,
+                retryAction: retryAction
+            )
         }
-        .redacted(if: isLoading)
-        .animation(.easeInOut(duration: 0.35), value: state)
     }
 }
 
@@ -135,6 +145,8 @@ private extension EventDetailsView {
                         value: fieldValue(metadata.key)
                     )
                 }
+            case .error:
+                EmptyView()
             }
         }
         .padding(.all, 16.0)
@@ -162,6 +174,8 @@ private extension EventDetailsView {
                 }
                 .font(.system(size: 12.0, weight: .light, design: .monospaced))
                 .foregroundStyle(.semiDarkGray)
+            case .error:
+                EmptyView()
             }
         }
         .padding(.horizontal, 8.0)
@@ -190,6 +204,8 @@ private extension EventDetailsView {
             return presentation.loadingTitleKey != .none || presentation.loadingDescriptionKey != .none
         case .presenting:
             return presentation.presentingTitleKey != .none
+        case .error:
+            return false
         }
     }
 
@@ -199,6 +215,8 @@ private extension EventDetailsView {
             return presentation.loadingTitleKey
         case .presenting:
             return presentation.presentingTitleKey
+        case .error:
+            return .none
         }
     }
 
@@ -206,7 +224,7 @@ private extension EventDetailsView {
         switch state {
         case .loading:
             return presentation.loadingDescriptionKey
-        case .presenting:
+        case .presenting, .error:
             return .none
         }
     }
@@ -220,6 +238,8 @@ private extension EventDetailsView {
             return presentation.valuePlaceholder(for: key)
         case let .presenting(fieldValue, _):
             return fieldValue(key)
+        case .error:
+            return ""
         }
     }
 
@@ -275,6 +295,8 @@ private extension EventPresentability {
     }
 }
 
+// MARK: Previews
+
 #Preview("Loading") {
     EventDetailsView(
         presentation: .basicResponse,
@@ -314,5 +336,24 @@ private extension EventPresentability {
         )
     )
     .padding(.top, 38.0)
+    .padding(.horizontal, 16.0)
+}
+
+#Preview("Error") {
+    EventDetailsView(
+        presentation: .basicResponse,
+        state: .constant(
+            .error(
+                .init(
+                    image: .exclamationMark,
+                    localizedTitle: "Why do we fall Bruce?",
+                    localizedDescription: "So that we can learn to pick ourselves up."
+                ),
+                retryAction: {
+                    print("retryAction()")
+                }
+            )
+        )
+    )
     .padding(.horizontal, 16.0)
 }

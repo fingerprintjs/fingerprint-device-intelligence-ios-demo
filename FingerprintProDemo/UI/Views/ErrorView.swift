@@ -3,9 +3,21 @@ import SwiftUI
 struct ErrorView: View {
 
     private let systemImage: String
-    private let title: LocalizedStringResource
-    private let description: LocalizedStringResource
+    private let title: AttributedString
+    private let description: AttributedString
     private let retryAction: () -> Void
+
+    init(
+        systemImage: String,
+        title: AttributedString,
+        description: AttributedString,
+        retryAction: @escaping () -> Void
+    ) {
+        self.systemImage = systemImage
+        self.title = title
+        self.description = description
+        self.retryAction = retryAction
+    }
 
     init(
         systemImage: String,
@@ -13,10 +25,12 @@ struct ErrorView: View {
         description: LocalizedStringResource,
         retryAction: @escaping () -> Void
     ) {
-        self.systemImage = systemImage
-        self.title = title
-        self.description = description
-        self.retryAction = retryAction
+        self.init(
+            systemImage: systemImage,
+            title: .init(localized: title),
+            description: .init(localized: description),
+            retryAction: retryAction
+        )
     }
 
     var body: some View {
@@ -39,15 +53,20 @@ struct ErrorView: View {
             Button("Try again", action: retryAction)
                 .buttonStyle(.default)
         }
+        .tint(.accent)
     }
 }
+
+// MARK: Previews
 
 #Preview {
     ErrorView(
         systemImage: "exclamationmark.circle",
         title: "That was unexpected...",
         description: "Failed to Fingerprint. Please [contact support](\(C.URLs.support, format: .url)) if this issue persists.",
-        retryAction: {}
+        retryAction: {
+            print("retryAction()")
+        }
     )
     .padding(.horizontal, 16.0)
 }

@@ -31,6 +31,16 @@
         }
       }
     },
+    "Failed to Fingerprint. Please [contact support](%@) if this issue persists." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to Fingerprint. Please [contact support](%@) if this issue persists."
+          }
+        }
+      }
+    },
     "FIRST SEEN AT" : {
       "localizations" : {
         "en" : {
@@ -101,6 +111,16 @@
         }
       }
     },
+    "No" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No"
+          }
+        }
+      }
+    },
     "PRETTIFIED" : {
       "localizations" : {
         "en" : {
@@ -157,6 +177,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap to begin"
+          }
+        }
+      }
+    },
+    "That was unexpected..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "That was unexpected..."
           }
         }
       }

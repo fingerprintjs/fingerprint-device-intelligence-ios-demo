@@ -7,7 +7,7 @@ extension EventPresentability where Self == ExtendedResponseEventPresentability 
 
 struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
 
-    enum FieldKey: LocalizedStringKey, CaseIterable {
+    enum FieldKey: LocalizedStringKey, PresentableFieldKey {
         case requestId = "REQUEST ID"
         case visitorId = "VISITOR ID"
         case visitorFound = "VISITOR FOUND"

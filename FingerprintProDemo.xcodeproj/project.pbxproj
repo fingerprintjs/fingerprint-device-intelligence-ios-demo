@@ -31,6 +31,18 @@
 		156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06932B276E6F0015A456 /* UIFont+Inter.swift */; };
 		156D06972B2B1E560015A456 /* ConfidentialKit in Frameworks */ = {isa = PBXBuildFile; productRef = 156D06962B2B1E560015A456 /* ConfidentialKit */; };
 		156D069C2B2B217F0015A456 /* ConfigVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D069B2B2B217F0015A456 /* ConfigVariable.swift */; };
+		15B6D18B2B2CA2550064F033 /* FingerprintPro in Frameworks */ = {isa = PBXBuildFile; productRef = 15B6D18A2B2CA2550064F033 /* FingerprintPro */; };
+		15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */; };
+		15B6D19A2B30AE750064F033 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1992B30AE750064F033 /* Format.swift */; };
+		15B6D19D2B30AEAC0064F033 /* Format+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D19C2B30AEAC0064F033 /* Format+Date.swift */; };
+		15B6D19F2B30C1080064F033 /* Format+Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D19E2B30C1080064F033 /* Format+Number.swift */; };
+		15B6D1A32B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1A22B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift */; };
+		15B6D1A82B31AC7D0064F033 /* ClientResponseEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1A72B31AC7D0064F033 /* ClientResponseEventViewModel.swift */; };
+		15B6D1AB2B3210EE0064F033 /* DeviceIdentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1AA2B3210EE0064F033 /* DeviceIdentificationService.swift */; };
+		15B6D1B12B3214440064F033 /* DeviceIdentificationService+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1B02B3214440064F033 /* DeviceIdentificationService+Default.swift */; };
+		15B6D1B52B3324F10064F033 /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1B42B3324F10064F033 /* PresentableError.swift */; };
+		15B6D1B82B334A230064F033 /* DeviceFingerprintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1B72B334A230064F033 /* DeviceFingerprintViewModel.swift */; };
+		15B6D1BB2B334CDC0064F033 /* DeviceFingerprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1BA2B334CDC0064F033 /* DeviceFingerprintView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +71,17 @@
 		156D06912B27503B0015A456 /* String+LinesCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LinesCount.swift"; sourceTree = "<group>"; };
 		156D06932B276E6F0015A456 /* UIFont+Inter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Inter.swift"; sourceTree = "<group>"; };
 		156D069B2B2B217F0015A456 /* ConfigVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigVariable.swift; sourceTree = "<group>"; };
+		15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Encodable.swift"; sourceTree = "<group>"; };
+		15B6D1992B30AE750064F033 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		15B6D19C2B30AEAC0064F033 /* Format+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Format+Date.swift"; sourceTree = "<group>"; };
+		15B6D19E2B30C1080064F033 /* Format+Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Format+Number.swift"; sourceTree = "<group>"; };
+		15B6D1A22B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateEncodingStrategy+ISO8601Full.swift"; sourceTree = "<group>"; };
+		15B6D1A72B31AC7D0064F033 /* ClientResponseEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientResponseEventViewModel.swift; sourceTree = "<group>"; };
+		15B6D1AA2B3210EE0064F033 /* DeviceIdentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceIdentificationService.swift; sourceTree = "<group>"; };
+		15B6D1B02B3214440064F033 /* DeviceIdentificationService+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceIdentificationService+Default.swift"; sourceTree = "<group>"; };
+		15B6D1B42B3324F10064F033 /* PresentableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableError.swift; sourceTree = "<group>"; };
+		15B6D1B72B334A230064F033 /* DeviceFingerprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFingerprintViewModel.swift; sourceTree = "<group>"; };
+		15B6D1BA2B334CDC0064F033 /* DeviceFingerprintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFingerprintView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				156D06972B2B1E560015A456 /* ConfidentialKit in Frameworks */,
+				15B6D18B2B2CA2550064F033 /* FingerprintPro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +121,7 @@
 				156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */,
 				156D069E2B2B8F550015A456 /* Config */,
 				156D06652B1772E80015A456 /* Constants */,
+				15B6D18D2B30681B0064F033 /* Domain */,
 				156D065E2B1772140015A456 /* Extensions */,
 				156D065C2B17574C0015A456 /* Features */,
 				156D06682B188EA80015A456 /* Resources */,
@@ -108,8 +133,9 @@
 		156D06552B16008C0015A456 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				156D06762B1DF97A0015A456 /* Views */,
+				15B6D1B22B3324B50064F033 /* Error */,
 				156D06562B1600930015A456 /* Styles */,
+				156D06762B1DF97A0015A456 /* Views */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -126,6 +152,7 @@
 		156D06592B1657910015A456 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				15B6D1BA2B334CDC0064F033 /* DeviceFingerprintView.swift */,
 				156D065A2B1657D40015A456 /* HomeView.swift */,
 			);
 			path = View;
@@ -142,6 +169,7 @@
 		156D065D2B1757770015A456 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				15B6D1A62B31AC4C0064F033 /* ViewModel */,
 				156D06592B1657910015A456 /* View */,
 			);
 			path = Home;
@@ -272,6 +300,85 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		15B6D18D2B30681B0064F033 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D1912B30A1170064F033 /* Coding */,
+				15B6D1972B30AE540064F033 /* Format */,
+				15B6D1AD2B3214030064F033 /* Services */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		15B6D1912B30A1170064F033 /* Coding */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D1A52B30C4DD0064F033 /* Date */,
+				15B6D1A42B30C4B00064F033 /* Model */,
+			);
+			path = Coding;
+			sourceTree = "<group>";
+		};
+		15B6D1972B30AE540064F033 /* Format */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D1992B30AE750064F033 /* Format.swift */,
+				15B6D19C2B30AEAC0064F033 /* Format+Date.swift */,
+				15B6D19E2B30C1080064F033 /* Format+Number.swift */,
+			);
+			path = Format;
+			sourceTree = "<group>";
+		};
+		15B6D1A42B30C4B00064F033 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		15B6D1A52B30C4DD0064F033 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D1A22B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		15B6D1A62B31AC4C0064F033 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D1A72B31AC7D0064F033 /* ClientResponseEventViewModel.swift */,
+				15B6D1B72B334A230064F033 /* DeviceFingerprintViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		15B6D1AD2B3214030064F033 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D1AE2B3214220064F033 /* DeviceIdentification */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		15B6D1AE2B3214220064F033 /* DeviceIdentification */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D1AA2B3210EE0064F033 /* DeviceIdentificationService.swift */,
+				15B6D1B02B3214440064F033 /* DeviceIdentificationService+Default.swift */,
+			);
+			path = DeviceIdentification;
+			sourceTree = "<group>";
+		};
+		15B6D1B22B3324B50064F033 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				15B6D1B42B3324F10064F033 /* PresentableError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,6 +398,7 @@
 			name = FingerprintProDemo;
 			packageProductDependencies = (
 				156D06962B2B1E560015A456 /* ConfidentialKit */,
+				15B6D18A2B2CA2550064F033 /* FingerprintPro */,
 			);
 			productName = FingerprintProDemo;
 			productReference = 156D06402B0F5FA50015A456 /* FingerprintProDemo.app */;
@@ -321,6 +429,7 @@
 			);
 			mainGroup = 156D06372B0F5FA50015A456;
 			packageReferences = (
+				15B6D1892B2CA2550064F033 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */,
 				156D06952B2B1E560015A456 /* XCRemoteSwiftPackageReference "swift-confidential" */,
 				156D06982B2B1E620015A456 /* XCRemoteSwiftPackageReference "swift-confidential-plugin" */,
 			);
@@ -352,18 +461,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B6D1B52B3324F10064F033 /* PresentableError.swift in Sources */,
+				15B6D1A82B31AC7D0064F033 /* ClientResponseEventViewModel.swift in Sources */,
 				156D06672B1772FF0015A456 /* Constants.swift in Sources */,
 				156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */,
+				15B6D19F2B30C1080064F033 /* Format+Number.swift in Sources */,
+				15B6D19A2B30AE750064F033 /* Format.swift in Sources */,
+				15B6D1AB2B3210EE0064F033 /* DeviceIdentificationService.swift in Sources */,
 				156D06902B272E3B0015A456 /* ClientResponseEventPresentability.swift in Sources */,
 				156D069C2B2B217F0015A456 /* ConfigVariable.swift in Sources */,
 				156D06882B25F8AF0015A456 /* EventPresentability.swift in Sources */,
 				156D06802B20DEEE0015A456 /* View+RedactedIf.swift in Sources */,
 				156D068A2B25F8F90015A456 /* BasicResponseEventPresentability.swift in Sources */,
+				15B6D1A32B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift in Sources */,
+				15B6D19D2B30AEAC0064F033 /* Format+Date.swift in Sources */,
 				156D06922B27503B0015A456 /* String+LinesCount.swift in Sources */,
 				156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */,
+				15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
+				15B6D1B12B3214440064F033 /* DeviceIdentificationService+Default.swift in Sources */,
 				156D06582B1600A80015A456 /* FingerprintButtonStyle.swift in Sources */,
 				156D06842B20EC230015A456 /* String+Placeholder.swift in Sources */,
+				15B6D1BB2B334CDC0064F033 /* DeviceFingerprintView.swift in Sources */,
+				15B6D1B82B334A230064F033 /* DeviceFingerprintViewModel.swift in Sources */,
 				156D068C2B2726800015A456 /* EventDetailsView+VisualState.swift in Sources */,
 				156D067C2B20994E0015A456 /* EventDetailsView.swift in Sources */,
 				156D06782B1DF99E0015A456 /* ErrorView.swift in Sources */,
@@ -613,6 +733,14 @@
 				minimumVersion = 0.3.0;
 			};
 		};
+		15B6D1892B2CA2550064F033 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fingerprintjs/fingerprintjs-pro-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -625,6 +753,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 156D06982B2B1E620015A456 /* XCRemoteSwiftPackageReference "swift-confidential-plugin" */;
 			productName = "plugin:Confidential";
+		};
+		15B6D18A2B2CA2550064F033 /* FingerprintPro */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15B6D1892B2CA2550064F033 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */;
+			productName = FingerprintPro;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

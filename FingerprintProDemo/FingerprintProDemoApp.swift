@@ -9,7 +9,7 @@ struct FingerprintProDemoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(identificationService: .default)
         }
     }
 }

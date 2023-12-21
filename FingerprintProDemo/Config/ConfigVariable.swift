@@ -1,3 +1,4 @@
+import FingerprintPro
 import Foundation
 
 enum ConfigVariable {
@@ -19,6 +20,14 @@ enum ConfigVariable {
         return key
         #else
         ObfuscatedLiterals.$apiKey
+        #endif
+    }
+
+    static var region: Region {
+        #if DEBUG
+        .global
+        #else
+        .ap
         #endif
     }
 }

@@ -1,8 +1,10 @@
 import SwiftUI
 
+protocol PresentableFieldKey: RawRepresentable, CaseIterable where Self.RawValue == LocalizedStringKey {}
+
 protocol EventPresentability {
 
-    associatedtype FieldKey: RawRepresentable, CaseIterable where FieldKey.RawValue == LocalizedStringKey
+    associatedtype FieldKey: PresentableFieldKey
 
     var loadingTitleKey: LocalizedStringKey? { get }
     var loadingDescriptionKey: LocalizedStringKey? { get }
