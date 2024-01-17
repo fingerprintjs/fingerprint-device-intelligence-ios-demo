@@ -140,10 +140,19 @@ private extension EventDetailsView {
                 }
             case let .presenting(fieldValue, _):
                 ForEach(Presentation.fieldMetadata, id: \.id) { metadata in
-                    DetailsFieldView(
-                        key: metadata.key.rawValue,
-                        value: fieldValue(metadata.key)
-                    )
+                    let fieldValue = fieldValue(metadata.key)
+                    if fieldValue.isEmpty, let emptyValueString {
+                        DetailsFieldView(
+                            key: metadata.key.rawValue,
+                            value: emptyValueString,
+                            valueColor: .mediumGray
+                        )
+                    } else {
+                        DetailsFieldView(
+                            key: metadata.key.rawValue,
+                            value: fieldValue
+                        )
+                    }
                 }
             case .error:
                 EmptyView()
@@ -151,7 +160,7 @@ private extension EventDetailsView {
         }
         .padding(.all, 16.0)
         .background(.backgroundGray)
-        .clipShape(RoundedRectangle(cornerRadius: 4.0))
+        .clipShape(RoundedRectangle(cornerRadius: 6.0))
     }
 
     @ViewBuilder
@@ -181,7 +190,7 @@ private extension EventDetailsView {
         .padding(.horizontal, 8.0)
         .padding(.vertical, 16.0)
         .background(.backgroundGray)
-        .clipShape(RoundedRectangle(cornerRadius: 4.0))
+        .clipShape(RoundedRectangle(cornerRadius: 6.0))
     }
 }
 
@@ -245,6 +254,8 @@ private extension EventDetailsView {
 
     var detailsHeaderKey: LocalizedStringKey { presentation.detailsHeaderKey }
 
+    var emptyValueString: String? { presentation.emptyValueString }
+
     func lineNumbersString(for text: String) -> String {
         (1...text.linesCount)
             .map { "\($0)" }
@@ -263,10 +274,12 @@ private extension EventDetailsView {
 
         private let key: LocalizedStringKey
         private let value: String
+        private let valueColor: Color
 
-        init(key: LocalizedStringKey, value: String) {
+        init(key: LocalizedStringKey, value: String, valueColor: Color = .extraDarkGray) {
             self.key = key
             self.value = value
+            self.valueColor = valueColor
         }
 
         var body: some View {
@@ -280,7 +293,7 @@ private extension EventDetailsView {
                     Text(value)
                         .font(.inter(size: 14.0))
                         .kerning(0.14)
-                        .foregroundStyle(.extraDarkGray)
+                        .foregroundStyle(valueColor)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }

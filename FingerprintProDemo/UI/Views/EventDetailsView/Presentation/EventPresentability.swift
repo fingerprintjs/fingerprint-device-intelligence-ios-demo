@@ -15,6 +15,8 @@ protocol EventPresentability {
 
     var foremostFieldKey: FieldKey { get }
 
+    var emptyValueString: String? { get }
+
     func valuePlaceholder(for key: FieldKey) -> String
 }
 
@@ -24,4 +26,6 @@ extension EventPresentability {
     var loadingDescriptionKey: LocalizedStringKey? { .none }
 
     var presentingTitleKey: LocalizedStringKey? { .none }
+
+    var emptyValueString: String? { .none }
 }

@@ -91,22 +91,22 @@
         }
       }
     },
-    "LAST SEEN AT" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "LAST SEEN AT"
-          }
-        }
-      }
-    },
     "More" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "More"
+          }
+        }
+      }
+    },
+    "N/A" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "N/A"
           }
         }
       }
@@ -147,6 +147,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "PRETTIFIED"
+          }
+        }
+      }
+    },
+    "PREVIOUSLY SEEN AT" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PREVIOUSLY SEEN AT"
           }
         }
       }

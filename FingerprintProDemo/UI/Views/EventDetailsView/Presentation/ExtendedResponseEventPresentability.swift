@@ -15,7 +15,7 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
         case ipAddress = "IP ADDRESS"
         case ipLocation = "IP LOCATION"
         case firstSeenAt = "FIRST SEEN AT"
-        case lastSeenAt = "LAST SEEN AT"
+        case lastSeenAt = "PREVIOUSLY SEEN AT"
     }
 
     let foremostFieldKey: FieldKey = .visitorId
