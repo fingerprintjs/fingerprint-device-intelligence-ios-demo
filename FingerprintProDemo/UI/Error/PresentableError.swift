@@ -3,7 +3,9 @@ import Foundation
 extension PresentableError {
 
     enum Image: String {
+        case cloudSlash = "icloud.slash"
         case exclamationMark = "exclamationmark.circle"
+        case handRaised = "hand.raised"
     }
 }
 

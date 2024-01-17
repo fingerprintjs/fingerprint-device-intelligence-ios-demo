@@ -32,6 +32,8 @@
 		156D06972B2B1E560015A456 /* ConfidentialKit in Frameworks */ = {isa = PBXBuildFile; productRef = 156D06962B2B1E560015A456 /* ConfidentialKit */; };
 		156D069C2B2B217F0015A456 /* ConfigVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D069B2B2B217F0015A456 /* ConfigVariable.swift */; };
 		1589C9D82B46C8360053A9FA /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1589C9D72B46C8360053A9FA /* PrivacyInfo.xcprivacy */; };
+		1589C9FE2B5806450053A9FA /* PresentableError+CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589C9FD2B5806450053A9FA /* PresentableError+CommonErrors.swift */; };
+		1589CA012B5806AA0053A9FA /* PresentableError+FromError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589CA002B5806AA0053A9FA /* PresentableError+FromError.swift */; };
 		15B6D18B2B2CA2550064F033 /* FingerprintPro in Frameworks */ = {isa = PBXBuildFile; productRef = 15B6D18A2B2CA2550064F033 /* FingerprintPro */; };
 		15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */; };
 		15B6D19A2B30AE750064F033 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1992B30AE750064F033 /* Format.swift */; };
@@ -73,6 +75,8 @@
 		156D06932B276E6F0015A456 /* UIFont+Inter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Inter.swift"; sourceTree = "<group>"; };
 		156D069B2B2B217F0015A456 /* ConfigVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigVariable.swift; sourceTree = "<group>"; };
 		1589C9D72B46C8360053A9FA /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1589C9FD2B5806450053A9FA /* PresentableError+CommonErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableError+CommonErrors.swift"; sourceTree = "<group>"; };
+		1589CA002B5806AA0053A9FA /* PresentableError+FromError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableError+FromError.swift"; sourceTree = "<group>"; };
 		15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Encodable.swift"; sourceTree = "<group>"; };
 		15B6D1992B30AE750064F033 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		15B6D19C2B30AEAC0064F033 /* Format+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Format+Date.swift"; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 		156D065C2B17574C0015A456 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				1589C9FB2B5805AE0053A9FA /* Common */,
 				156D065D2B1757770015A456 /* Home */,
 			);
 			path = Features;
@@ -301,6 +306,23 @@
 				156D069B2B2B217F0015A456 /* ConfigVariable.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		1589C9FB2B5805AE0053A9FA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1589C9FC2B5805CB0053A9FA /* Error */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1589C9FC2B5805CB0053A9FA /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				1589C9FD2B5806450053A9FA /* PresentableError+CommonErrors.swift */,
+				1589CA002B5806AA0053A9FA /* PresentableError+FromError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		15B6D18D2B30681B0064F033 /* Domain */ = {
@@ -471,6 +493,7 @@
 				156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */,
 				15B6D19F2B30C1080064F033 /* Format+Number.swift in Sources */,
 				15B6D19A2B30AE750064F033 /* Format.swift in Sources */,
+				1589CA012B5806AA0053A9FA /* PresentableError+FromError.swift in Sources */,
 				15B6D1AB2B3210EE0064F033 /* DeviceIdentificationService.swift in Sources */,
 				156D06902B272E3B0015A456 /* ClientResponseEventPresentability.swift in Sources */,
 				156D069C2B2B217F0015A456 /* ConfigVariable.swift in Sources */,
@@ -481,6 +504,7 @@
 				15B6D19D2B30AEAC0064F033 /* Format+Date.swift in Sources */,
 				156D06922B27503B0015A456 /* String+LinesCount.swift in Sources */,
 				156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */,
+				1589C9FE2B5806450053A9FA /* PresentableError+CommonErrors.swift in Sources */,
 				15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
 				15B6D1B12B3214440064F033 /* DeviceIdentificationService+Default.swift in Sources */,

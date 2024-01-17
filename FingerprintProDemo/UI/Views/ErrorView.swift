@@ -62,8 +62,8 @@ struct ErrorView: View {
 #Preview {
     ErrorView(
         systemImage: "exclamationmark.circle",
-        title: "That was unexpected...",
-        description: "Failed to Fingerprint. Please [contact support](\(C.URLs.support, format: .url)) if this issue persists.",
+        title: "An unexpected error occurred...",
+        description: "Please [contact support](\(C.URLs.support, format: .url)) if this issue persists.",
         retryAction: {
             print("retryAction()")
         }

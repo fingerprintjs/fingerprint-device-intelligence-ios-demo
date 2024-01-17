@@ -31,33 +31,17 @@ extension DeviceFingerprintViewModel {
 
         async let throttleTask: Void = Task.sleep(for: .milliseconds(500))
         async let fingerprintTask = identificationService.fingerprintDevice()
-            .map(ClientResponseEventViewModel.init(response:))
-            .mapError { _ -> PresentableError in .unknownError }
 
         try? await throttleTask
 
         let result = await fingerprintTask
+            .map(ClientResponseEventViewModel.init(response:))
+            .mapError(PresentableError.init(from:))
         switch result {
         case let .success(viewModel):
             fingerprintingState = .completed(viewModel: viewModel)
         case let .failure(error):
             fingerprintingState = .failed(error: error)
         }
-    }
-}
-
-private extension PresentableError {
-
-    static var unknownError: Self {
-        .init(
-            image: .exclamationMark,
-            localizedTitle: .init(localized: "That was unexpected..."),
-            localizedDescription: .init(
-                localized: """
-                             Failed to Fingerprint. Please [contact support](\(C.URLs.support, format: .url)) \
-                             if this issue persists.
-                             """
-            )
-        )
     }
 }

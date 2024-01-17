@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "An unexpected error occurred..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unexpected error occurred..."
+          }
+        }
+      }
+    },
     "CONFIDENCE" : {
       "localizations" : {
         "en" : {
@@ -27,16 +37,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Documentation"
-          }
-        }
-      }
-    },
-    "Failed to Fingerprint. Please [contact support](%@) if this issue persists." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Failed to Fingerprint. Please [contact support](%@) if this issue persists."
           }
         }
       }
@@ -121,6 +121,26 @@
         }
       }
     },
+    "Please [contact support](%@) if this issue persists." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please [contact support](%@) if this issue persists."
+          }
+        }
+      }
+    },
+    "Please check your network settings and try again." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please check your network settings and try again."
+          }
+        }
+      }
+    },
     "PRETTIFIED" : {
       "localizations" : {
         "en" : {
@@ -171,6 +191,16 @@
         }
       }
     },
+    "Server cannot be reached" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server cannot be reached"
+          }
+        }
+      }
+    },
     "Support" : {
       "localizations" : {
         "en" : {
@@ -191,12 +221,22 @@
         }
       }
     },
-    "That was unexpected..." : {
+    "The request rate limit set for the public API key was exceeded." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "That was unexpected..."
+            "value" : "The request rate limit set for the public API key was exceeded."
+          }
+        }
+      }
+    },
+    "Too many requests" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many requests"
           }
         }
       }
