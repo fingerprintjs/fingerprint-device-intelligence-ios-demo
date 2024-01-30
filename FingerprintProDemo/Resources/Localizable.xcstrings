@@ -31,6 +31,16 @@
         }
       }
     },
+    "Device intelligence powered by\nFingerprint iOS SDK %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Device intelligence powered by\nFingerprint iOS SDK %@"
+          }
+        }
+      }
+    },
     "Documentation" : {
       "localizations" : {
         "en" : {

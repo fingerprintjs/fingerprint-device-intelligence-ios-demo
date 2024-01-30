@@ -34,6 +34,7 @@
 		1589C9D82B46C8360053A9FA /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1589C9D72B46C8360053A9FA /* PrivacyInfo.xcprivacy */; };
 		1589C9FE2B5806450053A9FA /* PresentableError+CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589C9FD2B5806450053A9FA /* PresentableError+CommonErrors.swift */; };
 		1589CA012B5806AA0053A9FA /* PresentableError+FromError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589CA002B5806AA0053A9FA /* PresentableError+FromError.swift */; };
+		159026522B6919B400D3FF36 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159026512B6919B400D3FF36 /* AppInfo.swift */; };
 		15B6D18B2B2CA2550064F033 /* FingerprintPro in Frameworks */ = {isa = PBXBuildFile; productRef = 15B6D18A2B2CA2550064F033 /* FingerprintPro */; };
 		15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */; };
 		15B6D19A2B30AE750064F033 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1992B30AE750064F033 /* Format.swift */; };
@@ -77,6 +78,7 @@
 		1589C9D72B46C8360053A9FA /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1589C9FD2B5806450053A9FA /* PresentableError+CommonErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableError+CommonErrors.swift"; sourceTree = "<group>"; };
 		1589CA002B5806AA0053A9FA /* PresentableError+FromError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableError+FromError.swift"; sourceTree = "<group>"; };
+		159026512B6919B400D3FF36 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Encodable.swift"; sourceTree = "<group>"; };
 		15B6D1992B30AE750064F033 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		15B6D19C2B30AEAC0064F033 /* Format+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Format+Date.swift"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				156D06522B0F63F80015A456 /* Info.plist */,
 				1589C9D72B46C8360053A9FA /* PrivacyInfo.xcprivacy */,
+				159026512B6919B400D3FF36 /* AppInfo.swift */,
 				156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */,
 				156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */,
 				156D069E2B2B8F550015A456 /* Config */,
@@ -501,6 +504,7 @@
 				156D06802B20DEEE0015A456 /* View+RedactedIf.swift in Sources */,
 				156D068A2B25F8F90015A456 /* BasicResponseEventPresentability.swift in Sources */,
 				15B6D1A32B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift in Sources */,
+				159026522B6919B400D3FF36 /* AppInfo.swift in Sources */,
 				15B6D19D2B30AEAC0064F033 /* Format+Date.swift in Sources */,
 				156D06922B27503B0015A456 /* String+LinesCount.swift in Sources */,
 				156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */,

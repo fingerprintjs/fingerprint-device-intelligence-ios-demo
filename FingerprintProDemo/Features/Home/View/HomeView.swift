@@ -1,5 +1,4 @@
 import SwiftUI
-import FingerprintPro
 
 struct HomeView: View {
 
@@ -20,7 +19,7 @@ struct HomeView: View {
         // Used NavigationView instead of newer NavigationStack, as the latter one causes
         // the animated button to run crazy (potential SwiftUI bug).
         NavigationView {
-            VStack(spacing: 32.0) {
+            VStack(spacing: .zero) {
                 switch state {
                 case .tapToBegin:
                     startupView
@@ -50,6 +49,7 @@ private extension HomeView {
         Spacer()
         Text("Tap to begin")
             .font(.inter(size: 20.0, weight: .semibold))
+            .padding(.bottom, 32.0)
         Button(
             action: {
                 state = .deviceFingerprint
@@ -59,7 +59,18 @@ private extension HomeView {
             }
         )
         .buttonStyle(.fingerprint)
-        .padding(.bottom, 96.0)
+        .padding(.bottom, 40.0)
+        Text(
+              """
+              Device intelligence powered by
+              Fingerprint iOS SDK \(AppInfo.sdkVersionString)
+              """
+        )
+        .font(.inter(size: 14.0))
+        .kerning(0.14)
+        .foregroundStyle(.mediumGray)
+        .multilineTextAlignment(.center)
+        .padding(.bottom, 64.0)
     }
 
     @ToolbarContentBuilder
