@@ -81,13 +81,13 @@ private extension DeviceFingerprintView {
 #Preview("Basic Response") {
     DeviceFingerprintView(
         presentation: .basicResponse,
-        viewModel: .init(identificationService: .default)
+        viewModel: .init(identificationService: .preview)
     )
 }
 
 #Preview("Extended Response") {
     DeviceFingerprintView(
         presentation: .extendedResponse,
-        viewModel: .init(identificationService: .default)
+        viewModel: .init(identificationService: .preview)
     )
 }

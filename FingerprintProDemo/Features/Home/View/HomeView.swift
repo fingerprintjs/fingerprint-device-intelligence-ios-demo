@@ -96,5 +96,5 @@ private extension HomeView {
 // MARK: Previews
 
 #Preview {
-    HomeView(identificationService: .default)
+    HomeView(identificationService: .preview)
 }
