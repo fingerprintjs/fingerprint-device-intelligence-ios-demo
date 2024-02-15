@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		154B2F9E2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */; };
 		154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */; };
+		154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */; };
 		156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */; };
 		156D06482B0F5FA60015A456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156D06472B0F5FA60015A456 /* Assets.xcassets */; };
 		156D06542B0FB48F0015A456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceIdentificationService+Preview.swift"; sourceTree = "<group>"; };
 		154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Preview.swift"; sourceTree = "<group>"; };
+		154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionView.swift; sourceTree = "<group>"; };
 		156D06402B0F5FA50015A456 /* FingerprintProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FingerprintProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintProDemoApp.swift; sourceTree = "<group>"; };
 		156D06472B0F5FA60015A456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		156D06762B1DF97A0015A456 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */,
 				156D06772B1DF99E0015A456 /* ErrorView.swift */,
 				156D06852B25F8010015A456 /* EventDetailsView */,
 			);
@@ -517,6 +520,7 @@
 				156D06902B272E3B0015A456 /* ClientResponseEventPresentability.swift in Sources */,
 				156D069C2B2B217F0015A456 /* ConfigVariable.swift in Sources */,
 				156D06882B25F8AF0015A456 /* EventPresentability.swift in Sources */,
+				154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */,
 				156D06802B20DEEE0015A456 /* View+RedactedIf.swift in Sources */,
 				156D068A2B25F8F90015A456 /* BasicResponseEventPresentability.swift in Sources */,
 				15B6D1A32B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift in Sources */,

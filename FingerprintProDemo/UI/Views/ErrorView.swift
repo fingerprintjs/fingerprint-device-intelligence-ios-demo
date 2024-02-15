@@ -7,6 +7,7 @@ struct ErrorView: View {
     private let description: AttributedString
     private let retryAction: () -> Void
 
+    @_disfavoredOverload
     init(
         systemImage: String,
         title: AttributedString,
@@ -62,8 +63,12 @@ struct ErrorView: View {
 #Preview {
     ErrorView(
         systemImage: "exclamationmark.circle",
-        title: "An unexpected error occurred...",
-        description: "Please [contact support](\(C.URLs.support, format: .url)) if this issue persists.",
+        title: AttributedString(
+            stringLiteral: "An unexpected error occurred..."
+        ),
+        description: try! AttributedString(
+            markdown: "Please [contact support](\(C.URLs.support)) if this issue persists."
+        ),
         retryAction: {
             print("retryAction()")
         }

@@ -9,12 +9,37 @@ struct DefaultButtonStyle: ButtonStyle {
 
     @Environment(\.isEnabled) private var isEnabled: Bool
 
+    private let fontSize: CGFloat
+
+    private let backgroundColor: Color
+    private let pressedBackgroundColor: Color
+    private let disabledBackgroundColor: Color
+
+    private let horizontalPadding: CGFloat
+    private let verticalPadding: CGFloat
+
+    init(
+        fontSize: CGFloat = 16.0,
+        backgroundColor: Color = .accent,
+        pressedBackgroundColor: Color = .darkOrange,
+        disabledBackgroundColor: Color = .lightOrange,
+        horizontalPadding: CGFloat = 24.0,
+        verticalPadding: CGFloat = 16.0
+    ) {
+        self.fontSize = fontSize
+        self.backgroundColor = backgroundColor
+        self.pressedBackgroundColor = pressedBackgroundColor
+        self.disabledBackgroundColor = disabledBackgroundColor
+        self.horizontalPadding = horizontalPadding
+        self.verticalPadding = verticalPadding
+    }
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding(.horizontal, 24.0)
-            .padding(.vertical, 16.0)
-            .font(.inter(size: 16.0, weight: .semibold))
-            .foregroundStyle(.background)
+            .padding(.horizontal, horizontalPadding)
+            .padding(.vertical, verticalPadding)
+            .font(.inter(size: fontSize, weight: .semibold))
+            .foregroundStyle(.primaryButtonTitle)
             .background(background(for: configuration))
             .clipShape(RoundedRectangle(cornerRadius: 6.0))
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
@@ -26,9 +51,9 @@ private extension DefaultButtonStyle {
 
     func background(for configuration: Configuration) -> some ShapeStyle {
         guard isEnabled else {
-            return .lightOrange
+            return disabledBackgroundColor
         }
 
-        return configuration.isPressed ? .darkOrange : .accent
+        return configuration.isPressed ? pressedBackgroundColor : backgroundColor
     }
 }
