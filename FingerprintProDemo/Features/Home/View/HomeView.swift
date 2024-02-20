@@ -9,10 +9,10 @@ struct HomeView: View {
 
     @State private var state: VisualState = .tapToBegin
 
-    private let identificationService: any DeviceIdentificationServiceProtocol
+    @StateObject private var deviceFingerprintViewModel: DeviceFingerprintViewModel
 
-    init(identificationService: any DeviceIdentificationServiceProtocol) {
-        self.identificationService = identificationService
+    init(deviceFingerprintViewModel: DeviceFingerprintViewModel) {
+        self._deviceFingerprintViewModel = .init(wrappedValue: deviceFingerprintViewModel)
     }
 
     var body: some View {
@@ -26,9 +26,7 @@ struct HomeView: View {
                 case .deviceFingerprint:
                     DeviceFingerprintView(
                         presentation: .extendedResponse,
-                        viewModel: .init(
-                            identificationService: identificationService
-                        )
+                        viewModel: deviceFingerprintViewModel
                     )
                 }
             }
@@ -96,5 +94,5 @@ private extension HomeView {
 // MARK: Previews
 
 #Preview {
-    HomeView(identificationService: .preview)
+    HomeView(deviceFingerprintViewModel: .preview)
 }

@@ -1,16 +1,22 @@
 import SwiftUI
 
-struct EventDetailsView<Presentation: EventPresentability>: View {
+struct EventDetailsView<Presentation: EventPresentability, Actions: View>: View {
 
     private let presentation: Presentation
+    private let actions: Actions
 
     @Binding private var state: VisualState
 
     @State private var detailsDisplayMode: DetailsDisplayMode = .prettified
 
-    init(presentation: Presentation, state: Binding<VisualState>) {
+    init(
+        presentation: Presentation,
+        state: Binding<VisualState>,
+        @ViewBuilder actions: () -> Actions = { EmptyView() }
+    ) {
         self.presentation = presentation
         self._state = state
+        self.actions = actions()
     }
 
     var body: some View {
@@ -19,12 +25,12 @@ struct EventDetailsView<Presentation: EventPresentability>: View {
             VStack(spacing: .zero) {
                 if showHeading {
                     heading
-                    Spacer()
-                        .frame(height: 32.0)
+                        .padding(.bottom, 32.0)
                 }
                 foremostField
-                Spacer()
-                    .frame(height: isLoading ? 16.0 : 24.0)
+                    .padding(.bottom, isLoading ? 24.0 : 32.0)
+                actions
+                    .padding(.bottom, 32.0)
                 details
                 Spacer(minLength: 32.0)
             }
@@ -346,7 +352,21 @@ private extension EventPresentability {
                               }
                               """
             )
-        )
+        ),
+        actions: {
+            CallToActionView(
+               title: AttributedString(
+                   stringLiteral: "Impressed with Fingerprint?"
+               ),
+               description: AttributedString(
+                   stringLiteral: "Try free for 14 days, credit card not needed."
+               ),
+               primaryButtonTitle: "Sign up",
+               primaryAction: { print("primaryAction()") },
+               secondaryButtonTitle: "Don’t show again for a week",
+               secondaryAction: { print("secondaryAction()") }
+           )
+        }
     )
     .padding(.top, 38.0)
     .padding(.horizontal, 16.0)

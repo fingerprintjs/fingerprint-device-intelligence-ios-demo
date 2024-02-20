@@ -4,9 +4,12 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
 
     typealias ViewModel = DeviceFingerprintViewModel
 
-    private typealias EventDetailsVisualState = EventDetailsView<Presentation>.VisualState
+    private typealias VisualState = EventDetailsVisualState<Presentation.FieldKey>
 
-    @State private var eventDetailsState: EventDetailsVisualState = .loading
+    @Environment(\.openURL) private var openURL
+
+    @State private var state: VisualState = .loading
+    @State private var showSignupView: Bool = false
 
     private let presentation: Presentation
     @ObservedObject private var viewModel: ViewModel
@@ -21,12 +24,20 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
             ScrollView {
                 EventDetailsView(
                     presentation: presentation,
-                    state: $eventDetailsState
-                )
+                    state: $state
+                ) {
+                    if showSignupView {
+                        signupView
+                    }
+                }
                 .frame(maxWidth: .infinity, minHeight: geometry.size.height)
                 .padding(.horizontal, 16.0)
             }
+            .onAppear {
+                viewModel.viewDidAppear()
+            }
             .task {
+                guard viewModel.fingerprintingState == .undefined else { return }
                 await viewModel.fingerprintDevice()
             }
             .refreshable {
@@ -44,7 +55,32 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
                 }
             }
             .onReceive(viewModel.$fingerprintingState, perform: handleFingerprintingState)
+            .onReceive(viewModel.$shouldShowSignUp) { value in
+                withAnimation {
+                    showSignupView = value
+                }
+            }
         }
+    }
+}
+
+private extension DeviceFingerprintView {
+
+    @ViewBuilder
+    var signupView: some View {
+        CallToActionView(
+            title: "Impressed with Fingerprint?",
+            description: "Try free for 14 days, credit card not needed.",
+            primaryButtonTitle: "Sign up",
+            primaryAction: {
+                openURL(C.URLs.signUp)
+            },
+            secondaryButtonTitle: "Don’t show again for a week",
+            secondaryAction: {
+                viewModel.hideSignUp()
+            }
+        )
+        .transition(.asymmetric(insertion: .scale, removal: .opacity))
     }
 }
 
@@ -54,14 +90,14 @@ private extension DeviceFingerprintView {
         withAnimation {
             switch state {
             case .executing:
-                eventDetailsState = .loading
+                self.state = .loading
             case let .completed(viewModel):
-                eventDetailsState = .presenting(
+                self.state = .presenting(
                     fieldValue: viewModel.fieldValue(forKey:),
                     rawDetails: viewModel.rawEventRepresentation
                 )
             case let .failed(error):
-                eventDetailsState = .error(
+                self.state = .error(
                     error,
                     retryAction: {
                         Task {
@@ -79,15 +115,9 @@ private extension DeviceFingerprintView {
 // MARK: Previews
 
 #Preview("Basic Response") {
-    DeviceFingerprintView(
-        presentation: .basicResponse,
-        viewModel: .init(identificationService: .preview)
-    )
+    DeviceFingerprintView(presentation: .basicResponse, viewModel: .preview)
 }
 
 #Preview("Extended Response") {
-    DeviceFingerprintView(
-        presentation: .extendedResponse,
-        viewModel: .init(identificationService: .preview)
-    )
+    DeviceFingerprintView(presentation: .extendedResponse, viewModel: .preview)
 }

@@ -12,5 +12,8 @@ xcuserdata/
 
 ### Other ###
 
+# Preview artifacts
+*Preview.swift.plist
+
 # Swift Confidential
 confidential.yml

@@ -1,13 +1,10 @@
-extension EventDetailsView {
-
-    enum VisualState {
-        case loading
-        case presenting(fieldValue: (Presentation.FieldKey) -> String, rawDetails: String)
-        case error(PresentableError, retryAction: () -> Void)
-    }
+enum EventDetailsVisualState<FieldKey: PresentableFieldKey> {
+    case loading
+    case presenting(fieldValue: (FieldKey) -> String, rawDetails: String)
+    case error(PresentableError, retryAction: () -> Void)
 }
 
-extension EventDetailsView.VisualState: Equatable {
+extension EventDetailsVisualState: Equatable {
 
     static func == (lhs: Self, rhs: Self) -> Bool {
         switch (lhs, rhs) {
@@ -17,4 +14,9 @@ extension EventDetailsView.VisualState: Equatable {
             return false
         }
     }
+}
+
+extension EventDetailsView {
+
+    typealias VisualState = EventDetailsVisualState<Presentation.FieldKey>
 }
