@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+readonly INFO_GITLEAKS_DISABLED=$(cat << MSG
+\e[1mINFO: gitleaks pre-commit disabled (run \`git config hooks.gitleaks true\` to enable this hook)\e[0m
+MSG
+)
+
+readonly ERROR_GITLEAKS_CMD_MISSING=$(cat << MSG
+\e[1;31mERROR: 'gitleaks' command not found (run \`make homebrew\` to install required dependencies)\e[0m
+MSG
+)
+
+readonly WARNING_LEAKS_FOUND=$(cat << MSG
+
+\e[1;33mWARNING: gitleaks has detected sensitive information in your changes.\e[0m
+
+To disable the gitleaks pre-commit hook run the following command:
+
+    git config hooks.gitleaks false
+MSG
+)
+
+function gitleaks_enabled() {
+    local -r status=$(git config --bool hooks.gitleaks)
+    if [[ $status == false ]]
+    then
+        return 1
+    fi
+
+    return 0
+}
+
+if ! gitleaks_enabled
+then
+    echo -e "$INFO_GITLEAKS_DISABLED"
+    exit 0
+fi
+
+if ! command -v gitleaks &>/dev/null
+then
+    echo -e "$ERROR_GITLEAKS_CMD_MISSING"
+    exit 1
+fi
+
+if ! gitleaks protect -v --staged
+then
+    echo -e "$WARNING_LEAKS_FOUND"
+    exit 1
+fi
