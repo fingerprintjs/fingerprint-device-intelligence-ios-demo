@@ -6,7 +6,7 @@ useDefault = true
 [[rules]]
 id = "fingerprint-api-key"
 description = "Detected a possible Fingerprint API key, posing a risk of unauthorized use of subscription resources."
-regex = '''(?i)([a-z0-9]{20})'''
+regex = '''(?i)([a-z0-9]{20})("|$)'''
 secretGroup = 1
 entropy = 3.5
 keywords = [
@@ -14,10 +14,4 @@ keywords = [
     "secret",
     "//",
     "/*",
-]
-
-[rules.allowlist]
-stopwords = [
-    "EnvironmentVariables",
-    "getVisitorIdResponse",
 ]
