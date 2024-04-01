@@ -18,14 +18,14 @@ final class DeviceFingerprintViewModel: ObservableObject {
     @Published private(set) var shouldShowSignUp: Bool = false
 
     private let identificationService: any DeviceIdentificationServiceProtocol
-    private let userDefaults: UserDefaults
+    private let settingsContainer: SettingsContainer
 
     init(
         identificationService: any DeviceIdentificationServiceProtocol = .default,
-        userDefaults: UserDefaults = .standard
+        settingsContainer: SettingsContainer = .default
     ) {
         self.identificationService = identificationService
-        self.userDefaults = userDefaults
+        self.settingsContainer = settingsContainer
     }
 }
 
@@ -71,19 +71,19 @@ private extension DeviceFingerprintViewModel {
 
     var fingerprintCount: Int {
         get {
-            userDefaults.integer(forKey: C.SettingKey.fingerprintCount)
+            (try? settingsContainer.loadValue(forKey: .fingerprintCount).get()) ?? .zero
         }
         set {
-            userDefaults.setValue(newValue, forKey: C.SettingKey.fingerprintCount)
+            settingsContainer.storeValue(newValue, forKey: .fingerprintCount)
         }
     }
 
     var hideSignUpTimestamp: TimeInterval {
         get {
-            userDefaults.double(forKey: C.SettingKey.hideSignUpTimestamp)
+            (try? settingsContainer.loadValue(forKey: .hideSignUpTimestamp).get()) ?? .zero
         }
         set {
-            userDefaults.setValue(newValue, forKey: C.SettingKey.hideSignUpTimestamp)
+            settingsContainer.storeValue(newValue, forKey: .hideSignUpTimestamp)
         }
     }
 
@@ -107,9 +107,4 @@ private extension DeviceFingerprintViewModel {
 private extension C {
 
     static let hideSignUpDuration: TimeInterval = 604_800  // 7 days
-
-    enum SettingKey {
-        static let fingerprintCount: String = "settings.actions.fingerprint.count"
-        static let hideSignUpTimestamp: String = "settings.actions.hide_sign_up.timestamp"
-    }
 }

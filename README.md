@@ -3,17 +3,17 @@
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="resources/logo_light.svg" />
       <source media="(prefers-color-scheme: light)" srcset="resources/logo_dark.svg" />
-      <img src="resources/logo_dark.svg" alt="Fingerprint" width="312px" />
+      <img src="resources/logo_light.svg" alt="Fingerprint" width="312px" />
     </picture>
   </a>
 </p>
 
 <p align="center">
   <a href="https://developer.apple.com/xcode/">
-    <img src="https://img.shields.io/badge/Xcode-15-blue" alt="Supported Xcode versions">
+    <img src="https://img.shields.io/badge/Xcode-15.3-blue" alt="Supported Xcode versions">
   </a>
   <a href="https://www.swift.org/download/">
-    <img src="https://img.shields.io/badge/Swift-5.10%20%7C%205.9-red" alt="Supported Swift versions">
+    <img src="https://img.shields.io/badge/Swift-5.10-red" alt="Supported Swift versions">
   </a>
   <a href="https://www.apple.com/ios/">
     <img src="https://img.shields.io/badge/iOS-16.0+-lightgrey" alt="Supported iOS versions">
