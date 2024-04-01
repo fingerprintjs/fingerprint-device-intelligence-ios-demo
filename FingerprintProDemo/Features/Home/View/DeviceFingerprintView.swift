@@ -41,18 +41,16 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
                 await viewModel.fingerprintDevice()
             }
             .refreshable {
-                if #available(iOS 17, *) {
+                // There is a bug in SwiftUI, which causes the refresh action to
+                // get cancelled when the associated view is redrawn (i.e. as a result of
+                // receiving state update from the observed object).
+                // A workaround is to wrap the asynchronous call in a new task and wait for
+                // it to complete.
+                // This bug was once fixed by Apple in iOS 17.0 - 17.3.1, and then reintroduced
+                // in iOS 17.4 ¯\_(ツ)_/¯
+                await Task {
                     await viewModel.fingerprintDevice()
-                } else {
-                    // On iOS 16, there is a bug in SwiftUI, which causes the refresh action to
-                    // get cancelled when the associated view is redrawn (i.e. as a result of
-                    // receiving state update from the observed object).
-                    // A workaround is to wrap the asynchronous call in a new task and wait for
-                    // it to complete.
-                    await Task {
-                        await viewModel.fingerprintDevice()
-                    }.value
-                }
+                }.value
             }
             .onReceive(viewModel.$fingerprintingState, perform: handleFingerprintingState)
             .onReceive(viewModel.$shouldShowSignUp) { value in
