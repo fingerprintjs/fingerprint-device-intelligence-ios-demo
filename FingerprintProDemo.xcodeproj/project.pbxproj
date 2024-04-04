@@ -12,6 +12,7 @@
 		154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */; };
 		154B2FA82B861C86004E79AC /* UserDefaults+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FA72B861C86004E79AC /* UserDefaults+Preview.swift */; };
 		154B2FAF2B8620B8004E79AC /* DeviceFingerprintViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FAE2B8620B8004E79AC /* DeviceFingerprintViewModel+Preview.swift */; };
+		154CDBA92BBF08F700D5C3AF /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBA82BBF08F700D5C3AF /* HTTPHeaderField.swift */; };
 		156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */; };
 		156D06482B0F5FA60015A456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156D06472B0F5FA60015A456 /* Assets.xcassets */; };
 		156D06542B0FB48F0015A456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */; };
@@ -48,6 +49,12 @@
 		159A2DCA2BB7043700A470F1 /* SettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DC92BB7043700A470F1 /* SettingsContainer.swift */; };
 		159A2DCC2BB705C900A470F1 /* SettingsContainer+CodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DCB2BB705C900A470F1 /* SettingsContainer+CodingStrategy.swift */; };
 		159A2DCE2BB7085600A470F1 /* SettingsContainer+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DCD2BB7085600A470F1 /* SettingsContainer+Preview.swift */; };
+		159A2DD82BBEB2D500A470F1 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DD72BBEB2D500A470F1 /* URLConvertible.swift */; };
+		159A2DDC2BBEB38900A470F1 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DDB2BBEB38900A470F1 /* NetworkingError.swift */; };
+		159A2DDE2BBEB44600A470F1 /* URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DDD2BBEB44600A470F1 /* URLRequestConvertible.swift */; };
+		159A2DE02BBEB50500A470F1 /* URLConvertibleEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DDF2BBEB50500A470F1 /* URLConvertibleEndpoint.swift */; };
+		159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE22BBEB59600A470F1 /* HTTPMethod.swift */; };
+		159A2DE52BBEB5E400A470F1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */; };
 		15B6D18B2B2CA2550064F033 /* FingerprintPro in Frameworks */ = {isa = PBXBuildFile; productRef = 15B6D18A2B2CA2550064F033 /* FingerprintPro */; };
 		15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */; };
 		15B6D19A2B30AE750064F033 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1992B30AE750064F033 /* Format.swift */; };
@@ -68,6 +75,7 @@
 		154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionView.swift; sourceTree = "<group>"; };
 		154B2FA72B861C86004E79AC /* UserDefaults+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Preview.swift"; sourceTree = "<group>"; };
 		154B2FAE2B8620B8004E79AC /* DeviceFingerprintViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceFingerprintViewModel+Preview.swift"; sourceTree = "<group>"; };
+		154CDBA82BBF08F700D5C3AF /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
 		156D06402B0F5FA50015A456 /* FingerprintProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FingerprintProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintProDemoApp.swift; sourceTree = "<group>"; };
 		156D06472B0F5FA60015A456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +113,12 @@
 		159A2DC92BB7043700A470F1 /* SettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContainer.swift; sourceTree = "<group>"; };
 		159A2DCB2BB705C900A470F1 /* SettingsContainer+CodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsContainer+CodingStrategy.swift"; sourceTree = "<group>"; };
 		159A2DCD2BB7085600A470F1 /* SettingsContainer+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsContainer+Preview.swift"; sourceTree = "<group>"; };
+		159A2DD72BBEB2D500A470F1 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
+		159A2DDB2BBEB38900A470F1 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		159A2DDD2BBEB44600A470F1 /* URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConvertible.swift; sourceTree = "<group>"; };
+		159A2DDF2BBEB50500A470F1 /* URLConvertibleEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertibleEndpoint.swift; sourceTree = "<group>"; };
+		159A2DE22BBEB59600A470F1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Encodable.swift"; sourceTree = "<group>"; };
 		15B6D1992B30AE750064F033 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		15B6D19C2B30AEAC0064F033 /* Format+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Format+Date.swift"; sourceTree = "<group>"; };
@@ -179,6 +193,7 @@
 				15B6D18D2B30681B0064F033 /* Domain */,
 				156D065E2B1772140015A456 /* Extensions */,
 				156D065C2B17574C0015A456 /* Features */,
+				159A2DD52BBEB27E00A470F1 /* Networking */,
 				159A2DBA2BB60AAC00A470F1 /* Persistence */,
 				154B2F9B2B7A4241004E79AC /* PreviewContent */,
 				156D06682B188EA80015A456 /* Resources */,
@@ -403,6 +418,44 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		159A2DD52BBEB27E00A470F1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				159A2DD62BBEB2AD00A470F1 /* Convertibles */,
+				159A2DDA2BBEB35800A470F1 /* Error */,
+				159A2DE12BBEB56B00A470F1 /* HTTP */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		159A2DD62BBEB2AD00A470F1 /* Convertibles */ = {
+			isa = PBXGroup;
+			children = (
+				159A2DD72BBEB2D500A470F1 /* URLConvertible.swift */,
+				159A2DDF2BBEB50500A470F1 /* URLConvertibleEndpoint.swift */,
+				159A2DDD2BBEB44600A470F1 /* URLRequestConvertible.swift */,
+			);
+			path = Convertibles;
+			sourceTree = "<group>";
+		};
+		159A2DDA2BBEB35800A470F1 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				159A2DDB2BBEB38900A470F1 /* NetworkingError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		159A2DE12BBEB56B00A470F1 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */,
+				154CDBA82BBF08F700D5C3AF /* HTTPHeaderField.swift */,
+				159A2DE22BBEB59600A470F1 /* HTTPMethod.swift */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
 		15B6D18D2B30681B0064F033 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +624,8 @@
 			files = (
 				15B6D1B52B3324F10064F033 /* PresentableError.swift in Sources */,
 				15B6D1A82B31AC7D0064F033 /* ClientResponseEventViewModel.swift in Sources */,
+				159A2DE52BBEB5E400A470F1 /* HTTPClient.swift in Sources */,
+				159A2DE02BBEB50500A470F1 /* URLConvertibleEndpoint.swift in Sources */,
 				156D06672B1772FF0015A456 /* Constants.swift in Sources */,
 				156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */,
 				15B6D19F2B30C1080064F033 /* Format+Number.swift in Sources */,
@@ -597,17 +652,22 @@
 				159A2DCE2BB7085600A470F1 /* SettingsContainer+Preview.swift in Sources */,
 				159A2DC72BB6E31300A470F1 /* DataEncoder.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
+				159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */,
 				15B6D1B12B3214440064F033 /* DeviceIdentificationService+Default.swift in Sources */,
 				156D06582B1600A80015A456 /* FingerprintButtonStyle.swift in Sources */,
 				156D06842B20EC230015A456 /* String+Placeholder.swift in Sources */,
 				15B6D1BB2B334CDC0064F033 /* DeviceFingerprintView.swift in Sources */,
 				159A2DC22BB60CC900A470F1 /* UserDefaults+BackingStorage.swift in Sources */,
 				154B2FAF2B8620B8004E79AC /* DeviceFingerprintViewModel+Preview.swift in Sources */,
+				159A2DDC2BBEB38900A470F1 /* NetworkingError.swift in Sources */,
+				159A2DDE2BBEB44600A470F1 /* URLRequestConvertible.swift in Sources */,
 				15B6D1B82B334A230064F033 /* DeviceFingerprintViewModel.swift in Sources */,
 				156D068C2B2726800015A456 /* EventDetailsView+VisualState.swift in Sources */,
 				159A2DCA2BB7043700A470F1 /* SettingsContainer.swift in Sources */,
 				156D067C2B20994E0015A456 /* EventDetailsView.swift in Sources */,
 				159A2DBD2BB60B8D00A470F1 /* PersistenceContainer.swift in Sources */,
+				154CDBA92BBF08F700D5C3AF /* HTTPHeaderField.swift in Sources */,
+				159A2DD82BBEB2D500A470F1 /* URLConvertible.swift in Sources */,
 				156D06782B1DF99E0015A456 /* ErrorView.swift in Sources */,
 				159A2DC52BB6E30000A470F1 /* DataDecoder.swift in Sources */,
 				156D067A2B1E49390015A456 /* DefaultButtonStyle.swift in Sources */,
