@@ -34,7 +34,7 @@ enum ConfigVariable {
         #if DEBUG
         Developer.region ?? .global
         #else
-        .ap
+        .global
         #endif
     }
 }
