@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld requests per day" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld requests per day"
+          }
+        }
+      }
+    },
     "An unexpected error occurred..." : {
       "localizations" : {
         "en" : {
@@ -17,6 +27,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "CONFIDENCE"
+          }
+        }
+      }
+    },
+    "Detected" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detected"
           }
         }
       }
@@ -41,6 +61,16 @@
         }
       }
     },
+    "Device time zone is %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Device time zone is %@"
+          }
+        }
+      }
+    },
     "Documentation" : {
       "localizations" : {
         "en" : {
@@ -52,7 +82,24 @@
       }
     },
     "Don’t show again for a week" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t show again for a week"
+          }
+        }
+      }
+    },
+    "FACTORY RESET" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FACTORY RESET"
+          }
+        }
+      }
     },
     "FIRST SEEN AT" : {
       "localizations" : {
@@ -60,6 +107,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "FIRST SEEN AT"
+          }
+        }
+      }
+    },
+    "FRIDA" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FRIDA"
           }
         }
       }
@@ -74,6 +131,16 @@
         }
       }
     },
+    "GEOLOCATION SPOOFING" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GEOLOCATION SPOOFING"
+          }
+        }
+      }
+    },
     "Hang tight," : {
       "localizations" : {
         "en" : {
@@ -84,8 +151,25 @@
         }
       }
     },
+    "HIGH-ACTIVITY" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HIGH-ACTIVITY"
+          }
+        }
+      }
+    },
     "Impressed with Fingerprint?" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impressed with Fingerprint?"
+          }
+        }
+      }
     },
     "IP ADDRESS" : {
       "localizations" : {
@@ -103,6 +187,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "IP LOCATION"
+          }
+        }
+      }
+    },
+    "JAILBREAK" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JAILBREAK"
           }
         }
       }
@@ -133,6 +227,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No"
+          }
+        }
+      }
+    },
+    "Not detected" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not detected"
           }
         }
       }
@@ -207,6 +311,16 @@
         }
       }
     },
+    "Requires location permission" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Requires location permission"
+          }
+        }
+      }
+    },
     "SDK RESPONSE" : {
       "localizations" : {
         "en" : {
@@ -228,7 +342,24 @@
       }
     },
     "Sign up" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up"
+          }
+        }
+      }
+    },
+    "SMART SIGNAL" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SMART SIGNAL"
+          }
+        }
+      }
     },
     "Support" : {
       "localizations" : {
@@ -281,7 +412,14 @@
       }
     },
     "Try free for 14 days, credit card not needed." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try free for 14 days, credit card not needed."
+          }
+        }
+      }
     },
     "VISITOR FOUND" : {
       "localizations" : {
@@ -299,6 +437,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "VISITOR ID"
+          }
+        }
+      }
+    },
+    "VPN" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "VPN"
           }
         }
       }

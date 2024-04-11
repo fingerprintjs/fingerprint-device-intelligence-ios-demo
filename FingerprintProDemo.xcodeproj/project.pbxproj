@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		153560322BC55F0400BAD949 /* ConfigVariable+SmartSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153560312BC55F0400BAD949 /* ConfigVariable+SmartSignals.swift */; };
+		153560372BC5BDF600BAD949 /* ClientResponseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153560362BC5BDF600BAD949 /* ClientResponseEvent.swift */; };
+		153560392BC6F7C600BAD949 /* SmartSignalsService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153560382BC6F7C600BAD949 /* SmartSignalsService+Preview.swift */; };
+		1535603C2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535603B2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift */; };
 		154B2F9E2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */; };
 		154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */; };
 		154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */; };
 		154B2FA82B861C86004E79AC /* UserDefaults+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FA72B861C86004E79AC /* UserDefaults+Preview.swift */; };
 		154B2FAF2B8620B8004E79AC /* DeviceFingerprintViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FAE2B8620B8004E79AC /* DeviceFingerprintViewModel+Preview.swift */; };
 		154CDBA92BBF08F700D5C3AF /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBA82BBF08F700D5C3AF /* HTTPHeaderField.swift */; };
+		154CDBAD2BC40AB400D5C3AF /* SmartSignalsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBAC2BC40AB400D5C3AF /* SmartSignalsService.swift */; };
+		154CDBAF2BC40D1A00D5C3AF /* SmartSignalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBAE2BC40D1A00D5C3AF /* SmartSignalsResponse.swift */; };
+		154CDBB12BC4124400D5C3AF /* SmartSignalsService+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBB02BC4124400D5C3AF /* SmartSignalsService+Default.swift */; };
 		156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */; };
 		156D06482B0F5FA60015A456 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156D06472B0F5FA60015A456 /* Assets.xcassets */; };
 		156D06542B0FB48F0015A456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156D06532B0FB48F0015A456 /* LaunchScreen.storyboard */; };
@@ -55,6 +62,11 @@
 		159A2DE02BBEB50500A470F1 /* URLConvertibleEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DDF2BBEB50500A470F1 /* URLConvertibleEndpoint.swift */; };
 		159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE22BBEB59600A470F1 /* HTTPMethod.swift */; };
 		159A2DE52BBEB5E400A470F1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */; };
+		159A2DE92BBED8A900A470F1 /* SmartSignalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE82BBED8A900A470F1 /* SmartSignalsClient.swift */; };
+		159A2DEC2BBED90100A470F1 /* SmartSignalsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DEB2BBED90100A470F1 /* SmartSignalsEndpoint.swift */; };
+		15B16C1C2BC8030100A6D8A2 /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C1B2BC8030100A6D8A2 /* GeolocationService.swift */; };
+		15B16C1F2BC80D7600A6D8A2 /* GeolocationService+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C1E2BC80D7600A6D8A2 /* GeolocationService+Default.swift */; };
+		15B16C212BC811AD00A6D8A2 /* GeolocationService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C202BC811AD00A6D8A2 /* GeolocationService+Preview.swift */; };
 		15B6D18B2B2CA2550064F033 /* FingerprintPro in Frameworks */ = {isa = PBXBuildFile; productRef = 15B6D18A2B2CA2550064F033 /* FingerprintPro */; };
 		15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */; };
 		15B6D19A2B30AE750064F033 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1992B30AE750064F033 /* Format.swift */; };
@@ -70,12 +82,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		153560312BC55F0400BAD949 /* ConfigVariable+SmartSignals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigVariable+SmartSignals.swift"; sourceTree = "<group>"; };
+		153560362BC5BDF600BAD949 /* ClientResponseEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientResponseEvent.swift; sourceTree = "<group>"; };
+		153560382BC6F7C600BAD949 /* SmartSignalsService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartSignalsService+Preview.swift"; sourceTree = "<group>"; };
+		1535603B2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartSignalsResponse+Preview.swift"; sourceTree = "<group>"; };
 		154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceIdentificationService+Preview.swift"; sourceTree = "<group>"; };
 		154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Preview.swift"; sourceTree = "<group>"; };
 		154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionView.swift; sourceTree = "<group>"; };
 		154B2FA72B861C86004E79AC /* UserDefaults+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Preview.swift"; sourceTree = "<group>"; };
 		154B2FAE2B8620B8004E79AC /* DeviceFingerprintViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceFingerprintViewModel+Preview.swift"; sourceTree = "<group>"; };
 		154CDBA82BBF08F700D5C3AF /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
+		154CDBAC2BC40AB400D5C3AF /* SmartSignalsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsService.swift; sourceTree = "<group>"; };
+		154CDBAE2BC40D1A00D5C3AF /* SmartSignalsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsResponse.swift; sourceTree = "<group>"; };
+		154CDBB02BC4124400D5C3AF /* SmartSignalsService+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartSignalsService+Default.swift"; sourceTree = "<group>"; };
 		156D06402B0F5FA50015A456 /* FingerprintProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FingerprintProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintProDemoApp.swift; sourceTree = "<group>"; };
 		156D06472B0F5FA60015A456 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +138,11 @@
 		159A2DDF2BBEB50500A470F1 /* URLConvertibleEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertibleEndpoint.swift; sourceTree = "<group>"; };
 		159A2DE22BBEB59600A470F1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		159A2DE82BBED8A900A470F1 /* SmartSignalsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsClient.swift; sourceTree = "<group>"; };
+		159A2DEB2BBED90100A470F1 /* SmartSignalsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsEndpoint.swift; sourceTree = "<group>"; };
+		15B16C1B2BC8030100A6D8A2 /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
+		15B16C1E2BC80D7600A6D8A2 /* GeolocationService+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeolocationService+Default.swift"; sourceTree = "<group>"; };
+		15B16C202BC811AD00A6D8A2 /* GeolocationService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeolocationService+Preview.swift"; sourceTree = "<group>"; };
 		15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Encodable.swift"; sourceTree = "<group>"; };
 		15B6D1992B30AE750064F033 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		15B6D19C2B30AEAC0064F033 /* Format+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Format+Date.swift"; sourceTree = "<group>"; };
@@ -145,12 +169,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		153560342BC5BD6600BAD949 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				153560362BC5BDF600BAD949 /* ClientResponseEvent.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		154B2F9B2B7A4241004E79AC /* PreviewContent */ = {
 			isa = PBXGroup;
 			children = (
 				154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */,
 				154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */,
+				15B16C202BC811AD00A6D8A2 /* GeolocationService+Preview.swift */,
 				159A2DCD2BB7085600A470F1 /* SettingsContainer+Preview.swift */,
+				1535603B2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift */,
+				153560382BC6F7C600BAD949 /* SmartSignalsService+Preview.swift */,
 				154B2FA72B861C86004E79AC /* UserDefaults+Preview.swift */,
 			);
 			path = PreviewContent;
@@ -162,6 +197,14 @@
 				154B2FAE2B8620B8004E79AC /* DeviceFingerprintViewModel+Preview.swift */,
 			);
 			path = Preview;
+			sourceTree = "<group>";
+		};
+		154CDBAB2BC40A9E00D5C3AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				154CDBAE2BC40D1A00D5C3AF /* SmartSignalsResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		156D06372B0F5FA50015A456 = {
@@ -242,6 +285,7 @@
 		156D065D2B1757770015A456 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				153560342BC5BD6600BAD949 /* Model */,
 				15B6D1A62B31AC4C0064F033 /* ViewModel */,
 				156D06592B1657910015A456 /* View */,
 			);
@@ -370,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				156D069B2B2B217F0015A456 /* ConfigVariable.swift */,
+				153560312BC55F0400BAD949 /* ConfigVariable+SmartSignals.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -456,6 +501,35 @@
 			path = HTTP;
 			sourceTree = "<group>";
 		};
+		159A2DE62BBED88800A470F1 /* SmartSignals */ = {
+			isa = PBXGroup;
+			children = (
+				159A2DE72BBED89600A470F1 /* Client */,
+				154CDBAB2BC40A9E00D5C3AF /* Model */,
+				154CDBAC2BC40AB400D5C3AF /* SmartSignalsService.swift */,
+				154CDBB02BC4124400D5C3AF /* SmartSignalsService+Default.swift */,
+			);
+			path = SmartSignals;
+			sourceTree = "<group>";
+		};
+		159A2DE72BBED89600A470F1 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				159A2DE82BBED8A900A470F1 /* SmartSignalsClient.swift */,
+				159A2DEB2BBED90100A470F1 /* SmartSignalsEndpoint.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		15B16C1A2BC802ED00A6D8A2 /* Geolocation */ = {
+			isa = PBXGroup;
+			children = (
+				15B16C1B2BC8030100A6D8A2 /* GeolocationService.swift */,
+				15B16C1E2BC80D7600A6D8A2 /* GeolocationService+Default.swift */,
+			);
+			path = Geolocation;
+			sourceTree = "<group>";
+		};
 		15B6D18D2B30681B0064F033 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,6 +592,8 @@
 			isa = PBXGroup;
 			children = (
 				15B6D1AE2B3214220064F033 /* DeviceIdentification */,
+				15B16C1A2BC802ED00A6D8A2 /* Geolocation */,
+				159A2DE62BBED88800A470F1 /* SmartSignals */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -622,6 +698,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B16C1C2BC8030100A6D8A2 /* GeolocationService.swift in Sources */,
 				15B6D1B52B3324F10064F033 /* PresentableError.swift in Sources */,
 				15B6D1A82B31AC7D0064F033 /* ClientResponseEventViewModel.swift in Sources */,
 				159A2DE52BBEB5E400A470F1 /* HTTPClient.swift in Sources */,
@@ -629,6 +706,7 @@
 				156D06672B1772FF0015A456 /* Constants.swift in Sources */,
 				156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */,
 				15B6D19F2B30C1080064F033 /* Format+Number.swift in Sources */,
+				154CDBB12BC4124400D5C3AF /* SmartSignalsService+Default.swift in Sources */,
 				15B6D19A2B30AE750064F033 /* Format.swift in Sources */,
 				154B2F9E2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift in Sources */,
 				154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */,
@@ -640,23 +718,31 @@
 				154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */,
 				156D06802B20DEEE0015A456 /* View+RedactedIf.swift in Sources */,
 				156D068A2B25F8F90015A456 /* BasicResponseEventPresentability.swift in Sources */,
+				15B16C212BC811AD00A6D8A2 /* GeolocationService+Preview.swift in Sources */,
 				159A2DCC2BB705C900A470F1 /* SettingsContainer+CodingStrategy.swift in Sources */,
+				153560372BC5BDF600BAD949 /* ClientResponseEvent.swift in Sources */,
 				15B6D1A32B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift in Sources */,
 				159026522B6919B400D3FF36 /* AppInfo.swift in Sources */,
 				15B6D19D2B30AEAC0064F033 /* Format+Date.swift in Sources */,
 				159A2DBF2BB60C1400A470F1 /* BackingStorage.swift in Sources */,
 				156D06922B27503B0015A456 /* String+LinesCount.swift in Sources */,
 				156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */,
+				1535603C2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift in Sources */,
 				1589C9FE2B5806450053A9FA /* PresentableError+CommonErrors.swift in Sources */,
+				159A2DEC2BBED90100A470F1 /* SmartSignalsEndpoint.swift in Sources */,
 				15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */,
+				15B16C1F2BC80D7600A6D8A2 /* GeolocationService+Default.swift in Sources */,
+				154CDBAF2BC40D1A00D5C3AF /* SmartSignalsResponse.swift in Sources */,
 				159A2DCE2BB7085600A470F1 /* SettingsContainer+Preview.swift in Sources */,
 				159A2DC72BB6E31300A470F1 /* DataEncoder.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
+				159A2DE92BBED8A900A470F1 /* SmartSignalsClient.swift in Sources */,
 				159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */,
 				15B6D1B12B3214440064F033 /* DeviceIdentificationService+Default.swift in Sources */,
 				156D06582B1600A80015A456 /* FingerprintButtonStyle.swift in Sources */,
 				156D06842B20EC230015A456 /* String+Placeholder.swift in Sources */,
 				15B6D1BB2B334CDC0064F033 /* DeviceFingerprintView.swift in Sources */,
+				154CDBAD2BC40AB400D5C3AF /* SmartSignalsService.swift in Sources */,
 				159A2DC22BB60CC900A470F1 /* UserDefaults+BackingStorage.swift in Sources */,
 				154B2FAF2B8620B8004E79AC /* DeviceFingerprintViewModel+Preview.swift in Sources */,
 				159A2DDC2BBEB38900A470F1 /* NetworkingError.swift in Sources */,
@@ -669,7 +755,9 @@
 				154CDBA92BBF08F700D5C3AF /* HTTPHeaderField.swift in Sources */,
 				159A2DD82BBEB2D500A470F1 /* URLConvertible.swift in Sources */,
 				156D06782B1DF99E0015A456 /* ErrorView.swift in Sources */,
+				153560392BC6F7C600BAD949 /* SmartSignalsService+Preview.swift in Sources */,
 				159A2DC52BB6E30000A470F1 /* DataDecoder.swift in Sources */,
+				153560322BC55F0400BAD949 /* ConfigVariable+SmartSignals.swift in Sources */,
 				156D067A2B1E49390015A456 /* DefaultButtonStyle.swift in Sources */,
 				156D068E2B2728A10015A456 /* ExtendedResponseEventPresentability.swift in Sources */,
 				156D06642B1772AB0015A456 /* URL+StaticString.swift in Sources */,
@@ -821,6 +909,7 @@
 				INFOPLIST_FILE = FingerprintProDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To enable Geolocation Spoofing Detection our SDK needs to access location services.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -856,6 +945,7 @@
 				INFOPLIST_FILE = FingerprintProDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To enable Geolocation Spoofing Detection our SDK needs to access location services.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

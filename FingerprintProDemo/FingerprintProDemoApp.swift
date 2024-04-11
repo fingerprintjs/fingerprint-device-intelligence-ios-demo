@@ -9,7 +9,17 @@ struct FingerprintProDemoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView(deviceFingerprintViewModel: .init())
+            HomeView(
+                deviceFingerprintViewModel: {
+                    guard ConfigVariable.SmartSignals.isEnabled else {
+                        return .init(
+                            smartSignalsService: .none,
+                            geolocationService: GeolocationService(shouldRequestPermission: false)
+                        )
+                    }
+                    return .init()
+                }()
+            )
         }
     }
 }

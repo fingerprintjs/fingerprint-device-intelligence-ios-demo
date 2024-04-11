@@ -1,13 +1,13 @@
 import Foundation
 
 enum NetworkingError: Error {
-    case createURLRequestFailed(error: Error)
+    case createURLRequestFailed(error: any Error)
     case invalidResponse
     case invalidURL(url: URLConvertible)
-    case payloadEncodingFailed(error: Error)
-    case responseDecodingFailed(error: Error)
+    case payloadEncodingFailed(error: any Error)
+    case responseDecodingFailed(error: any Error)
     case responseError(errorCode: Int, errorData: Data)
-    case requestFailed(error: Error)
+    case requestFailed(error: any Error)
 }
 
 extension NetworkingError {

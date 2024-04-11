@@ -7,12 +7,12 @@ protocol FingerprintClientFactory {
 }
 
 protocol DeviceIdentificationServiceProtocol {
-    func fingerprintDevice() async -> Result<FingerprintResponse, Error>
+    func fingerprintDevice() async -> Result<FingerprintResponse, any Error>
 }
 
 struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: DeviceIdentificationServiceProtocol {
 
-    func fingerprintDevice() async -> Result<FingerprintResponse, Error> {
+    func fingerprintDevice() async -> Result<FingerprintResponse, any Error> {
         let client = makeFingerprintClient()
 
         do {

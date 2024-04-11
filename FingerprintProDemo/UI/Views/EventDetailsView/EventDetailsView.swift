@@ -141,7 +141,8 @@ private extension EventDetailsView {
                 ForEach(Presentation.fieldMetadata, id: \.id) { metadata in
                     DetailsFieldView(
                         key: metadata.key.rawValue,
-                        value: presentation.valuePlaceholder(for: metadata.key)
+                        value: presentation.valuePlaceholder(for: metadata.key),
+                        badgeLabel: presentation.badgeLabel(for: metadata.key)
                     )
                 }
             case let .presenting(fieldValue, _):
@@ -150,13 +151,15 @@ private extension EventDetailsView {
                     if fieldValue.isEmpty, let emptyValueString {
                         DetailsFieldView(
                             key: metadata.key.rawValue,
-                            value: emptyValueString,
+                            value: emptyValueString, 
+                            badgeLabel: presentation.badgeLabel(for: metadata.key),
                             valueColor: .mediumGray
                         )
                     } else {
                         DetailsFieldView(
                             key: metadata.key.rawValue,
-                            value: fieldValue
+                            value: fieldValue,
+                            badgeLabel: presentation.badgeLabel(for: metadata.key)
                         )
                     }
                 }
@@ -280,22 +283,25 @@ private extension EventDetailsView {
 
         private let key: LocalizedStringKey
         private let value: String
+        private let badgeLabel: LocalizedStringKey?
         private let valueColor: Color
 
-        init(key: LocalizedStringKey, value: String, valueColor: Color = .extraDarkGray) {
+        init(
+            key: LocalizedStringKey,
+            value: String,
+            badgeLabel: LocalizedStringKey?,
+            valueColor: Color = .extraDarkGray
+        ) {
             self.key = key
             self.value = value
+            self.badgeLabel = badgeLabel
             self.valueColor = valueColor
         }
 
         var body: some View {
             VStack(spacing: 4.0) {
                 Group {
-                    Text(key)
-                        .font(.inter(size: 9.0))
-                        .kerning(0.36)
-                        .foregroundStyle(.regularGray)
-                        .unredacted()
+                    title
                     Text(value)
                         .font(.inter(size: 14.0))
                         .kerning(0.14)
@@ -303,6 +309,26 @@ private extension EventDetailsView {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
+        }
+
+        @ViewBuilder
+        private var title: some View {
+            Group {
+                if let badgeLabel {
+                    Text(key)
+                        .foregroundColor(.regularGray) +
+                    Text(verbatim: " - ")
+                        .foregroundColor(.regularGray) +
+                    Text(badgeLabel)
+                        .foregroundColor(.accent)
+                } else {
+                    Text(key)
+                        .foregroundStyle(.regularGray)
+                }
+            }
+            .font(.inter(size: 9.0))
+            .kerning(0.27)
+            .unredacted()
         }
     }
 }
@@ -340,6 +366,8 @@ private extension EventPresentability {
                         return "Yes"
                     case .confidence:
                         return "100%"
+                    case .vpn, .factoryReset, .jailbreak, .frida, .locationSpoofing, .highActivity:
+                        return "Not Detected"
                     }
                 },
                 rawDetails: """

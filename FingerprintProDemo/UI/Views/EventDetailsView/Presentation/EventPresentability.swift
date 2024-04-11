@@ -17,6 +17,7 @@ protocol EventPresentability {
 
     var emptyValueString: String? { get }
 
+    func badgeLabel(for key: FieldKey) -> LocalizedStringKey?
     func valuePlaceholder(for key: FieldKey) -> String
 }
 
@@ -28,4 +29,6 @@ extension EventPresentability {
     var presentingTitleKey: LocalizedStringKey? { .none }
 
     var emptyValueString: String? { .none }
+
+    func badgeLabel(for key: FieldKey) -> LocalizedStringKey? { .none }
 }

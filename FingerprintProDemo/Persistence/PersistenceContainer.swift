@@ -22,7 +22,7 @@ struct PersistenceContainer<Key: PersistableValueKey> {
     }
 
     @discardableResult
-    func storeValue<Value: Encodable>(_ value: Value, forKey key: Key) -> Result<Void, Error> {
+    func storeValue<Value: Encodable>(_ value: Value, forKey key: Key) -> Result<Void, any Error> {
         .init {
             let encoder = codingStrategy.valueEncoder(forKey: key)
             let data = try encoder.encode(value)
@@ -34,7 +34,7 @@ struct PersistenceContainer<Key: PersistableValueKey> {
         backingStorage.containsData(forKey: key.rawValue)
     }
 
-    func loadValue<Value: Decodable>(_ valueType: Value.Type = Value.self, forKey key: Key) -> Result<Value, Error> {
+    func loadValue<Value: Decodable>(_ valueType: Value.Type = Value.self, forKey key: Key) -> Result<Value, any Error> {
         .init {
             let data = try backingStorage.readData(forKey: key.rawValue)
             let decoder = codingStrategy.valueDecoder(forKey: key)
@@ -45,14 +45,14 @@ struct PersistenceContainer<Key: PersistableValueKey> {
     }
 
     @discardableResult
-    func removeValue(forKey key: Key) -> Result<Void, Error> {
+    func removeValue(forKey key: Key) -> Result<Void, any Error> {
         .init {
             try backingStorage.removeData(forKey: key.rawValue)
         }
     }
 
     @discardableResult
-    func clear() -> Result<Void, Error> {
+    func clear() -> Result<Void, any Error> {
         .init {
             try Key
                 .allCases

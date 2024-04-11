@@ -26,4 +26,3 @@ private extension Format.Date {
         return dateFormatter
     }
 }
-

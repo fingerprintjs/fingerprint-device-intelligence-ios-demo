@@ -18,13 +18,19 @@ final class DeviceFingerprintViewModel: ObservableObject {
     @Published private(set) var shouldShowSignUp: Bool = false
 
     private let identificationService: any DeviceIdentificationServiceProtocol
+    private let smartSignalsService: (any SmartSignalsServiceProtocol)?
+    private let geolocationService: any GeolocationServiceProtocol
     private let settingsContainer: SettingsContainer
 
     init(
         identificationService: any DeviceIdentificationServiceProtocol = .default,
+        smartSignalsService: (any SmartSignalsServiceProtocol)? = .default,
+        geolocationService: any GeolocationServiceProtocol = .default,
         settingsContainer: SettingsContainer = .default
     ) {
         self.identificationService = identificationService
+        self.smartSignalsService = smartSignalsService
+        self.geolocationService = geolocationService
         self.settingsContainer = settingsContainer
     }
 }
@@ -47,15 +53,24 @@ extension DeviceFingerprintViewModel {
 
         try? await throttleTask
 
-        let result = await fingerprintTask
-            .map(ClientResponseEventViewModel.init(response:))
-            .mapError(PresentableError.init(from:))
-        switch result {
-        case let .success(viewModel):
-            fingerprintingState = .completed(viewModel: viewModel)
+        do {
+            let fingerprintResponse = try await fingerprintTask.get()
+            let smartSignalsResponse = try await smartSignalsService?
+                .fetchSignals(for: fingerprintResponse.requestId)
+                .get()
+
+            fingerprintingState = .completed(
+                viewModel: .init(
+                    event: .init(
+                        fingerprintResponse: fingerprintResponse,
+                        smartSignalsResponse: smartSignalsResponse
+                    ),
+                    hasLocationPermission: geolocationService.hasLocationPermission
+                )
+            )
             showSignUpIfNeeded()
-        case let .failure(error):
-            fingerprintingState = .failed(error: error)
+        } catch {
+            fingerprintingState = .failed(error: .init(from: error))
         }
 
         fingerprintCount += 1
