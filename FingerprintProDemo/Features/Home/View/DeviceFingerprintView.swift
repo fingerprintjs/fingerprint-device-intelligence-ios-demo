@@ -112,6 +112,8 @@ private extension DeviceFingerprintView {
 
 // MARK: Previews
 
+#if DEBUG
+
 #Preview("Basic Response") {
     DeviceFingerprintView(presentation: .basicResponse, viewModel: .preview)
 }
@@ -119,3 +121,5 @@ private extension DeviceFingerprintView {
 #Preview("Extended Response") {
     DeviceFingerprintView(presentation: .extendedResponse, viewModel: .preview)
 }
+
+#endif

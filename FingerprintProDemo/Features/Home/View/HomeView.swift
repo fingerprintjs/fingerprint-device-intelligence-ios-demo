@@ -93,6 +93,10 @@ private extension HomeView {
 
 // MARK: Previews
 
+#if DEBUG
+
 #Preview {
     HomeView(deviceFingerprintViewModel: .preview)
 }
+
+#endif
