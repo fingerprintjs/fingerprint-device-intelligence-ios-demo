@@ -909,7 +909,7 @@
 				INFOPLIST_FILE = FingerprintProDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To enable Geolocation Spoofing Detection our SDK needs to access location services.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To detect Geolocation Spoofing, our SDK requires access to location services.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -946,7 +946,7 @@
 				INFOPLIST_FILE = FingerprintProDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To enable Geolocation Spoofing Detection our SDK needs to access location services.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To detect Geolocation Spoofing, our SDK requires access to location services.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
