@@ -21,6 +21,16 @@
         }
       }
     },
+    "API RESPONSE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "API RESPONSE"
+          }
+        }
+      }
+    },
     "CONFIDENCE" : {
       "localizations" : {
         "en" : {
@@ -317,16 +327,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Requires location permission"
-          }
-        }
-      }
-    },
-    "SDK RESPONSE" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SDK RESPONSE"
           }
         }
       }

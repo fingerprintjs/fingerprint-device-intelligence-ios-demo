@@ -9,7 +9,7 @@ extension ClientResponseEventPresentability {
 
     var presentingTitleKey: LocalizedStringKey? { "Your Device ID" }
 
-    var detailsHeaderKey: LocalizedStringKey { "SDK RESPONSE" }
+    var detailsHeaderKey: LocalizedStringKey { "API RESPONSE" }
 
     var emptyValueString: String? { .init(localized: "N/A") }
 }
