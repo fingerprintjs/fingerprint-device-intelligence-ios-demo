@@ -343,61 +343,65 @@ private extension EventPresentability {
 // MARK: Previews
 
 #Preview("Loading") {
-    EventDetailsView(
-        presentation: .basicResponse,
-        state: .constant(.loading)
-    )
-    .padding(.top, 38.0)
-    .padding(.horizontal, 16.0)
+    ScrollView {
+        EventDetailsView(
+            presentation: .basicResponse,
+            state: .constant(.loading)
+        )
+        .padding(.top, 38.0)
+        .padding(.horizontal, 16.0)
+    }
 }
 
 #Preview("Presenting") {
-    EventDetailsView(
-        presentation: .basicResponse,
-        state: .constant(
-            .presenting(
-                fieldValue: { key in
-                    switch key {
-                    case .requestId:
-                        return "1702058653176.gO9SYo"
-                    case .visitorId:
-                        return "rVC74CiaXVZGVC69OBsP"
-                    case .visitorFound:
-                        return "Yes"
-                    case .confidence:
-                        return "100%"
-                    case .vpn, .factoryReset, .jailbreak, .frida, .locationSpoofing, .highActivity:
-                        return "Not Detected"
-                    }
-                },
-                rawDetails: """
-                              {
-                                "v" : "2",
-                                "requestId" : "1702058653176.gO9SYo",
-                                "visitorId" : "rVC74CiaXVZGVC69OBsP",
-                                "visitorFound" : true,
-                                "confidence" : 1
-                              }
-                              """
-            )
-        ),
-        actions: {
-            CallToActionView(
-               title: AttributedString(
-                   stringLiteral: "Impressed with Fingerprint?"
-               ),
-               description: AttributedString(
-                   stringLiteral: "Try free for 14 days, credit card not needed."
-               ),
-               primaryButtonTitle: "Sign up",
-               primaryAction: { print("primaryAction()") },
-               secondaryButtonTitle: "Don’t show again for a week",
-               secondaryAction: { print("secondaryAction()") }
-           )
-        }
-    )
-    .padding(.top, 38.0)
-    .padding(.horizontal, 16.0)
+    ScrollView {
+        EventDetailsView(
+            presentation: .basicResponse,
+            state: .constant(
+                .presenting(
+                    fieldValue: { key in
+                        switch key {
+                        case .requestId:
+                            return "1702058653176.gO9SYo"
+                        case .visitorId:
+                            return "rVC74CiaXVZGVC69OBsP"
+                        case .visitorFound:
+                            return "Yes"
+                        case .confidence:
+                            return "100%"
+                        case .vpn, .factoryReset, .jailbreak, .frida, .locationSpoofing, .highActivity:
+                            return ""
+                        }
+                    },
+                    rawDetails: """
+                                  {
+                                    "v" : "2",
+                                    "requestId" : "1702058653176.gO9SYo",
+                                    "visitorId" : "rVC74CiaXVZGVC69OBsP",
+                                    "visitorFound" : true,
+                                    "confidence" : 1
+                                  }
+                                  """
+                )
+            ),
+            actions: {
+                CallToActionView(
+                   title: AttributedString(
+                       stringLiteral: "Impressed with Fingerprint?"
+                   ),
+                   description: AttributedString(
+                       stringLiteral: "Try free for 14 days, credit card not needed."
+                   ),
+                   primaryButtonTitle: "Sign up",
+                   primaryAction: { print("primaryAction()") },
+                   secondaryButtonTitle: "Don’t show again for a week",
+                   secondaryAction: { print("secondaryAction()") }
+               )
+            }
+        )
+        .padding(.top, 38.0)
+        .padding(.horizontal, 16.0)
+    }
 }
 
 #Preview("Error") {
