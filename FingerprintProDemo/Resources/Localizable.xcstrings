@@ -351,6 +351,16 @@
         }
       }
     },
+    "Sign Up" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign Up"
+          }
+        }
+      }
+    },
     "SMART SIGNAL" : {
       "localizations" : {
         "en" : {
