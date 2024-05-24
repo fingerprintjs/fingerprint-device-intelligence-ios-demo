@@ -26,10 +26,21 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
 
     let foremostFieldKey: FieldKey = .visitorId
 
-    func badgeLabel(for key: FieldKey) -> LocalizedStringKey? {
+    func badge(for key: FieldKey) -> Badge? {
+        let title = String(localized: "SMART SIGNAL")
         switch key {
-        case .vpn, .factoryReset, .jailbreak, .frida, .locationSpoofing, .highActivity:
-            return "SMART SIGNAL"
+        case .vpn:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.vpn)
+        case .factoryReset:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.factoryReset)
+        case .jailbreak:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.jailbreak)
+        case .frida:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.frida)
+        case .locationSpoofing:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.locationSpoofing)
+        case .highActivity:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.highActivity)
         default:
             return .none
         }

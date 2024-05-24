@@ -138,28 +138,28 @@ private extension EventDetailsView {
         VStack(spacing: 16.0) {
             switch state {
             case .loading:
-                ForEach(Presentation.fieldMetadata, id: \.id) { metadata in
+                ForEach(Presentation.fieldMetadata, id: \.id) { (_, key) in
                     DetailsFieldView(
-                        key: metadata.key.rawValue,
-                        value: presentation.valuePlaceholder(for: metadata.key),
-                        badgeLabel: presentation.badgeLabel(for: metadata.key)
+                        key: key.rawValue,
+                        value: presentation.valuePlaceholder(for: key),
+                        badge: presentation.badge(for: key)
                     )
                 }
             case let .presenting(fieldValue, _):
-                ForEach(Presentation.fieldMetadata, id: \.id) { metadata in
-                    let fieldValue = fieldValue(metadata.key)
+                ForEach(Presentation.fieldMetadata, id: \.id) { (_, key) in
+                    let fieldValue = fieldValue(key)
                     if fieldValue.isEmpty, let emptyValueString {
                         DetailsFieldView(
-                            key: metadata.key.rawValue,
-                            value: emptyValueString, 
-                            badgeLabel: presentation.badgeLabel(for: metadata.key),
+                            key: key.rawValue,
+                            value: emptyValueString,
+                            badge: presentation.badge(for: key),
                             valueColor: .mediumGray
                         )
                     } else {
                         DetailsFieldView(
-                            key: metadata.key.rawValue,
+                            key: key.rawValue,
                             value: fieldValue,
-                            badgeLabel: presentation.badgeLabel(for: metadata.key)
+                            badge: presentation.badge(for: key)
                         )
                     }
                 }
@@ -283,18 +283,18 @@ private extension EventDetailsView {
 
         private let key: LocalizedStringKey
         private let value: String
-        private let badgeLabel: LocalizedStringKey?
+        private let badge: Badge?
         private let valueColor: Color
 
         init(
             key: LocalizedStringKey,
             value: String,
-            badgeLabel: LocalizedStringKey?,
+            badge: Badge?,
             valueColor: Color = .extraDarkGray
         ) {
             self.key = key
             self.value = value
-            self.badgeLabel = badgeLabel
+            self.badge = badge
             self.valueColor = valueColor
         }
 
@@ -307,28 +307,53 @@ private extension EventDetailsView {
                         .kerning(0.14)
                         .foregroundStyle(valueColor)
                 }
+                .tint(.accent)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
 
         @ViewBuilder
         private var title: some View {
-            Group {
-                if let badgeLabel {
-                    Text(key)
-                        .foregroundColor(.regularGray) +
-                    Text(verbatim: " - ")
-                        .foregroundColor(.regularGray) +
-                    Text(badgeLabel)
-                        .foregroundColor(.accent)
-                } else {
-                    Text(key)
-                        .foregroundStyle(.regularGray)
+            HStack(spacing: 4.0) {
+                Group {
+                    if let badgeTitle {
+                        Text(key)
+                            .foregroundColor(.regularGray) +
+                        Text(verbatim: " - ")
+                            .foregroundColor(.regularGray) +
+                        Text(badgeTitle)
+                            .foregroundColor(.accent)
+                    } else {
+                        Text(key)
+                            .foregroundStyle(.regularGray)
+                    }
+                }
+                .font(.inter(size: 9.0))
+                .kerning(0.27)
+                .unredacted()
+                if case let .link(_, url) = badge {
+                    Link(destination: url) {
+                        Image(systemName: "arrow.up.right.square")
+                            .font(.system(size: 11.0, weight: .light))
+                            .foregroundStyle(.accent)
+                            .unredacted()
+                    }
                 }
             }
-            .font(.inter(size: 9.0))
-            .kerning(0.27)
-            .unredacted()
+        }
+
+        private var badgeTitle: AttributedString? {
+            switch badge {
+            case let .plain(title):
+                return .init(title)
+            case let .link(title, destination):
+                guard let title = try? AttributedString(markdown: "[\(title)](\(destination))") else {
+                    return .init(title)
+                }
+                return title
+            case .none:
+                return .none
+            }
         }
     }
 }
