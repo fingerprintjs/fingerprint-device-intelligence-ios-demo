@@ -11,6 +11,7 @@
 		153560372BC5BDF600BAD949 /* ClientResponseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153560362BC5BDF600BAD949 /* ClientResponseEvent.swift */; };
 		153560392BC6F7C600BAD949 /* SmartSignalsService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153560382BC6F7C600BAD949 /* SmartSignalsService+Preview.swift */; };
 		1535603C2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535603B2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift */; };
+		154A1D642C4A6F5400D268F4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 154A1D632C4A6F5400D268F4 /* Settings.bundle */; };
 		154B2F9E2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */; };
 		154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */; };
 		154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */; };
@@ -88,6 +89,7 @@
 		153560362BC5BDF600BAD949 /* ClientResponseEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientResponseEvent.swift; sourceTree = "<group>"; };
 		153560382BC6F7C600BAD949 /* SmartSignalsService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartSignalsService+Preview.swift"; sourceTree = "<group>"; };
 		1535603B2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartSignalsResponse+Preview.swift"; sourceTree = "<group>"; };
+		154A1D632C4A6F5400D268F4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceIdentificationService+Preview.swift"; sourceTree = "<group>"; };
 		154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Preview.swift"; sourceTree = "<group>"; };
 		154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionView.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				159A2DBA2BB60AAC00A470F1 /* Persistence */,
 				154B2F9B2B7A4241004E79AC /* PreviewContent */,
 				156D06682B188EA80015A456 /* Resources */,
+				154A1D632C4A6F5400D268F4 /* Settings.bundle */,
 				156D06552B16008C0015A456 /* UI */,
 			);
 			path = FingerprintProDemo;
@@ -639,6 +642,7 @@
 				156D063C2B0F5FA50015A456 /* Sources */,
 				156D063D2B0F5FA50015A456 /* Frameworks */,
 				156D063E2B0F5FA50015A456 /* Resources */,
+				154A1D662C4A829100D268F4 /* Set Settings Bundle Values */,
 			);
 			buildRules = (
 			);
@@ -701,11 +705,35 @@
 				156D06482B0F5FA60015A456 /* Assets.xcassets in Resources */,
 				156D06752B18B0190015A456 /* Localizable.xcstrings in Resources */,
 				1589C9D82B46C8360053A9FA /* PrivacyInfo.xcprivacy in Resources */,
+				154A1D642C4A6F5400D268F4 /* Settings.bundle in Resources */,
 				156D06542B0FB48F0015A456 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		154A1D662C4A829100D268F4 /* Set Settings Bundle Values */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Set Settings Bundle Values";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(CODESIGNING_FOLDER_PATH)/Settings.bundle/Root.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "readonly PLIST_BUDDY=\"/usr/libexec/PlistBuddy\"\nreadonly INFOPLIST=\"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n\nreadonly APP_MARKETING_VERSION=$($PLIST_BUDDY -c \"Print :CFBundleShortVersionString\" \"$INFOPLIST\")\nreadonly APP_BUILD_VERSION=$($PLIST_BUDDY -c \"Print :CFBundleVersion\" \"$INFOPLIST\")\n\n$PLIST_BUDDY -c \"Set :PreferenceSpecifiers:0:DefaultValue '$APP_MARKETING_VERSION ($APP_BUILD_VERSION)'\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		156D063C2B0F5FA50015A456 /* Sources */ = {
