@@ -14,7 +14,7 @@ struct ClientResponseEventViewModel: Equatable {
 
 extension ClientResponseEventViewModel {
 
-    func fieldValue<Key: PresentableFieldKey>(forKey key: Key) -> String {
+    func fieldValue<Key: PresentableFieldKey>(forKey key: Key) -> AttributedString {
         switch key {
         case let key as BasicResponseEventPresentability.FieldKey:
             return fieldValue(forKey: key)
@@ -46,7 +46,7 @@ extension ClientResponseEventViewModel {
 
 private extension ClientResponseEventViewModel {
 
-    func fieldValue(forKey key: BasicResponseEventPresentability.FieldKey) -> String {
+    func fieldValue(forKey key: BasicResponseEventPresentability.FieldKey) -> AttributedString {
         switch key {
         case .requestId:
             return requestIdFieldValue
@@ -74,7 +74,7 @@ private extension ClientResponseEventViewModel {
 
 private extension ClientResponseEventViewModel {
 
-    func fieldValue(forKey key: ExtendedResponseEventPresentability.FieldKey) -> String {
+    func fieldValue(forKey key: ExtendedResponseEventPresentability.FieldKey) -> AttributedString {
         switch key {
         case .requestId:
             return requestIdFieldValue
@@ -85,7 +85,7 @@ private extension ClientResponseEventViewModel {
         case .confidence:
             return confidenceFieldValue
         case .ipAddress:
-            return fingerprintResponse.ipAddress ?? ""
+            return .init(fingerprintResponse.ipAddress ?? "")
         case .ipLocation:
             guard
                 let location = fingerprintResponse.ipLocation,
@@ -93,14 +93,14 @@ private extension ClientResponseEventViewModel {
             else {
                 return ""
             }
-            guard let cityName = location.city?.name else { return "\(countryName)" }
-            return "\(cityName), \(countryName)"
+            guard let cityName = location.city?.name else { return .init(countryName) }
+            return .init("\(cityName), \(countryName)")
         case .firstSeenAt:
             guard let date = fingerprintResponse.firstSeenAt?.subscription else { return "" }
-            return Format.Date.iso8601Full(from: date)
+            return .init(Format.Date.iso8601Full(from: date))
         case .lastSeenAt:
             guard let date = fingerprintResponse.lastSeenAt?.subscription else { return "" }
-            return Format.Date.iso8601Full(from: date)
+            return .init(Format.Date.iso8601Full(from: date))
         case .vpn:
             return vpnFieldValue
         case .factoryReset:
@@ -121,48 +121,61 @@ private extension ClientResponseEventViewModel {
 
     var fingerprintResponse: FingerprintResponse { event.fingerprintResponse }
 
-    var requestIdFieldValue: String { fingerprintResponse.requestId }
+    var requestIdFieldValue: AttributedString { .init(fingerprintResponse.requestId) }
 
-    var visitorIdFieldValue: String { fingerprintResponse.visitorId }
+    var visitorIdFieldValue: AttributedString { .init(fingerprintResponse.visitorId) }
 
-    var visitorFoundFieldValue: String { LocalizedStrings.value(from: fingerprintResponse.visitorFound) }
+    var visitorFoundFieldValue: AttributedString {
+        LocalizedStrings.value(from: fingerprintResponse.visitorFound)
+    }
 
-    var confidenceFieldValue: String { Format.Number.percentString(from: fingerprintResponse.confidence) }
+    var confidenceFieldValue: AttributedString {
+        .init(Format.Number.percentString(from: fingerprintResponse.confidence))
+    }
 }
 
 private extension ClientResponseEventViewModel {
 
     var smartSignalsResponse: SmartSignalsResponse? { event.smartSignalsResponse }
 
-    var vpnFieldValue: String {
+    var vpnFieldValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard smartSignalsResponse.vpnDetected else { return LocalizedStrings.notDetected.rawValue }
         return .init(localized: "Device time zone is \(smartSignalsResponse.deviceTimezone)")
     }
 
-    var factoryResetFieldValue: String {
+    var factoryResetFieldValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard smartSignalsResponse.factoryResetDetected else { return LocalizedStrings.notDetected.rawValue }
-        return Format.Date.iso8601Full(from: smartSignalsResponse.factoryResetDate)
+        return .init(Format.Date.iso8601Full(from: smartSignalsResponse.factoryResetDate))
     }
 
-    var jailbreakFieldValue: String {
+    var jailbreakFieldValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         return LocalizedStrings.smartSignalValue(from: smartSignalsResponse.jailbreakDetected)
     }
 
-    var fridaFieldValue: String {
+    var fridaFieldValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         return LocalizedStrings.smartSignalValue(from: smartSignalsResponse.fridaDetected)
     }
 
-    var locationSpoofingFieldValue: String {
+    var locationSpoofingFieldValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard hasLocationPermission else { return .init(localized: "Requires location permission") }
+        guard hasLocationPermission else {
+            let text = String(localized: "Requires location permission")
+            guard
+                let url = C.URLs.appSettings,
+                let value = try? AttributedString(markdown: "[\(text)](\(url))")
+            else {
+                return .init(text)
+            }
+            return value
+        }
         return LocalizedStrings.smartSignalValue(from: smartSignalsResponse.locationSpoofingDetected)
     }
 
-    var highActivityFieldValue: String {
+    var highActivityFieldValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         let isHighActivity = smartSignalsResponse.isHighActivityDevice
         let dailyRequests = smartSignalsResponse.deviceDailyRequests
@@ -175,7 +188,7 @@ private extension ClientResponseEventViewModel {
 
 private extension ClientResponseEventViewModel {
 
-    enum LocalizedStrings: String {
+    enum LocalizedStrings: AttributedString {
 
         case yes
         case no
@@ -183,7 +196,7 @@ private extension ClientResponseEventViewModel {
         case detected
         case notDetected
 
-        var rawValue: String {
+        var rawValue: AttributedString {
             switch self {
             case .yes:
                 return .init(localized: "Yes")
@@ -196,11 +209,11 @@ private extension ClientResponseEventViewModel {
             }
         }
 
-        static func value(from boolean: Bool) -> String {
+        static func value(from boolean: Bool) -> AttributedString {
             (boolean ? Self.yes : Self.no).rawValue
         }
 
-        static func smartSignalValue(from boolean: Bool) -> String {
+        static func smartSignalValue(from boolean: Bool) -> AttributedString {
             (boolean ? Self.detected : Self.notDetected).rawValue
         }
     }

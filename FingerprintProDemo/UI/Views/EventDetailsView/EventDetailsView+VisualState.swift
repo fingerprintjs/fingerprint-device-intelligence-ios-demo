@@ -1,6 +1,8 @@
+import Foundation
+
 enum EventDetailsVisualState<FieldKey: PresentableFieldKey> {
     case loading
-    case presenting(fieldValue: (FieldKey) -> String, rawDetails: String)
+    case presenting(fieldValue: (FieldKey) -> AttributedString, rawDetails: String)
     case error(PresentableError, retryAction: () -> Void)
 }
 

@@ -141,14 +141,14 @@ private extension EventDetailsView {
                 ForEach(Presentation.fieldMetadata, id: \.id) { (_, key) in
                     DetailsFieldView(
                         key: key.rawValue,
-                        value: presentation.valuePlaceholder(for: key),
+                        value: .init(presentation.valuePlaceholder(for: key)),
                         badge: presentation.badge(for: key)
                     )
                 }
             case let .presenting(fieldValue, _):
                 ForEach(Presentation.fieldMetadata, id: \.id) { (_, key) in
                     let fieldValue = fieldValue(key)
-                    if fieldValue.isEmpty, let emptyValueString {
+                    if fieldValue.characters.isEmpty, let emptyValueString {
                         DetailsFieldView(
                             key: key.rawValue,
                             value: emptyValueString,
@@ -249,11 +249,11 @@ private extension EventDetailsView {
 
     var foremostFieldKey: LocalizedStringKey { presentation.foremostFieldKey.rawValue }
 
-    var foremostFieldValue: String {
+    var foremostFieldValue: AttributedString {
         let key = presentation.foremostFieldKey
         switch state {
         case .loading:
-            return presentation.valuePlaceholder(for: key)
+            return .init(presentation.valuePlaceholder(for: key))
         case let .presenting(fieldValue, _):
             return fieldValue(key)
         case .error:
@@ -263,7 +263,7 @@ private extension EventDetailsView {
 
     var detailsHeaderKey: LocalizedStringKey { presentation.detailsHeaderKey }
 
-    var emptyValueString: String? { presentation.emptyValueString }
+    var emptyValueString: AttributedString? { presentation.emptyValueString }
 
     func lineNumbersString(for text: String) -> String {
         (1...text.linesCount)
@@ -282,13 +282,13 @@ private extension EventDetailsView {
     struct DetailsFieldView: View {
 
         private let key: LocalizedStringKey
-        private let value: String
+        private let value: AttributedString
         private let badge: Badge?
         private let valueColor: Color
 
         init(
             key: LocalizedStringKey,
-            value: String,
+            value: AttributedString,
             badge: Badge?,
             valueColor: Color = .extraDarkGray
         ) {

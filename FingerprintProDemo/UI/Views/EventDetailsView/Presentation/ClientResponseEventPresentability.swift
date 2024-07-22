@@ -11,7 +11,7 @@ extension ClientResponseEventPresentability {
 
     var detailsHeaderKey: LocalizedStringKey { "API RESPONSE" }
 
-    var emptyValueString: String? { .init(localized: "N/A") }
+    var emptyValueString: AttributedString? { .init(localized: "N/A") }
 }
 
 private extension ClientResponseEventPresentability {
