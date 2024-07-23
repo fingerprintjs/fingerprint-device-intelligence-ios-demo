@@ -6,5 +6,5 @@ protocol URLConvertible {
 
 extension URL: URLConvertible {
 
-    func asURL() throws -> URL { self }
+    func asURL() -> URL { self }
 }

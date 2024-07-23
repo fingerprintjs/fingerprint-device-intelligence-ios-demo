@@ -16,12 +16,9 @@ extension ClientResponseEventViewModel {
 
     func fieldValue<Key: PresentableFieldKey>(forKey key: Key) -> AttributedString {
         switch key {
-        case let key as BasicResponseEventPresentability.FieldKey:
-            return fieldValue(forKey: key)
-        case let key as ExtendedResponseEventPresentability.FieldKey:
-            return fieldValue(forKey: key)
-        default:
-            return ""
+        case let key as BasicResponseEventPresentability.FieldKey: fieldValue(forKey: key)
+        case let key as ExtendedResponseEventPresentability.FieldKey: fieldValue(forKey: key)
+        default: ""
         }
     }
 }
@@ -48,26 +45,16 @@ private extension ClientResponseEventViewModel {
 
     func fieldValue(forKey key: BasicResponseEventPresentability.FieldKey) -> AttributedString {
         switch key {
-        case .requestId:
-            return requestIdFieldValue
-        case .visitorId:
-            return visitorIdFieldValue
-        case .visitorFound:
-            return visitorFoundFieldValue
-        case .confidence:
-            return confidenceFieldValue
-        case .vpn:
-            return vpnFieldValue
-        case .factoryReset:
-            return factoryResetFieldValue
-        case .jailbreak:
-            return jailbreakFieldValue
-        case .frida:
-            return fridaFieldValue
-        case .locationSpoofing:
-            return locationSpoofingFieldValue
-        case .highActivity:
-            return highActivityFieldValue
+        case .requestId: requestIdFieldValue
+        case .visitorId: visitorIdFieldValue
+        case .visitorFound: visitorFoundFieldValue
+        case .confidence: confidenceFieldValue
+        case .vpn: vpnFieldValue
+        case .factoryReset: factoryResetFieldValue
+        case .jailbreak: jailbreakFieldValue
+        case .frida: fridaFieldValue
+        case .locationSpoofing: locationSpoofingFieldValue
+        case .highActivity: highActivityFieldValue
         }
     }
 }
@@ -198,14 +185,10 @@ private extension ClientResponseEventViewModel {
 
         var rawValue: AttributedString {
             switch self {
-            case .yes:
-                return .init(localized: "Yes")
-            case .no:
-                return .init(localized: "No")
-            case .detected:
-                return .init(localized: "Detected")
-            case .notDetected:
-                return .init(localized: "Not detected")
+            case .yes: .init(localized: "Yes")
+            case .no: .init(localized: "No")
+            case .detected: .init(localized: "Detected")
+            case .notDetected: .init(localized: "Not detected")
             }
         }
 

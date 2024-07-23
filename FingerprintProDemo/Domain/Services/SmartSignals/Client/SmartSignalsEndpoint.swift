@@ -16,15 +16,13 @@ enum SmartSignalsEndpoint: URLConvertibleEndpoint {
 
     var path: String {
         switch self {
-        case let .event(requestId):
-            return "/event/\(requestId)"
+        case let .event(requestId): "/event/\(requestId)"
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .event:
-            return .get
+        case .event: .get
         }
     }
 

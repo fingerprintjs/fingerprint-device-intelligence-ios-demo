@@ -6,5 +6,5 @@ protocol URLRequestConvertible {
 
 extension URLRequest: URLRequestConvertible {
 
-    func asURLRequest() throws -> URLRequest { self }
+    func asURLRequest() -> URLRequest { self }
 }

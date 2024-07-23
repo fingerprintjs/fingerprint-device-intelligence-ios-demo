@@ -208,42 +208,32 @@ private extension EventDetailsView {
     var isLoading: Bool { state == .loading }
 
     var isPresenting: Bool {
-        switch state {
-        case .presenting:
-            return true
-        default:
-            return false
-        }
+        if case .presenting = state { true } else { false }
     }
 
     var showHeading: Bool {
         switch state {
         case .loading:
-            return presentation.loadingTitleKey != .none || presentation.loadingDescriptionKey != .none
+            presentation.loadingTitleKey != .none || presentation.loadingDescriptionKey != .none
         case .presenting:
-            return presentation.presentingTitleKey != .none
+            presentation.presentingTitleKey != .none
         case .error:
-            return false
+            false
         }
     }
 
     var headingTitleKey: LocalizedStringKey? {
         switch state {
-        case .loading:
-            return presentation.loadingTitleKey
-        case .presenting:
-            return presentation.presentingTitleKey
-        case .error:
-            return .none
+        case .loading: presentation.loadingTitleKey
+        case .presenting: presentation.presentingTitleKey
+        case .error: .none
         }
     }
 
     var headingDescriptionKey: LocalizedStringKey? {
         switch state {
-        case .loading:
-            return presentation.loadingDescriptionKey
-        case .presenting, .error:
-            return .none
+        case .loading: presentation.loadingDescriptionKey
+        case .presenting, .error: .none
         }
     }
 
@@ -387,15 +377,15 @@ private extension EventPresentability {
                     fieldValue: { key in
                         switch key {
                         case .requestId:
-                            return "1702058653176.gO9SYo"
+                            "1702058653176.gO9SYo"
                         case .visitorId:
-                            return "rVC74CiaXVZGVC69OBsP"
+                            "rVC74CiaXVZGVC69OBsP"
                         case .visitorFound:
-                            return "Yes"
+                            "Yes"
                         case .confidence:
-                            return "100%"
+                            "100%"
                         case .vpn, .factoryReset, .jailbreak, .frida, .locationSpoofing, .highActivity:
-                            return ""
+                            ""
                         }
                     },
                     rawDetails: """

@@ -44,20 +44,13 @@ struct BasicResponseEventPresentability: ClientResponseEventPresentability {
 
     func valuePlaceholder(for key: FieldKey) -> String {
         switch key {
-        case .visitorFound:
-            return .placeholder(length: 3)
-        case .confidence:
-            return .placeholder(length: 4)
-        case .jailbreak, .frida, .locationSpoofing:
-            return .placeholder(length: 12)
-        case .highActivity:
-            return .placeholder(length: 18)
-        case .requestId, .visitorId:
-            return .placeholder(length: 20)
-        case .factoryReset:
-            return .placeholder(length: 24)
-        case .vpn:
-            return .placeholder(length: 32)
+        case .visitorFound: .placeholder(length: 3)
+        case .confidence: .placeholder(length: 4)
+        case .jailbreak, .frida, .locationSpoofing: .placeholder(length: 12)
+        case .highActivity: .placeholder(length: 18)
+        case .requestId, .visitorId: .placeholder(length: 20)
+        case .factoryReset: .placeholder(length: 24)
+        case .vpn: .placeholder(length: 32)
         }
     }
 }

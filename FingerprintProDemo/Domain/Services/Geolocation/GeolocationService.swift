@@ -8,12 +8,9 @@ final class GeolocationService: NSObject, GeolocationServiceProtocol {
 
     var hasLocationPermission: Bool {
         switch currentAuthorizationStatus {
-        case .authorizedWhenInUse, .authorizedAlways:
-            return true
-        case .notDetermined, .restricted, .denied:
-            return false
-        @unknown default:
-            return false
+        case .authorizedWhenInUse, .authorizedAlways: true
+        case .notDetermined, .restricted, .denied: false
+        @unknown default: false
         }
     }
 

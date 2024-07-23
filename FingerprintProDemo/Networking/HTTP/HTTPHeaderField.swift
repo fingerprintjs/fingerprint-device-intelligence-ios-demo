@@ -8,23 +8,17 @@ extension HTTPHeaderField {
 
     var name: String {
         switch self {
-        case .accept:
-            return "Accept"
-        case .origin:
-            return "Origin"
-        case let .custom(name, _):
-            return name
+        case .accept: "Accept"
+        case .origin: "Origin"
+        case let .custom(name, _): name
         }
     }
 
     var value: String {
         switch self {
-        case let .accept(value):
-            return value
-        case let .origin(value):
-            return value
-        case let .custom(_, value):
-            return value
+        case let .accept(value): value
+        case let .origin(value): value
+        case let .custom(_, value): value
         }
     }
 }
