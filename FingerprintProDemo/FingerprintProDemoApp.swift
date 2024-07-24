@@ -9,17 +9,7 @@ struct FingerprintProDemoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView(
-                deviceFingerprintViewModel: {
-                    guard ConfigVariable.SmartSignals.isEnabled else {
-                        return .init(
-                            smartSignalsService: .none,
-                            geolocationService: GeolocationService(shouldRequestPermission: false)
-                        )
-                    }
-                    return .init()
-                }()
-            )
+            RootView()
         }
     }
 }
@@ -27,6 +17,9 @@ struct FingerprintProDemoApp: App {
 private extension FingerprintProDemoApp {
 
     func configureAppearance() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .font: UIFont.interFont(ofSize: 24.0, weight: .semibold),
+        ]
         UISegmentedControl.appearance().backgroundColor = .backgroundGray
         UISegmentedControl.appearance()
             .setTitleTextAttributes(

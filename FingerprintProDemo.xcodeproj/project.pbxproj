@@ -12,6 +12,9 @@
 		153560392BC6F7C600BAD949 /* SmartSignalsService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153560382BC6F7C600BAD949 /* SmartSignalsService+Preview.swift */; };
 		1535603C2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535603B2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift */; };
 		154A1D642C4A6F5400D268F4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 154A1D632C4A6F5400D268F4 /* Settings.bundle */; };
+		154A1D712C4FFBC900D268F4 /* UIFont+Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D702C4FFBC900D268F4 /* UIFont+Weight.swift */; };
+		154A1D762C5003D800D268F4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D752C5003D800D268F4 /* SettingsView.swift */; };
+		154A1D782C50048500D268F4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D772C50048500D268F4 /* RootView.swift */; };
 		154B2F9E2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */; };
 		154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */; };
 		154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */; };
@@ -90,6 +93,9 @@
 		153560382BC6F7C600BAD949 /* SmartSignalsService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartSignalsService+Preview.swift"; sourceTree = "<group>"; };
 		1535603B2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartSignalsResponse+Preview.swift"; sourceTree = "<group>"; };
 		154A1D632C4A6F5400D268F4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		154A1D702C4FFBC900D268F4 /* UIFont+Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Weight.swift"; sourceTree = "<group>"; };
+		154A1D752C5003D800D268F4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		154A1D772C50048500D268F4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceIdentificationService+Preview.swift"; sourceTree = "<group>"; };
 		154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Preview.swift"; sourceTree = "<group>"; };
 		154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionView.swift; sourceTree = "<group>"; };
@@ -181,6 +187,38 @@
 				153560362BC5BDF600BAD949 /* ClientResponseEvent.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		154A1D6D2C4FFB9F00D268F4 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				154A1D6F2C4FFBB600D268F4 /* UIFont */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		154A1D6F2C4FFBB600D268F4 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				154A1D702C4FFBC900D268F4 /* UIFont+Weight.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		154A1D732C5003C000D268F4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				154A1D742C5003C800D268F4 /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		154A1D742C5003C800D268F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				154A1D752C5003D800D268F4 /* SettingsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		154B2F9B2B7A4241004E79AC /* PreviewContent */ = {
@@ -292,8 +330,10 @@
 		156D065C2B17574C0015A456 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				154A1D772C50048500D268F4 /* RootView.swift */,
 				1589C9FB2B5805AE0053A9FA /* Common */,
 				156D065D2B1757770015A456 /* Home */,
+				154A1D732C5003C000D268F4 /* Settings */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -311,9 +351,10 @@
 		156D065E2B1772140015A456 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				156D065F2B1772270015A456 /* Foundation */,
 				156D06812B20EC0B0015A456 /* Swift */,
 				156D067D2B20DEBF0015A456 /* SwiftUI */,
-				156D065F2B1772270015A456 /* Foundation */,
+				154A1D6D2C4FFB9F00D268F4 /* UIKit */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -744,6 +785,7 @@
 				15B6D1B52B3324F10064F033 /* PresentableError.swift in Sources */,
 				15B6D1A82B31AC7D0064F033 /* ClientResponseEventViewModel.swift in Sources */,
 				159A2DE52BBEB5E400A470F1 /* HTTPClient.swift in Sources */,
+				154A1D782C50048500D268F4 /* RootView.swift in Sources */,
 				159A2DE02BBEB50500A470F1 /* URLConvertibleEndpoint.swift in Sources */,
 				156D06672B1772FF0015A456 /* Constants.swift in Sources */,
 				156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */,
@@ -764,6 +806,7 @@
 				15B16C212BC811AD00A6D8A2 /* GeolocationService+Preview.swift in Sources */,
 				159A2DCC2BB705C900A470F1 /* SettingsContainer+CodingStrategy.swift in Sources */,
 				153560372BC5BDF600BAD949 /* ClientResponseEvent.swift in Sources */,
+				154A1D762C5003D800D268F4 /* SettingsView.swift in Sources */,
 				15B6D1A32B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift in Sources */,
 				159026522B6919B400D3FF36 /* AppInfo.swift in Sources */,
 				15B6D19D2B30AEAC0064F033 /* Format+Date.swift in Sources */,
@@ -798,6 +841,7 @@
 				159A2DBD2BB60B8D00A470F1 /* PersistenceContainer.swift in Sources */,
 				154CDBA92BBF08F700D5C3AF /* HTTPHeaderField.swift in Sources */,
 				159A2DD82BBEB2D500A470F1 /* URLConvertible.swift in Sources */,
+				154A1D712C4FFBC900D268F4 /* UIFont+Weight.swift in Sources */,
 				156D06782B1DF99E0015A456 /* ErrorView.swift in Sources */,
 				153560392BC6F7C600BAD949 /* SmartSignalsService+Preview.swift in Sources */,
 				159A2DC52BB6E30000A470F1 /* DataDecoder.swift in Sources */,
