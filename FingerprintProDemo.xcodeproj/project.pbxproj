@@ -15,6 +15,7 @@
 		154A1D712C4FFBC900D268F4 /* UIFont+Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D702C4FFBC900D268F4 /* UIFont+Weight.swift */; };
 		154A1D762C5003D800D268F4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D752C5003D800D268F4 /* SettingsView.swift */; };
 		154A1D782C50048500D268F4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D772C50048500D268F4 /* RootView.swift */; };
+		154A1D7B2C5268A100D268F4 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D7A2C5268A100D268F4 /* KeychainStorage.swift */; };
 		154B2F9E2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */; };
 		154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */; };
 		154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */; };
@@ -60,7 +61,6 @@
 		159A2DC52BB6E30000A470F1 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DC42BB6E30000A470F1 /* DataDecoder.swift */; };
 		159A2DC72BB6E31300A470F1 /* DataEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DC62BB6E31300A470F1 /* DataEncoder.swift */; };
 		159A2DCA2BB7043700A470F1 /* SettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DC92BB7043700A470F1 /* SettingsContainer.swift */; };
-		159A2DCC2BB705C900A470F1 /* SettingsContainer+CodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DCB2BB705C900A470F1 /* SettingsContainer+CodingStrategy.swift */; };
 		159A2DCE2BB7085600A470F1 /* SettingsContainer+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DCD2BB7085600A470F1 /* SettingsContainer+Preview.swift */; };
 		159A2DD82BBEB2D500A470F1 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DD72BBEB2D500A470F1 /* URLConvertible.swift */; };
 		159A2DDC2BBEB38900A470F1 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DDB2BBEB38900A470F1 /* NetworkingError.swift */; };
@@ -96,6 +96,7 @@
 		154A1D702C4FFBC900D268F4 /* UIFont+Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Weight.swift"; sourceTree = "<group>"; };
 		154A1D752C5003D800D268F4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		154A1D772C50048500D268F4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		154A1D7A2C5268A100D268F4 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceIdentificationService+Preview.swift"; sourceTree = "<group>"; };
 		154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Preview.swift"; sourceTree = "<group>"; };
 		154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionView.swift; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 		159A2DC42BB6E30000A470F1 /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		159A2DC62BB6E31300A470F1 /* DataEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEncoder.swift; sourceTree = "<group>"; };
 		159A2DC92BB7043700A470F1 /* SettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContainer.swift; sourceTree = "<group>"; };
-		159A2DCB2BB705C900A470F1 /* SettingsContainer+CodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsContainer+CodingStrategy.swift"; sourceTree = "<group>"; };
 		159A2DCD2BB7085600A470F1 /* SettingsContainer+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsContainer+Preview.swift"; sourceTree = "<group>"; };
 		159A2DD72BBEB2D500A470F1 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
 		159A2DDB2BBEB38900A470F1 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
@@ -219,6 +219,14 @@
 				154A1D752C5003D800D268F4 /* SettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		154A1D792C52688600D268F4 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				154A1D7A2C5268A100D268F4 /* KeychainStorage.swift */,
+			);
+			path = Keychain;
 			sourceTree = "<group>";
 		};
 		154B2F9B2B7A4241004E79AC /* PreviewContent */ = {
@@ -497,6 +505,7 @@
 		159A2DBA2BB60AAC00A470F1 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				154A1D792C52688600D268F4 /* Keychain */,
 				159A2DC02BB60C7100A470F1 /* UserDefaults */,
 				159A2DBE2BB60C1400A470F1 /* BackingStorage.swift */,
 				159A2DBC2BB60B8D00A470F1 /* PersistenceContainer.swift */,
@@ -516,7 +525,6 @@
 			isa = PBXGroup;
 			children = (
 				159A2DC92BB7043700A470F1 /* SettingsContainer.swift */,
-				159A2DCB2BB705C900A470F1 /* SettingsContainer+CodingStrategy.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -799,12 +807,12 @@
 				15B6D1AB2B3210EE0064F033 /* DeviceIdentificationService.swift in Sources */,
 				156D06902B272E3B0015A456 /* ClientResponseEventPresentability.swift in Sources */,
 				156D069C2B2B217F0015A456 /* ConfigVariable.swift in Sources */,
+				154A1D7B2C5268A100D268F4 /* KeychainStorage.swift in Sources */,
 				156D06882B25F8AF0015A456 /* EventPresentability.swift in Sources */,
 				154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */,
 				156D06802B20DEEE0015A456 /* View+RedactedIf.swift in Sources */,
 				156D068A2B25F8F90015A456 /* BasicResponseEventPresentability.swift in Sources */,
 				15B16C212BC811AD00A6D8A2 /* GeolocationService+Preview.swift in Sources */,
-				159A2DCC2BB705C900A470F1 /* SettingsContainer+CodingStrategy.swift in Sources */,
 				153560372BC5BDF600BAD949 /* ClientResponseEvent.swift in Sources */,
 				154A1D762C5003D800D268F4 /* SettingsView.swift in Sources */,
 				15B6D1A32B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift in Sources */,

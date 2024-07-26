@@ -1,43 +1,70 @@
 protocol PersistableValueKey: CaseIterable, RawRepresentable where RawValue == String {}
 
-protocol PersistableValueCodingStrategy<Key> {
+protocol ReadOnlyPersistenceContainer<Key> {
 
     associatedtype Key: PersistableValueKey
 
-    func valueEncoder(forKey key: Key) -> any DataEncoder
-    func valueDecoder(forKey key: Key) -> any DataDecoder
+    func containsValue(forKey key: Key) -> Bool
+    func loadValue<Value: Decodable>(_ valueType: Value.Type, forKey key: Key) -> Result<Value, any Error>
 }
 
-struct PersistenceContainer<Key: PersistableValueKey> {
+struct PersistenceStrategy<Key: PersistableValueKey> {
 
-    private let backingStorage: any BackingStorage
-    private let codingStrategy: any PersistableValueCodingStrategy<Key>
+    private let _backingStorageForKey: (Key) -> any BackingStorage
+    private let _valueEncoderForKey: (Key) -> any DataEncoder
+    private let _valueDecoderForKey: (Key) -> any DataDecoder
 
     init(
-        backingStorage: any BackingStorage,
-        codingStrategy: any PersistableValueCodingStrategy<Key>
+        backingStorageForKey: @escaping (Key) -> any BackingStorage,
+        valueEncoderForKey: @escaping (Key) -> any DataEncoder,
+        valueDecoderForKey: @escaping (Key) -> any DataDecoder
     ) {
-        self.backingStorage = backingStorage
-        self.codingStrategy = codingStrategy
+        self._backingStorageForKey = backingStorageForKey
+        self._valueEncoderForKey = valueEncoderForKey
+        self._valueDecoderForKey = valueDecoderForKey
+    }
+
+    func backingStorage(forKey key: Key) -> any BackingStorage {
+        _backingStorageForKey(key)
+    }
+
+    func valueEncoder(forKey key: Key) -> any DataEncoder {
+        _valueEncoderForKey(key)
+    }
+
+    func valueDecoder(forKey key: Key) -> any DataDecoder {
+        _valueDecoderForKey(key)
+    }
+}
+
+struct PersistenceContainer<Key: PersistableValueKey>: ReadOnlyPersistenceContainer {
+
+    private let persistenceStrategy: PersistenceStrategy<Key>
+
+    init(persistenceStrategy: PersistenceStrategy<Key>) {
+        self.persistenceStrategy = persistenceStrategy
     }
 
     @discardableResult
     func storeValue<Value: Encodable>(_ value: Value, forKey key: Key) -> Result<Void, any Error> {
         .init {
-            let encoder = codingStrategy.valueEncoder(forKey: key)
+            let encoder = persistenceStrategy.valueEncoder(forKey: key)
             let data = try encoder.encode(value)
+            let backingStorage = persistenceStrategy.backingStorage(forKey: key)
             try backingStorage.writeData(data, forKey: key.rawValue)
         }
     }
 
     func containsValue(forKey key: Key) -> Bool {
-        backingStorage.containsData(forKey: key.rawValue)
+        let backingStorage = persistenceStrategy.backingStorage(forKey: key)
+        return backingStorage.containsData(forKey: key.rawValue)
     }
 
     func loadValue<Value: Decodable>(_ valueType: Value.Type = Value.self, forKey key: Key) -> Result<Value, any Error> {
         .init {
+            let backingStorage = persistenceStrategy.backingStorage(forKey: key)
             let data = try backingStorage.readData(forKey: key.rawValue)
-            let decoder = codingStrategy.valueDecoder(forKey: key)
+            let decoder = persistenceStrategy.valueDecoder(forKey: key)
             let value = try decoder.decode(valueType, from: data)
 
             return value
@@ -47,6 +74,7 @@ struct PersistenceContainer<Key: PersistableValueKey> {
     @discardableResult
     func removeValue(forKey key: Key) -> Result<Void, any Error> {
         .init {
+            let backingStorage = persistenceStrategy.backingStorage(forKey: key)
             try backingStorage.removeData(forKey: key.rawValue)
         }
     }
@@ -56,8 +84,9 @@ struct PersistenceContainer<Key: PersistableValueKey> {
         .init {
             try Key
                 .allCases
-                .map(\.rawValue)
-                .forEach(backingStorage.removeData(forKey:))
+                .forEach { key in
+                    try removeValue(forKey: key).get()
+                }
         }
     }
 }

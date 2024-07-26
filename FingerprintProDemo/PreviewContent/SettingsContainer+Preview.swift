@@ -4,8 +4,11 @@ extension SettingsContainer {
 
     static var preview: Self {
         .init(
-            backingStorage: UserDefaults.preview,
-            codingStrategy: CodingStrategy()
+            persistenceStrategy: .init(
+                backingStorageForKey: { _ in UserDefaults.preview },
+                valueEncoderForKey: { _ in JSONEncoder() },
+                valueDecoderForKey: { _ in JSONDecoder() }
+            )
         )
     }
 }
