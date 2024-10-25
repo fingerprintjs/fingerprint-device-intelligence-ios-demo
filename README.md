@@ -10,16 +10,16 @@
 
 <p align="center">
   <a href="https://developer.apple.com/xcode/">
-    <img src="https://img.shields.io/badge/Xcode-15.3-blue" alt="Supported Xcode versions">
+    <img src="https://img.shields.io/badge/Xcode-16.0%20%7C%2015.4-blue" alt="Supported Xcode versions">
   </a>
   <a href="https://www.swift.org/download/">
-    <img src="https://img.shields.io/badge/Swift-5.10-red" alt="Supported Swift versions">
+    <img src="https://img.shields.io/badge/Swift-6.0%20%7C%205.10-red" alt="Supported Swift versions">
   </a>
   <a href="https://www.apple.com/ios/">
     <img src="https://img.shields.io/badge/iOS-16.0+-lightgrey" alt="Supported iOS versions">
   </a>
-  <a href="https://github.com/fingerprintjs/fingerprintjs-pro-ios/releases/tag/2.4.0">
-    <img src="https://img.shields.io/badge/SDK-2.4.0-red" alt="Fingerprint Identification SDK version">
+  <a href="https://dev.fingerprint.com/docs/changelog-ios-sdk#v270">
+    <img src="https://img.shields.io/badge/SDK-2.7.0-red" alt="Fingerprint Identification SDK version">
   </a>
   <a href="https://developer.apple.com/documentation/swiftui/">
     <img src="https://img.shields.io/badge/SwiftUI-blue" alt="User interface framework">
