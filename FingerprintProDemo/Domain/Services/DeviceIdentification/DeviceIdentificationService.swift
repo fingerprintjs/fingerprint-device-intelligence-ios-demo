@@ -6,7 +6,7 @@ protocol FingerprintClientFactory {
     static func getInstance(_ configuration: Configuration) -> FingerprintClient
 }
 
-protocol DeviceIdentificationServiceProtocol {
+protocol DeviceIdentificationServiceProtocol: Sendable {
     func fingerprintDevice() async -> Result<FingerprintResponse, any Error>
 }
 

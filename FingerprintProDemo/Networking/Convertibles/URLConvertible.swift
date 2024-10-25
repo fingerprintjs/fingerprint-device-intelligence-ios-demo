@@ -1,6 +1,6 @@
 import Foundation
 
-protocol URLConvertible {
+protocol URLConvertible: Sendable {
     func asURL() throws -> URL
 }
 

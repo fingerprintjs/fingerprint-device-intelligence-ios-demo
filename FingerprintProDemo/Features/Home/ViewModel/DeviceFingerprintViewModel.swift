@@ -17,10 +17,10 @@ final class DeviceFingerprintViewModel: ObservableObject {
     @Published private(set) var fingerprintingState: FingerprintingState = .undefined
     @Published private(set) var shouldShowSignUp: Bool = false
 
-    private let identificationService: any DeviceIdentificationServiceProtocol
-    private let smartSignalsService: (any SmartSignalsServiceProtocol)?
-    private let geolocationService: any GeolocationServiceProtocol
-    private let settingsContainer: SettingsContainer
+    private nonisolated let identificationService: any DeviceIdentificationServiceProtocol
+    private nonisolated let smartSignalsService: (any SmartSignalsServiceProtocol)?
+    private nonisolated let geolocationService: any GeolocationServiceProtocol
+    private nonisolated let settingsContainer: SettingsContainer
 
     init(
         identificationService: any DeviceIdentificationServiceProtocol = .default,

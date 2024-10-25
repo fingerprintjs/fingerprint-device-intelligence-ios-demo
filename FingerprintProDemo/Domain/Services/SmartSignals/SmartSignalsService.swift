@@ -1,4 +1,4 @@
-protocol SmartSignalsServiceProtocol {
+protocol SmartSignalsServiceProtocol: Sendable {
     func fetchSignals(for requestId: String) async -> Result<SmartSignalsResponse, any Error>
 }
 

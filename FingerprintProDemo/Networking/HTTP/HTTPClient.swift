@@ -1,6 +1,6 @@
 import Foundation
 
-final class HTTPClient {
+final class HTTPClient: Sendable {
 
     private let session: URLSession
 
@@ -14,7 +14,7 @@ extension HTTPClient {
     func request<
         Convertible: URLConvertible,
         Encoder: DataEncoder,
-        Response: Decodable,
+        Response: Decodable & Sendable,
         Decoder: DataDecoder
     >(
         _ convertible: Convertible,
@@ -45,7 +45,7 @@ extension HTTPClient {
 
     func request<
         Convertible: URLRequestConvertible,
-        Response: Decodable,
+        Response: Decodable & Sendable,
         Decoder: DataDecoder
     >(
         _ convertible: Convertible,

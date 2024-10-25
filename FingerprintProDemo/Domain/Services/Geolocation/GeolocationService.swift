@@ -1,20 +1,25 @@
-import CoreLocation
+@preconcurrency import CoreLocation
+import os
 
-protocol GeolocationServiceProtocol {
+protocol GeolocationServiceProtocol: Sendable {
     var hasLocationPermission: Bool { get }
 }
 
 final class GeolocationService: NSObject, GeolocationServiceProtocol {
 
     var hasLocationPermission: Bool {
-        switch currentAuthorizationStatus {
-        case .authorizedWhenInUse, .authorizedAlways: true
-        case .notDetermined, .restricted, .denied: false
-        @unknown default: false
+        currentAuthorizationStatus.withLock { status in
+            switch status {
+            case .authorizedWhenInUse, .authorizedAlways: true
+            case .notDetermined, .restricted, .denied: false
+            @unknown default: false
+            }
         }
     }
 
-    private lazy var currentAuthorizationStatus: CLAuthorizationStatus = locationManager.authorizationStatus
+    private let currentAuthorizationStatus = OSAllocatedUnfairLock<CLAuthorizationStatus>(
+        initialState: .notDetermined
+    )
 
     private let locationManager = CLLocationManager()
     private let shouldRequestPermission: Bool
@@ -29,8 +34,10 @@ final class GeolocationService: NSObject, GeolocationServiceProtocol {
 extension GeolocationService: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        currentAuthorizationStatus = manager.authorizationStatus
-        guard currentAuthorizationStatus == .notDetermined, shouldRequestPermission else { return }
-        manager.requestWhenInUseAuthorization()
+        currentAuthorizationStatus.withLock { status in
+            status = manager.authorizationStatus
+            guard status == .notDetermined, shouldRequestPermission else { return }
+            manager.requestWhenInUseAuthorization()
+        }
     }
 }

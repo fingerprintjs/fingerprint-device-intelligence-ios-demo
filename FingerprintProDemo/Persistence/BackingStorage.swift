@@ -1,6 +1,6 @@
 import Foundation
 
-protocol BackingStorage {
+protocol BackingStorage: Sendable {
     func writeData(_ data: Data, forKey key: String) throws
     func readData(forKey key: String) throws -> Data
     func removeData(forKey key: String) throws

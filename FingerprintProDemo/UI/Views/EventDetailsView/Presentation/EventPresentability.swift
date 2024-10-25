@@ -1,7 +1,9 @@
 import SwiftUI
 
+@MainActor
 protocol PresentableFieldKey: RawRepresentable, CaseIterable where Self.RawValue == LocalizedStringKey {}
 
+@MainActor
 protocol EventPresentability {
 
     associatedtype FieldKey: PresentableFieldKey

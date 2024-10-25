@@ -1,6 +1,6 @@
 protocol PersistableValueKey: CaseIterable, RawRepresentable where RawValue == String {}
 
-protocol ReadOnlyPersistenceContainer<Key> {
+protocol ReadOnlyPersistenceContainer<Key>: Sendable {
 
     associatedtype Key: PersistableValueKey
 
@@ -8,16 +8,16 @@ protocol ReadOnlyPersistenceContainer<Key> {
     func loadValue<Value: Decodable>(_ valueType: Value.Type, forKey key: Key) -> Result<Value, any Error>
 }
 
-struct PersistenceStrategy<Key: PersistableValueKey> {
+struct PersistenceStrategy<Key: PersistableValueKey>: Sendable {
 
-    private let _backingStorageForKey: (Key) -> any BackingStorage
-    private let _valueEncoderForKey: (Key) -> any DataEncoder
-    private let _valueDecoderForKey: (Key) -> any DataDecoder
+    private let _backingStorageForKey: @Sendable (Key) -> any BackingStorage
+    private let _valueEncoderForKey: @Sendable (Key) -> any DataEncoder
+    private let _valueDecoderForKey: @Sendable (Key) -> any DataDecoder
 
     init(
-        backingStorageForKey: @escaping (Key) -> any BackingStorage,
-        valueEncoderForKey: @escaping (Key) -> any DataEncoder,
-        valueDecoderForKey: @escaping (Key) -> any DataDecoder
+        backingStorageForKey: @escaping @Sendable (Key) -> any BackingStorage,
+        valueEncoderForKey: @escaping @Sendable (Key) -> any DataEncoder,
+        valueDecoderForKey: @escaping @Sendable (Key) -> any DataDecoder
     ) {
         self._backingStorageForKey = backingStorageForKey
         self._valueEncoderForKey = valueEncoderForKey

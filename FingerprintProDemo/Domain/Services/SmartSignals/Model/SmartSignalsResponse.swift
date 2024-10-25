@@ -1,10 +1,10 @@
 import Foundation
 
-struct SmartSignalsResponse: Decodable, Equatable {
+struct SmartSignalsResponse: Decodable, Equatable, Sendable {
 
     let products: Products
 
-    struct Products: Codable, Equatable {
+    struct Products: Codable, Equatable, Sendable {
         let factoryReset: FactoryResetSignal
         let frida: FridaSignal
         let highActivity: HighActivitySignal
@@ -16,9 +16,9 @@ struct SmartSignalsResponse: Decodable, Equatable {
 
 extension SmartSignalsResponse {
 
-    struct FactoryResetSignal: Codable, Equatable {
+    struct FactoryResetSignal: Codable, Equatable, Sendable {
 
-        struct Data: Codable, Equatable {
+        struct Data: Codable, Equatable, Sendable {
             let time: Date
             let timestamp: Int64
         }
@@ -39,9 +39,9 @@ extension SmartSignalsResponse {
 
 extension SmartSignalsResponse {
 
-    struct HighActivitySignal: Codable, Equatable {
+    struct HighActivitySignal: Codable, Equatable, Sendable {
 
-        struct Data: Codable, Equatable {
+        struct Data: Codable, Equatable, Sendable {
             let result: Bool
             let dailyRequests: Int?
         }
@@ -69,11 +69,11 @@ extension SmartSignalsResponse {
 
 extension SmartSignalsResponse {
 
-    struct VPNSignal: Codable, Equatable {
+    struct VPNSignal: Codable, Equatable, Sendable {
 
-        struct Data: Codable, Equatable {
+        struct Data: Codable, Equatable, Sendable {
 
-            struct Methods: Codable, Equatable {
+            struct Methods: Codable, Equatable, Sendable {
                 let timezoneMismatch: Bool
                 let publicVPN: Bool
                 let auxiliaryMobile: Bool
@@ -94,9 +94,9 @@ extension SmartSignalsResponse {
 
 extension SmartSignalsResponse {
 
-    struct Result<T: Codable & Equatable>: Codable, Equatable {
+    struct Result<T: Codable & Equatable & Sendable>: Codable, Equatable, Sendable {
 
-        struct Data: Codable, Equatable {
+        struct Data: Codable, Equatable, Sendable {
             let result: T
         }
 

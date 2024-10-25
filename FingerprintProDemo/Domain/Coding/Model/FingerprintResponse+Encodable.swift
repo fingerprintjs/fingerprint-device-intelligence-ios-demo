@@ -1,6 +1,6 @@
 import FingerprintPro
 
-extension FingerprintResponse: Encodable {
+extension FingerprintResponse: Swift.Encodable {
 
     private enum CodingKeys: String, CodingKey {
         case version = "v"

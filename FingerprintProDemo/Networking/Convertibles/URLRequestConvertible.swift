@@ -1,6 +1,6 @@
 import Foundation
 
-protocol URLRequestConvertible {
+protocol URLRequestConvertible: Sendable {
     func asURLRequest() throws -> URLRequest
 }
 

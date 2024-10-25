@@ -26,3 +26,5 @@ extension UserDefaults: BackingStorage {
         removeObject(forKey: key)
     }
 }
+
+extension UserDefaults: @unchecked Swift.Sendable {}

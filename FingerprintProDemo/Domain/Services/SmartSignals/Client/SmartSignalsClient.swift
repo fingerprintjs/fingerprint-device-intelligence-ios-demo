@@ -1,9 +1,9 @@
 import Foundation
 
-protocol SmartSignalsClient {
+protocol SmartSignalsClient: Sendable {
     func request<
         Encoder: DataEncoder,
-        Response: Decodable,
+        Response: Decodable & Sendable,
         Decoder: DataDecoder
     >(
         _ endpoint: SmartSignalsEndpoint,
@@ -17,7 +17,7 @@ extension SmartSignalsClient {
 
     func request<
         Encoder: DataEncoder,
-        Response: Decodable,
+        Response: Decodable & Sendable,
         Decoder: DataDecoder
     >(
         _ endpoint: SmartSignalsEndpoint,
@@ -46,7 +46,7 @@ extension HTTPClient: SmartSignalsClient {
 
     func request<
         Encoder: DataEncoder,
-        Response: Decodable,
+        Response: Decodable & Sendable,
         Decoder: DataDecoder
     >(
         _ endpoint: SmartSignalsEndpoint,
