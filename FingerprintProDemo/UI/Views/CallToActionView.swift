@@ -6,19 +6,19 @@ struct CallToActionView: View {
     private let description: AttributedString
 
     private let primaryButtonTitle: String
-    private let primaryAction: () -> Void
+    private let primaryAction: @MainActor () -> Void
 
     private let secondaryButtonTitle: String
-    private let secondaryAction: () -> Void
+    private let secondaryAction: @MainActor () -> Void
 
     @_disfavoredOverload
     init(
         title: AttributedString,
         description: AttributedString,
         primaryButtonTitle: String,
-        primaryAction: @escaping () -> Void,
+        primaryAction: @escaping @MainActor () -> Void,
         secondaryButtonTitle: String,
-        secondaryAction: @escaping () -> Void
+        secondaryAction: @escaping @MainActor () -> Void
     ) {
         self.title = title
         self.description = description
@@ -32,9 +32,9 @@ struct CallToActionView: View {
         title: LocalizedStringResource,
         description: LocalizedStringResource,
         primaryButtonTitle: LocalizedStringResource,
-        primaryAction: @escaping () -> Void,
+        primaryAction: @escaping @MainActor () -> Void,
         secondaryButtonTitle: LocalizedStringResource,
-        secondaryAction: @escaping () -> Void
+        secondaryAction: @escaping @MainActor () -> Void
     ) {
         self.init(
             title: .init(localized: title),

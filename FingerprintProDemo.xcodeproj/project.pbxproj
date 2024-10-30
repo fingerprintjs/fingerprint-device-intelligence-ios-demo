@@ -25,6 +25,10 @@
 		154CDBAD2BC40AB400D5C3AF /* SmartSignalsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBAC2BC40AB400D5C3AF /* SmartSignalsService.swift */; };
 		154CDBAF2BC40D1A00D5C3AF /* SmartSignalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBAE2BC40D1A00D5C3AF /* SmartSignalsResponse.swift */; };
 		154CDBB12BC4124400D5C3AF /* SmartSignalsService+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBB02BC4124400D5C3AF /* SmartSignalsService+Default.swift */; };
+		155B712C2CD0FE3400F14EA8 /* CustomApiKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B712A2CD0FE0800F14EA8 /* CustomApiKeysView.swift */; };
+		155B71322CD14F2E00F14EA8 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B71302CD14F2C00F14EA8 /* SettingButton.swift */; };
+		155B71362CD241DB00F14EA8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B71352CD241D700F14EA8 /* SettingsViewModel.swift */; };
+		155B713B2CD24B3D00F14EA8 /* SettingsViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B713A2CD24B3800F14EA8 /* SettingsViewModel+Preview.swift */; };
 		156866532BFF62CF00E01772 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156866522BFF62CF00E01772 /* Badge.swift */; };
 		156866572BFFCDF800E01772 /* URL+WithFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156866562BFFCDF800E01772 /* URL+WithFragment.swift */; };
 		156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */; };
@@ -106,6 +110,10 @@
 		154CDBAC2BC40AB400D5C3AF /* SmartSignalsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsService.swift; sourceTree = "<group>"; };
 		154CDBAE2BC40D1A00D5C3AF /* SmartSignalsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsResponse.swift; sourceTree = "<group>"; };
 		154CDBB02BC4124400D5C3AF /* SmartSignalsService+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartSignalsService+Default.swift"; sourceTree = "<group>"; };
+		155B712A2CD0FE0800F14EA8 /* CustomApiKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomApiKeysView.swift; sourceTree = "<group>"; };
+		155B71302CD14F2C00F14EA8 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
+		155B71352CD241D700F14EA8 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		155B713A2CD24B3800F14EA8 /* SettingsViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Preview.swift"; sourceTree = "<group>"; };
 		156866522BFF62CF00E01772 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		156866562BFFCDF800E01772 /* URL+WithFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+WithFragment.swift"; sourceTree = "<group>"; };
 		156D06402B0F5FA50015A456 /* FingerprintProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FingerprintProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +216,7 @@
 		154A1D732C5003C000D268F4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				155B71342CD241CD00F14EA8 /* ViewModel */,
 				154A1D742C5003C800D268F4 /* View */,
 			);
 			path = Settings;
@@ -216,6 +225,7 @@
 		154A1D742C5003C800D268F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				155B712A2CD0FE0800F14EA8 /* CustomApiKeysView.swift */,
 				154A1D752C5003D800D268F4 /* SettingsView.swift */,
 			);
 			path = View;
@@ -257,6 +267,31 @@
 				154CDBAE2BC40D1A00D5C3AF /* SmartSignalsResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		155B712E2CD14F0400F14EA8 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				155B71302CD14F2C00F14EA8 /* SettingButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		155B71342CD241CD00F14EA8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				155B71352CD241D700F14EA8 /* SettingsViewModel.swift */,
+				155B71382CD24B0100F14EA8 /* Preview */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		155B71382CD24B0100F14EA8 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				155B713A2CD24B3800F14EA8 /* SettingsViewModel+Preview.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 		156866512BFF628B00E01772 /* Badge */ = {
@@ -310,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				156866512BFF628B00E01772 /* Badge */,
+				155B712E2CD14F0400F14EA8 /* Controls */,
 				15B6D1B22B3324B50064F033 /* Error */,
 				156D06562B1600930015A456 /* Styles */,
 				156D06762B1DF97A0015A456 /* Views */,
@@ -801,6 +837,7 @@
 				154CDBB12BC4124400D5C3AF /* SmartSignalsService+Default.swift in Sources */,
 				15B6D19A2B30AE750064F033 /* Format.swift in Sources */,
 				154B2F9E2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift in Sources */,
+				155B712C2CD0FE3400F14EA8 /* CustomApiKeysView.swift in Sources */,
 				154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */,
 				1589CA012B5806AA0053A9FA /* PresentableError+FromError.swift in Sources */,
 				156866532BFF62CF00E01772 /* Badge.swift in Sources */,
@@ -830,6 +867,7 @@
 				156866572BFFCDF800E01772 /* URL+WithFragment.swift in Sources */,
 				159A2DCE2BB7085600A470F1 /* SettingsContainer+Preview.swift in Sources */,
 				159A2DC72BB6E31300A470F1 /* DataEncoder.swift in Sources */,
+				155B71362CD241DB00F14EA8 /* SettingsViewModel.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
 				159A2DE92BBED8A900A470F1 /* SmartSignalsClient.swift in Sources */,
 				159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */,
@@ -844,8 +882,10 @@
 				159A2DDE2BBEB44600A470F1 /* URLRequestConvertible.swift in Sources */,
 				15B6D1B82B334A230064F033 /* DeviceFingerprintViewModel.swift in Sources */,
 				156D068C2B2726800015A456 /* EventDetailsView+VisualState.swift in Sources */,
+				155B71322CD14F2E00F14EA8 /* SettingButton.swift in Sources */,
 				159A2DCA2BB7043700A470F1 /* SettingsContainer.swift in Sources */,
 				156D067C2B20994E0015A456 /* EventDetailsView.swift in Sources */,
+				155B713B2CD24B3D00F14EA8 /* SettingsViewModel+Preview.swift in Sources */,
 				159A2DBD2BB60B8D00A470F1 /* PersistenceContainer.swift in Sources */,
 				154CDBA92BBF08F700D5C3AF /* HTTPHeaderField.swift in Sources */,
 				159A2DD82BBEB2D500A470F1 /* URLConvertible.swift in Sources */,
@@ -998,7 +1038,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/PreviewContent";
+				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/Features/Settings/ViewModel/Preview FingerprintProDemo/PreviewContent";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1035,7 +1075,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/PreviewContent";
+				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/Features/Settings/ViewModel/Preview FingerprintProDemo/PreviewContent";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

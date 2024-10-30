@@ -7,6 +7,7 @@ enum SettingKey: String, PersistableValueKey {
     case hideSignUpTimestamp = "settings.actions.hide_sign_up.timestamp"
 }
 
+typealias ReadOnlySettingsContainer = ReadOnlyPersistenceContainer<SettingKey>
 typealias SettingsContainer = PersistenceContainer<SettingKey>
 
 extension SettingsContainer {

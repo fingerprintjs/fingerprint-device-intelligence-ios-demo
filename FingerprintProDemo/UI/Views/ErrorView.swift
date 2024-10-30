@@ -5,14 +5,14 @@ struct ErrorView: View {
     private let systemImage: String
     private let title: AttributedString
     private let description: AttributedString
-    private let retryAction: () -> Void
+    private let retryAction: @MainActor () -> Void
 
     @_disfavoredOverload
     init(
         systemImage: String,
         title: AttributedString,
         description: AttributedString,
-        retryAction: @escaping () -> Void
+        retryAction: @escaping @MainActor () -> Void
     ) {
         self.systemImage = systemImage
         self.title = title
@@ -24,7 +24,7 @@ struct ErrorView: View {
         systemImage: String,
         title: LocalizedStringResource,
         description: LocalizedStringResource,
-        retryAction: @escaping () -> Void
+        retryAction: @escaping @MainActor () -> Void
     ) {
         self.init(
             systemImage: systemImage,

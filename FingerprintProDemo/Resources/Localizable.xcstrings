@@ -21,6 +21,16 @@
         }
       }
     },
+    "API Keys" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "API Keys"
+          }
+        }
+      }
+    },
     "API RESPONSE" : {
       "localizations" : {
         "en" : {
@@ -37,6 +47,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "CONFIDENCE"
+          }
+        }
+      }
+    },
+    "Custom API Keys" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Custom API Keys"
           }
         }
       }
@@ -261,6 +281,26 @@
         }
       }
     },
+    "Off" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Off"
+          }
+        }
+      }
+    },
+    "On" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On"
+          }
+        }
+      }
+    },
     "Please [contact support](%@) if this issue persists." : {
       "localizations" : {
         "en" : {
@@ -317,6 +357,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "RAW"
+          }
+        }
+      }
+    },
+    "Request" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request"
           }
         }
       }

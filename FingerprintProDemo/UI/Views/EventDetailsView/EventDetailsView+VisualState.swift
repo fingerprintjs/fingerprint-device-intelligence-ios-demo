@@ -3,7 +3,7 @@ import Foundation
 enum EventDetailsVisualState<FieldKey: PresentableFieldKey> {
     case loading
     case presenting(fieldValue: (FieldKey) -> AttributedString, rawDetails: String)
-    case error(PresentableError, retryAction: () -> Void)
+    case error(PresentableError, retryAction: @MainActor () -> Void)
 }
 
 extension EventDetailsVisualState: Equatable {
