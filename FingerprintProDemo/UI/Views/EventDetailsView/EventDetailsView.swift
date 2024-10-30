@@ -47,6 +47,7 @@ struct EventDetailsView<Presentation: EventPresentability, Actions: View>: View 
     }
 }
 
+@MainActor
 private extension EventDetailsView {
 
     @ViewBuilder
@@ -203,6 +204,7 @@ private extension EventDetailsView {
     }
 }
 
+@MainActor
 private extension EventDetailsView {
 
     var isLoading: Bool { state == .loading }
