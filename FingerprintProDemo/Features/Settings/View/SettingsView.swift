@@ -2,16 +2,19 @@ import SwiftUI
 
 struct SettingsView: View {
 
-    private enum Route: Hashable {
-        case apiKeys
-    }
+    private typealias Route = SettingsRoute
 
     @State private var navigationPath = NavigationPath()
 
     @StateObject private var viewModel: SettingsViewModel
+    private let navigationDestinationHandler: SettingsNavigationDestinationHandler
 
-    init(viewModel: SettingsViewModel) {
+    init(
+        viewModel: SettingsViewModel,
+        navigationDestinationHandler: SettingsNavigationDestinationHandler
+    ) {
         self._viewModel = .init(wrappedValue: viewModel)
+        self.navigationDestinationHandler = navigationDestinationHandler
     }
 
     var body: some View {
@@ -19,7 +22,7 @@ struct SettingsView: View {
             List {
                 section(titled: "Request") {
                     SettingButton(
-                        "Custom API Keys",
+                        "API Keys",
                         systemImage: "key.horizontal",
                         accessoryType: .disclosureIndicator(
                             textKey: viewModel.apiKeysEnabled ? "On" : "Off"
@@ -32,11 +35,10 @@ struct SettingsView: View {
             .background(.backgroundGray)
             .scrollContentBackground(.hidden)
             .navigationTitle("Settings")
-            .navigationDestination(for: Route.self) { route in
-                switch route {
-                case .apiKeys: CustomApiKeysView()
-                }
-            }
+            .navigationDestination(
+                for: Route.self,
+                destination: navigationDestinationHandler.destination(for:)
+            )
             .onAppear {
                 viewModel.viewDidAppear()
             }
@@ -69,7 +71,10 @@ private extension SettingsView {
 #if DEBUG
 
 #Preview {
-    SettingsView(viewModel: .preview)
+    SettingsView(
+        viewModel: .preview,
+        navigationDestinationHandler: .preview
+    )
 }
 
 #endif

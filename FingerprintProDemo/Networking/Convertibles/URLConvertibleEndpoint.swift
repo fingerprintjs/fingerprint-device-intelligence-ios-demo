@@ -8,7 +8,7 @@ protocol URLConvertibleEndpoint: URLConvertible {
 extension URLConvertibleEndpoint {
 
     func asURL() throws -> URL {
-        try baseURL.appendingPathComponent(path)
+        path.isEmpty ? try baseURL : try baseURL.appendingPathComponent(path)
     }
 }
 

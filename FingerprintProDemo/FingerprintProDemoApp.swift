@@ -29,5 +29,6 @@ private extension FingerprintProDemoApp {
                 ],
                 for: .normal
             )
+        UITextField.appearance().clearButtonMode = .whileEditing
     }
 }

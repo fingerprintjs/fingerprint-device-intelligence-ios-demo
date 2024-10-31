@@ -11,6 +11,26 @@
         }
       }
     },
+    "A public key is required to get a visitor ID." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A public key is required to get a visitor ID."
+          }
+        }
+      }
+    },
+    "A secret key is required to fetch Smart Signals." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A secret key is required to fetch Smart Signals."
+          }
+        }
+      }
+    },
     "An unexpected error occurred..." : {
       "localizations" : {
         "en" : {
@@ -41,6 +61,16 @@
         }
       }
     },
+    "Asia (Mumbai)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asia (Mumbai)"
+          }
+        }
+      }
+    },
     "CONFIDENCE" : {
       "localizations" : {
         "en" : {
@@ -51,12 +81,12 @@
         }
       }
     },
-    "Custom API Keys" : {
+    "Continue editing" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Custom API Keys"
+            "value" : "Continue editing"
           }
         }
       }
@@ -101,6 +131,16 @@
         }
       }
     },
+    "Discard changes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discard changes"
+          }
+        }
+      }
+    },
     "Documentation" : {
       "localizations" : {
         "en" : {
@@ -117,6 +157,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Don’t show again for a week"
+          }
+        }
+      }
+    },
+    "EU" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "EU"
           }
         }
       }
@@ -171,6 +221,16 @@
         }
       }
     },
+    "Global (US)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Global (US)"
+          }
+        }
+      }
+    },
     "Hang tight," : {
       "localizations" : {
         "en" : {
@@ -207,6 +267,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Impressed with Fingerprint?"
+          }
+        }
+      }
+    },
+    "Invalid keys..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid keys..."
           }
         }
       }
@@ -351,6 +421,26 @@
         }
       }
     },
+    "Public API Key" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Public API Key"
+          }
+        }
+      }
+    },
+    "Public Key" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Public Key"
+          }
+        }
+      }
+    },
     "RAW" : {
       "localizations" : {
         "en" : {
@@ -391,12 +481,42 @@
         }
       }
     },
+    "Secret API Key" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secret API Key"
+          }
+        }
+      }
+    },
+    "Secret Key" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Secret Key"
+          }
+        }
+      }
+    },
     "Server cannot be reached" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Server cannot be reached"
+          }
+        }
+      }
+    },
+    "Server Region" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server Region"
           }
         }
       }
@@ -437,6 +557,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SMART SIGNAL"
+          }
+        }
+      }
+    },
+    "Specify the server region of your Fingerprint app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Specify the server region of your Fingerprint app."
           }
         }
       }
@@ -501,6 +631,16 @@
         }
       }
     },
+    "Use your API keys" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use your API keys"
+          }
+        }
+      }
+    },
     "VISITOR FOUND" : {
       "localizations" : {
         "en" : {
@@ -531,12 +671,42 @@
         }
       }
     },
+    "When enabled, the app will use your API keys to make all the requests. These requests will count towards your monthly allowance." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When enabled, the app will use your API keys to make all the requests. These requests will count towards your monthly allowance."
+          }
+        }
+      }
+    },
     "Yes" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yes"
+          }
+        }
+      }
+    },
+    "You can obtain API keys by logging in to [fingerprint.com](%@)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can obtain API keys by logging in to [fingerprint.com](%@)."
+          }
+        }
+      }
+    },
+    "Your changes will not be saved. If you choose to discard, the app will use default API keys to make all requests." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your changes will not be saved. If you choose to discard, the app will use default API keys to make all requests."
           }
         }
       }

@@ -29,3 +29,49 @@ extension SettingsContainer {
         )
     }
 }
+
+extension ReadOnlySettingsContainer {
+
+    var apiKeysEnabled: Bool {
+        get throws {
+            try loadValue(forKey: .apiKeysEnabled)
+        }
+    }
+
+    var apiKeysConfig: ApiKeysConfig {
+        get throws {
+            try loadValue(forKey: .apiKeys)
+        }
+    }
+
+    var fingerprintCount: Int {
+        get throws {
+            try loadValue(forKey: .fingerprintCount)
+        }
+    }
+
+    var hideSignUpTimestamp: TimeInterval {
+        get throws {
+            try loadValue(forKey: .hideSignUpTimestamp)
+        }
+    }
+}
+
+extension SettingsContainer {
+
+    func setApiKeysEnabled(_ value: Bool) throws {
+        try storeValue(value, forKey: .apiKeysEnabled)
+    }
+
+    func setApiKeysConfig(_ value: ApiKeysConfig) throws {
+        try storeValue(value, forKey: .apiKeys)
+    }
+
+    func setFingerprintCount(_ value: Int) throws {
+        try storeValue(value, forKey: .fingerprintCount)
+    }
+
+    func setHideSignUpTimestamp(_ value: TimeInterval) throws {
+        try storeValue(value, forKey: .hideSignUpTimestamp)
+    }
+}

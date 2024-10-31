@@ -15,9 +15,7 @@ final class SettingsViewModel: ObservableObject {
 extension SettingsViewModel {
 
     func viewDidAppear() {
-        let apiKeysEnabled = try? settingsContainer
-            .loadValue(Bool.self, forKey: .apiKeysEnabled)
-            .get()
+        let apiKeysEnabled = try? settingsContainer.apiKeysEnabled
         guard let apiKeysEnabled, apiKeysEnabled != self.apiKeysEnabled else { return }
         self.apiKeysEnabled = apiKeysEnabled
     }

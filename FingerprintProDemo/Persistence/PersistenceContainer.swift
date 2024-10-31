@@ -5,7 +5,14 @@ protocol ReadOnlyPersistenceContainer<Key>: Sendable {
     associatedtype Key: PersistableValueKey
 
     func containsValue(forKey key: Key) -> Bool
-    func loadValue<Value: Decodable>(_ valueType: Value.Type, forKey key: Key) -> Result<Value, any Error>
+    func loadValue<Value: Decodable>(_ valueType: Value.Type, forKey key: Key) throws -> Value
+}
+
+extension ReadOnlyPersistenceContainer {
+
+    func loadValue<Value: Decodable>(_ valueType: Value.Type = Value.self, forKey key: Key) throws -> Value {
+        try loadValue(valueType, forKey: key)
+    }
 }
 
 struct PersistenceStrategy<Key: PersistableValueKey>: Sendable {
@@ -45,14 +52,11 @@ struct PersistenceContainer<Key: PersistableValueKey>: ReadOnlyPersistenceContai
         self.persistenceStrategy = persistenceStrategy
     }
 
-    @discardableResult
-    func storeValue<Value: Encodable>(_ value: Value, forKey key: Key) -> Result<Void, any Error> {
-        .init {
-            let encoder = persistenceStrategy.valueEncoder(forKey: key)
-            let data = try encoder.encode(value)
-            let backingStorage = persistenceStrategy.backingStorage(forKey: key)
-            try backingStorage.writeData(data, forKey: key.rawValue)
-        }
+    func storeValue<Value: Encodable>(_ value: Value, forKey key: Key) throws {
+        let encoder = persistenceStrategy.valueEncoder(forKey: key)
+        let data = try encoder.encode(value)
+        let backingStorage = persistenceStrategy.backingStorage(forKey: key)
+        try backingStorage.writeData(data, forKey: key.rawValue)
     }
 
     func containsValue(forKey key: Key) -> Bool {
@@ -60,33 +64,25 @@ struct PersistenceContainer<Key: PersistableValueKey>: ReadOnlyPersistenceContai
         return backingStorage.containsData(forKey: key.rawValue)
     }
 
-    func loadValue<Value: Decodable>(_ valueType: Value.Type = Value.self, forKey key: Key) -> Result<Value, any Error> {
-        .init {
-            let backingStorage = persistenceStrategy.backingStorage(forKey: key)
-            let data = try backingStorage.readData(forKey: key.rawValue)
-            let decoder = persistenceStrategy.valueDecoder(forKey: key)
-            let value = try decoder.decode(valueType, from: data)
+    func loadValue<Value: Decodable>(_ valueType: Value.Type = Value.self, forKey key: Key) throws -> Value {
+        let backingStorage = persistenceStrategy.backingStorage(forKey: key)
+        let data = try backingStorage.readData(forKey: key.rawValue)
+        let decoder = persistenceStrategy.valueDecoder(forKey: key)
+        let value = try decoder.decode(valueType, from: data)
 
-            return value
-        }
+        return value
     }
 
-    @discardableResult
-    func removeValue(forKey key: Key) -> Result<Void, any Error> {
-        .init {
-            let backingStorage = persistenceStrategy.backingStorage(forKey: key)
-            try backingStorage.removeData(forKey: key.rawValue)
-        }
+    func removeValue(forKey key: Key) throws {
+        let backingStorage = persistenceStrategy.backingStorage(forKey: key)
+        try backingStorage.removeData(forKey: key.rawValue)
     }
 
-    @discardableResult
-    func clear() -> Result<Void, any Error> {
-        .init {
-            try Key
-                .allCases
-                .forEach { key in
-                    try removeValue(forKey: key).get()
-                }
-        }
+    func clear() throws {
+        try Key
+            .allCases
+            .forEach { key in
+                try removeValue(forKey: key)
+            }
     }
 }

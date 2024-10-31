@@ -15,7 +15,10 @@ extension RootView where Home == HomeView, Settings == SettingsView {
                 return .init()
             }()
         )
-        settings = .init(viewModel: .init())
+        settings = .init(
+            viewModel: .init(),
+            navigationDestinationHandler: .default
+        )
     }
 }
 
@@ -58,7 +61,10 @@ struct RootView<Home, Settings>: View where Home: View, Settings: View {
             HomeView(deviceFingerprintViewModel: .preview)
         },
         settings: {
-            SettingsView(viewModel: .preview)
+            SettingsView(
+                viewModel: .preview,
+                navigationDestinationHandler: .preview
+            )
         }
     )
 }

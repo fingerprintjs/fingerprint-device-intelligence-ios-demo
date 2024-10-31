@@ -8,6 +8,7 @@ enum C {
         static var appSettings: URL? { URL(string: UIApplication.openSettingsURLString) }
         static var documentation: URL { .init(staticString: "https://dev.fingerprint.com/docs/ios-sdk") }
         static var privacyPolicy: URL { .init(staticString: "https://dev.fingerprint.com/docs/privacy-policy") }
+        static var signIn: URL { .init(staticString: "https://dashboard.fingerprint.com/login") }
         static var signUp: URL {
             #if DEBUG
             .init(staticString: "https://dashboard.fingerprint.com/signup")

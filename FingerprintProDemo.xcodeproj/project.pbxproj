@@ -74,6 +74,13 @@
 		159A2DE52BBEB5E400A470F1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */; };
 		159A2DE92BBED8A900A470F1 /* SmartSignalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE82BBED8A900A470F1 /* SmartSignalsClient.swift */; };
 		159A2DEC2BBED90100A470F1 /* SmartSignalsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DEB2BBED90100A470F1 /* SmartSignalsEndpoint.swift */; };
+		159F97662CD921CB00EBABED /* CustomApiKeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F97642CD921C200EBABED /* CustomApiKeysViewModel.swift */; };
+		159F976E2CD95F8900EBABED /* CustomApiKeysViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F976D2CD95F8400EBABED /* CustomApiKeysViewModel+Preview.swift */; };
+		159F98202CDA3C5100EBABED /* NavigationDestinationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F981F2CDA3C4E00EBABED /* NavigationDestinationHandler.swift */; };
+		159F98232CDA3D6700EBABED /* SettingsNavigationDestinationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F98222CDA3D6500EBABED /* SettingsNavigationDestinationHandler.swift */; };
+		159F98262CDA3DE100EBABED /* SettingsNavigationDestinationHandler+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F98252CDA3DD700EBABED /* SettingsNavigationDestinationHandler+Preview.swift */; };
+		159F982A2CDA473100EBABED /* Region+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F98292CDA472B00EBABED /* Region+Codable.swift */; };
+		159F982D2CDA47B300EBABED /* ApiKeysConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F982C2CDA47B100EBABED /* ApiKeysConfig.swift */; };
 		15B16C1C2BC8030100A6D8A2 /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C1B2BC8030100A6D8A2 /* GeolocationService.swift */; };
 		15B16C1F2BC80D7600A6D8A2 /* GeolocationService+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C1E2BC80D7600A6D8A2 /* GeolocationService+Default.swift */; };
 		15B16C212BC811AD00A6D8A2 /* GeolocationService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C202BC811AD00A6D8A2 /* GeolocationService+Preview.swift */; };
@@ -89,6 +96,7 @@
 		15B6D1B52B3324F10064F033 /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1B42B3324F10064F033 /* PresentableError.swift */; };
 		15B6D1B82B334A230064F033 /* DeviceFingerprintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1B72B334A230064F033 /* DeviceFingerprintViewModel.swift */; };
 		15B6D1BB2B334CDC0064F033 /* DeviceFingerprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1BA2B334CDC0064F033 /* DeviceFingerprintView.swift */; };
+		15D043A62CD3A472009C357F /* PresentableRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D043A42CD3A46E009C357F /* PresentableRegion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +168,13 @@
 		159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		159A2DE82BBED8A900A470F1 /* SmartSignalsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsClient.swift; sourceTree = "<group>"; };
 		159A2DEB2BBED90100A470F1 /* SmartSignalsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsEndpoint.swift; sourceTree = "<group>"; };
+		159F97642CD921C200EBABED /* CustomApiKeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomApiKeysViewModel.swift; sourceTree = "<group>"; };
+		159F976D2CD95F8400EBABED /* CustomApiKeysViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomApiKeysViewModel+Preview.swift"; sourceTree = "<group>"; };
+		159F981F2CDA3C4E00EBABED /* NavigationDestinationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestinationHandler.swift; sourceTree = "<group>"; };
+		159F98222CDA3D6500EBABED /* SettingsNavigationDestinationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationDestinationHandler.swift; sourceTree = "<group>"; };
+		159F98252CDA3DD700EBABED /* SettingsNavigationDestinationHandler+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsNavigationDestinationHandler+Preview.swift"; sourceTree = "<group>"; };
+		159F98292CDA472B00EBABED /* Region+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+Codable.swift"; sourceTree = "<group>"; };
+		159F982C2CDA47B100EBABED /* ApiKeysConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeysConfig.swift; sourceTree = "<group>"; };
 		15B16C1B2BC8030100A6D8A2 /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
 		15B16C1E2BC80D7600A6D8A2 /* GeolocationService+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeolocationService+Default.swift"; sourceTree = "<group>"; };
 		15B16C202BC811AD00A6D8A2 /* GeolocationService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeolocationService+Preview.swift"; sourceTree = "<group>"; };
@@ -174,6 +189,7 @@
 		15B6D1B42B3324F10064F033 /* PresentableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableError.swift; sourceTree = "<group>"; };
 		15B6D1B72B334A230064F033 /* DeviceFingerprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFingerprintViewModel.swift; sourceTree = "<group>"; };
 		15B6D1BA2B334CDC0064F033 /* DeviceFingerprintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFingerprintView.swift; sourceTree = "<group>"; };
+		15D043A42CD3A46E009C357F /* PresentableRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableRegion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +232,8 @@
 		154A1D732C5003C000D268F4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				15D043A12CD3A456009C357F /* Region */,
+				159F98212CDA3CD200EBABED /* Navigation */,
 				155B71342CD241CD00F14EA8 /* ViewModel */,
 				154A1D742C5003C800D268F4 /* View */,
 			);
@@ -280,6 +298,7 @@
 		155B71342CD241CD00F14EA8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				159F97642CD921C200EBABED /* CustomApiKeysViewModel.swift */,
 				155B71352CD241D700F14EA8 /* SettingsViewModel.swift */,
 				155B71382CD24B0100F14EA8 /* Preview */,
 			);
@@ -289,6 +308,7 @@
 		155B71382CD24B0100F14EA8 /* Preview */ = {
 			isa = PBXGroup;
 			children = (
+				159F976D2CD95F8400EBABED /* CustomApiKeysViewModel+Preview.swift */,
 				155B713A2CD24B3800F14EA8 /* SettingsViewModel+Preview.swift */,
 			);
 			path = Preview;
@@ -347,6 +367,7 @@
 				156866512BFF628B00E01772 /* Badge */,
 				155B712E2CD14F0400F14EA8 /* Controls */,
 				15B6D1B22B3324B50064F033 /* Error */,
+				159F981E2CDA3C3800EBABED /* Navigation */,
 				156D06562B1600930015A456 /* Styles */,
 				156D06762B1DF97A0015A456 /* Views */,
 			);
@@ -560,6 +581,7 @@
 		159A2DC82BB703E700A470F1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				159F982B2CDA47A100EBABED /* Model */,
 				159A2DC92BB7043700A470F1 /* SettingsContainer.swift */,
 			);
 			path = Settings;
@@ -623,6 +645,39 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
+		159F981E2CDA3C3800EBABED /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				159F981F2CDA3C4E00EBABED /* NavigationDestinationHandler.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		159F98212CDA3CD200EBABED /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				159F98222CDA3D6500EBABED /* SettingsNavigationDestinationHandler.swift */,
+				159F98242CDA3DAB00EBABED /* Preview */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		159F98242CDA3DAB00EBABED /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				159F98252CDA3DD700EBABED /* SettingsNavigationDestinationHandler+Preview.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		159F982B2CDA47A100EBABED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				159F982C2CDA47B100EBABED /* ApiKeysConfig.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		15B16C1A2BC802ED00A6D8A2 /* Geolocation */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,6 +723,7 @@
 			isa = PBXGroup;
 			children = (
 				15B6D1942B30A1460064F033 /* FingerprintResponse+Encodable.swift */,
+				159F98292CDA472B00EBABED /* Region+Codable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -715,6 +771,14 @@
 				15B6D1B42B3324F10064F033 /* PresentableError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		15D043A12CD3A456009C357F /* Region */ = {
+			isa = PBXGroup;
+			children = (
+				15D043A42CD3A46E009C357F /* PresentableRegion.swift */,
+			);
+			path = Region;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -825,6 +889,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				159F97662CD921CB00EBABED /* CustomApiKeysViewModel.swift in Sources */,
 				15B16C1C2BC8030100A6D8A2 /* GeolocationService.swift in Sources */,
 				15B6D1B52B3324F10064F033 /* PresentableError.swift in Sources */,
 				15B6D1A82B31AC7D0064F033 /* ClientResponseEventViewModel.swift in Sources */,
@@ -837,6 +902,7 @@
 				154CDBB12BC4124400D5C3AF /* SmartSignalsService+Default.swift in Sources */,
 				15B6D19A2B30AE750064F033 /* Format.swift in Sources */,
 				154B2F9E2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift in Sources */,
+				159F98232CDA3D6700EBABED /* SettingsNavigationDestinationHandler.swift in Sources */,
 				155B712C2CD0FE3400F14EA8 /* CustomApiKeysView.swift in Sources */,
 				154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */,
 				1589CA012B5806AA0053A9FA /* PresentableError+FromError.swift in Sources */,
@@ -865,9 +931,11 @@
 				15B16C1F2BC80D7600A6D8A2 /* GeolocationService+Default.swift in Sources */,
 				154CDBAF2BC40D1A00D5C3AF /* SmartSignalsResponse.swift in Sources */,
 				156866572BFFCDF800E01772 /* URL+WithFragment.swift in Sources */,
+				159F982A2CDA473100EBABED /* Region+Codable.swift in Sources */,
 				159A2DCE2BB7085600A470F1 /* SettingsContainer+Preview.swift in Sources */,
 				159A2DC72BB6E31300A470F1 /* DataEncoder.swift in Sources */,
 				155B71362CD241DB00F14EA8 /* SettingsViewModel.swift in Sources */,
+				159F982D2CDA47B300EBABED /* ApiKeysConfig.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
 				159A2DE92BBED8A900A470F1 /* SmartSignalsClient.swift in Sources */,
 				159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */,
@@ -878,13 +946,16 @@
 				154CDBAD2BC40AB400D5C3AF /* SmartSignalsService.swift in Sources */,
 				159A2DC22BB60CC900A470F1 /* UserDefaults+BackingStorage.swift in Sources */,
 				154B2FAF2B8620B8004E79AC /* DeviceFingerprintViewModel+Preview.swift in Sources */,
+				15D043A62CD3A472009C357F /* PresentableRegion.swift in Sources */,
 				159A2DDC2BBEB38900A470F1 /* NetworkingError.swift in Sources */,
 				159A2DDE2BBEB44600A470F1 /* URLRequestConvertible.swift in Sources */,
 				15B6D1B82B334A230064F033 /* DeviceFingerprintViewModel.swift in Sources */,
 				156D068C2B2726800015A456 /* EventDetailsView+VisualState.swift in Sources */,
 				155B71322CD14F2E00F14EA8 /* SettingButton.swift in Sources */,
+				159F976E2CD95F8900EBABED /* CustomApiKeysViewModel+Preview.swift in Sources */,
 				159A2DCA2BB7043700A470F1 /* SettingsContainer.swift in Sources */,
 				156D067C2B20994E0015A456 /* EventDetailsView.swift in Sources */,
+				159F98202CDA3C5100EBABED /* NavigationDestinationHandler.swift in Sources */,
 				155B713B2CD24B3D00F14EA8 /* SettingsViewModel+Preview.swift in Sources */,
 				159A2DBD2BB60B8D00A470F1 /* PersistenceContainer.swift in Sources */,
 				154CDBA92BBF08F700D5C3AF /* HTTPHeaderField.swift in Sources */,
@@ -895,6 +966,7 @@
 				159A2DC52BB6E30000A470F1 /* DataDecoder.swift in Sources */,
 				153560322BC55F0400BAD949 /* ConfigVariable+SmartSignals.swift in Sources */,
 				156D067A2B1E49390015A456 /* DefaultButtonStyle.swift in Sources */,
+				159F98262CDA3DE100EBABED /* SettingsNavigationDestinationHandler+Preview.swift in Sources */,
 				156D068E2B2728A10015A456 /* ExtendedResponseEventPresentability.swift in Sources */,
 				156D06642B1772AB0015A456 /* URL+StaticString.swift in Sources */,
 				156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */,
@@ -1038,7 +1110,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/Features/Settings/ViewModel/Preview FingerprintProDemo/PreviewContent";
+				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Settings/Navigation/Preview FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/PreviewContent FingerprintProDemo/Features/Settings/ViewModel/Preview";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1075,7 +1147,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/Features/Settings/ViewModel/Preview FingerprintProDemo/PreviewContent";
+				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Settings/Navigation/Preview FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/PreviewContent FingerprintProDemo/Features/Settings/ViewModel/Preview";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

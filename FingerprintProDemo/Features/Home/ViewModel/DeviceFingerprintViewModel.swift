@@ -86,19 +86,19 @@ private extension DeviceFingerprintViewModel {
 
     var fingerprintCount: Int {
         get {
-            (try? settingsContainer.loadValue(forKey: .fingerprintCount).get()) ?? .zero
+            (try? settingsContainer.fingerprintCount) ?? .zero
         }
         set {
-            settingsContainer.storeValue(newValue, forKey: .fingerprintCount)
+            try? settingsContainer.setFingerprintCount(newValue)
         }
     }
 
     var hideSignUpTimestamp: TimeInterval {
         get {
-            (try? settingsContainer.loadValue(forKey: .hideSignUpTimestamp).get()) ?? .zero
+            (try? settingsContainer.hideSignUpTimestamp) ?? .zero
         }
         set {
-            settingsContainer.storeValue(newValue, forKey: .hideSignUpTimestamp)
+            try? settingsContainer.setHideSignUpTimestamp(newValue)
         }
     }
 

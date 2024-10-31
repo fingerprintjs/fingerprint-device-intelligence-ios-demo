@@ -1,28 +1,35 @@
+import FingerprintPro
 import Foundation
 
 enum SmartSignalsEndpoint: URLConvertibleEndpoint {
 
-    case event(requestId: String)
+    case demoEvent(requestId: String)
+    case subscriptionEvent(apiKey: String, region: Region, requestId: String)
 
     var baseURL: URL {
         get throws {
-            guard let url = ConfigVariable.SmartSignals.baseURL else {
-                throw NetworkingError.invalidURL(url: self)
+            switch self {
+            case .demoEvent:
+                guard let url = ConfigVariable.SmartSignals.baseURL else {
+                    throw NetworkingError.invalidURL(url: self)
+                }
+                return url
+            case let .subscriptionEvent(_, region, _):
+                return try region.description.asURL()
             }
-
-            return url
         }
     }
 
     var path: String {
         switch self {
-        case let .event(requestId): "/event/\(requestId)"
+        case let .demoEvent(requestId): "/event/\(requestId)"
+        case let .subscriptionEvent(_, _, requestId): "/events/\(requestId)"
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .event: .get
+        case .demoEvent, .subscriptionEvent: .get
         }
     }
 
@@ -32,6 +39,9 @@ enum SmartSignalsEndpoint: URLConvertibleEndpoint {
         ]
         if let origin = ConfigVariable.SmartSignals.origin.map(HTTPHeaderField.origin) {
             fields.insert(origin)
+        }
+        if case let .subscriptionEvent(apiKey, _, _) = self {
+            fields.insert(.custom(name: "Auth-API-Key", value: apiKey))
         }
 
         return fields

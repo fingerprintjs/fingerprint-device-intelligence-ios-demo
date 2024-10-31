@@ -76,7 +76,7 @@ private extension SettingButton.AccessoryType {
 #Preview {
     List {
         SettingButton(
-            "Custom API Keys",
+            "API Keys",
             systemImage: "key.horizontal",
             accessoryType: .disclosureIndicator(textKey: "Off"),
             action: {

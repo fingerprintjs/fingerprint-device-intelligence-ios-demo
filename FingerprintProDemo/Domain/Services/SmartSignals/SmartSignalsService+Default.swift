@@ -4,7 +4,8 @@ extension SmartSignalsServiceProtocol where Self == SmartSignalsService {
         .init(
             client: HTTPClient(
                 session: .init(configuration: .ephemeral)
-            )
+            ),
+            settingsContainer: SettingsContainer.default
         )
     }
 }
