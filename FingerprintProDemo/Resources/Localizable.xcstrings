@@ -371,6 +371,16 @@
         }
       }
     },
+    "Other" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Other"
+          }
+        }
+      }
+    },
     "Please [contact support](%@) if this issue persists." : {
       "localizations" : {
         "en" : {
@@ -677,6 +687,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "When enabled, the app will use your API keys to make all the requests. These requests will count towards your monthly allowance."
+          }
+        }
+      }
+    },
+    "Write a Review" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write a Review"
           }
         }
       }

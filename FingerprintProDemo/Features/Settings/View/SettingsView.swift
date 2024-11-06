@@ -4,6 +4,8 @@ struct SettingsView: View {
 
     private typealias Route = SettingsRoute
 
+    @Environment(\.openURL) private var openURL
+
     @State private var navigationPath = NavigationPath()
 
     @StateObject private var viewModel: SettingsViewModel
@@ -30,6 +32,22 @@ struct SettingsView: View {
                     ) {
                         navigationPath.append(Route.apiKeys)
                     }
+                }
+                section(titled: "Other") {
+                    SettingButton(
+                        "Write a Review",
+                        systemImage: "star",
+                        action: {
+                            openURL(C.URLs.writeReview)
+                        }
+                    )
+                    SettingButton(
+                        "Privacy Policy",
+                        systemImage: "hand.raised",
+                        action: {
+                            openURL(C.URLs.privacyPolicy)
+                        }
+                    )
                 }
             }
             .background(.backgroundGray)

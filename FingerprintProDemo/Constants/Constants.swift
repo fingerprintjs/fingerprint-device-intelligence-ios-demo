@@ -18,6 +18,9 @@ enum C {
             #endif
         }
         static var support: URL { .init(staticString: "https://fingerprint.com/support") }
+        static var writeReview: URL {
+            .init(staticString: "itms-apps://apple.com/app/id1644105278?action=write-review")
+        }
 
         enum SmartSignalsOverview {
 

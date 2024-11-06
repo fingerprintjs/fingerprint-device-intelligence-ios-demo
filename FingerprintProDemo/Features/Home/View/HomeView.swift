@@ -78,9 +78,6 @@ private extension HomeView {
                 Link(destination: C.URLs.documentation) {
                     Label("Documentation", systemImage: "book")
                 }
-                Link(destination: C.URLs.privacyPolicy) {
-                    Label("Privacy Policy", systemImage: "hand.raised")
-                }
                 Link(destination: C.URLs.support) {
                     Label("Support", systemImage: "message")
                 }
