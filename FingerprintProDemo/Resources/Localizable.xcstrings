@@ -61,6 +61,16 @@
         }
       }
     },
+    "App %@ · Fingerprint SDK %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "App %1$@ · Fingerprint SDK %2$@"
+          }
+        }
+      }
+    },
     "Asia (Mumbai)" : {
       "localizations" : {
         "en" : {
