@@ -81,6 +81,12 @@
 		159F98262CDA3DE100EBABED /* SettingsNavigationDestinationHandler+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F98252CDA3DD700EBABED /* SettingsNavigationDestinationHandler+Preview.swift */; };
 		159F982A2CDA473100EBABED /* Region+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F98292CDA472B00EBABED /* Region+Codable.swift */; };
 		159F982D2CDA47B300EBABED /* ApiKeysConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F982C2CDA47B100EBABED /* ApiKeysConfig.swift */; };
+		15AB322F2CE5117D00D23C17 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB322E2CE5117A00D23C17 /* Route.swift */; };
+		15AB32312CE5134E00D23C17 /* DeepLinkNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB32302CE5134B00D23C17 /* DeepLinkNavigator.swift */; };
+		15AB32342CE5215900D23C17 /* View+OnDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB32332CE5215300D23C17 /* View+OnDeepLink.swift */; };
+		15AB32362CE5225300D23C17 /* EnvironmentValues+DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB32352CE5224E00D23C17 /* EnvironmentValues+DeepLink.swift */; };
+		15AB32382CE52B1300D23C17 /* SettingsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB32372CE52B0F00D23C17 /* SettingsRoute.swift */; };
+		15AB323A2CE52B9F00D23C17 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB32392CE52B9B00D23C17 /* AppRoute.swift */; };
 		15B16C1C2BC8030100A6D8A2 /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C1B2BC8030100A6D8A2 /* GeolocationService.swift */; };
 		15B16C1F2BC80D7600A6D8A2 /* GeolocationService+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C1E2BC80D7600A6D8A2 /* GeolocationService+Default.swift */; };
 		15B16C212BC811AD00A6D8A2 /* GeolocationService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C202BC811AD00A6D8A2 /* GeolocationService+Preview.swift */; };
@@ -175,6 +181,12 @@
 		159F98252CDA3DD700EBABED /* SettingsNavigationDestinationHandler+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsNavigationDestinationHandler+Preview.swift"; sourceTree = "<group>"; };
 		159F98292CDA472B00EBABED /* Region+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+Codable.swift"; sourceTree = "<group>"; };
 		159F982C2CDA47B100EBABED /* ApiKeysConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeysConfig.swift; sourceTree = "<group>"; };
+		15AB322E2CE5117A00D23C17 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		15AB32302CE5134B00D23C17 /* DeepLinkNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkNavigator.swift; sourceTree = "<group>"; };
+		15AB32332CE5215300D23C17 /* View+OnDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnDeepLink.swift"; sourceTree = "<group>"; };
+		15AB32352CE5224E00D23C17 /* EnvironmentValues+DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+DeepLink.swift"; sourceTree = "<group>"; };
+		15AB32372CE52B0F00D23C17 /* SettingsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRoute.swift; sourceTree = "<group>"; };
+		15AB32392CE52B9B00D23C17 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		15B16C1B2BC8030100A6D8A2 /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
 		15B16C1E2BC80D7600A6D8A2 /* GeolocationService+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeolocationService+Default.swift"; sourceTree = "<group>"; };
 		15B16C202BC811AD00A6D8A2 /* GeolocationService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeolocationService+Preview.swift"; sourceTree = "<group>"; };
@@ -395,6 +407,7 @@
 		156D065C2B17574C0015A456 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				15AB32392CE52B9B00D23C17 /* AppRoute.swift */,
 				154A1D772C50048500D268F4 /* RootView.swift */,
 				1589C9FB2B5805AE0053A9FA /* Common */,
 				156D065D2B1757770015A456 /* Home */,
@@ -648,7 +661,9 @@
 		159F981E2CDA3C3800EBABED /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				15AB322E2CE5117A00D23C17 /* Route.swift */,
 				159F981F2CDA3C4E00EBABED /* NavigationDestinationHandler.swift */,
+				15AB32322CE5213900D23C17 /* DeepLinking */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -656,6 +671,7 @@
 		159F98212CDA3CD200EBABED /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				15AB32372CE52B0F00D23C17 /* SettingsRoute.swift */,
 				159F98222CDA3D6500EBABED /* SettingsNavigationDestinationHandler.swift */,
 				159F98242CDA3DAB00EBABED /* Preview */,
 			);
@@ -676,6 +692,16 @@
 				159F982C2CDA47B100EBABED /* ApiKeysConfig.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		15AB32322CE5213900D23C17 /* DeepLinking */ = {
+			isa = PBXGroup;
+			children = (
+				15AB32302CE5134B00D23C17 /* DeepLinkNavigator.swift */,
+				15AB32352CE5224E00D23C17 /* EnvironmentValues+DeepLink.swift */,
+				15AB32332CE5215300D23C17 /* View+OnDeepLink.swift */,
+			);
+			path = DeepLinking;
 			sourceTree = "<group>";
 		};
 		15B16C1A2BC802ED00A6D8A2 /* Geolocation */ = {
@@ -892,6 +918,7 @@
 				159F97662CD921CB00EBABED /* CustomApiKeysViewModel.swift in Sources */,
 				15B16C1C2BC8030100A6D8A2 /* GeolocationService.swift in Sources */,
 				15B6D1B52B3324F10064F033 /* PresentableError.swift in Sources */,
+				15AB322F2CE5117D00D23C17 /* Route.swift in Sources */,
 				15B6D1A82B31AC7D0064F033 /* ClientResponseEventViewModel.swift in Sources */,
 				159A2DE52BBEB5E400A470F1 /* HTTPClient.swift in Sources */,
 				154A1D782C50048500D268F4 /* RootView.swift in Sources */,
@@ -905,6 +932,7 @@
 				159F98232CDA3D6700EBABED /* SettingsNavigationDestinationHandler.swift in Sources */,
 				155B712C2CD0FE3400F14EA8 /* CustomApiKeysView.swift in Sources */,
 				154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */,
+				15AB323A2CE52B9F00D23C17 /* AppRoute.swift in Sources */,
 				1589CA012B5806AA0053A9FA /* PresentableError+FromError.swift in Sources */,
 				156866532BFF62CF00E01772 /* Badge.swift in Sources */,
 				15B6D1AB2B3210EE0064F033 /* DeviceIdentificationService.swift in Sources */,
@@ -913,10 +941,12 @@
 				154A1D7B2C5268A100D268F4 /* KeychainStorage.swift in Sources */,
 				156D06882B25F8AF0015A456 /* EventPresentability.swift in Sources */,
 				154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */,
+				15AB32312CE5134E00D23C17 /* DeepLinkNavigator.swift in Sources */,
 				156D06802B20DEEE0015A456 /* View+RedactedIf.swift in Sources */,
 				156D068A2B25F8F90015A456 /* BasicResponseEventPresentability.swift in Sources */,
 				15B16C212BC811AD00A6D8A2 /* GeolocationService+Preview.swift in Sources */,
 				153560372BC5BDF600BAD949 /* ClientResponseEvent.swift in Sources */,
+				15AB32362CE5225300D23C17 /* EnvironmentValues+DeepLink.swift in Sources */,
 				154A1D762C5003D800D268F4 /* SettingsView.swift in Sources */,
 				15B6D1A32B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift in Sources */,
 				159026522B6919B400D3FF36 /* AppInfo.swift in Sources */,
@@ -936,6 +966,7 @@
 				159A2DC72BB6E31300A470F1 /* DataEncoder.swift in Sources */,
 				155B71362CD241DB00F14EA8 /* SettingsViewModel.swift in Sources */,
 				159F982D2CDA47B300EBABED /* ApiKeysConfig.swift in Sources */,
+				15AB32382CE52B1300D23C17 /* SettingsRoute.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
 				159A2DE92BBED8A900A470F1 /* SmartSignalsClient.swift in Sources */,
 				159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */,
@@ -963,6 +994,7 @@
 				154A1D712C4FFBC900D268F4 /* UIFont+Weight.swift in Sources */,
 				156D06782B1DF99E0015A456 /* ErrorView.swift in Sources */,
 				153560392BC6F7C600BAD949 /* SmartSignalsService+Preview.swift in Sources */,
+				15AB32342CE5215900D23C17 /* View+OnDeepLink.swift in Sources */,
 				159A2DC52BB6E30000A470F1 /* DataDecoder.swift in Sources */,
 				153560322BC55F0400BAD949 /* ConfigVariable+SmartSignals.swift in Sources */,
 				156D067A2B1E49390015A456 /* DefaultButtonStyle.swift in Sources */,

@@ -1,7 +1,3 @@
-enum SettingsRoute: Hashable {
-    case apiKeys
-}
-
 typealias SettingsNavigationDestinationHandler = NavigationDestinationHandler<SettingsRoute>
 
 extension SettingsNavigationDestinationHandler {

@@ -1,17 +1,17 @@
 import SwiftUI
 
 @MainActor
-struct NavigationDestinationHandler<Route: Hashable> {
+struct NavigationDestinationHandler<R: Route> {
 
-    private let _destination: (Route) -> AnyView
+    private let _destination: (R) -> AnyView
 
-    init<V: View>(@ViewBuilder _ destination: @escaping (Route) -> V) {
+    init<V: View>(@ViewBuilder _ destination: @escaping (R) -> V) {
         self._destination = { route in
             AnyView(erasing: destination(route))
         }
     }
 
-    func destination(for route: Route) -> AnyView {
+    func destination(for route: R) -> AnyView {
         _destination(route)
     }
 }

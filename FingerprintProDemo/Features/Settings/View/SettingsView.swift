@@ -6,7 +6,7 @@ struct SettingsView: View {
 
     @Environment(\.openURL) private var openURL
 
-    @State private var navigationPath = NavigationPath()
+    @State private var navigationPath: [Route] = []
 
     @StateObject private var viewModel: SettingsViewModel
     private let navigationDestinationHandler: SettingsNavigationDestinationHandler
@@ -36,6 +36,9 @@ struct SettingsView: View {
                 viewModel.viewDidAppear()
             }
         }
+        .onDeepLink(to: Route.self) { route in
+            navigationPath = [route]
+        }
         .tint(.accent)
     }
 }
@@ -52,7 +55,7 @@ private extension SettingsView {
                     textKey: viewModel.apiKeysEnabled ? "On" : "Off"
                 )
             ) {
-                navigationPath.append(Route.apiKeys)
+                navigationPath.append(.apiKeys)
             }
         }
     }
