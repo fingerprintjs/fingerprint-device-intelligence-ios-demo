@@ -1,41 +1,34 @@
 protocol SmartSignalsServiceProtocol: Sendable {
-    func fetchSignals(for requestId: String) async -> Result<SmartSignalsResponse, any Error>
+    func fetchSignals(for requestId: String) async throws -> SmartSignalsResponse
 }
 
 struct SmartSignalsService: SmartSignalsServiceProtocol {
 
-    private let client: SmartSignalsClient
+    private let client: any FingerprintServerAPI.Client
     private let settingsContainer: any ReadOnlySettingsContainer
 
-    init(client: SmartSignalsClient, settingsContainer: any ReadOnlySettingsContainer) {
+    init(
+        client: any FingerprintServerAPI.Client,
+        settingsContainer: any ReadOnlySettingsContainer
+    ) {
         self.client = client
         self.settingsContainer = settingsContainer
     }
 
-    func fetchSignals(for requestId: String) async -> Result<SmartSignalsResponse, any Error> {
-        let endpoint: SmartSignalsEndpoint
+    func fetchSignals(for requestId: String) async throws -> SmartSignalsResponse {
+        let endpoint: FingerprintServerAPI.Endpoint
         if apiKeysEnabled {
-            do {
-                let config = try settingsContainer.apiKeysConfig
-                endpoint = .subscriptionEvent(
-                    apiKey: config.secretKey,
-                    region: config.region,
-                    requestId: requestId
-                )
-            } catch {
-                return .failure(error)
-            }
+            let config = try settingsContainer.apiKeysConfig
+            endpoint = .subscriptionEvent(
+                apiKey: config.secretKey,
+                region: config.region,
+                requestId: requestId
+            )
         } else {
             endpoint = .demoEvent(requestId: requestId)
         }
 
-        return await client.request(endpoint)
-            .mapError { error in
-                #if DEBUG
-                print("[\(type(of: self))] (\(requestId)) |> \(#function) -> \(error)")
-                #endif
-                return error
-            }
+        return try await client.request(endpoint)
     }
 }
 

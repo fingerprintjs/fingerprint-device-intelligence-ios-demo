@@ -7,7 +7,7 @@ protocol FingerprintClientFactory {
 }
 
 protocol DeviceIdentificationServiceProtocol: Sendable {
-    func fingerprintDevice() async -> Result<FingerprintResponse, any Error>
+    func fingerprintDevice() async throws -> FingerprintResponse
 }
 
 struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: DeviceIdentificationServiceProtocol {
@@ -18,14 +18,10 @@ struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: Dev
         self.settingsContainer = settingsContainer
     }
 
-    func fingerprintDevice() async -> Result<FingerprintResponse, any Error> {
-        do {
-            let client = try makeFingerprintClient()
-            let response = try await client.getVisitorIdResponse()
-            return .success(response)
-        } catch {
-            return .failure(error)
-        }
+    func fingerprintDevice() async throws -> FingerprintResponse {
+        let client = try makeFingerprintClient()
+        let response = try await client.getVisitorIdResponse()
+        return response
     }
 }
 

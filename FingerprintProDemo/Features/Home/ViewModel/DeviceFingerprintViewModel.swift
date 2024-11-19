@@ -54,10 +54,9 @@ extension DeviceFingerprintViewModel {
         try? await throttleTask
 
         do {
-            let fingerprintResponse = try await fingerprintTask.get()
+            let fingerprintResponse = try await fingerprintTask
             let smartSignalsResponse = try await smartSignalsService?
                 .fetchSignals(for: fingerprintResponse.requestId)
-                .get()
 
             fingerprintingState = .completed(
                 viewModel: .init(

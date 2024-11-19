@@ -5,32 +5,37 @@ struct ErrorView: View {
     private let systemImage: String
     private let title: AttributedString
     private let description: AttributedString
-    private let retryAction: @MainActor () -> Void
+    private let buttonTitle: String
+    private let action: @MainActor () -> Void
 
     @_disfavoredOverload
     init(
         systemImage: String,
         title: AttributedString,
         description: AttributedString,
-        retryAction: @escaping @MainActor () -> Void
+        buttonTitle: String,
+        action: @escaping @MainActor () -> Void
     ) {
         self.systemImage = systemImage
         self.title = title
         self.description = description
-        self.retryAction = retryAction
+        self.buttonTitle = buttonTitle
+        self.action = action
     }
 
     init(
         systemImage: String,
         title: LocalizedStringResource,
         description: LocalizedStringResource,
-        retryAction: @escaping @MainActor () -> Void
+        buttonTitle: LocalizedStringResource,
+        action: @escaping @MainActor () -> Void
     ) {
         self.init(
             systemImage: systemImage,
             title: .init(localized: title),
             description: .init(localized: description),
-            retryAction: retryAction
+            buttonTitle: .init(localized: buttonTitle),
+            action: action
         )
     }
 
@@ -51,7 +56,7 @@ struct ErrorView: View {
                     .foregroundStyle(.semiDarkGray)
                     .multilineTextAlignment(.center)
             }
-            Button("Try again", action: retryAction)
+            Button(buttonTitle, action: action)
                 .buttonStyle(.default)
         }
         .tint(.accent)
@@ -69,7 +74,8 @@ struct ErrorView: View {
         description: try! AttributedString(
             markdown: "Please [contact support](\(C.URLs.support)) if this issue persists."
         ),
-        retryAction: {
+        buttonTitle: "Try again",
+        action: {
             print("retryAction()")
         }
     )

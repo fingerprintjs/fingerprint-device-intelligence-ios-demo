@@ -36,12 +36,13 @@ struct EventDetailsView<Presentation: EventPresentability, Actions: View>: View 
             }
             .redacted(if: isLoading)
             .animation(.easeInOut(duration: 0.35), value: state)
-        case let .error(error, retryAction):
+        case let .error(error, action):
             ErrorView(
                 systemImage: error.image.rawValue,
                 title: error.localizedTitle,
                 description: error.localizedDescription,
-                retryAction: retryAction
+                buttonTitle: error.actionKind.localizedString,
+                action: action
             )
         }
     }
@@ -429,9 +430,10 @@ private extension EventPresentability {
                 .init(
                     image: .exclamationMark,
                     localizedTitle: "Why do we fall Bruce?",
-                    localizedDescription: "So that we can learn to pick ourselves up."
+                    localizedDescription: "So that we can learn to pick ourselves up.",
+                    actionKind: .retry
                 ),
-                retryAction: {
+                action: {
                     print("retryAction()")
                 }
             )

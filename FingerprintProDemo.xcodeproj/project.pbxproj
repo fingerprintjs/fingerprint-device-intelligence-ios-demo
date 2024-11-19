@@ -72,8 +72,6 @@
 		159A2DE02BBEB50500A470F1 /* URLConvertibleEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DDF2BBEB50500A470F1 /* URLConvertibleEndpoint.swift */; };
 		159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE22BBEB59600A470F1 /* HTTPMethod.swift */; };
 		159A2DE52BBEB5E400A470F1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */; };
-		159A2DE92BBED8A900A470F1 /* SmartSignalsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE82BBED8A900A470F1 /* SmartSignalsClient.swift */; };
-		159A2DEC2BBED90100A470F1 /* SmartSignalsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DEB2BBED90100A470F1 /* SmartSignalsEndpoint.swift */; };
 		159F97662CD921CB00EBABED /* CustomApiKeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F97642CD921C200EBABED /* CustomApiKeysViewModel.swift */; };
 		159F976E2CD95F8900EBABED /* CustomApiKeysViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F976D2CD95F8400EBABED /* CustomApiKeysViewModel+Preview.swift */; };
 		159F98202CDA3C5100EBABED /* NavigationDestinationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F981F2CDA3C4E00EBABED /* NavigationDestinationHandler.swift */; };
@@ -103,6 +101,10 @@
 		15B6D1B82B334A230064F033 /* DeviceFingerprintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1B72B334A230064F033 /* DeviceFingerprintViewModel.swift */; };
 		15B6D1BB2B334CDC0064F033 /* DeviceFingerprintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6D1BA2B334CDC0064F033 /* DeviceFingerprintView.swift */; };
 		15D043A62CD3A472009C357F /* PresentableRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D043A42CD3A46E009C357F /* PresentableRegion.swift */; };
+		15DB47D12CEB56B400F391A3 /* FingerprintServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47D02CEB56A600F391A3 /* FingerprintServerAPI.swift */; };
+		15DB47D42CEB5C2600F391A3 /* FingerprintServerAPI+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47D32CEB5C1B00F391A3 /* FingerprintServerAPI+Client.swift */; };
+		15DB47D92CEB621900F391A3 /* FingerprintServerAPI+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47D82CEB621000F391A3 /* FingerprintServerAPI+Endpoints.swift */; };
+		15DB47DE2CEB657A00F391A3 /* FingerprintServerAPI+ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,8 +174,6 @@
 		159A2DDF2BBEB50500A470F1 /* URLConvertibleEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertibleEndpoint.swift; sourceTree = "<group>"; };
 		159A2DE22BBEB59600A470F1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		159A2DE82BBED8A900A470F1 /* SmartSignalsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsClient.swift; sourceTree = "<group>"; };
-		159A2DEB2BBED90100A470F1 /* SmartSignalsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsEndpoint.swift; sourceTree = "<group>"; };
 		159F97642CD921C200EBABED /* CustomApiKeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomApiKeysViewModel.swift; sourceTree = "<group>"; };
 		159F976D2CD95F8400EBABED /* CustomApiKeysViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomApiKeysViewModel+Preview.swift"; sourceTree = "<group>"; };
 		159F981F2CDA3C4E00EBABED /* NavigationDestinationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestinationHandler.swift; sourceTree = "<group>"; };
@@ -202,6 +202,10 @@
 		15B6D1B72B334A230064F033 /* DeviceFingerprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFingerprintViewModel.swift; sourceTree = "<group>"; };
 		15B6D1BA2B334CDC0064F033 /* DeviceFingerprintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceFingerprintView.swift; sourceTree = "<group>"; };
 		15D043A42CD3A46E009C357F /* PresentableRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableRegion.swift; sourceTree = "<group>"; };
+		15DB47D02CEB56A600F391A3 /* FingerprintServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintServerAPI.swift; sourceTree = "<group>"; };
+		15DB47D32CEB5C1B00F391A3 /* FingerprintServerAPI+Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+Client.swift"; sourceTree = "<group>"; };
+		15DB47D82CEB621000F391A3 /* FingerprintServerAPI+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+Endpoints.swift"; sourceTree = "<group>"; };
+		15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+ResponseError.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -641,21 +645,11 @@
 		159A2DE62BBED88800A470F1 /* SmartSignals */ = {
 			isa = PBXGroup;
 			children = (
-				159A2DE72BBED89600A470F1 /* Client */,
 				154CDBAB2BC40A9E00D5C3AF /* Model */,
 				154CDBAC2BC40AB400D5C3AF /* SmartSignalsService.swift */,
 				154CDBB02BC4124400D5C3AF /* SmartSignalsService+Default.swift */,
 			);
 			path = SmartSignals;
-			sourceTree = "<group>";
-		};
-		159A2DE72BBED89600A470F1 /* Client */ = {
-			isa = PBXGroup;
-			children = (
-				159A2DE82BBED8A900A470F1 /* SmartSignalsClient.swift */,
-				159A2DEB2BBED90100A470F1 /* SmartSignalsEndpoint.swift */,
-			);
-			path = Client;
 			sourceTree = "<group>";
 		};
 		159F981E2CDA3C3800EBABED /* Navigation */ = {
@@ -717,6 +711,7 @@
 			isa = PBXGroup;
 			children = (
 				15B6D1912B30A1170064F033 /* Coding */,
+				15DB47CF2CEB569200F391A3 /* FingerprintServerAPI */,
 				15B6D1972B30AE540064F033 /* Format */,
 				15B6D1AD2B3214030064F033 /* Services */,
 				159A2DC82BB703E700A470F1 /* Settings */,
@@ -805,6 +800,33 @@
 				15D043A42CD3A46E009C357F /* PresentableRegion.swift */,
 			);
 			path = Region;
+			sourceTree = "<group>";
+		};
+		15DB47CF2CEB569200F391A3 /* FingerprintServerAPI */ = {
+			isa = PBXGroup;
+			children = (
+				15DB47D02CEB56A600F391A3 /* FingerprintServerAPI.swift */,
+				15DB47D22CEB5BD300F391A3 /* Client */,
+				15DB47DC2CEB656400F391A3 /* Error */,
+			);
+			path = FingerprintServerAPI;
+			sourceTree = "<group>";
+		};
+		15DB47D22CEB5BD300F391A3 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				15DB47D82CEB621000F391A3 /* FingerprintServerAPI+Endpoints.swift */,
+				15DB47D32CEB5C1B00F391A3 /* FingerprintServerAPI+Client.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		15DB47DC2CEB656400F391A3 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -925,6 +947,7 @@
 				159A2DE02BBEB50500A470F1 /* URLConvertibleEndpoint.swift in Sources */,
 				156D06672B1772FF0015A456 /* Constants.swift in Sources */,
 				156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */,
+				15DB47D12CEB56B400F391A3 /* FingerprintServerAPI.swift in Sources */,
 				15B6D19F2B30C1080064F033 /* Format+Number.swift in Sources */,
 				154CDBB12BC4124400D5C3AF /* SmartSignalsService+Default.swift in Sources */,
 				15B6D19A2B30AE750064F033 /* Format.swift in Sources */,
@@ -956,19 +979,19 @@
 				156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */,
 				1535603C2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift in Sources */,
 				1589C9FE2B5806450053A9FA /* PresentableError+CommonErrors.swift in Sources */,
-				159A2DEC2BBED90100A470F1 /* SmartSignalsEndpoint.swift in Sources */,
 				15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */,
 				15B16C1F2BC80D7600A6D8A2 /* GeolocationService+Default.swift in Sources */,
 				154CDBAF2BC40D1A00D5C3AF /* SmartSignalsResponse.swift in Sources */,
 				156866572BFFCDF800E01772 /* URL+WithFragment.swift in Sources */,
 				159F982A2CDA473100EBABED /* Region+Codable.swift in Sources */,
+				15DB47DE2CEB657A00F391A3 /* FingerprintServerAPI+ResponseError.swift in Sources */,
 				159A2DCE2BB7085600A470F1 /* SettingsContainer+Preview.swift in Sources */,
 				159A2DC72BB6E31300A470F1 /* DataEncoder.swift in Sources */,
 				155B71362CD241DB00F14EA8 /* SettingsViewModel.swift in Sources */,
 				159F982D2CDA47B300EBABED /* ApiKeysConfig.swift in Sources */,
 				15AB32382CE52B1300D23C17 /* SettingsRoute.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
-				159A2DE92BBED8A900A470F1 /* SmartSignalsClient.swift in Sources */,
+				15DB47D42CEB5C2600F391A3 /* FingerprintServerAPI+Client.swift in Sources */,
 				159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */,
 				15B6D1B12B3214440064F033 /* DeviceIdentificationService+Default.swift in Sources */,
 				156D06582B1600A80015A456 /* FingerprintButtonStyle.swift in Sources */,
@@ -986,6 +1009,7 @@
 				159F976E2CD95F8900EBABED /* CustomApiKeysViewModel+Preview.swift in Sources */,
 				159A2DCA2BB7043700A470F1 /* SettingsContainer.swift in Sources */,
 				156D067C2B20994E0015A456 /* EventDetailsView.swift in Sources */,
+				15DB47D92CEB621900F391A3 /* FingerprintServerAPI+Endpoints.swift in Sources */,
 				159F98202CDA3C5100EBABED /* NavigationDestinationHandler.swift in Sources */,
 				155B713B2CD24B3D00F14EA8 /* SettingsViewModel+Preview.swift in Sources */,
 				159A2DBD2BB60B8D00A470F1 /* PersistenceContainer.swift in Sources */,

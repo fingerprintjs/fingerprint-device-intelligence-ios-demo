@@ -191,6 +191,26 @@
         }
       }
     },
+    "Failed to fetch Smart Signals" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to fetch Smart Signals"
+          }
+        }
+      }
+    },
+    "Failed to Fingerprint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to Fingerprint"
+          }
+        }
+      }
+    },
     "FIRST SEEN AT" : {
       "localizations" : {
         "en" : {
@@ -237,6 +257,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Global (US)"
+          }
+        }
+      }
+    },
+    "Go to API Keys" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go to API Keys"
           }
         }
       }
@@ -607,6 +637,66 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tap to begin"
+          }
+        }
+      }
+    },
+    "The application is not active for the provided public API key." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The application is not active for the provided public API key."
+          }
+        }
+      }
+    },
+    "The provided secret API key is either missing or invalid. Please double-check that the key was entered correctly." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The provided secret API key is either missing or invalid. Please double-check that the key was entered correctly."
+          }
+        }
+      }
+    },
+    "The provided secret API key is invalid. Make sure that provided public and secret API keys belong to the same application." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The provided secret API key is invalid. Make sure that provided public and secret API keys belong to the same application."
+          }
+        }
+      }
+    },
+    "The public API key is missing or invalid. Ensure the key was entered correctly." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The public API key is missing or invalid. Ensure the key was entered correctly."
+          }
+        }
+      }
+    },
+    "The public API key is not intended for the selected region. Visit Settings to change the region." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The public API key is not intended for the selected region. Visit Settings to change the region."
+          }
+        }
+      }
+    },
+    "The public key has expired." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The public key has expired."
           }
         }
       }

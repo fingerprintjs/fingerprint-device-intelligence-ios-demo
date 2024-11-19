@@ -7,6 +7,7 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
     private typealias VisualState = EventDetailsVisualState<Presentation.FieldKey>
 
     @Environment(\.openURL) private var openURL
+    @Environment(\.deepLink) private var deepLink
 
     @State private var state: VisualState = .loading
     @State private var showSignupView: Bool = false
@@ -97,11 +98,12 @@ private extension DeviceFingerprintView {
             case let .failed(error):
                 self.state = .error(
                     error,
-                    retryAction: {
-                        Task {
-                            await viewModel.fingerprintDevice()
+                    action: {
+                        switch error.actionKind {
+                        case .editApiKeys: { deepLink(to: .settings(.apiKeys)) }
+                        case .retry: { Task { await viewModel.fingerprintDevice() } }
                         }
-                    }
+                    }()
                 )
             case .undefined:
                 break
