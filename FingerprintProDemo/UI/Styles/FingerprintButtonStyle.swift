@@ -35,10 +35,22 @@ private extension FingerprintButtonStyle {
 
     func background(for configuration: Configuration) -> some ShapeStyle {
         guard isEnabled else {
-            return .lightOrange
+            return background(of: .lightPastelOrange)
         }
 
-        return configuration.isPressed ? .darkOrange : .accent
+        return if configuration.isPressed {
+            background(of: .darkOrange)
+        } else {
+            background(of: .pastelRed, .pastelOrange)
+        }
+    }
+
+    func background(of colors: Color...) -> some ShapeStyle {
+        LinearGradient(
+            colors: colors,
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
     }
 
     func scaleFactor(for configuration: Configuration) -> CGFloat {

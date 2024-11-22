@@ -22,7 +22,7 @@ struct DefaultButtonStyle: ButtonStyle {
         fontSize: CGFloat = 16.0,
         backgroundColor: Color = .accent,
         pressedBackgroundColor: Color = .darkOrange,
-        disabledBackgroundColor: Color = .lightOrange,
+        disabledBackgroundColor: Color = .lightPastelOrange,
         horizontalPadding: CGFloat = 24.0,
         verticalPadding: CGFloat = 16.0
     ) {
