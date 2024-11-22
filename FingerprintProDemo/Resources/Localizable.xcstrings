@@ -311,12 +311,12 @@
         }
       }
     },
-    "Invalid keys..." : {
+    "Invalid keys!" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Invalid keys..."
+            "value" : "Invalid keys!"
           }
         }
       }
@@ -831,12 +831,12 @@
         }
       }
     },
-    "Your changes will not be saved. If you choose to discard, the app will use default API keys to make all requests." : {
+    "Your changes will not be saved. The app will continue to use the previously saved API keys." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Your changes will not be saved. If you choose to discard, the app will use default API keys to make all requests."
+            "value" : "Your changes will not be saved. The app will continue to use the previously saved API keys."
           }
         }
       }

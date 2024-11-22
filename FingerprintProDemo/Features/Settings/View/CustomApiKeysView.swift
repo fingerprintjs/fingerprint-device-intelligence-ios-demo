@@ -34,7 +34,7 @@ struct CustomApiKeysView: View {
         .onAppear {
             viewModel.viewDidAppear()
         }
-        .alert("Invalid keys...", isPresented: $showInvalidKeysAlert) {
+        .alert("Invalid keys!", isPresented: $showInvalidKeysAlert) {
             Button("Continue editing", role: .cancel) {}
             Button("Discard changes", role: .destructive) {
                 dismiss()
@@ -42,8 +42,8 @@ struct CustomApiKeysView: View {
         } message: {
             Text(
                  """
-                 Your changes will not be saved. If you choose to discard, \
-                 the app will use default API keys to make all requests.
+                 Your changes will not be saved. The app will continue \
+                 to use the previously saved API keys.
                  """
             )
         }
