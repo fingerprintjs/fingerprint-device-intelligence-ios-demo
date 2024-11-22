@@ -5,12 +5,12 @@ struct SmartSignalsResponse: Decodable, Equatable, Sendable {
     let products: Products
 
     struct Products: Codable, Equatable, Sendable {
-        let factoryReset: FactoryResetSignal
-        let frida: FridaSignal
-        let highActivity: HighActivitySignal
-        let jailbroken: JailbreakSignal
-        let locationSpoofing: LocationSpoofingSignal
-        let vpn: VPNSignal
+        let factoryReset: FactoryResetSignal?
+        let frida: FridaSignal?
+        let highActivity: HighActivitySignal?
+        let jailbreak: JailbreakSignal?
+        let locationSpoofing: LocationSpoofingSignal?
+        let vpn: VPNSignal?
     }
 }
 
@@ -26,18 +26,7 @@ extension SmartSignalsResponse {
         let data: Data
     }
 
-    var factoryResetDate: Date { products.factoryReset.data.time }
-    var factoryResetDetected: Bool { products.factoryReset.data.timestamp > 0 }
-}
-
-extension SmartSignalsResponse {
-
     typealias FridaSignal = Result<Bool>
-
-    var fridaDetected: Bool { products.frida.data.result }
-}
-
-extension SmartSignalsResponse {
 
     struct HighActivitySignal: Codable, Equatable, Sendable {
 
@@ -49,25 +38,9 @@ extension SmartSignalsResponse {
         let data: Data
     }
 
-    var deviceDailyRequests: Int? { products.highActivity.data.dailyRequests }
-    var isHighActivityDevice: Bool { products.highActivity.data.result }
-}
-
-extension SmartSignalsResponse {
-
     typealias JailbreakSignal = Result<Bool>
 
-    var jailbreakDetected: Bool { products.jailbroken.data.result }
-}
-
-extension SmartSignalsResponse {
-
     typealias LocationSpoofingSignal = Result<Bool>
-
-    var locationSpoofingDetected: Bool { products.locationSpoofing.data.result }
-}
-
-extension SmartSignalsResponse {
 
     struct VPNSignal: Codable, Equatable, Sendable {
 
@@ -77,6 +50,7 @@ extension SmartSignalsResponse {
                 let timezoneMismatch: Bool
                 let publicVPN: Bool
                 let auxiliaryMobile: Bool
+                let relay: Bool
             }
 
             let result: Bool
@@ -87,9 +61,6 @@ extension SmartSignalsResponse {
 
         let data: Data
     }
-
-    var deviceTimezone: String { products.vpn.data.originTimezone }
-    var vpnDetected: Bool { products.vpn.data.result }
 }
 
 extension SmartSignalsResponse {
@@ -101,5 +72,17 @@ extension SmartSignalsResponse {
         }
 
         let data: Data
+    }
+}
+
+private extension SmartSignalsResponse.Products {
+
+    enum CodingKeys: String, CodingKey {
+        case factoryReset
+        case frida
+        case highActivity
+        case jailbreak = "jailbroken"
+        case locationSpoofing
+        case vpn
     }
 }

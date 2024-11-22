@@ -71,7 +71,7 @@ private extension CustomApiKeysView {
                 )
                 .font(.inter(size: 14.0))
                 .kerning(0.14)
-                .foregroundStyle(.extraDarkGray)
+                .foregroundStyle(.gray900)
                 .textCase(.none)
                 .padding(.top, 8.0)
                 .padding(.bottom, 20.0)
@@ -79,7 +79,7 @@ private extension CustomApiKeysView {
         ) {
             Toggle("Use your API keys", isOn: $viewModel.apiKeysEnabled.animation())
                 .tint(.accent)
-                .foregroundStyle(.extraDarkGray)
+                .foregroundStyle(.gray900)
         }
     }
 
@@ -137,7 +137,7 @@ private extension CustomApiKeysView {
                 Text(titleKey)
                     .font(.inter(size: 12.0))
                     .kerning(0.36)
-                    .foregroundStyle(.mediumGray)
+                    .foregroundStyle(.gray500)
             },
             footer: {
                 description(descriptionKey)
@@ -150,7 +150,7 @@ private extension CustomApiKeysView {
         Text(key)
             .font(.inter(size: 14.0))
             .kerning(0.14)
-            .foregroundStyle(.mediumGray)
+            .foregroundStyle(.gray500)
             .padding(.top, 4.0)
     }
 
@@ -181,13 +181,13 @@ private extension CustomApiKeysView {
             .frame(maxWidth: .infinity, alignment: .trailing)
             .pickerStyle(.menu)
             .labelsHidden()
-            .tint(.extraDarkGray)
+            .tint(.gray900)
             .disabled(!viewModel.apiKeysEnabled)
         } label: {
             Text("Server Region")
                 .font(.inter(size: 16.0))
                 .kerning(0.16)
-                .foregroundStyle(.mediumGray)
+                .foregroundStyle(.gray500)
         }
     }
 

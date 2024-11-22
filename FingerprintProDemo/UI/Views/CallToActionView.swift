@@ -51,13 +51,13 @@ struct CallToActionView: View {
             VStack(spacing: 4.0) {
                 Text(title)
                     .font(.inter(size: 16.0, weight: .semibold))
-                    .foregroundStyle(.extraDarkGray)
+                    .foregroundStyle(.gray900)
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
                 Text(description)
                     .font(.inter(size: 14.0))
                     .kerning(0.056)
-                    .foregroundStyle(.semiDarkGray)
+                    .foregroundStyle(.gray600)
                     .multilineTextAlignment(.center)
             }
             VStack(spacing: 16.0) {
@@ -71,9 +71,9 @@ struct CallToActionView: View {
                 .buttonStyle(
                     DefaultButtonStyle(
                         fontSize: 14.0,
-                        backgroundColor: .extraDarkGray,
+                        backgroundColor: .gray900,
                         pressedBackgroundColor: .backgroundBlack,
-                        disabledBackgroundColor: .semiDarkGray,
+                        disabledBackgroundColor: .gray600,
                         verticalPadding: 10.0
                     )
                 )

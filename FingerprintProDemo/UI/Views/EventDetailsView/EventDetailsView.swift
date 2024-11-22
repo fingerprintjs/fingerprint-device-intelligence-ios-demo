@@ -58,14 +58,14 @@ private extension EventDetailsView {
                 if let headingTitleKey {
                     Text(headingTitleKey)
                         .font(.inter(size: 24.0, relativeTo: .title, weight: .semibold))
-                        .foregroundStyle(.extraDarkGray)
+                        .foregroundStyle(.gray900)
                         .lineLimit(1)
                 }
 
                 if isLoading, let headingDescriptionKey {
                     Text(headingDescriptionKey)
                         .font(.inter(size: 16.0))
-                        .foregroundStyle(.mediumGray)
+                        .foregroundStyle(.gray500)
                         .lineLimit(3)
                 }
             }
@@ -81,12 +81,12 @@ private extension EventDetailsView {
                 Text(foremostFieldKey)
                     .font(.inter(size: 12.0))
                     .kerning(0.36)
-                    .foregroundStyle(.regularGray)
+                    .foregroundStyle(.gray400)
                     .unredacted()
 
                 Text(foremostFieldValue)
                     .font(.inter(size: 22.0, weight: .medium))
-                    .foregroundStyle(isPresenting ? .accent : .extraDarkGray)
+                    .foregroundStyle(isPresenting ? .accent : .gray900)
                     .textSelection(.enabled)
                     .disabled(isLoading)
                     .transaction { transaction in
@@ -109,7 +109,7 @@ private extension EventDetailsView {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.inter(size: 12.0))
                 .kerning(0.36)
-                .foregroundStyle(.regularGray)
+                .foregroundStyle(.gray400)
                 .unredacted()
 
             Picker(selection: $detailsDisplayMode.animation()) {
@@ -155,7 +155,7 @@ private extension EventDetailsView {
                             key: key.rawValue,
                             value: emptyValueString,
                             badge: presentation.badge(for: key),
-                            valueColor: .mediumGray
+                            valueColor: .gray500
                         )
                     } else {
                         DetailsFieldView(
@@ -193,7 +193,7 @@ private extension EventDetailsView {
                     }
                 }
                 .font(.system(size: 12.0, weight: .light, design: .monospaced))
-                .foregroundStyle(.semiDarkGray)
+                .foregroundStyle(.gray600)
             case .error:
                 EmptyView()
             }
@@ -283,7 +283,7 @@ private extension EventDetailsView {
             key: LocalizedStringKey,
             value: AttributedString,
             badge: Badge?,
-            valueColor: Color = .extraDarkGray
+            valueColor: Color = .gray900
         ) {
             self.key = key
             self.value = value
@@ -311,14 +311,14 @@ private extension EventDetailsView {
                 Group {
                     if let badgeTitle {
                         Text(key)
-                            .foregroundColor(.regularGray) +
+                            .foregroundColor(.gray400) +
                         Text(verbatim: " - ")
-                            .foregroundColor(.regularGray) +
+                            .foregroundColor(.gray400) +
                         Text(badgeTitle)
                             .foregroundColor(.accent)
                     } else {
                         Text(key)
-                            .foregroundStyle(.regularGray)
+                            .foregroundStyle(.gray400)
                     }
                 }
                 .font(.inter(size: 9.0))

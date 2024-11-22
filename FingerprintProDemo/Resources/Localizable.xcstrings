@@ -601,6 +601,16 @@
         }
       }
     },
+    "Signal disabled for your app" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signal disabled for your app"
+          }
+        }
+      }
+    },
     "SMART SIGNAL" : {
       "localizations" : {
         "en" : {

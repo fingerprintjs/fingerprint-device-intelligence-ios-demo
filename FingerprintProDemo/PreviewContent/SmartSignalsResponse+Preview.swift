@@ -31,12 +31,10 @@ extension SmartSignalsResponse {
                             dailyRequests: previewData.dailyRequests
                         )
                     ),
-                    jailbroken: .init(
+                    jailbreak: .init(
                         data: .init(result: false)
                     ),
-                    locationSpoofing: .init(
-                        data: .init(result: false)
-                    ),
+                    locationSpoofing: .none,
                     vpn: .init(
                         data: .init(
                             result: true,
@@ -45,7 +43,8 @@ extension SmartSignalsResponse {
                             methods: .init(
                                 timezoneMismatch: false,
                                 publicVPN: false,
-                                auxiliaryMobile: false
+                                auxiliaryMobile: false,
+                                relay: false
                             )
                         )
                     )

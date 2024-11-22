@@ -66,7 +66,7 @@ private extension HomeView {
         )
         .font(.inter(size: 14.0))
         .kerning(0.14)
-        .foregroundStyle(.mediumGray)
+        .foregroundStyle(.gray500)
         .multilineTextAlignment(.center)
         .padding(.bottom, 64.0)
     }

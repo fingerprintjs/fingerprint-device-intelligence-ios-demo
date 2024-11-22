@@ -31,19 +31,19 @@ struct SettingButton: View {
             HStack(spacing: .zero) {
                 Image(systemName: systemImage)
                     .font(.system(size: 17.0))
-                    .foregroundStyle(.regularGray)
+                    .foregroundStyle(.gray400)
                     .padding(.trailing, 16.0)
                 Text(titleKey)
-                    .foregroundStyle(.extraDarkGray)
+                    .foregroundStyle(.gray900)
                 if let accessoryType {
                     Spacer(minLength: 8.0)
                     if let textKey = accessoryType.textKey {
                         Text(textKey)
-                            .foregroundStyle(.mediumGray)
+                            .foregroundStyle(.gray500)
                             .padding(.trailing, 12.0)
                     }
                     Image(systemName: accessoryType.systemImage)
-                        .foregroundStyle(.semiLightGray)
+                        .foregroundStyle(.gray300)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)

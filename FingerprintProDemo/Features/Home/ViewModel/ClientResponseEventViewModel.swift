@@ -49,12 +49,12 @@ private extension ClientResponseEventViewModel {
         case .visitorId: visitorIdFieldValue
         case .visitorFound: visitorFoundFieldValue
         case .confidence: confidenceFieldValue
-        case .vpn: vpnFieldValue
-        case .factoryReset: factoryResetFieldValue
-        case .jailbreak: jailbreakFieldValue
-        case .frida: fridaFieldValue
-        case .locationSpoofing: locationSpoofingFieldValue
-        case .highActivity: highActivityFieldValue
+        case .vpn: vpnSignalValue
+        case .factoryReset: factoryResetSignalValue
+        case .jailbreak: jailbreakSignalValue
+        case .frida: fridaSignalValue
+        case .locationSpoofing: locationSpoofingSignalValue
+        case .highActivity: highActivitySignalValue
         }
     }
 }
@@ -89,17 +89,17 @@ private extension ClientResponseEventViewModel {
             guard let date = fingerprintResponse.lastSeenAt?.subscription else { return "" }
             return .init(Format.Date.iso8601Full(from: date))
         case .vpn:
-            return vpnFieldValue
+            return vpnSignalValue
         case .factoryReset:
-            return factoryResetFieldValue
+            return factoryResetSignalValue
         case .jailbreak:
-            return jailbreakFieldValue
+            return jailbreakSignalValue
         case .frida:
-            return fridaFieldValue
+            return fridaSignalValue
         case .locationSpoofing:
-            return locationSpoofingFieldValue
+            return locationSpoofingSignalValue
         case .highActivity:
-            return highActivityFieldValue
+            return highActivitySignalValue
         }
     }
 }
@@ -125,30 +125,49 @@ private extension ClientResponseEventViewModel {
 
     var smartSignalsResponse: SmartSignalsResponse? { event.smartSignalsResponse }
 
-    var vpnFieldValue: AttributedString {
+    var vpnSignalValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard smartSignalsResponse.vpnDetected else { return LocalizedStrings.notDetected.rawValue }
-        return .init(localized: "Device time zone is \(smartSignalsResponse.deviceTimezone)")
+        guard let vpn = smartSignalsResponse.products.vpn else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+        guard vpn.data.result else {
+            return LocalizedStrings.notDetected.rawValue
+        }
+        return .init(localized: "Device time zone is \(vpn.data.originTimezone)")
     }
 
-    var factoryResetFieldValue: AttributedString {
+    var factoryResetSignalValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard smartSignalsResponse.factoryResetDetected else { return LocalizedStrings.notDetected.rawValue }
-        return .init(Format.Date.iso8601Full(from: smartSignalsResponse.factoryResetDate))
+        guard let factoryReset = smartSignalsResponse.products.factoryReset else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+        guard factoryReset.data.timestamp > 0 else {
+            return LocalizedStrings.notDetected.rawValue
+        }
+        return .init(Format.Date.iso8601Full(from: factoryReset.data.time))
     }
 
-    var jailbreakFieldValue: AttributedString {
+    var jailbreakSignalValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        return LocalizedStrings.smartSignalValue(from: smartSignalsResponse.jailbreakDetected)
+        guard let jailbreak = smartSignalsResponse.products.jailbreak else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+        return LocalizedStrings.smartSignalValue(from: jailbreak.data.result)
     }
 
-    var fridaFieldValue: AttributedString {
+    var fridaSignalValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        return LocalizedStrings.smartSignalValue(from: smartSignalsResponse.fridaDetected)
+        guard let frida = smartSignalsResponse.products.frida else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+        return LocalizedStrings.smartSignalValue(from: frida.data.result)
     }
 
-    var locationSpoofingFieldValue: AttributedString {
+    var locationSpoofingSignalValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
+        guard let locationSpoofing = smartSignalsResponse.products.locationSpoofing else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
         guard hasLocationPermission else {
             let text = String(localized: "Requires location permission")
             guard
@@ -159,13 +178,16 @@ private extension ClientResponseEventViewModel {
             }
             return value
         }
-        return LocalizedStrings.smartSignalValue(from: smartSignalsResponse.locationSpoofingDetected)
+        return LocalizedStrings.smartSignalValue(from: locationSpoofing.data.result)
     }
 
-    var highActivityFieldValue: AttributedString {
+    var highActivitySignalValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        let isHighActivity = smartSignalsResponse.isHighActivityDevice
-        let dailyRequests = smartSignalsResponse.deviceDailyRequests
+        guard let highActivity = smartSignalsResponse.products.highActivity else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+        let isHighActivity = highActivity.data.result
+        let dailyRequests = highActivity.data.dailyRequests
         guard isHighActivity, let dailyRequests else {
             return LocalizedStrings.smartSignalValue(from: isHighActivity)
         }
@@ -183,12 +205,23 @@ private extension ClientResponseEventViewModel {
         case detected
         case notDetected
 
+        case signalDisabled
+
         var rawValue: AttributedString {
             switch self {
-            case .yes: .init(localized: "Yes")
-            case .no: .init(localized: "No")
-            case .detected: .init(localized: "Detected")
-            case .notDetected: .init(localized: "Not detected")
+            case .yes:
+                return .init(localized: "Yes")
+            case .no:
+                return .init(localized: "No")
+            case .detected:
+                return .init(localized: "Detected")
+            case .notDetected:
+                return .init(localized: "Not detected")
+            case .signalDisabled:
+                let text = String(localized: "Signal disabled for your app")
+                var value: AttributedString = (try? .init(markdown: "*\(text)*")) ?? .init(text)
+                value.foregroundColor = .gray700
+                return value
             }
         }
 

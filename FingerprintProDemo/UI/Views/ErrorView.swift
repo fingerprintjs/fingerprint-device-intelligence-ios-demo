@@ -43,17 +43,17 @@ struct ErrorView: View {
         VStack(spacing: 24.0) {
             Image(systemName: systemImage)
                 .font(.system(size: 32.0))
-                .foregroundStyle(.extraLightGray)
+                .foregroundStyle(.gray200)
             VStack(spacing: 8.0) {
                 Text(title)
                     .font(.inter(size: 16.0, weight: .medium))
-                    .foregroundStyle(.extraDarkGray)
+                    .foregroundStyle(.gray900)
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
                 Text(description)
                     .font(.inter(size: 14.0))
                     .kerning(0.056)
-                    .foregroundStyle(.semiDarkGray)
+                    .foregroundStyle(.gray600)
                     .multilineTextAlignment(.center)
             }
             Button(buttonTitle, action: action)

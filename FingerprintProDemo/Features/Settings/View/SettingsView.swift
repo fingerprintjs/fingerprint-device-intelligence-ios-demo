@@ -87,7 +87,7 @@ private extension SettingsView {
             .frame(maxWidth: .infinity, alignment: .top)
             .font(.inter(size: 14.0))
             .kerning(0.14)
-            .foregroundStyle(.mediumGray)
+            .foregroundStyle(.gray500)
             .multilineTextAlignment(.center)
             .padding(.top, 4.0)
         }
