@@ -68,11 +68,10 @@ extension DeviceFingerprintViewModel {
                 )
             )
             showSignUpIfNeeded()
+            fingerprintCount += 1
         } catch {
             fingerprintingState = .failed(error: .init(from: error))
         }
-
-        fingerprintCount += 1
     }
 
     func hideSignUp() {
