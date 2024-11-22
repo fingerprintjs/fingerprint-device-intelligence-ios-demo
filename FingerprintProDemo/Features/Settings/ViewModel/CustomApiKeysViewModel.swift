@@ -40,13 +40,17 @@ extension CustomApiKeysViewModel {
         }
 
         try? settingsContainer.setApiKeysEnabled(apiKeysEnabled)
-        try? settingsContainer.setApiKeysConfig(
-            .init(
-                publicKey: publicKey,
-                secretKey: secretKey,
-                region: region.underlyingRegion
+        if !publicKey.isEmpty && !secretKey.isEmpty {
+            try? settingsContainer.setApiKeysConfig(
+                .init(
+                    publicKey: publicKey,
+                    secretKey: secretKey,
+                    region: region.underlyingRegion
+                )
             )
-        )
+        } else {
+            try? settingsContainer.setApiKeysConfig(.none)
+        }
 
         return true
     }

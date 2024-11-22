@@ -83,6 +83,8 @@ extension DeviceFingerprintViewModel {
 
 private extension DeviceFingerprintViewModel {
 
+    var hasApiKeysConfig: Bool { (try? settingsContainer.apiKeysConfig) != nil }
+
     var fingerprintCount: Int {
         get {
             (try? settingsContainer.fingerprintCount) ?? .zero
@@ -102,6 +104,10 @@ private extension DeviceFingerprintViewModel {
     }
 
     func showSignUpIfNeeded() {
+        guard !hasApiKeysConfig else {
+            shouldShowSignUp = false
+            return
+        }
         guard hideSignUpTimestamp > 0 else {
             shouldShowSignUp = fingerprintCount > 0
             return

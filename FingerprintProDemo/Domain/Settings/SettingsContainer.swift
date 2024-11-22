@@ -63,7 +63,11 @@ extension SettingsContainer {
         try storeValue(value, forKey: .apiKeysEnabled)
     }
 
-    func setApiKeysConfig(_ value: ApiKeysConfig) throws {
+    func setApiKeysConfig(_ value: ApiKeysConfig?) throws {
+        guard let value else {
+            try removeValue(forKey: .apiKeys)
+            return
+        }
         try storeValue(value, forKey: .apiKeys)
     }
 
