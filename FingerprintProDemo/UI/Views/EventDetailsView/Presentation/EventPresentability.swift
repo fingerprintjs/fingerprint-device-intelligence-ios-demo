@@ -1,12 +1,12 @@
 import SwiftUI
 
 @MainActor
-protocol PresentableFieldKey: RawRepresentable, CaseIterable where Self.RawValue == LocalizedStringKey {}
+protocol PresentableItemKey: RawRepresentable, CaseIterable, Hashable where RawValue == LocalizedStringKey {}
 
 @MainActor
 protocol EventPresentability {
 
-    associatedtype FieldKey: PresentableFieldKey
+    associatedtype ItemKey: PresentableItemKey
 
     var loadingTitleKey: LocalizedStringKey? { get }
     var loadingDescriptionKey: LocalizedStringKey? { get }
@@ -15,12 +15,12 @@ protocol EventPresentability {
 
     var detailsHeaderKey: LocalizedStringKey { get }
 
-    var foremostFieldKey: FieldKey { get }
+    var foremostItemKey: ItemKey { get }
 
     var emptyValueString: AttributedString? { get }
 
-    func badge(for key: FieldKey) -> Badge?
-    func valuePlaceholder(for key: FieldKey) -> String
+    func badge(for key: ItemKey) -> Badge?
+    func valuePlaceholder(for key: ItemKey) -> String
 }
 
 extension EventPresentability {
@@ -32,5 +32,5 @@ extension EventPresentability {
 
     var emptyValueString: AttributedString? { .none }
 
-    func badge(for key: FieldKey) -> Badge? { .none }
+    func badge(for key: ItemKey) -> Badge? { .none }
 }

@@ -27,14 +27,13 @@ struct EventDetailsView<Presentation: EventPresentability, Actions: View>: View 
                     heading
                         .padding(.bottom, 32.0)
                 }
-                foremostField
+                foremostItem
                     .padding(.bottom, isLoading ? 24.0 : 32.0)
                 actions
                     .padding(.bottom, 32.0)
                 details
                 Spacer(minLength: 32.0)
             }
-            .redacted(if: isLoading)
             .animation(.easeInOut(duration: 0.35), value: state)
         case let .error(error, action):
             ErrorView(
@@ -70,23 +69,23 @@ private extension EventDetailsView {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .unredacted()
         }
     }
 
     @ViewBuilder
-    var foremostField: some View {
+    var foremostItem: some View {
         VStack(spacing: 4.0) {
             Group {
-                Text(foremostFieldKey)
+                Text(foremostItemKey)
                     .font(.inter(size: 12.0))
                     .kerning(0.36)
                     .foregroundStyle(.gray400)
-                    .unredacted()
 
-                Text(foremostFieldValue)
+                Text(foremostItemValue)
                     .font(.inter(size: 22.0, weight: .medium))
-                    .foregroundStyle(isPresenting ? .accent : .gray900)
+                    .foregroundStyle(isPresenting ? .accent : .clear)
+                    .background(isPresenting ? .clear : .gray100)
+                    .cornerRadius(4.0)
                     .textSelection(.enabled)
                     .disabled(isLoading)
                     .transaction { transaction in
@@ -110,12 +109,10 @@ private extension EventDetailsView {
                 .font(.inter(size: 12.0))
                 .kerning(0.36)
                 .foregroundStyle(.gray400)
-                .unredacted()
 
             Picker(selection: $detailsDisplayMode.animation()) {
                 ForEach(DetailsDisplayMode.allCases, id: \.self) { mode in
                     Text(mode.rawValue)
-                        .unredacted()
                 }
             } label: {
                 EmptyView()
@@ -140,30 +137,12 @@ private extension EventDetailsView {
         VStack(spacing: 16.0) {
             switch state {
             case .loading:
-                ForEach(Presentation.fieldMetadata, id: \.id) { (_, key) in
-                    DetailsFieldView(
-                        key: key.rawValue,
-                        value: .init(presentation.valuePlaceholder(for: key)),
-                        badge: presentation.badge(for: key)
-                    )
+                ForEach(prettifiedItems(keyedValue: .none)) {
+                    PrettifiedItemView(item: $0)
                 }
-            case let .presenting(fieldValue, _):
-                ForEach(Presentation.fieldMetadata, id: \.id) { (_, key) in
-                    let fieldValue = fieldValue(key)
-                    if fieldValue.characters.isEmpty, let emptyValueString {
-                        DetailsFieldView(
-                            key: key.rawValue,
-                            value: emptyValueString,
-                            badge: presentation.badge(for: key),
-                            valueColor: .gray500
-                        )
-                    } else {
-                        DetailsFieldView(
-                            key: key.rawValue,
-                            value: fieldValue,
-                            badge: presentation.badge(for: key)
-                        )
-                    }
+            case let .presenting(itemValue, _):
+                ForEach(prettifiedItems(keyedValue: itemValue)) {
+                    PrettifiedItemView(item: $0)
                 }
             case .error:
                 EmptyView()
@@ -240,15 +219,20 @@ private extension EventDetailsView {
         }
     }
 
-    var foremostFieldKey: LocalizedStringKey { presentation.foremostFieldKey.rawValue }
+    var foremostItemKey: LocalizedStringKey { presentation.foremostItemKey.rawValue }
 
-    var foremostFieldValue: AttributedString {
-        let key = presentation.foremostFieldKey
+    var foremostItemValue: AttributedString {
+        let key = presentation.foremostItemKey
         switch state {
         case .loading:
             return .init(presentation.valuePlaceholder(for: key))
-        case let .presenting(fieldValue, _):
-            return fieldValue(key)
+        case let .presenting(itemValue, _):
+            let itemValue = itemValue(key)
+            if itemValue.characters.isEmpty, let emptyValueString {
+                return emptyValueString
+            } else {
+                return itemValue
+            }
         case .error:
             return ""
         }
@@ -265,40 +249,77 @@ private extension EventDetailsView {
     }
 }
 
+@MainActor
 private extension EventDetailsView {
 
     enum DetailsDisplayMode: LocalizedStringKey, CaseIterable {
         case prettified = "PRETTIFIED"
         case raw = "RAW"
     }
+}
 
-    struct DetailsFieldView: View {
+@MainActor
+private extension EventDetailsView {
 
-        private let key: LocalizedStringKey
-        private let value: AttributedString
-        private let badge: Badge?
-        private let valueColor: Color
+    func prettifiedItems(
+        keyedValue: ((Presentation.ItemKey) -> AttributedString)?
+    ) -> [PrettifiedItem] {
+        Presentation.ItemKey.allCases.map { key in
+            let value: AttributedString
+            let valueForeground: Color
+            let valueBackground: Color
+            if let keyedValue = keyedValue?(key) {
+                if keyedValue.characters.isEmpty, let emptyValueString {
+                    value = emptyValueString
+                    valueForeground = .gray500
+                } else {
+                    value = keyedValue
+                    valueForeground = .gray900
+                }
+                valueBackground = .clear
+            } else {
+                value = .init(presentation.valuePlaceholder(for: key))
+                valueForeground = .clear
+                valueBackground = .gray100
+            }
+            return .init(
+                id: key.hashValue,
+                key: key.rawValue,
+                value: value,
+                valueForeground: valueForeground,
+                valueBackground: valueBackground,
+                badge: presentation.badge(for: key)
+            )
+        }
+    }
 
-        init(
-            key: LocalizedStringKey,
-            value: AttributedString,
-            badge: Badge?,
-            valueColor: Color = .gray900
-        ) {
-            self.key = key
-            self.value = value
-            self.badge = badge
-            self.valueColor = valueColor
+    struct PrettifiedItem: Identifiable {
+        let id: Int
+        let key: LocalizedStringKey
+        let value: AttributedString
+        let valueForeground: Color
+        let valueBackground: Color
+        let badge: Badge?
+    }
+
+    struct PrettifiedItemView: View {
+
+        private let item: PrettifiedItem
+
+        init(item: PrettifiedItem) {
+            self.item = item
         }
 
         var body: some View {
             VStack(spacing: 4.0) {
                 Group {
                     title
-                    Text(value)
+                    Text(item.value)
                         .font(.inter(size: 14.0))
                         .kerning(0.14)
-                        .foregroundStyle(valueColor)
+                        .foregroundStyle(item.valueForeground)
+                        .background(item.valueBackground)
+                        .cornerRadius(4.0)
                 }
                 .tint(.accent)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -310,33 +331,31 @@ private extension EventDetailsView {
             HStack(spacing: 4.0) {
                 Group {
                     if let badgeTitle {
-                        Text(key)
+                        Text(item.key)
                             .foregroundColor(.gray400) +
                         Text(verbatim: " - ")
                             .foregroundColor(.gray400) +
                         Text(badgeTitle)
                             .foregroundColor(.accent)
                     } else {
-                        Text(key)
+                        Text(item.key)
                             .foregroundStyle(.gray400)
                     }
                 }
                 .font(.inter(size: 9.0))
                 .kerning(0.27)
-                .unredacted()
-                if case let .link(_, url) = badge {
+                if case let .link(_, url) = item.badge {
                     Link(destination: url) {
                         Image(systemName: "arrow.up.right.square")
                             .font(.system(size: 11.0, weight: .light))
                             .foregroundStyle(.accent)
-                            .unredacted()
                     }
                 }
             }
         }
 
         private var badgeTitle: AttributedString? {
-            switch badge {
+            switch item.badge {
             case let .plain(title):
                 return .init(title)
             case let .link(title, destination):
@@ -348,13 +367,6 @@ private extension EventDetailsView {
                 return .none
             }
         }
-    }
-}
-
-private extension EventPresentability {
-
-    static var fieldMetadata: [(id: UUID, key: FieldKey)] {
-        FieldKey.allCases.map { (.init(), $0) }
     }
 }
 
@@ -377,7 +389,7 @@ private extension EventPresentability {
             presentation: .basicResponse,
             state: .constant(
                 .presenting(
-                    fieldValue: { key in
+                    itemValue: { key in
                         switch key {
                         case .requestId:
                             "1702058653176.gO9SYo"

@@ -14,10 +14,10 @@ struct ClientResponseEventViewModel: Equatable {
 
 extension ClientResponseEventViewModel {
 
-    func fieldValue<Key: PresentableFieldKey>(forKey key: Key) -> AttributedString {
+    func itemValue<Key: PresentableItemKey>(forKey key: Key) -> AttributedString {
         switch key {
-        case let key as BasicResponseEventPresentability.FieldKey: fieldValue(forKey: key)
-        case let key as ExtendedResponseEventPresentability.FieldKey: fieldValue(forKey: key)
+        case let key as BasicResponseEventPresentability.ItemKey: itemValue(forKey: key)
+        case let key as ExtendedResponseEventPresentability.ItemKey: itemValue(forKey: key)
         default: ""
         }
     }
@@ -43,34 +43,34 @@ extension ClientResponseEventViewModel {
 
 private extension ClientResponseEventViewModel {
 
-    func fieldValue(forKey key: BasicResponseEventPresentability.FieldKey) -> AttributedString {
+    func itemValue(forKey key: BasicResponseEventPresentability.ItemKey) -> AttributedString {
         switch key {
-        case .requestId: requestIdFieldValue
-        case .visitorId: visitorIdFieldValue
-        case .visitorFound: visitorFoundFieldValue
-        case .confidence: confidenceFieldValue
-        case .vpn: vpnSignalValue
-        case .factoryReset: factoryResetSignalValue
-        case .jailbreak: jailbreakSignalValue
-        case .frida: fridaSignalValue
-        case .locationSpoofing: locationSpoofingSignalValue
-        case .highActivity: highActivitySignalValue
+        case .requestId: requestIdItemValue
+        case .visitorId: visitorIdItemValue
+        case .visitorFound: visitorFoundItemValue
+        case .confidence: confidenceItemValue
+        case .vpn: vpnItemValue
+        case .factoryReset: factoryResetItemValue
+        case .jailbreak: jailbreakItemValue
+        case .frida: fridaItemValue
+        case .locationSpoofing: locationSpoofingItemValue
+        case .highActivity: highActivityItemValue
         }
     }
 }
 
 private extension ClientResponseEventViewModel {
 
-    func fieldValue(forKey key: ExtendedResponseEventPresentability.FieldKey) -> AttributedString {
+    func itemValue(forKey key: ExtendedResponseEventPresentability.ItemKey) -> AttributedString {
         switch key {
         case .requestId:
-            return requestIdFieldValue
+            return requestIdItemValue
         case .visitorId:
-            return visitorIdFieldValue
+            return visitorIdItemValue
         case .visitorFound:
-            return visitorFoundFieldValue
+            return visitorFoundItemValue
         case .confidence:
-            return confidenceFieldValue
+            return confidenceItemValue
         case .ipAddress:
             return .init(fingerprintResponse.ipAddress ?? "")
         case .ipLocation:
@@ -89,17 +89,17 @@ private extension ClientResponseEventViewModel {
             guard let date = fingerprintResponse.lastSeenAt?.subscription else { return "" }
             return .init(Format.Date.iso8601Full(from: date))
         case .vpn:
-            return vpnSignalValue
+            return vpnItemValue
         case .factoryReset:
-            return factoryResetSignalValue
+            return factoryResetItemValue
         case .jailbreak:
-            return jailbreakSignalValue
+            return jailbreakItemValue
         case .frida:
-            return fridaSignalValue
+            return fridaItemValue
         case .locationSpoofing:
-            return locationSpoofingSignalValue
+            return locationSpoofingItemValue
         case .highActivity:
-            return highActivitySignalValue
+            return highActivityItemValue
         }
     }
 }
@@ -108,15 +108,15 @@ private extension ClientResponseEventViewModel {
 
     var fingerprintResponse: FingerprintResponse { event.fingerprintResponse }
 
-    var requestIdFieldValue: AttributedString { .init(fingerprintResponse.requestId) }
+    var requestIdItemValue: AttributedString { .init(fingerprintResponse.requestId) }
 
-    var visitorIdFieldValue: AttributedString { .init(fingerprintResponse.visitorId) }
+    var visitorIdItemValue: AttributedString { .init(fingerprintResponse.visitorId) }
 
-    var visitorFoundFieldValue: AttributedString {
+    var visitorFoundItemValue: AttributedString {
         LocalizedStrings.value(from: fingerprintResponse.visitorFound)
     }
 
-    var confidenceFieldValue: AttributedString {
+    var confidenceItemValue: AttributedString {
         .init(Format.Number.percentString(from: fingerprintResponse.confidence))
     }
 }
@@ -125,7 +125,7 @@ private extension ClientResponseEventViewModel {
 
     var smartSignalsResponse: SmartSignalsResponse? { event.smartSignalsResponse }
 
-    var vpnSignalValue: AttributedString {
+    var vpnItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard let vpn = smartSignalsResponse.products.vpn else {
             return LocalizedStrings.signalDisabled.rawValue
@@ -136,7 +136,7 @@ private extension ClientResponseEventViewModel {
         return .init(localized: "Device time zone is \(vpn.data.originTimezone)")
     }
 
-    var factoryResetSignalValue: AttributedString {
+    var factoryResetItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard let factoryReset = smartSignalsResponse.products.factoryReset else {
             return LocalizedStrings.signalDisabled.rawValue
@@ -147,7 +147,7 @@ private extension ClientResponseEventViewModel {
         return .init(Format.Date.iso8601Full(from: factoryReset.data.time))
     }
 
-    var jailbreakSignalValue: AttributedString {
+    var jailbreakItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard let jailbreak = smartSignalsResponse.products.jailbreak else {
             return LocalizedStrings.signalDisabled.rawValue
@@ -155,7 +155,7 @@ private extension ClientResponseEventViewModel {
         return LocalizedStrings.smartSignalValue(from: jailbreak.data.result)
     }
 
-    var fridaSignalValue: AttributedString {
+    var fridaItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard let frida = smartSignalsResponse.products.frida else {
             return LocalizedStrings.signalDisabled.rawValue
@@ -163,7 +163,7 @@ private extension ClientResponseEventViewModel {
         return LocalizedStrings.smartSignalValue(from: frida.data.result)
     }
 
-    var locationSpoofingSignalValue: AttributedString {
+    var locationSpoofingItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard let locationSpoofing = smartSignalsResponse.products.locationSpoofing else {
             return LocalizedStrings.signalDisabled.rawValue
@@ -181,7 +181,7 @@ private extension ClientResponseEventViewModel {
         return LocalizedStrings.smartSignalValue(from: locationSpoofing.data.result)
     }
 
-    var highActivitySignalValue: AttributedString {
+    var highActivityItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard let highActivity = smartSignalsResponse.products.highActivity else {
             return LocalizedStrings.signalDisabled.rawValue

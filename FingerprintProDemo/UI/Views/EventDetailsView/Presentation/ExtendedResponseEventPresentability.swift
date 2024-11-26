@@ -7,7 +7,7 @@ extension EventPresentability where Self == ExtendedResponseEventPresentability 
 
 struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
 
-    enum FieldKey: LocalizedStringKey, PresentableFieldKey {
+    enum ItemKey: LocalizedStringKey, PresentableItemKey {
         case requestId = "REQUEST ID"
         case visitorId = "VISITOR ID"
         case visitorFound = "VISITOR FOUND"
@@ -24,9 +24,9 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
         case highActivity = "HIGH-ACTIVITY"
     }
 
-    let foremostFieldKey: FieldKey = .visitorId
+    let foremostItemKey: ItemKey = .visitorId
 
-    func badge(for key: FieldKey) -> Badge? {
+    func badge(for key: ItemKey) -> Badge? {
         let title = String(localized: "SMART SIGNAL")
         switch key {
         case .vpn:
@@ -46,7 +46,7 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
         }
     }
 
-    func valuePlaceholder(for key: FieldKey) -> String {
+    func valuePlaceholder(for key: ItemKey) -> String {
         switch key {
         case .visitorFound: .placeholder(length: 3)
         case .confidence: .placeholder(length: 4)

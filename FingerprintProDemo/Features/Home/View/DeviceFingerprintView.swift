@@ -4,7 +4,7 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
 
     typealias ViewModel = DeviceFingerprintViewModel
 
-    private typealias VisualState = EventDetailsVisualState<Presentation.FieldKey>
+    private typealias VisualState = EventDetailsVisualState<Presentation.ItemKey>
 
     @Environment(\.openURL) private var openURL
     @Environment(\.deepLink) private var deepLink
@@ -92,7 +92,7 @@ private extension DeviceFingerprintView {
                 self.state = .loading
             case let .completed(viewModel):
                 self.state = .presenting(
-                    fieldValue: viewModel.fieldValue(forKey:),
+                    itemValue: viewModel.itemValue(forKey:),
                     rawDetails: viewModel.rawEventRepresentation
                 )
             case let .failed(error):

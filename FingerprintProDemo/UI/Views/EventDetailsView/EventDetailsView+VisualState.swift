@@ -1,8 +1,8 @@
 import Foundation
 
-enum EventDetailsVisualState<FieldKey: PresentableFieldKey> {
+enum EventDetailsVisualState<ItemKey: PresentableItemKey> {
     case loading
-    case presenting(fieldValue: (FieldKey) -> AttributedString, rawDetails: String)
+    case presenting(itemValue: (ItemKey) -> AttributedString, rawDetails: String)
     case error(PresentableError, action: @MainActor () -> Void)
 }
 
@@ -18,5 +18,5 @@ extension EventDetailsVisualState: Equatable {
 
 extension EventDetailsView {
 
-    typealias VisualState = EventDetailsVisualState<Presentation.FieldKey>
+    typealias VisualState = EventDetailsVisualState<Presentation.ItemKey>
 }
