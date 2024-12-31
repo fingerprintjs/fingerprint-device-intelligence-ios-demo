@@ -99,6 +99,10 @@ The SDK configuration code and `getVisitorIdResponse()` call are abstracted away
 
 The `DeviceIdentificationService<ClientFactory>.fingerprintDevice()` method is called by the `DeviceFingerprintViewModel`, which further passes the obtained `FingerprintResponse` instance to the `ClientResponseEventViewModel`. This is where the individual field values are being extracted from the response and prepared for presentation inside the `EventDetailsView<Presentation, Actions>`. The view models can be found in [FingerprintProDemo/Features/Home/ViewModel](./FingerprintProDemo/Features/Home/ViewModel).
 
+## Handling the errors
+
+Any errors thrown by the SDK are handled by the `DeviceFingerprintViewModel.fingerprintDevice()` method, which calls the `PresentableError.init(from:)` initializer to convert the captured error to its user-friendly equivalent. The error mapping code can be found in the [PresentableError+FromError.swift](./FingerprintProDemo/Features/Common/Error/PresentableError+FromError.swift) file. You can use this kind of approach to map the SDK errors to domain-specific errors in your code.
+
 ## Stubbing the response for SwiftUI previews and/or testing
 
 To make the most out of [SwiftUI previews in Xcode](https://developer.apple.com/documentation/swiftui/previews-in-xcode), you should have full control over the data that describes the view's state. See [FingerprintProDemo/PreviewContent](./FingerprintProDemo/PreviewContent) for an example of how you can create and use a stubbed `FingerprintResponse` for your previews. Likewise, the same technique can be used for writing the automated tests.
