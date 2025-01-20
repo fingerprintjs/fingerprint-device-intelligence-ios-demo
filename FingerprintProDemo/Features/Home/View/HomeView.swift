@@ -59,10 +59,10 @@ private extension HomeView {
         .buttonStyle(.fingerprint)
         .padding(.bottom, 40.0)
         Text(
-              """
-              Device intelligence powered by
-              Fingerprint iOS SDK \(AppInfo.sdkVersionString)
-              """
+            """
+            Device intelligence powered by
+            Fingerprint iOS SDK \(AppInfo.sdkVersionString)
+            """
         )
         .font(.inter(size: 14.0))
         .kerning(0.14)

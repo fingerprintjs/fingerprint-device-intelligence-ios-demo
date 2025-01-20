@@ -13,7 +13,7 @@ enum NetworkingError: Error {
 extension NetworkingError {
 
     var isCreateURLRequestFailedError: Bool {
-        if case .createURLRequestFailed = self { true } else { false}
+        if case .createURLRequestFailed = self { true } else { false }
     }
 
     var isInvalidResponseError: Bool {

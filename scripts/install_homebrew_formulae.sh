@@ -33,5 +33,6 @@ fi
 echo "------------------ INSTALL HOMEBREW FORMULAE -------------------"
 
 homebrew_install_formula gitleaks
+homebrew_install_formula swift-format
 
 echo "---------------- END INSTALL HOMEBREW FORMULAE -----------------"

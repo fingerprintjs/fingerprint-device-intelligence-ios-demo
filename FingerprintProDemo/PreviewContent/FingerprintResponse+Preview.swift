@@ -24,8 +24,8 @@ extension FingerprintResponse {
                 subdivisions: []
             ),
             firstSeenAt: .init(
-                global: Date(timeIntervalSince1970: 1700673178),
-                subscription: Date(timeIntervalSince1970: 1700673178)
+                global: Date(timeIntervalSince1970: 1_700_673_178),
+                subscription: Date(timeIntervalSince1970: 1_700_673_178)
             ),
             lastSeenAt: .init(
                 global: lastSeenAt,

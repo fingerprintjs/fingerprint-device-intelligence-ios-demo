@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help environment homebrew
+.PHONY: help environment homebrew lint
 
 GITHOOKS_DIR := ".githooks"
 
@@ -13,3 +13,6 @@ environment: homebrew
 
 homebrew:
 	@./scripts/install_homebrew_formulae.sh
+
+lint:
+	@./scripts/lint_code.sh --strict

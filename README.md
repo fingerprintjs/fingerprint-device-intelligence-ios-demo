@@ -9,6 +9,9 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/fingerprintjs/fingerprint-device-intelligence-ios-demo/actions/workflows/ci.yml">
+    <img src="https://github.com/fingerprintjs/fingerprint-device-intelligence-ios-demo/actions/workflows/ci.yml/badge.svg" alt="CI status">
+  </a>
   <a href="https://developer.apple.com/xcode/">
     <img src="https://img.shields.io/badge/Xcode-16.0%20%7C%2015.4-blue" alt="Supported Xcode versions">
   </a>

@@ -33,8 +33,8 @@ extension CustomApiKeysViewModel {
 
     func saveApiKeys() -> Bool {
         guard
-            (!apiKeysEnabled && publicKey.isEmpty && secretKey.isEmpty) ||
-                (!publicKey.isEmpty && !secretKey.isEmpty)
+            (!apiKeysEnabled && publicKey.isEmpty && secretKey.isEmpty)
+                || (!publicKey.isEmpty && !secretKey.isEmpty)
         else {
             return false
         }

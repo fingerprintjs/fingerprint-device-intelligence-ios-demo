@@ -14,7 +14,7 @@ struct KeychainStorage: BackingStorage {
 
         if containsData(forKey: key) {
             let attributesToUpdate: [String: Any] = [
-                kSecValueData as String: data,
+                kSecValueData as String: data
             ]
 
             status = SecItemUpdate(query as CFDictionary, attributesToUpdate as CFDictionary)

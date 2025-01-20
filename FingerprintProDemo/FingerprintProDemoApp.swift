@@ -18,7 +18,7 @@ private extension FingerprintProDemoApp {
 
     func configureAppearance() {
         UINavigationBar.appearance().largeTitleTextAttributes = [
-            .font: UIFont.interFont(ofSize: 24.0, weight: .semibold),
+            .font: UIFont.interFont(ofSize: 24.0, weight: .semibold)
         ]
         UISegmentedControl.appearance().backgroundColor = .backgroundGray
         UISegmentedControl.appearance()

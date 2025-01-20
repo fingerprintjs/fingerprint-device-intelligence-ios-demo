@@ -243,7 +243,7 @@ private extension EventDetailsView {
     var emptyValueString: AttributedString? { presentation.emptyValueString }
 
     func lineNumbersString(for text: String) -> String {
-        (1...text.linesCount)
+        (1 ... text.linesCount)
             .map { "\($0)" }
             .joined(separator: "\n")
     }
@@ -332,10 +332,10 @@ private extension EventDetailsView {
                 Group {
                     if let badgeTitle {
                         Text(item.key)
-                            .foregroundColor(.gray400) +
-                        Text(verbatim: " - ")
-                            .foregroundColor(.gray400) +
-                        Text(badgeTitle)
+                            .foregroundColor(.gray400)
+                            + Text(verbatim: " - ")
+                            .foregroundColor(.gray400)
+                            + Text(badgeTitle)
                             .foregroundColor(.accent)
                     } else {
                         Text(item.key)
@@ -404,29 +404,29 @@ private extension EventDetailsView {
                         }
                     },
                     rawDetails: """
-                                  {
-                                    "v" : "2",
-                                    "requestId" : "1702058653176.gO9SYo",
-                                    "visitorId" : "rVC74CiaXVZGVC69OBsP",
-                                    "visitorFound" : true,
-                                    "confidence" : 1
-                                  }
-                                  """
+                        {
+                        "v" : "2",
+                        "requestId" : "1702058653176.gO9SYo",
+                        "visitorId" : "rVC74CiaXVZGVC69OBsP",
+                        "visitorFound" : true,
+                        "confidence" : 1
+                        }
+                        """
                 )
             ),
             actions: {
                 CallToActionView(
-                   title: AttributedString(
-                       stringLiteral: "Impressed with Fingerprint?"
-                   ),
-                   description: AttributedString(
-                       stringLiteral: "Try free for 14 days, credit card not needed."
-                   ),
-                   primaryButtonTitle: "Sign up",
-                   primaryAction: { print("primaryAction()") },
-                   secondaryButtonTitle: "Don’t show again for a week",
-                   secondaryAction: { print("secondaryAction()") }
-               )
+                    title: AttributedString(
+                        stringLiteral: "Impressed with Fingerprint?"
+                    ),
+                    description: AttributedString(
+                        stringLiteral: "Try free for 14 days, credit card not needed."
+                    ),
+                    primaryButtonTitle: "Sign up",
+                    primaryAction: { print("primaryAction()") },
+                    secondaryButtonTitle: "Don’t show again for a week",
+                    secondaryAction: { print("secondaryAction()") }
+                )
             }
         )
         .padding(.top, 38.0)

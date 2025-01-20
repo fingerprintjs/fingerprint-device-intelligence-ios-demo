@@ -817,6 +817,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 156D064E2B0F5FA60015A456 /* Build configuration list for PBXNativeTarget "FingerprintProDemo" */;
 			buildPhases = (
+				15FEE4E42D3AEAD100A3CCFA /* Lint Code */,
 				156D063C2B0F5FA50015A456 /* Sources */,
 				156D063D2B0F5FA50015A456 /* Frameworks */,
 				156D063E2B0F5FA50015A456 /* Resources */,
@@ -910,6 +911,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "readonly PLIST_BUDDY=\"/usr/libexec/PlistBuddy\"\nreadonly INFOPLIST=\"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n\nreadonly APP_MARKETING_VERSION=$($PLIST_BUDDY -c \"Print :CFBundleShortVersionString\" \"$INFOPLIST\")\nreadonly APP_BUILD_VERSION=$($PLIST_BUDDY -c \"Print :CFBundleVersion\" \"$INFOPLIST\")\n\n$PLIST_BUDDY -c \"Set :PreferenceSpecifiers:0:DefaultValue '$APP_MARKETING_VERSION ($APP_BUILD_VERSION)'\" \"$CODESIGNING_FOLDER_PATH/Settings.bundle/Root.plist\"\n\n";
+		};
+		15FEE4E42D3AEAD100A3CCFA /* Lint Code */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint Code";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\n\"${PROJECT_DIR}/scripts/lint_code.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1149,6 +1169,7 @@
 				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Settings/Navigation/Preview FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/PreviewContent FingerprintProDemo/Features/Settings/ViewModel/Preview";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FingerprintProDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";
@@ -1186,6 +1207,7 @@
 				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Settings/Navigation/Preview FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/PreviewContent FingerprintProDemo/Features/Settings/ViewModel/Preview";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FingerprintProDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";

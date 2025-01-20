@@ -9,7 +9,7 @@ extension UIFont {
                 .family: familyName,
                 .traits: [
                     UIFontDescriptor.TraitKey.weight: weight
-                ]
+                ],
             ]
         )
 

@@ -69,7 +69,8 @@ private extension FingerprintButtonStyle {
             return .linear
         }
 
-        return Animation
+        return
+            Animation
             .easeInOut(duration: 0.6)
             .repeatForever()
     }

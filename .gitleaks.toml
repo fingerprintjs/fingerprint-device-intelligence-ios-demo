@@ -15,3 +15,5 @@ keywords = [
     "//",
     "/*",
 ]
+[[rules.allowlists]]
+paths = [ '''\.swift-format''' ]

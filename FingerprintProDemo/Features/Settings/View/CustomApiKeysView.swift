@@ -41,10 +41,10 @@ struct CustomApiKeysView: View {
             }
         } message: {
             Text(
-                 """
-                 Your changes will not be saved. The app will continue \
-                 to use the previously saved API keys.
-                 """
+                """
+                Your changes will not be saved. The app will continue \
+                to use the previously saved API keys.
+                """
             )
         }
         .tint(.accent)
@@ -64,9 +64,9 @@ private extension CustomApiKeysView {
                 Text(
                     AttributedString(
                         localized: """
-                                    You can obtain API keys by logging in to \
-                                    [fingerprint.com](\(C.URLs.signIn, format: .url)).
-                                    """
+                            You can obtain API keys by logging in to \
+                            [fingerprint.com](\(C.URLs.signIn, format: .url)).
+                            """
                     )
                 )
                 .font(.inter(size: 14.0))
@@ -174,8 +174,7 @@ private extension CustomApiKeysView {
                 ForEach(PresentableRegion.allCases, id: \.self) {
                     Text($0.description)
                 }
-            }
-            label: {
+            } label: {
                 EmptyView()
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
@@ -221,9 +220,9 @@ private extension CustomApiKeysView {
 private extension CustomApiKeysView {
 
     var showInputFields: Bool {
-        viewModel.apiKeysEnabled ||
-        !viewModel.publicKey.isEmpty ||
-        !viewModel.secretKey.isEmpty
+        viewModel.apiKeysEnabled
+            || !viewModel.publicKey.isEmpty
+            || !viewModel.secretKey.isEmpty
     }
 
     func backAction() {
