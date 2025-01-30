@@ -21,8 +21,8 @@
   <a href="https://www.apple.com/ios/">
     <img src="https://img.shields.io/badge/iOS-16.0+-lightgrey" alt="Supported iOS versions">
   </a>
-  <a href="https://dev.fingerprint.com/docs/changelog-ios-sdk#v270">
-    <img src="https://img.shields.io/badge/SDK-2.7.0-red" alt="Fingerprint Identification SDK version">
+  <a href="https://dev.fingerprint.com/docs/changelog-ios-sdk#v280">
+    <img src="https://img.shields.io/badge/SDK-2.8.0-red" alt="Fingerprint Identification SDK version">
   </a>
   <a href="https://developer.apple.com/documentation/swiftui/">
     <img src="https://img.shields.io/badge/SwiftUI-blue" alt="User interface framework">

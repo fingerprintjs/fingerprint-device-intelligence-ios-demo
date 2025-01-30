@@ -2,7 +2,7 @@ import FingerprintPro
 
 extension PresentableError {
 
-    init(from error: Error) {
+    init(from error: any Error) {
         switch error {
         case FPJSError.networkError:
             self = .networkError
@@ -28,11 +28,11 @@ extension PresentableError {
 
 private extension APIError {
 
-    var isTokenExpiredError: Bool { error?.code == .tokenExpired }
-    var isTokenNotFoundError: Bool { error?.code == .tokenNotFound }
-    var isSubscriptionNotActiveError: Bool { error?.code == .subscriptionNotActive }
-    var isTooManyRequestsError: Bool { error?.code == .tooManyRequests }
-    var isWrongRegionError: Bool { error?.code == .wrongRegion }
+    var isTokenExpiredError: Bool { errorDetails?.code == .tokenExpired }
+    var isTokenNotFoundError: Bool { errorDetails?.code == .tokenNotFound }
+    var isSubscriptionNotActiveError: Bool { errorDetails?.code == .subscriptionNotActive }
+    var isTooManyRequestsError: Bool { errorDetails?.code == .tooManyRequests }
+    var isWrongRegionError: Bool { errorDetails?.code == .wrongRegion }
 }
 
 private extension FingerprintServerAPI.ResponseError {
