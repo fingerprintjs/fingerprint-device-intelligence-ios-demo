@@ -32,8 +32,10 @@ enum C {
             static var frida: URL { baseURL.withFragment("frida-detection") }
             static var highActivity: URL { baseURL.withFragment("high-activity-device") }
             static var jailbreak: URL { baseURL.withFragment("jailbroken-device-detection") }
-            static var locationSpoofing: URL { baseURL.withFragment("geolocation-spoofing-detection") }
+            static var geolocationSpoofing: URL { baseURL.withFragment("geolocation-spoofing-detection") }
             static var vpn: URL { baseURL.withFragment("vpn-detection-for-mobile-devices") }
+            static var tampering: URL { baseURL.withFragment("tampered-request-detection-for-mobile-apps") }
+            static var mitmAttack: URL { baseURL.withFragment("mitm-attack-detection") }
         }
     }
 }

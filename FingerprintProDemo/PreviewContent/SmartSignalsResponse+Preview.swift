@@ -47,6 +47,12 @@ extension SmartSignalsResponse {
                                 relay: false
                             )
                         )
+                    ),
+                    tampering: .init(
+                        data: .init(result: false)
+                    ),
+                    mitmAttack: .init(
+                        data: .init(result: false)
                     )
                 )
             )

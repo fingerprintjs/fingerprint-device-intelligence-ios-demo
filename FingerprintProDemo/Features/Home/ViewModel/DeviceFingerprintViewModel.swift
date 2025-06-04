@@ -1,4 +1,5 @@
 import Combine
+import FingerprintPro
 import Foundation
 
 extension DeviceFingerprintViewModel {
@@ -55,18 +56,19 @@ extension DeviceFingerprintViewModel {
 
         do {
             let fingerprintResponse = try await fingerprintTask
+            setFingerprintingState(
+                fingerprintResponse: fingerprintResponse,
+                smartSignalsResponse: nil
+            )
+
             let smartSignalsResponse = try await smartSignalsService?
                 .fetchSignals(for: fingerprintResponse.requestId)
 
-            fingerprintingState = .completed(
-                viewModel: .init(
-                    event: .init(
-                        fingerprintResponse: fingerprintResponse,
-                        smartSignalsResponse: smartSignalsResponse
-                    ),
-                    hasLocationPermission: geolocationService.hasLocationPermission
-                )
+            setFingerprintingState(
+                fingerprintResponse: fingerprintResponse,
+                smartSignalsResponse: smartSignalsResponse
             )
+
             showSignUpIfNeeded()
             fingerprintCount += 1
         } catch {
@@ -120,6 +122,21 @@ private extension DeviceFingerprintViewModel {
 
         hideSignUpTimestamp = .zero
         shouldShowSignUp = true
+    }
+
+    func setFingerprintingState(
+        fingerprintResponse: FingerprintResponse,
+        smartSignalsResponse: SmartSignalsResponse?
+    ) {
+        fingerprintingState = .completed(
+            viewModel: .init(
+                event: .init(
+                    fingerprintResponse: fingerprintResponse,
+                    smartSignalsResponse: smartSignalsResponse
+                ),
+                hasLocationPermission: geolocationService.hasLocationPermission
+            )
+        )
     }
 }
 

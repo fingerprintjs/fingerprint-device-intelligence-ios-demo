@@ -11,6 +11,8 @@ struct SmartSignalsResponse: Decodable, Equatable, Sendable {
         let jailbreak: JailbreakSignal?
         let locationSpoofing: LocationSpoofingSignal?
         let vpn: VPNSignal?
+        let tampering: TamperingSignal?
+        let mitmAttack: MitMAttackSignal?
     }
 }
 
@@ -61,6 +63,10 @@ extension SmartSignalsResponse {
 
         let data: Data
     }
+
+    typealias TamperingSignal = Result<Bool>
+
+    typealias MitMAttackSignal = Result<Bool>
 }
 
 extension SmartSignalsResponse {
@@ -84,5 +90,7 @@ private extension SmartSignalsResponse.Products {
         case jailbreak = "jailbroken"
         case locationSpoofing
         case vpn
+        case tampering
+        case mitmAttack
     }
 }

@@ -16,12 +16,14 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
         case ipLocation = "IP LOCATION"
         case firstSeenAt = "FIRST SEEN AT"
         case lastSeenAt = "PREVIOUSLY SEEN AT"
-        case vpn = "VPN"
         case factoryReset = "FACTORY RESET"
-        case jailbreak = "JAILBREAK"
         case frida = "FRIDA"
-        case locationSpoofing = "GEOLOCATION SPOOFING"
+        case geolocationSpoofing = "GEOLOCATION SPOOFING"
         case highActivity = "HIGH-ACTIVITY"
+        case jailbreak = "JAILBREAK"
+        case mitmAttack = "MITM ATTACK"
+        case tampering = "TAMPERED REQUEST"
+        case vpn = "VPN"
     }
 
     let foremostItemKey: ItemKey = .visitorId
@@ -37,10 +39,14 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
             return .link(title, destination: C.URLs.SmartSignalsOverview.jailbreak)
         case .frida:
             return .link(title, destination: C.URLs.SmartSignalsOverview.frida)
-        case .locationSpoofing:
-            return .link(title, destination: C.URLs.SmartSignalsOverview.locationSpoofing)
+        case .geolocationSpoofing:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.geolocationSpoofing)
         case .highActivity:
             return .link(title, destination: C.URLs.SmartSignalsOverview.highActivity)
+        case .tampering:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.tampering)
+        case .mitmAttack:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.mitmAttack)
         default:
             return .none
         }
@@ -50,7 +56,7 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
         switch key {
         case .visitorFound: .placeholder(length: 3)
         case .confidence: .placeholder(length: 4)
-        case .jailbreak, .frida, .locationSpoofing: .placeholder(length: 12)
+        case .jailbreak, .frida, .geolocationSpoofing, .tampering, .mitmAttack: .placeholder(length: 12)
         case .ipAddress: .placeholder(length: 15)
         case .highActivity: .placeholder(length: 18)
         case .requestId, .visitorId, .ipLocation: .placeholder(length: 20)
