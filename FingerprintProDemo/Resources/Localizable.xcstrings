@@ -351,6 +351,9 @@
         }
       }
     },
+    "MITM ATTACK" : {
+
+    },
     "More" : {
       "localizations" : {
         "en" : {
@@ -640,6 +643,9 @@
           }
         }
       }
+    },
+    "TAMPERED REQUEST" : {
+
     },
     "Tap to begin" : {
       "localizations" : {

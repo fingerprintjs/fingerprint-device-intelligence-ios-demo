@@ -10,8 +10,10 @@ extension EventDetailsVisualState: Equatable {
 
     static func == (lhs: Self, rhs: Self) -> Bool {
         switch (lhs, rhs) {
-        case (.loading, .loading), (.presenting, .presenting), (.error, .error): true
-        default: false
+        case (.loading, .loading), (.error, .error): return true
+        case (.presenting(_, let lRaw), .presenting(_, let rRaw)):
+            return lRaw == rRaw
+        default: return false
         }
     }
 }

@@ -399,7 +399,10 @@ private extension EventDetailsView {
                             "Yes"
                         case .confidence:
                             "100%"
-                        case .vpn, .factoryReset, .jailbreak, .frida, .locationSpoofing, .highActivity:
+                        case .vpn, .factoryReset,
+                            .jailbreak, .frida,
+                            .geolocationSpoofing, .highActivity,
+                            .tampering, .mitmAttack:
                             ""
                         }
                     },

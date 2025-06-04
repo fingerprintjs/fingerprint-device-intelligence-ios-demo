@@ -53,8 +53,10 @@ private extension ClientResponseEventViewModel {
         case .factoryReset: factoryResetItemValue
         case .jailbreak: jailbreakItemValue
         case .frida: fridaItemValue
-        case .locationSpoofing: locationSpoofingItemValue
+        case .geolocationSpoofing: geolocationSpoofingItemValue
         case .highActivity: highActivityItemValue
+        case .tampering: tamperingItemValue
+        case .mitmAttack: mitmAttackItemValue
         }
     }
 }
@@ -96,10 +98,14 @@ private extension ClientResponseEventViewModel {
             return jailbreakItemValue
         case .frida:
             return fridaItemValue
-        case .locationSpoofing:
-            return locationSpoofingItemValue
+        case .geolocationSpoofing:
+            return geolocationSpoofingItemValue
         case .highActivity:
             return highActivityItemValue
+        case .tampering:
+            return tamperingItemValue
+        case .mitmAttack:
+            return mitmAttackItemValue
         }
     }
 }
@@ -163,7 +169,7 @@ private extension ClientResponseEventViewModel {
         return LocalizedStrings.smartSignalValue(from: frida.data.result)
     }
 
-    var locationSpoofingItemValue: AttributedString {
+    var geolocationSpoofingItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard let locationSpoofing = smartSignalsResponse.products.locationSpoofing else {
             return LocalizedStrings.signalDisabled.rawValue
@@ -193,6 +199,23 @@ private extension ClientResponseEventViewModel {
         }
         return .init(localized: "\(dailyRequests) requests per day")
     }
+
+    var tamperingItemValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let tampering = smartSignalsResponse.products.tampering else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+        return LocalizedStrings.smartSignalValue(from: tampering.data.result)
+    }
+
+    var mitmAttackItemValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let mitmAttack = smartSignalsResponse.products.mitmAttack else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+        return LocalizedStrings.smartSignalValue(from: mitmAttack.data.result)
+    }
+
 }
 
 private extension ClientResponseEventViewModel {
