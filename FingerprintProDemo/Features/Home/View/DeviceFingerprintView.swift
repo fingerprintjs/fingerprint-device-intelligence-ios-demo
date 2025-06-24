@@ -69,8 +69,8 @@ private extension DeviceFingerprintView {
     var signupView: some View {
         CallToActionView(
             title: "Impressed with Fingerprint?",
-            description: "Try free for 14 days, credit card not needed.",
-            primaryButtonTitle: "Sign up",
+            description: "Check our website for more info.",
+            primaryButtonTitle: "Learn more",
             primaryAction: {
                 openURL(C.URLs.signUp)
             },

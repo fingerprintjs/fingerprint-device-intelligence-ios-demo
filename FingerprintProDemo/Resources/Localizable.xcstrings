@@ -81,6 +81,16 @@
         }
       }
     },
+    "Check our website for more info." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check our website for more info."
+          }
+        }
+      }
+    },
     "CONFIDENCE" : {
       "localizations" : {
         "en" : {
@@ -351,8 +361,25 @@
         }
       }
     },
+    "Learn more" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Learn more"
+          }
+        }
+      }
+    },
     "MITM ATTACK" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MITM ATTACK"
+          }
+        }
+      }
     },
     "More" : {
       "localizations" : {
@@ -584,26 +611,6 @@
         }
       }
     },
-    "Sign up" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sign up"
-          }
-        }
-      }
-    },
-    "Sign Up" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sign Up"
-          }
-        }
-      }
-    },
     "Signal disabled for your app" : {
       "localizations" : {
         "en" : {
@@ -645,7 +652,14 @@
       }
     },
     "TAMPERED REQUEST" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TAMPERED REQUEST"
+          }
+        }
+      }
     },
     "Tap to begin" : {
       "localizations" : {
@@ -743,16 +757,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Try again"
-          }
-        }
-      }
-    },
-    "Try free for 14 days, credit card not needed." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Try free for 14 days, credit card not needed."
           }
         }
       }
