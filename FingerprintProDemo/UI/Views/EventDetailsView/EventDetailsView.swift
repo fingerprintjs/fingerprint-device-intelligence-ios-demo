@@ -423,9 +423,9 @@ private extension EventDetailsView {
                         stringLiteral: "Impressed with Fingerprint?"
                     ),
                     description: AttributedString(
-                        stringLiteral: "Try free for 14 days, credit card not needed."
+                        stringLiteral: "Check our website for more info."
                     ),
-                    primaryButtonTitle: "Sign up",
+                    primaryButtonTitle: "Learn more",
                     primaryAction: { print("primaryAction()") },
                     secondaryButtonTitle: "Don’t show again for a week",
                     secondaryAction: { print("secondaryAction()") }
