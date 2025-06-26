@@ -11,7 +11,7 @@ enum C {
         static var signIn: URL { .init(staticString: "https://dashboard.fingerprint.com/login") }
         static var signUp: URL {
             #if DEBUG
-            .init(staticString: "https://dashboard.fingerprint.com/signup")
+            .init(staticString: "https://fingerprint.com/mobile-app-detection/")
             #else
             guard let url = URL(string: ObfuscatedLiterals.$signUpURLString) else { preconditionFailure() }
             return url
