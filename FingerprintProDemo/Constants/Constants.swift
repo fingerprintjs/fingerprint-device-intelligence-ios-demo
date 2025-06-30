@@ -9,14 +9,6 @@ enum C {
         static var documentation: URL { .init(staticString: "https://dev.fingerprint.com/docs/ios-sdk") }
         static var privacyPolicy: URL { .init(staticString: "https://dev.fingerprint.com/docs/privacy-policy") }
         static var signIn: URL { .init(staticString: "https://dashboard.fingerprint.com/login") }
-        static var signUp: URL {
-            #if DEBUG
-            .init(staticString: "https://fingerprint.com/mobile-app-detection/")
-            #else
-            guard let url = URL(string: ObfuscatedLiterals.$signUpURLString) else { preconditionFailure() }
-            return url
-            #endif
-        }
         static var support: URL { .init(staticString: "https://fingerprint.com/support") }
         static var writeReview: URL {
             .init(staticString: "itms-apps://apple.com/app/id1644105278?action=write-review")

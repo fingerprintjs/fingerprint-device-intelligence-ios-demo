@@ -4,7 +4,6 @@ enum SettingKey: String, PersistableValueKey {
     case apiKeys = "settings.requests.api_keys"
     case apiKeysEnabled = "settings.requests.api_keys.enabled"
     case fingerprintCount = "settings.actions.fingerprint.count"
-    case hideSignUpTimestamp = "settings.actions.hide_sign_up.timestamp"
 }
 
 typealias ReadOnlySettingsContainer = ReadOnlyPersistenceContainer<SettingKey>
@@ -19,7 +18,7 @@ extension SettingsContainer {
                     switch key {
                     case .apiKeys:
                         KeychainStorage()
-                    case .apiKeysEnabled, .fingerprintCount, .hideSignUpTimestamp:
+                    case .apiKeysEnabled, .fingerprintCount:
                         UserDefaults.standard
                     }
                 },
@@ -49,12 +48,6 @@ extension ReadOnlySettingsContainer {
             try loadValue(forKey: .fingerprintCount)
         }
     }
-
-    var hideSignUpTimestamp: TimeInterval {
-        get throws {
-            try loadValue(forKey: .hideSignUpTimestamp)
-        }
-    }
 }
 
 extension SettingsContainer {
@@ -73,9 +66,5 @@ extension SettingsContainer {
 
     func setFingerprintCount(_ value: Int) throws {
         try storeValue(value, forKey: .fingerprintCount)
-    }
-
-    func setHideSignUpTimestamp(_ value: TimeInterval) throws {
-        try storeValue(value, forKey: .hideSignUpTimestamp)
     }
 }

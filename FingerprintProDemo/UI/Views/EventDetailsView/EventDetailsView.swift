@@ -416,21 +416,7 @@ private extension EventDetailsView {
                         }
                         """
                 )
-            ),
-            actions: {
-                CallToActionView(
-                    title: AttributedString(
-                        stringLiteral: "Impressed with Fingerprint?"
-                    ),
-                    description: AttributedString(
-                        stringLiteral: "Check our website for more info."
-                    ),
-                    primaryButtonTitle: "Learn more",
-                    primaryAction: { print("primaryAction()") },
-                    secondaryButtonTitle: "Don’t show again for a week",
-                    secondaryAction: { print("secondaryAction()") }
-                )
-            }
+            )
         )
         .padding(.top, 38.0)
         .padding(.horizontal, 16.0)

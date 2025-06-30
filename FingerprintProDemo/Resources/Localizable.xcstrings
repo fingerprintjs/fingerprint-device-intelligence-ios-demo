@@ -82,6 +82,7 @@
       }
     },
     "Check our website for more info." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -172,6 +173,7 @@
       }
     },
     "Don’t show again for a week" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -312,6 +314,7 @@
       }
     },
     "Impressed with Fingerprint?" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -362,6 +365,7 @@
       }
     },
     "Learn more" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
