@@ -81,7 +81,6 @@ private extension HomeView {
                 Link(destination: C.URLs.support) {
                     Label("Support", systemImage: "message")
                 }
-                Link("Learn more", destination: C.URLs.signUp)
             } label: {
                 Label("More", systemImage: "ellipsis.circle")
             }

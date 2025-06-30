@@ -10,7 +10,6 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
     @Environment(\.deepLink) private var deepLink
 
     @State private var state: VisualState = .loading
-    @State private var showSignupView: Bool = false
 
     private let presentation: Presentation
     @ObservedObject private var viewModel: ViewModel
@@ -26,11 +25,7 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
                 EventDetailsView(
                     presentation: presentation,
                     state: $state
-                ) {
-                    if showSignupView {
-                        signupView
-                    }
-                }
+                )
                 .frame(maxWidth: .infinity, minHeight: geometry.size.height)
                 .padding(.horizontal, 16.0)
             }
@@ -54,32 +49,7 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
                 }.value
             }
             .onReceive(viewModel.$fingerprintingState, perform: handleFingerprintingState)
-            .onReceive(viewModel.$shouldShowSignUp) { value in
-                withAnimation {
-                    showSignupView = value
-                }
-            }
         }
-    }
-}
-
-private extension DeviceFingerprintView {
-
-    @ViewBuilder
-    var signupView: some View {
-        CallToActionView(
-            title: "Impressed with Fingerprint?",
-            description: "Check our website for more info.",
-            primaryButtonTitle: "Learn more",
-            primaryAction: {
-                openURL(C.URLs.signUp)
-            },
-            secondaryButtonTitle: "Don’t show again for a week",
-            secondaryAction: {
-                viewModel.hideSignUp()
-            }
-        )
-        .transition(.asymmetric(insertion: .scale, removal: .opacity))
     }
 }
 
