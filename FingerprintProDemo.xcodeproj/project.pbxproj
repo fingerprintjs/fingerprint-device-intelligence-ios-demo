@@ -104,6 +104,7 @@
 		15DB47D42CEB5C2600F391A3 /* FingerprintServerAPI+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47D32CEB5C1B00F391A3 /* FingerprintServerAPI+Client.swift */; };
 		15DB47D92CEB621900F391A3 /* FingerprintServerAPI+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47D82CEB621000F391A3 /* FingerprintServerAPI+Endpoints.swift */; };
 		15DB47DE2CEB657A00F391A3 /* FingerprintServerAPI+ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */; };
+		ADC463452E16835A009D6B2E /* JSONSyntaxHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC463442E168350009D6B2E /* JSONSyntaxHighlighter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,6 +205,7 @@
 		15DB47D32CEB5C1B00F391A3 /* FingerprintServerAPI+Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+Client.swift"; sourceTree = "<group>"; };
 		15DB47D82CEB621000F391A3 /* FingerprintServerAPI+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+Endpoints.swift"; sourceTree = "<group>"; };
 		15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+ResponseError.swift"; sourceTree = "<group>"; };
+		ADC463442E168350009D6B2E /* JSONSyntaxHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSyntaxHighlighter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,6 +529,7 @@
 				156D068F2B272E3B0015A456 /* ClientResponseEventPresentability.swift */,
 				156D06892B25F8F90015A456 /* BasicResponseEventPresentability.swift */,
 				156D068D2B2728A10015A456 /* ExtendedResponseEventPresentability.swift */,
+				ADC463442E168350009D6B2E /* JSONSyntaxHighlighter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -1020,6 +1023,7 @@
 				153560392BC6F7C600BAD949 /* SmartSignalsService+Preview.swift in Sources */,
 				15AB32342CE5215900D23C17 /* View+OnDeepLink.swift in Sources */,
 				159A2DC52BB6E30000A470F1 /* DataDecoder.swift in Sources */,
+				ADC463452E16835A009D6B2E /* JSONSyntaxHighlighter.swift in Sources */,
 				153560322BC55F0400BAD949 /* ConfigVariable+SmartSignals.swift in Sources */,
 				156D067A2B1E49390015A456 /* DefaultButtonStyle.swift in Sources */,
 				159F98262CDA3DE100EBABED /* SettingsNavigationDestinationHandler+Preview.swift in Sources */,
