@@ -8,11 +8,18 @@ extension RootView where Home == HomeView, Settings == SettingsView {
             deviceFingerprintViewModel: {
                 guard ConfigVariable.SmartSignals.isEnabled else {
                     return .init(
+                        identificationService: .default,
                         smartSignalsService: .none,
-                        geolocationService: GeolocationService(shouldRequestPermission: false)
+                        geolocationService: .default,
+                        settingsContainer: .default
                     )
                 }
-                return .init()
+                return .init(
+                    identificationService: .default,
+                    smartSignalsService: .none,
+                    geolocationService: .default,
+                    settingsContainer: .default
+                )
             }()
         )
         settings = .init(
