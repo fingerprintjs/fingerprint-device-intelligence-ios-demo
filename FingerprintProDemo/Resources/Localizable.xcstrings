@@ -81,6 +81,9 @@
         }
       }
     },
+    "Attach Raw Response to Email" : {
+
+    },
     "Check our website for more info." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -745,6 +748,9 @@
         }
       }
     },
+    "This key enables basic connectivity with our service. It does not unlock paid features." : {
+
+    },
     "Too many requests" : {
       "localizations" : {
         "en" : {
@@ -806,6 +812,7 @@
       }
     },
     "When enabled, the app will use your API keys to make all the requests. These requests will count towards your monthly allowance." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -814,6 +821,9 @@
           }
         }
       }
+    },
+    "When enabled, the app will use your API keys to make requests through your service account. By default, the app is configured with a PRO API key for initial access. Need help? Contact our support team at [fingerprint.com/support](%@)" : {
+
     },
     "Write a Review" : {
       "localizations" : {
@@ -836,6 +846,7 @@
       }
     },
     "You can obtain API keys by logging in to [fingerprint.com](%@)." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

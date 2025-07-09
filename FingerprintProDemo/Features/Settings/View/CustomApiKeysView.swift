@@ -57,15 +57,13 @@ private extension CustomApiKeysView {
     var headerSection: some View {
         section(
             description: """
-                When enabled, the app will use your API keys to make all the requests. \
-                These requests will count towards your monthly allowance.
+                When enabled, the app will use your API keys to make requests through your service account. By default, the app is configured with a PRO API key for initial access. Need help? Contact our support team at [fingerprint.com/support](\(C.URLs.support, format: .url))
                 """,
             header: {
                 Text(
                     AttributedString(
                         localized: """
-                            You can obtain API keys by logging in to \
-                            [fingerprint.com](\(C.URLs.signIn, format: .url)).
+                            API key is tied to your service account. It does not unlock any paid features.
                             """
                     )
                 )
