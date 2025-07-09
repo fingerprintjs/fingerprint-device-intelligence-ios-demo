@@ -41,6 +41,9 @@
         }
       }
     },
+    "API key is tied to your service account. It does not unlock any paid features." : {
+
+    },
     "API Keys" : {
       "localizations" : {
         "en" : {
@@ -747,9 +750,6 @@
           }
         }
       }
-    },
-    "This key enables basic connectivity with our service. It does not unlock paid features." : {
-
     },
     "Too many requests" : {
       "localizations" : {

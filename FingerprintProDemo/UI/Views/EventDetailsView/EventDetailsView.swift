@@ -326,9 +326,9 @@ private extension EventDetailsView {
             """
         let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let encodedBody = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let mailtoURL = URL(string: "mailto:support@fingerprint.com?subject=\(encodedSubject)&body=\(encodedBody)")!
-
-        UIApplication.shared.open(mailtoURL)
+        if let mailtoURL = URL(string: "mailto:support@fingerprint.com?subject=\(encodedSubject)&body=\(encodedBody)") {
+            UIApplication.shared.open(mailtoURL)
+        }
     }
 
     struct PrettifiedItem: Identifiable {
