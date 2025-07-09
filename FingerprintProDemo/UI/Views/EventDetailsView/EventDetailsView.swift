@@ -120,6 +120,28 @@ private extension EventDetailsView {
             .pickerStyle(.segmented)
             .disabled(isLoading)
 
+            if case let .presenting(_, rawDetailsText) = state {
+                HStack {
+                    Button {
+                        sendSupportEmail(with: rawDetailsText)
+                    } label: {
+                        Label("Attach Raw Response to Email", systemImage: "envelope")
+                            .font(.inter(size: 14.0))
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.accentColor.opacity(0.1))
+                            )
+                    }
+                    .foregroundStyle(.accent)
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 8.0)
+                .frame(maxWidth: .infinity, alignment: .center)
+            }
+
             switch detailsDisplayMode {
             case .prettified:
                 prettifiedDetails
@@ -291,6 +313,22 @@ private extension EventDetailsView {
                 badge: presentation.badge(for: key)
             )
         }
+    }
+
+    func sendSupportEmail(with rawDetails: String) {
+        let subject = "Raw Response Debug Info"
+        let body = """
+                Hello,
+
+                Please find the raw response below:
+
+                \(rawDetails)
+            """
+        let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let encodedBody = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let mailtoURL = URL(string: "mailto:support@fingerprint.com?subject=\(encodedSubject)&body=\(encodedBody)")!
+
+        UIApplication.shared.open(mailtoURL)
     }
 
     struct PrettifiedItem: Identifiable {
