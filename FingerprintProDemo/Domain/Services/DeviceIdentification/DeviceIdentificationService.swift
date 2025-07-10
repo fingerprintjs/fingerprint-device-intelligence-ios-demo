@@ -27,11 +27,8 @@ struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: Dev
     }
 
     func fingerprintDevice() async throws -> FingerprintResponse {
-        let client = try makeFingerprintClient()
-        await MainActor.run {
-            client.allowUseOfLocationData = true
-        }
-        let response = try await client.getVisitorIdResponse()
+        try await startCollectingLocation()
+        let response = try await makeFingerprintClient().getVisitorIdResponse()
         return response
     }
 }
