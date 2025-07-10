@@ -120,6 +120,28 @@ private extension EventDetailsView {
             .pickerStyle(.segmented)
             .disabled(isLoading)
 
+            if case let .presenting(_, rawDetailsText) = state {
+                HStack {
+                    Button {
+                        sendSupportEmail(with: rawDetailsText)
+                    } label: {
+                        Label("Attach Raw Response to Email", systemImage: "envelope")
+                            .font(.inter(size: 14.0))
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.accentColor.opacity(0.1))
+                            )
+                    }
+                    .foregroundStyle(.accent)
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 8.0)
+                .frame(maxWidth: .infinity, alignment: .center)
+            }
+
             switch detailsDisplayMode {
             case .prettified:
                 prettifiedDetails
@@ -165,13 +187,13 @@ private extension EventDetailsView {
                     Text(lineNumbersString(for: rawDetails))
                         .multilineTextAlignment(.trailing)
                     ScrollView(.horizontal) {
-                        Text(rawDetails)
+                        Text(JSONSyntaxHighlighter(json: rawDetails).highlighted())
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .textSelection(.enabled)
                             .disabled(isLoading)
                     }
                 }
-                .font(.system(size: 12.0, weight: .light, design: .monospaced))
+                .font(.system(size: 12.0, weight: .regular, design: .monospaced))
                 .foregroundStyle(.gray600)
             case .error:
                 EmptyView()
@@ -290,6 +312,22 @@ private extension EventDetailsView {
                 valueBackground: valueBackground,
                 badge: presentation.badge(for: key)
             )
+        }
+    }
+
+    func sendSupportEmail(with rawDetails: String) {
+        let subject = "Raw Response Debug Info"
+        let body = """
+                Hello,
+
+                Please find the raw response below:
+
+                \(rawDetails)
+            """
+        let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let encodedBody = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        if let mailtoURL = URL(string: "mailto:support@fingerprint.com?subject=\(encodedSubject)&body=\(encodedBody)") {
+            UIApplication.shared.open(mailtoURL)
         }
     }
 
