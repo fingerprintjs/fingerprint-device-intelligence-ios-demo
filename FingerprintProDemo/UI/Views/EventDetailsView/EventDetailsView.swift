@@ -187,13 +187,13 @@ private extension EventDetailsView {
                     Text(lineNumbersString(for: rawDetails))
                         .multilineTextAlignment(.trailing)
                     ScrollView(.horizontal) {
-                        Text(rawDetails)
+                        Text(JSONSyntaxHighlighter(json: rawDetails).highlighted())
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .textSelection(.enabled)
                             .disabled(isLoading)
                     }
                 }
-                .font(.system(size: 12.0, weight: .light, design: .monospaced))
+                .font(.system(size: 12.0, weight: .regular, design: .monospaced))
                 .foregroundStyle(.gray600)
             case .error:
                 EmptyView()
