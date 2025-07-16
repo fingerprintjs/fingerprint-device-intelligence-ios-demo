@@ -22,7 +22,6 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack(path: $navigationPath) {
             List {
-                requestSection
                 otherSection
             }
             .background(.backgroundGray)
