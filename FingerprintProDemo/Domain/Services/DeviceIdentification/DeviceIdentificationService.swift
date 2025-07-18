@@ -8,6 +8,7 @@ protocol FingerprintClientFactory {
 
 protocol DeviceIdentificationServiceProtocol: Sendable {
     func fingerprintDevice() async throws -> FingerprintResponse
+    func startCollectingLocation() async throws
 }
 
 struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: DeviceIdentificationServiceProtocol {
@@ -17,10 +18,17 @@ struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: Dev
     init(settingsContainer: any ReadOnlySettingsContainer) {
         self.settingsContainer = settingsContainer
     }
+    
+    func startCollectingLocation() async throws {
+        let client = try makeFingerprintClient()
+        await MainActor.run {
+            client.allowUseOfLocationData = true
+        }
+    }
 
     func fingerprintDevice() async throws -> FingerprintResponse {
-        let client = try makeFingerprintClient()
-        let response = try await client.getVisitorIdResponse()
+        try await startCollectingLocation()
+        let response = try await makeFingerprintClient().getVisitorIdResponse()
         return response
     }
 }
