@@ -58,6 +58,7 @@ private extension HomeView {
         )
         .buttonStyle(.fingerprint)
         .padding(.bottom, 40.0)
+        .accessibilityIdentifier("tapToBeginButton")
         Text(
             """
             Device intelligence powered by

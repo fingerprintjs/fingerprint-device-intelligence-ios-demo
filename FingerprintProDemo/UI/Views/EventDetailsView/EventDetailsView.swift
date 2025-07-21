@@ -32,6 +32,7 @@ struct EventDetailsView<Presentation: EventPresentability, Actions: View>: View 
                 actions
                     .padding(.bottom, 32.0)
                 details
+                    .accessibilityIdentifier(isLoading ? "fingerprintLoadingView" : "fingerprintResultView")
                 Spacer(minLength: 32.0)
             }
             .animation(.easeInOut(duration: 0.35), value: state)
@@ -43,6 +44,7 @@ struct EventDetailsView<Presentation: EventPresentability, Actions: View>: View 
                 buttonTitle: error.actionKind.localizedString,
                 action: action
             )
+            .accessibilityIdentifier("fingerprintErrorView")
         }
     }
 }
