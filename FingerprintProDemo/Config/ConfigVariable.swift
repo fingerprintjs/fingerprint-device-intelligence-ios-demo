@@ -10,21 +10,12 @@ enum ConfigVariable {
     }
 
     private static let apiKeyEnvVarName = "API_KEY"
+    private static let regionEnvVarName = "REGION"
     #endif
 
     static var apiKey: String {
         #if DEBUG
-        if let key = Developer.apiKey { return key }
-
-        guard let key = ProcessInfo.processInfo.environment[apiKeyEnvVarName] else {
-            let errorMessage = """
-                Could not resolve API key. \
-                Please set \(apiKeyEnvVarName) environment variable in active scheme or test plan.
-                """
-            fatalError(errorMessage)
-        }
-
-        return key
+        return Developer.apiKey ?? ProcessInfo.processInfo.environment[apiKeyEnvVarName] ?? ""
         #else
         ObfuscatedLiterals.$apiKey
         #endif
@@ -32,9 +23,31 @@ enum ConfigVariable {
 
     static var region: Region {
         #if DEBUG
-        Developer.region ?? .global
+        if let region = Developer.region {
+            return region
+        } else if let regionString = ProcessInfo.processInfo.environment[regionEnvVarName] {
+            return .init(string: regionString)
+        } else {
+            return .global
+        }
         #else
         .global
         #endif
+    }
+}
+
+extension Region {
+
+    init(string: String) {
+        switch string.lowercased() {
+        case "global":
+            self = .global
+        case "eu":
+            self = .eu
+        case "ap":
+            self = .ap
+        default:
+            self = .custom(domain: string)
+        }
     }
 }

@@ -104,8 +104,19 @@
 		15DB47D42CEB5C2600F391A3 /* FingerprintServerAPI+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47D32CEB5C1B00F391A3 /* FingerprintServerAPI+Client.swift */; };
 		15DB47D92CEB621900F391A3 /* FingerprintServerAPI+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47D82CEB621000F391A3 /* FingerprintServerAPI+Endpoints.swift */; };
 		15DB47DE2CEB657A00F391A3 /* FingerprintServerAPI+ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */; };
+		AD04EF192E2CFE58005E7046 /* FingerprintProDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD04EF162E2CFE58005E7046 /* FingerprintProDemoUITests.swift */; };
 		ADC463452E16835A009D6B2E /* JSONSyntaxHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC463442E168350009D6B2E /* JSONSyntaxHighlighter.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD04EEF42E2CF129005E7046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 156D06382B0F5FA50015A456 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 156D063F2B0F5FA50015A456;
+			remoteInfo = FingerprintProDemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		153560312BC55F0400BAD949 /* ConfigVariable+SmartSignals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigVariable+SmartSignals.swift"; sourceTree = "<group>"; };
@@ -205,6 +216,9 @@
 		15DB47D32CEB5C1B00F391A3 /* FingerprintServerAPI+Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+Client.swift"; sourceTree = "<group>"; };
 		15DB47D82CEB621000F391A3 /* FingerprintServerAPI+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+Endpoints.swift"; sourceTree = "<group>"; };
 		15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+ResponseError.swift"; sourceTree = "<group>"; };
+		AD04EEEE2E2CF128005E7046 /* FingerprintProDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FingerprintProDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD04EF162E2CFE58005E7046 /* FingerprintProDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintProDemoUITests.swift; sourceTree = "<group>"; };
+		AD04EF1D2E2D0004005E7046 /* FingerprintProDemo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FingerprintProDemo.xctestplan; sourceTree = "<group>"; };
 		ADC463442E168350009D6B2E /* JSONSyntaxHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSyntaxHighlighter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +229,13 @@
 			files = (
 				156D06972B2B1E560015A456 /* ConfidentialKit in Frameworks */,
 				15B6D18B2B2CA2550064F033 /* FingerprintPro in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD04EEEB2E2CF128005E7046 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +362,9 @@
 		156D06372B0F5FA50015A456 = {
 			isa = PBXGroup;
 			children = (
+				AD04EF1D2E2D0004005E7046 /* FingerprintProDemo.xctestplan */,
 				156D06422B0F5FA50015A456 /* FingerprintProDemo */,
+				AD04EF182E2CFE58005E7046 /* FingerprintProDemoUITests */,
 				156D06412B0F5FA50015A456 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -350,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				156D06402B0F5FA50015A456 /* FingerprintProDemo.app */,
+				AD04EEEE2E2CF128005E7046 /* FingerprintProDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -813,6 +837,14 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		AD04EF182E2CFE58005E7046 /* FingerprintProDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AD04EF162E2CFE58005E7046 /* FingerprintProDemoUITests.swift */,
+			);
+			path = FingerprintProDemoUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -840,6 +872,26 @@
 			productReference = 156D06402B0F5FA50015A456 /* FingerprintProDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AD04EEED2E2CF128005E7046 /* FingerprintProDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD04EEF82E2CF129005E7046 /* Build configuration list for PBXNativeTarget "FingerprintProDemoUITests" */;
+			buildPhases = (
+				AD04EEEA2E2CF128005E7046 /* Sources */,
+				AD04EEEB2E2CF128005E7046 /* Frameworks */,
+				AD04EEEC2E2CF128005E7046 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD04EEF52E2CF129005E7046 /* PBXTargetDependency */,
+			);
+			name = FingerprintProDemoUITests;
+			packageProductDependencies = (
+			);
+			productName = FingerprintProDemoUITests;
+			productReference = AD04EEEE2E2CF128005E7046 /* FingerprintProDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -847,11 +899,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					156D063F2B0F5FA50015A456 = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					AD04EEED2E2CF128005E7046 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 156D063F2B0F5FA50015A456;
 					};
 				};
 			};
@@ -874,6 +930,7 @@
 			projectRoot = "";
 			targets = (
 				156D063F2B0F5FA50015A456 /* FingerprintProDemo */,
+				AD04EEED2E2CF128005E7046 /* FingerprintProDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -889,6 +946,13 @@
 				1589C9D82B46C8360053A9FA /* PrivacyInfo.xcprivacy in Resources */,
 				154A1D642C4A6F5400D268F4 /* Settings.bundle in Resources */,
 				156D06542B0FB48F0015A456 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD04EEEC2E2CF128005E7046 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1034,12 +1098,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD04EEEA2E2CF128005E7046 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD04EF192E2CFE58005E7046 /* FingerprintProDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		156D069A2B2B1F5F0015A456 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 156D06992B2B1F5F0015A456 /* Confidential */;
+		};
+		AD04EEF52E2CF129005E7046 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 156D063F2B0F5FA50015A456 /* FingerprintProDemo */;
+			targetProxy = AD04EEF42E2CF129005E7046 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1239,6 +1316,42 @@
 			};
 			name = Release;
 		};
+		AD04EEF62E2CF129005E7046 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AQ93X82PXZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FingerprintProDemo;
+			};
+			name = Debug;
+		};
+		AD04EEF72E2CF129005E7046 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AQ93X82PXZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FingerprintProDemo;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1256,6 +1369,15 @@
 			buildConfigurations = (
 				156D064F2B0F5FA60015A456 /* Debug */,
 				156D06502B0F5FA60015A456 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD04EEF82E2CF129005E7046 /* Build configuration list for PBXNativeTarget "FingerprintProDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD04EEF62E2CF129005E7046 /* Debug */,
+				AD04EEF72E2CF129005E7046 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

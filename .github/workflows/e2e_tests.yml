@@ -1,0 +1,53 @@
+name: E2E Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      api-key:
+        description: "API key"
+        type: string
+      region:
+        description: "Region ('global', 'eu', 'ap' or custom) for supplied API key"
+        type: string
+  schedule:
+    - cron: '0 */3 * * *'  # Every 3rd hour
+
+jobs:
+  tests:
+    name: Tests (Xcode ${{ matrix.xcode }})
+    permissions:
+      id-token: 'write'
+      contents: 'read'
+      repository-projects: read
+    runs-on: macos-14
+    strategy:
+      matrix:
+        xcode:
+          - "15.4"  # Swift 5.10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install xctesthtmlreport
+        id: install-xctesthtmlreport
+        run: brew install xctesthtmlreport
+
+      - name: Run UI Tests
+        run: scripts/run_e2e_tests.sh
+        env:
+          API_KEY: ${{ inputs.api-key || secrets.API_KEY }}
+          REGION: ${{ inputs.region || secrets.REGION }}
+          DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer"
+
+      - name: Generate Test Report artifact
+        id: generate-report
+        run: xchtmlreport -r E2ETestResults -i
+        if: ${{ steps.install-xctesthtmlreport.outcome == 'success' }}
+
+      - name: Upload Test Report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test Report 
+          path: index.html
+        if: ${{ steps.generate-report.outcome == 'success' }}

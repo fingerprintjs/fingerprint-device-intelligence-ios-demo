@@ -1,0 +1,39 @@
+{
+  "configurations" : [
+    {
+      "id" : "5BC58BA0-9914-4314-B0DA-B2024774069A",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "API_KEY",
+        "value" : "$(API_KEY)"
+      },
+      {
+        "key" : "REGION",
+        "value" : "$(REGION)"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:FingerprintProDemo.xcodeproj",
+      "identifier" : "156D063F2B0F5FA50015A456",
+      "name" : "FingerprintProDemo"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FingerprintProDemo.xcodeproj",
+        "identifier" : "AD04EEED2E2CF128005E7046",
+        "name" : "FingerprintProDemoUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
