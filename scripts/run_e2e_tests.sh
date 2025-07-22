@@ -18,6 +18,7 @@ xcodebuild clean test \
     -scheme "$XCODE_SCHEME" \
     -destination platform="$PLATFORM_IOS" \
     -resultBundlePath "$RESULTS_BUNDLE" \
+    -skipPackagePluginValidation \
     API_KEY=$API_KEY \
     REGION=$REGION \
     | xcbeautify
