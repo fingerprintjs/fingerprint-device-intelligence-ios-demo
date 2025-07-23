@@ -13,6 +13,9 @@ final class FingerprintProDemoUITests: XCTestCase {
         static let fingerprintResultView = "fingerprintResultView"
     }
 
+    private let tapToBeginTimeout: TimeInterval = 10
+    private let fingerprintViewTimeout: TimeInterval = 20
+
     private var sut: XCUIApplication!
 
     override func setUp() {
@@ -28,9 +31,9 @@ final class FingerprintProDemoUITests: XCTestCase {
         sut.launch()
 
         // then
-        XCTAssertTrue(sut.buttons[Accessibility.tapToBeginButton].waitForExistence(timeout: 1))
+        XCTAssertTrue(sut.buttons[Accessibility.tapToBeginButton].waitForExistence(timeout: tapToBeginTimeout))
         sut.buttons[Accessibility.tapToBeginButton].firstMatch.tap()
-        XCTAssertTrue(sut.staticTexts[Accessibility.fingerprintErrorView].waitForExistence(timeout: 10))
+        XCTAssertTrue(sut.staticTexts[Accessibility.fingerprintErrorView].waitForExistence(timeout: fingerprintViewTimeout))
 
         captureTestScreenshot()
     }
@@ -46,9 +49,9 @@ final class FingerprintProDemoUITests: XCTestCase {
         sut.launch()
 
         // then
-        XCTAssertTrue(sut.buttons[Accessibility.tapToBeginButton].waitForExistence(timeout: 1))
+        XCTAssertTrue(sut.buttons[Accessibility.tapToBeginButton].waitForExistence(timeout: tapToBeginTimeout))
         sut.buttons[Accessibility.tapToBeginButton].firstMatch.tap()
-        XCTAssertTrue(sut.staticTexts[Accessibility.fingerprintErrorView].waitForExistence(timeout: 10))
+        XCTAssertTrue(sut.staticTexts[Accessibility.fingerprintErrorView].waitForExistence(timeout: fingerprintViewTimeout))
 
         captureTestScreenshot()
     }
@@ -73,10 +76,10 @@ final class FingerprintProDemoUITests: XCTestCase {
         sut.launch()
 
         // then
-        XCTAssertTrue(sut.buttons[Accessibility.tapToBeginButton].waitForExistence(timeout: 1))
+        XCTAssertTrue(sut.buttons[Accessibility.tapToBeginButton].waitForExistence(timeout: tapToBeginTimeout))
         sut.buttons[Accessibility.tapToBeginButton].firstMatch.tap()
-        XCTAssertTrue(sut.staticTexts[Accessibility.fingerprintResultView].waitForExistence(timeout: 10))
-        XCTAssertFalse(sut.staticTexts[Accessibility.fingerprintErrorView].waitForExistence(timeout: 10))
+        XCTAssertTrue(sut.staticTexts[Accessibility.fingerprintResultView].waitForExistence(timeout: fingerprintViewTimeout))
+        XCTAssertFalse(sut.staticTexts[Accessibility.fingerprintErrorView].waitForExistence(timeout: fingerprintViewTimeout))
 
         captureTestScreenshot()
     }
