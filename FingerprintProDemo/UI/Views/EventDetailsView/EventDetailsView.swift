@@ -355,8 +355,9 @@ private extension EventDetailsView {
                 Group {
                     title
                     Text(item.value)
-                        .font(.inter(size: 14.0))
+                        .font(.system(size: 14))
                         .kerning(0.14)
+                        .textSelection(.enabled)
                         .foregroundStyle(item.valueForeground)
                         .background(item.valueBackground)
                         .cornerRadius(4.0)
