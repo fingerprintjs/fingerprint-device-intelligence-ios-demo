@@ -28,7 +28,7 @@ extension ClientResponseEventViewModel {
     var rawEventRepresentation: String {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601Full
-        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
 
         guard
             let jsonData = try? encoder.encode(event),
