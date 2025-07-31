@@ -139,7 +139,11 @@ private extension ClientResponseEventViewModel {
         guard vpn.data.result else {
             return LocalizedStrings.notDetected.rawValue
         }
-        return .init(localized: "Device time zone is \(vpn.data.originTimezone)")
+        if vpn.data.methods.auxiliaryMobile {
+            return .init(localized: "Device has VPN enabled")
+        } else {
+            return .init(localized: "VPN usage suspected, device timezone is \(vpn.data.originTimezone)")
+        }
     }
 
     var factoryResetItemValue: AttributedString {
