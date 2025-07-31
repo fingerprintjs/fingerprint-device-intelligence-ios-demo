@@ -37,7 +37,7 @@ extension ClientResponseEventViewModel {
             return ""
         }
 
-        return jsonString
+        return jsonString.replacingOccurrences(of: "\\/", with: "/")
     }
 }
 
