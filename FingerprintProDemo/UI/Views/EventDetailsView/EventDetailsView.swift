@@ -84,7 +84,7 @@ private extension EventDetailsView {
                     .foregroundStyle(.gray400)
 
                 Text(foremostItemValue)
-                    .font(.inter(size: 22.0, weight: .medium))
+                    .font(.system(size: 22, design: .monospaced))
                     .foregroundStyle(isPresenting ? .accent : .clear)
                     .background(isPresenting ? .clear : .gray100)
                     .cornerRadius(4.0)
@@ -355,7 +355,7 @@ private extension EventDetailsView {
                 Group {
                     title
                     Text(item.value)
-                        .font(.system(size: 14))
+                        .font(.system(size: 14, design: .monospaced))
                         .kerning(0.14)
                         .textSelection(.enabled)
                         .foregroundStyle(item.valueForeground)
