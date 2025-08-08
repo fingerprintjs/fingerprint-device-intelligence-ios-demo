@@ -42,7 +42,14 @@
       }
     },
     "API key is tied to your service account. It does not unlock any paid features." : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "API key is tied to your service account. It does not unlock any paid features."
+          }
+        }
+      }
     },
     "API Keys" : {
       "localizations" : {
@@ -85,15 +92,11 @@
       }
     },
     "Attach Raw Response to Email" : {
-
-    },
-    "Check our website for more info." : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Check our website for more info."
+            "value" : "Attach Raw Response to Email"
           }
         }
       }
@@ -138,22 +141,22 @@
         }
       }
     },
+    "Device has VPN enabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Device has VPN enabled"
+          }
+        }
+      }
+    },
     "Device intelligence powered by\nFingerprint iOS SDK %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Device intelligence powered by\nFingerprint iOS SDK %@"
-          }
-        }
-      }
-    },
-    "Device time zone is %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Device time zone is %@"
           }
         }
       }
@@ -174,17 +177,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Documentation"
-          }
-        }
-      }
-    },
-    "Don’t show again for a week" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Don’t show again for a week"
           }
         }
       }
@@ -319,17 +311,6 @@
         }
       }
     },
-    "Impressed with Fingerprint?" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impressed with Fingerprint?"
-          }
-        }
-      }
-    },
     "Invalid keys!" : {
       "localizations" : {
         "en" : {
@@ -366,17 +347,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "JAILBREAK"
-          }
-        }
-      }
-    },
-    "Learn more" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Learn more"
           }
         }
       }
@@ -811,19 +781,25 @@
         }
       }
     },
-    "When enabled, the app will use your API keys to make all the requests. These requests will count towards your monthly allowance." : {
-      "extractionState" : "stale",
+    "VPN usage suspected, device timezone is %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "When enabled, the app will use your API keys to make all the requests. These requests will count towards your monthly allowance."
+            "value" : "VPN usage suspected, device timezone is %@"
           }
         }
       }
     },
     "When enabled, the app will use your API keys to make requests through your service account. By default, the app is configured with a PRO API key for initial access. Need help? Contact our support team at [fingerprint.com/support](%@)" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When enabled, the app will use your API keys to make requests through your service account. By default, the app is configured with a PRO API key for initial access. Need help? Contact our support team at [fingerprint.com/support](%@)"
+          }
+        }
+      }
     },
     "Write a Review" : {
       "localizations" : {
@@ -841,17 +817,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yes"
-          }
-        }
-      }
-    },
-    "You can obtain API keys by logging in to [fingerprint.com](%@)." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can obtain API keys by logging in to [fingerprint.com](%@)."
           }
         }
       }

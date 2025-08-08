@@ -59,4 +59,11 @@ struct BasicResponseEventPresentability: ClientResponseEventPresentability {
         case .vpn: .placeholder(length: 32)
         }
     }
+
+    func valueFontDesign(for key: ItemKey) -> Font.Design {
+        switch key {
+        case .visitorId, .requestId: .monospaced
+        default: .default
+        }
+    }
 }
