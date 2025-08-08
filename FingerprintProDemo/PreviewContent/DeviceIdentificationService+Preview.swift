@@ -2,6 +2,7 @@ import FingerprintPro
 
 struct DeviceIdentificationServicePreviewFixture: DeviceIdentificationServiceProtocol {
 
+    func startCollectingLocation() async throws {}
     func fingerprintDevice() async throws -> FingerprintResponse { .preview }
 }
 

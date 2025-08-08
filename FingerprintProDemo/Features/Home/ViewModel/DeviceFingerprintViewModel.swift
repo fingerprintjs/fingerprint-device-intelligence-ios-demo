@@ -22,11 +22,12 @@ final class DeviceFingerprintViewModel: ObservableObject {
     private nonisolated let geolocationService: any GeolocationServiceProtocol
     private nonisolated let settingsContainer: SettingsContainer
 
+    @MainActor
     init(
-        identificationService: any DeviceIdentificationServiceProtocol = .default,
-        smartSignalsService: (any SmartSignalsServiceProtocol)? = .default,
-        geolocationService: any GeolocationServiceProtocol = .default,
-        settingsContainer: SettingsContainer = .default
+        identificationService: any DeviceIdentificationServiceProtocol,
+        smartSignalsService: (any SmartSignalsServiceProtocol)?,
+        geolocationService: any GeolocationServiceProtocol,
+        settingsContainer: SettingsContainer
     ) {
         self.identificationService = identificationService
         self.smartSignalsService = smartSignalsService
