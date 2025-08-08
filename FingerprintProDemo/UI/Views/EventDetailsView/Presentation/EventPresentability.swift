@@ -21,6 +21,7 @@ protocol EventPresentability {
 
     func badge(for key: ItemKey) -> Badge?
     func valuePlaceholder(for key: ItemKey) -> String
+    func valueFontDesign(for key: ItemKey) -> Font.Design
 }
 
 extension EventPresentability {
@@ -33,4 +34,5 @@ extension EventPresentability {
     var emptyValueString: AttributedString? { .none }
 
     func badge(for key: ItemKey) -> Badge? { .none }
+    func valueFontDesign(for key: ItemKey) -> Font.Design { .default }
 }
