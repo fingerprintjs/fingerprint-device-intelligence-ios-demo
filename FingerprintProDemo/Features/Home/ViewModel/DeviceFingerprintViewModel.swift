@@ -25,7 +25,7 @@ final class DeviceFingerprintViewModel: ObservableObject {
     init(
         identificationService: any DeviceIdentificationServiceProtocol = .default,
         smartSignalsService: (any SmartSignalsServiceProtocol)? = .default,
-        geolocationService: any GeolocationServiceProtocol = .default,
+        geolocationService: any GeolocationServiceProtocol,
         settingsContainer: SettingsContainer = .default
     ) {
         self.identificationService = identificationService

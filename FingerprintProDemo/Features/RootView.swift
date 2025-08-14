@@ -5,15 +5,10 @@ extension RootView where Home == HomeView, Settings == SettingsView {
     @MainActor
     init() {
         home = .init(
-            deviceFingerprintViewModel: {
-                guard ConfigVariable.SmartSignals.isEnabled else {
-                    return .init(
-                        smartSignalsService: .none,
-                        geolocationService: GeolocationService(shouldRequestPermission: false)
-                    )
-                }
-                return .init()
-            }()
+            deviceFingerprintViewModel: .init(
+                smartSignalsService: ConfigVariable.SmartSignals.isEnabled ? .default : .none,
+                geolocationService: .default
+            )
         )
         settings = .init(
             viewModel: .init(),
