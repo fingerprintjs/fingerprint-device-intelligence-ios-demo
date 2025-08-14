@@ -10,16 +10,20 @@ protocol DeviceIdentificationServiceProtocol: Sendable {
     func fingerprintDevice() async throws -> FingerprintResponse
 }
 
+enum FingerprintClientError: Error {
+    case clientNotCreated
+}
+
 struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: DeviceIdentificationServiceProtocol {
 
-    private let settingsContainer: any ReadOnlySettingsContainer
+    private let client: (any FingerprintClient)?
 
     init(settingsContainer: any ReadOnlySettingsContainer) {
-        self.settingsContainer = settingsContainer
+        self.client = try? Self.makeFingerprintClient(settingsContainer: settingsContainer)
     }
 
     func fingerprintDevice() async throws -> FingerprintResponse {
-        let client = try makeFingerprintClient()
+        guard let client else { throw FingerprintClientError.clientNotCreated }
         let response = try await client.getVisitorIdResponse()
         return response
     }
@@ -27,10 +31,10 @@ struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: Dev
 
 private extension DeviceIdentificationService {
 
-    func makeFingerprintClient() throws -> FingerprintClient {
+    static func makeFingerprintClient(settingsContainer: any ReadOnlySettingsContainer) throws -> FingerprintClient {
         let apiKey: String
         let region: Region
-        if apiKeysEnabled {
+        if apiKeysEnabled(for: settingsContainer) {
             let config = try settingsContainer.apiKeysConfig
             apiKey = config.publicKey
             region = config.region
@@ -41,14 +45,14 @@ private extension DeviceIdentificationService {
         let configuration = Configuration(
             apiKey: apiKey,
             region: region,
-            extendedResponseFormat: true
+            extendedResponseFormat: true,
+            allowUseOfLocationData: true
         )
 
         return ClientFactory.getInstance(configuration)
     }
-}
 
-private extension DeviceIdentificationService {
-
-    var apiKeysEnabled: Bool { (try? settingsContainer.apiKeysEnabled) ?? false }
+    static func apiKeysEnabled(for settingsContainer: any ReadOnlySettingsContainer) -> Bool {
+        (try? settingsContainer.apiKeysEnabled) ?? false
+    }
 }

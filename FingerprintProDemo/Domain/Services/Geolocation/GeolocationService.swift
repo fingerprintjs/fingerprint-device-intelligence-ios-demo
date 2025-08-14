@@ -1,4 +1,5 @@
 @preconcurrency import CoreLocation
+import FingerprintPro
 import os
 
 protocol GeolocationServiceProtocol: Sendable {
@@ -21,23 +22,42 @@ final class GeolocationService: NSObject, GeolocationServiceProtocol {
         initialState: .notDetermined
     )
 
-    private let locationManager = CLLocationManager()
-    private let shouldRequestPermission: Bool
+    private let locationHelper: LocationPermissionHelperProviding
+    private let identificationService: any DeviceIdentificationServiceProtocol
 
-    init(shouldRequestPermission: Bool = true) {
-        self.shouldRequestPermission = shouldRequestPermission
+    @MainActor
+    init(identificationService: any DeviceIdentificationServiceProtocol) {
+        self.locationHelper = FingerprintProFactory.getLocationPermissionHelperInstance()
+        self.identificationService = identificationService
         super.init()
-        locationManager.delegate = self
+        self.locationHelper.delegate = self
     }
 }
 
-extension GeolocationService: CLLocationManagerDelegate {
+extension GeolocationService: LocationPermissionDelegate {
 
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        currentAuthorizationStatus.withLock { status in
-            status = manager.authorizationStatus
-            guard status == .notDetermined, shouldRequestPermission else { return }
-            manager.requestWhenInUseAuthorization()
+    func locationPermissionHelper(
+        _ helper: LocationPermissionHelperProviding,
+        shouldShowLocationRationale rationale: LocationPermissionRationale
+    ) {
+        os_log("Location rationale: %{public}@", String(describing: rationale))
+
+        switch rationale {
+        case .needInitialPermission:
+            helper.requestPermission()
+        case .upgradeToPrecise:
+            helper.requestPermanentPrecisePermission()
+        case .needSettingsChange:
+            helper.requestPermanentPrecisePermission()
+        @unknown default:
+            os_log("⚠️ Received unknown rationale: %{public}@", String(describing: rationale))
         }
+    }
+
+    func locationPermissionHelper(
+        _ helper: LocationPermissionHelperProviding,
+        didUpdateLocationPermission status: CLAuthorizationStatus
+    ) {
+        currentAuthorizationStatus.withLock { $0 = status }
     }
 }
