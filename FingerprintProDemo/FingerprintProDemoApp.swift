@@ -3,6 +3,8 @@ import SwiftUI
 @main
 struct FingerprintProDemoApp: App {
 
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     init() {
         configureAppearance()
     }
