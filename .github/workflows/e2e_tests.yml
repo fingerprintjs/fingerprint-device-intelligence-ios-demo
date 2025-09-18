@@ -23,7 +23,7 @@ jobs:
     strategy:
       matrix:
         xcode:
-          - "15.4"  # Swift 5.10
+          - "16.1"  # Swift 6.0
 
     steps:
       - name: Checkout
