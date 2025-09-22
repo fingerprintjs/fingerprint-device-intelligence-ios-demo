@@ -19,11 +19,11 @@ jobs:
       id-token: 'write'
       contents: 'read'
       repository-projects: read
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       matrix:
         xcode:
-          - "16.1"  # Swift 6.0
+          - "16.4"  # Swift 6.1
 
     steps:
       - name: Checkout

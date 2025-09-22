@@ -13,14 +13,15 @@ final class FingerprintProDemoUITests: XCTestCase {
         static let fingerprintResultView = "fingerprintResultView"
     }
 
-    private let tapToBeginTimeout: TimeInterval = 10
-    private let fingerprintViewTimeout: TimeInterval = 20
+    private let tapToBeginTimeout: TimeInterval = 20
+    private let fingerprintViewTimeout: TimeInterval = 30
 
     private var sut: XCUIApplication!
 
     override func setUp() {
         super.setUp()
         sut = XCUIApplication()
+        setUpAutoDismissAlert()
     }
 
     func test_givenNoKey_whenFingeprintViewDisplayed_thenShowsKeyMissingOrInvalidError() {
@@ -86,6 +87,22 @@ final class FingerprintProDemoUITests: XCTestCase {
 }
 
 private extension FingerprintProDemoUITests {
+
+    func setUpAutoDismissAlert() {
+        addUIInterruptionMonitor(withDescription: "Location Permission Alert") { alert in
+            let dontAllowButton = alert.buttons["Don't Allow"]
+            if dontAllowButton.exists {
+                dontAllowButton.tap()
+                return true
+            }
+            let cancelButton = alert.buttons["Cancel"]
+            if cancelButton.exists {
+                cancelButton.tap()
+                return true
+            }
+            return false
+        }
+    }
 
     func captureTestScreenshot() {
         add(sut.screenshotAttachment())

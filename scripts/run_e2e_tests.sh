@@ -7,11 +7,16 @@ readonly SCRIPT_ABS_PATH="$(cd "$(dirname "$0")" &>/dev/null && pwd -P)"
 readonly XCODE_PROJECT="$SCRIPT_ABS_PATH/../FingerprintProDemo.xcodeproj"
 readonly XCODE_SCHEME="FingerprintProDemo"
 
-readonly PLATFORM_IOS="iOS Simulator,name=iPhone 16 Pro"
+readonly SIMULATOR="iPhone 16 Pro"
+readonly PLATFORM_IOS="iOS Simulator,name=$SIMULATOR"
 
 readonly RESULTS_BUNDLE="E2ETestResults"
 
 rm -rf "${RESULTS_BUNDLE}" "${RESULTS_BUNDLE}.xcresult"
+
+# Boot simulator before `xcodebuild` command to avoid exit code 65
+# in GitHub Workflow when `xcodebuild` would start the simulator to run tests.
+xcrun simctl boot "$SIMULATOR"
 
 xcodebuild clean test \
     -project "$XCODE_PROJECT" \
