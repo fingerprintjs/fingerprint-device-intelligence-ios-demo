@@ -28,6 +28,9 @@ enum C {
             static var vpn: URL { baseURL.withFragment("vpn-detection-for-mobile-devices") }
             static var tampering: URL { baseURL.withFragment("tampered-request-detection-for-mobile-apps") }
             static var mitmAttack: URL { baseURL.withFragment("mitm-attack-detection") }
+            static var ipGeolocation: URL { baseURL.withFragment("ip-geolocation") }
+            static var ipBlocklistMatching: URL { baseURL.withFragment("ip-blocklist-matching") }
+            static var proxy: URL { baseURL.withFragment("proxy-detection") }
         }
     }
 }

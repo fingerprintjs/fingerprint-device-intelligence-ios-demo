@@ -76,14 +76,11 @@ private extension ClientResponseEventViewModel {
         case .ipAddress:
             return .init(fingerprintResponse.ipAddress ?? "")
         case .ipLocation:
-            guard
-                let location = fingerprintResponse.ipLocation,
-                let countryName = location.country?.name
-            else {
-                return ""
-            }
-            guard let cityName = location.city?.name else { return .init(countryName) }
-            return .init("\(cityName), \(countryName)")
+            return ipLocationValue
+        case .ipNetworkProvider:
+            return ipNetworkProviderValue
+        case .ipBlocklist:
+            return ipBlocklistValue
         case .firstSeenAt:
             guard let date = fingerprintResponse.firstSeenAt?.subscription else { return "" }
             return .init(Format.Date.iso8601FullWithRelativeDate(from: date))
@@ -92,6 +89,8 @@ private extension ClientResponseEventViewModel {
             return .init(Format.Date.iso8601FullWithRelativeDate(from: date))
         case .vpn:
             return vpnItemValue
+        case .proxy:
+            return proxyItemValue
         case .factoryReset:
             return factoryResetItemValue
         case .jailbreak:
@@ -131,6 +130,41 @@ private extension ClientResponseEventViewModel {
 
     var smartSignalsResponse: SmartSignalsResponse? { event.smartSignalsResponse }
 
+    var ipLocationValue: AttributedString {
+        if let location = fingerprintResponse.ipLocation, let countryName = location.country?.name {
+            guard let cityName = location.city?.name else { return .init(countryName) }
+            return .init("\(cityName), \(countryName)")
+        }
+
+        if let smartSignalsResponse,
+            let city = smartSignalsResponse.products.ipInfo?.data.v4.geolocation.city.name,
+            let country = smartSignalsResponse.products.ipInfo?.data.v4.geolocation.country.name
+        {
+            return .init("\(city), \(country)")
+        }
+
+        return ""
+    }
+
+    var ipNetworkProviderValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let ipInfo = smartSignalsResponse.products.ipInfo else {
+            return LocalizedStrings.notDetected.rawValue
+        }
+        let name = ipInfo.data.v4.asn.name
+        let asn = ipInfo.data.v4.asn.asn
+
+        return .init(localized: "\(name) - \(asn)")
+    }
+
+    var ipBlocklistValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let ipBlocklist = smartSignalsResponse.products.ipBlocklist else {
+            return LocalizedStrings.notDetected.rawValue
+        }
+        return ipBlocklist.data.result ? "Yes" : "No"
+    }
+
     var vpnItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard let vpn = smartSignalsResponse.products.vpn else {
@@ -144,6 +178,19 @@ private extension ClientResponseEventViewModel {
         } else {
             return .init(localized: "VPN usage suspected, device timezone is \(vpn.data.originTimezone)")
         }
+    }
+
+    var proxyItemValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let proxy = smartSignalsResponse.products.proxy else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+
+        guard proxy.data.result, let proxyType = proxy.data.details?.proxyType else {
+            return "Not detected"
+        }
+
+        return proxyType == .dataCenter ? "Proxy Detected (Data Center IP)" : "Proxy Detected (Residential IP)"
     }
 
     var factoryResetItemValue: AttributedString {
@@ -219,7 +266,6 @@ private extension ClientResponseEventViewModel {
         }
         return LocalizedStrings.smartSignalValue(from: mitmAttack.data.result)
     }
-
 }
 
 private extension ClientResponseEventViewModel {

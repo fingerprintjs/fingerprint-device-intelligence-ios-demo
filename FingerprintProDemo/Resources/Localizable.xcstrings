@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@ - %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ - %2$@"
+          }
+        }
+      }
+    },
     "%lld requests per day" : {
       "localizations" : {
         "en" : {
@@ -331,6 +341,9 @@
         }
       }
     },
+    "IP BLOCKLIST MATCH" : {
+
+    },
     "IP LOCATION" : {
       "localizations" : {
         "en" : {
@@ -340,6 +353,9 @@
           }
         }
       }
+    },
+    "IP NETWORK PROVIDER" : {
+
     },
     "JAILBREAK" : {
       "localizations" : {
@@ -480,6 +496,9 @@
           }
         }
       }
+    },
+    "PROXY" : {
+
     },
     "Public API Key" : {
       "localizations" : {

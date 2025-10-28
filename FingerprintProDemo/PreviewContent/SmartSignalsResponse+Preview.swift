@@ -53,7 +53,28 @@ extension SmartSignalsResponse {
                     ),
                     mitmAttack: .init(
                         data: .init(result: false)
-                    )
+                    ),
+                    ipInfo: .init(
+                        data: .init(
+                            v4: .init(
+                                asn: .init(asn: "7922", name: "COMCAST-7922", network: "73.136.0.0/13"),
+                                datacenter: .init(name: "DediPath", result: true),
+                                geolocation: .init(
+                                    accuracyRadius: 20, latitude: 50.05, longitude: 14.4, postalCode: "150 00",
+                                    timezone: "Europe/Prague", city: .init(name: "Prague"),
+                                    country: .init(code: "CZ", name: "Czechia"),
+                                    continent: .init(code: "EU", name: "Europe"))))
+                    ),
+                    ipBlocklist: .init(
+                        data: .init(
+                            result: false,
+                            details: .init(
+                                emailSpam: false, attackSource: false))),
+                    proxy: .init(
+                        data: .init(
+                            result: false, confidence: "high",
+                            details: .init(
+                                proxyType: .dataCenter, lastSeenAs: nil)))
                 )
             )
         }

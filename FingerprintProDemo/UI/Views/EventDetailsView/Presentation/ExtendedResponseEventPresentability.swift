@@ -14,8 +14,11 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
         case confidence = "CONFIDENCE"
         case ipAddress = "IP ADDRESS"
         case ipLocation = "IP LOCATION"
+        case ipNetworkProvider = "IP NETWORK PROVIDER"
+        case ipBlocklist = "IP BLOCKLIST MATCH"
         case firstSeenAt = "FIRST SEEN AT"
         case lastSeenAt = "PREVIOUSLY SEEN AT"
+        case proxy = "PROXY"
         case factoryReset = "FACTORY RESET"
         case frida = "FRIDA"
         case geolocationSpoofing = "GEOLOCATION SPOOFING"
@@ -33,6 +36,8 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
         switch key {
         case .vpn:
             return .link(title, destination: C.URLs.SmartSignalsOverview.vpn)
+        case .proxy:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.proxy)
         case .factoryReset:
             return .link(title, destination: C.URLs.SmartSignalsOverview.factoryReset)
         case .jailbreak:
@@ -47,6 +52,12 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
             return .link(title, destination: C.URLs.SmartSignalsOverview.tampering)
         case .mitmAttack:
             return .link(title, destination: C.URLs.SmartSignalsOverview.mitmAttack)
+        case .ipLocation:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.ipGeolocation)
+        case .ipNetworkProvider:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.ipGeolocation)
+        case .ipBlocklist:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.ipBlocklistMatching)
         default:
             return .none
         }
@@ -58,10 +69,13 @@ struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
         case .confidence: .placeholder(length: 4)
         case .jailbreak, .frida, .geolocationSpoofing, .tampering, .mitmAttack: .placeholder(length: 12)
         case .ipAddress: .placeholder(length: 15)
+        case .ipNetworkProvider: .placeholder(length: 32)
+        case .ipBlocklist: .placeholder(length: 3)
         case .highActivity: .placeholder(length: 18)
         case .requestId, .visitorId, .ipLocation: .placeholder(length: 20)
         case .firstSeenAt, .lastSeenAt, .factoryReset: .placeholder(length: 24)
         case .vpn: .placeholder(length: 32)
+        case .proxy: .placeholder(length: 32)
         }
     }
 
