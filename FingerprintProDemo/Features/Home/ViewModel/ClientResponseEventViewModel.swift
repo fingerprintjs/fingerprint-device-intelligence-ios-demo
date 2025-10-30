@@ -86,10 +86,10 @@ private extension ClientResponseEventViewModel {
             return .init("\(cityName), \(countryName)")
         case .firstSeenAt:
             guard let date = fingerprintResponse.firstSeenAt?.subscription else { return "" }
-            return .init(Format.Date.iso8601Full(from: date))
+            return .init(Format.Date.iso8601FullWithRelativeDate(from: date))
         case .lastSeenAt:
             guard let date = fingerprintResponse.lastSeenAt?.subscription else { return "" }
-            return .init(Format.Date.iso8601Full(from: date))
+            return .init(Format.Date.iso8601FullWithRelativeDate(from: date))
         case .vpn:
             return vpnItemValue
         case .factoryReset:
@@ -154,7 +154,7 @@ private extension ClientResponseEventViewModel {
         guard factoryReset.data.timestamp > 0 else {
             return LocalizedStrings.notDetected.rawValue
         }
-        return .init(Format.Date.iso8601Full(from: factoryReset.data.time))
+        return .init(Format.Date.iso8601FullWithRelativeDate(from: factoryReset.data.time))
     }
 
     var jailbreakItemValue: AttributedString {
