@@ -126,11 +126,11 @@ extension SmartSignalsResponse {
     }
 
     struct IpBlocklist: Codable, Equatable, Sendable {
-        
+
         struct Data: Codable, Equatable, Sendable {
-            
+
             struct Details: Codable, Equatable, Sendable {
-                
+
                 let emailSpam: Bool
                 let attackSource: Bool
             }
@@ -143,13 +143,13 @@ extension SmartSignalsResponse {
     }
 
     struct Proxy: Codable, Equatable, Sendable {
-        
+
         struct Data: Codable, Equatable, Sendable {
-            
+
             struct Details: Codable, Equatable, Sendable {
-                
+
                 enum ProxyType: String, Codable, Equatable, Sendable {
-                    
+
                     case residential, dataCenter
 
                     enum CodingKeys: String, CodingKey {
@@ -194,7 +194,7 @@ private extension SmartSignalsResponse.Products {
         case tampering
         case mitmAttack
         case ipInfo
-        case ipBlocklist = "ipBlocklist"
+        case ipBlocklist
         case proxy
     }
 }

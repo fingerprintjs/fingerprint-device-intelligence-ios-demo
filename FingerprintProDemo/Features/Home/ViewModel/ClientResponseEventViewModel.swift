@@ -16,8 +16,7 @@ extension ClientResponseEventViewModel {
 
     func itemValue<Key: PresentableItemKey>(forKey key: Key) -> AttributedString {
         switch key {
-        case let key as BasicResponseEventPresentability.ItemKey: itemValue(forKey: key)
-        case let key as ExtendedResponseEventPresentability.ItemKey: itemValue(forKey: key)
+        case let key as ResponseEventPresenter.ItemKey: itemValue(forKey: key)
         default: ""
         }
     }
@@ -43,27 +42,7 @@ extension ClientResponseEventViewModel {
 
 private extension ClientResponseEventViewModel {
 
-    func itemValue(forKey key: BasicResponseEventPresentability.ItemKey) -> AttributedString {
-        switch key {
-        case .requestId: requestIdItemValue
-        case .visitorId: visitorIdItemValue
-        case .visitorFound: visitorFoundItemValue
-        case .confidence: confidenceItemValue
-        case .vpn: vpnItemValue
-        case .factoryReset: factoryResetItemValue
-        case .jailbreak: jailbreakItemValue
-        case .frida: fridaItemValue
-        case .geolocationSpoofing: geolocationSpoofingItemValue
-        case .highActivity: highActivityItemValue
-        case .tampering: tamperingItemValue
-        case .mitmAttack: mitmAttackItemValue
-        }
-    }
-}
-
-private extension ClientResponseEventViewModel {
-
-    func itemValue(forKey key: ExtendedResponseEventPresentability.ItemKey) -> AttributedString {
+    func itemValue(forKey key: ResponseEventPresenter.ItemKey) -> AttributedString {
         switch key {
         case .requestId:
             return requestIdItemValue
@@ -148,13 +127,11 @@ private extension ClientResponseEventViewModel {
 
     var ipNetworkProviderValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let ipInfo = smartSignalsResponse.products.ipInfo else {
-            return LocalizedStrings.notDetected.rawValue
-        }
+        guard let ipInfo = smartSignalsResponse.products.ipInfo else { return LocalizedStrings.notDetected.rawValue }
         let name = ipInfo.data.v4.asn.name
         let asn = ipInfo.data.v4.asn.asn
 
-        return .init(localized: "\(name) - \(asn)")
+        return .init("\(name) - \(asn)")
     }
 
     var ipBlocklistValue: AttributedString {
@@ -162,7 +139,7 @@ private extension ClientResponseEventViewModel {
         guard let ipBlocklist = smartSignalsResponse.products.ipBlocklist else {
             return LocalizedStrings.notDetected.rawValue
         }
-        return ipBlocklist.data.result ? "Yes" : "No"
+        return LocalizedStrings.smartSignalValue(from: ipBlocklist.data.result)
     }
 
     var vpnItemValue: AttributedString {
@@ -182,15 +159,16 @@ private extension ClientResponseEventViewModel {
 
     var proxyItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let proxy = smartSignalsResponse.products.proxy else {
-            return LocalizedStrings.signalDisabled.rawValue
-        }
-
+        guard let proxy = smartSignalsResponse.products.proxy else { return LocalizedStrings.signalDisabled.rawValue }
         guard proxy.data.result, let proxyType = proxy.data.details?.proxyType else {
-            return "Not detected"
+            return LocalizedStrings.notDetected.rawValue
         }
 
-        return proxyType == .dataCenter ? "Proxy Detected (Data Center IP)" : "Proxy Detected (Residential IP)"
+        if proxyType == .dataCenter {
+            return .init(localized: "Proxy Detected (Data Center IP)")
+        } else {
+            return .init(localized: "Proxy Detected (Residential IP)")
+        }
     }
 
     var factoryResetItemValue: AttributedString {

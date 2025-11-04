@@ -1,16 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%@ - %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ - %2$@"
-          }
-        }
-      }
-    },
     "%lld requests per day" : {
       "localizations" : {
         "en" : {
@@ -498,6 +488,12 @@
       }
     },
     "PROXY" : {
+
+    },
+    "Proxy Detected (Data Center IP)" : {
+
+    },
+    "Proxy Detected (Residential IP)" : {
 
     },
     "Public API Key" : {

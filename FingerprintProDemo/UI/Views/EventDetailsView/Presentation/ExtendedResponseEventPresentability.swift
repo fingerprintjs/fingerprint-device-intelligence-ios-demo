@@ -1,11 +1,6 @@
 import SwiftUI
 
-extension EventPresentability where Self == ExtendedResponseEventPresentability {
-
-    static var extendedResponse: Self { .init() }
-}
-
-struct ExtendedResponseEventPresentability: ClientResponseEventPresentability {
+struct ResponseEventPresenter: ClientResponseEventPresentability {
 
     enum ItemKey: LocalizedStringKey, PresentableItemKey {
         case requestId = "REQUEST ID"
