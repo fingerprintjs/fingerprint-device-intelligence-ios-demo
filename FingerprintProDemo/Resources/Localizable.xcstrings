@@ -101,6 +101,9 @@
         }
       }
     },
+    "Auxiliary mobile" : {
+
+    },
     "CONFIDENCE" : {
       "localizations" : {
         "en" : {
@@ -110,6 +113,9 @@
           }
         }
       }
+    },
+    "Confidence: %@" : {
+
     },
     "Continue editing" : {
       "localizations" : {
@@ -142,6 +148,7 @@
       }
     },
     "Device has VPN enabled" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -516,6 +523,9 @@
         }
       }
     },
+    "Public VPN" : {
+
+    },
     "RAW" : {
       "localizations" : {
         "en" : {
@@ -525,6 +535,9 @@
           }
         }
       }
+    },
+    "Relay" : {
+
     },
     "Request" : {
       "localizations" : {
@@ -736,6 +749,9 @@
         }
       }
     },
+    "Timezone mismatch" : {
+
+    },
     "Too many requests" : {
       "localizations" : {
         "en" : {
@@ -797,6 +813,7 @@
       }
     },
     "VPN usage suspected, device timezone is %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

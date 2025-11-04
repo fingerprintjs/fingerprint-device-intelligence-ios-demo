@@ -144,17 +144,31 @@ private extension ClientResponseEventViewModel {
 
     var vpnItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let vpn = smartSignalsResponse.products.vpn else {
-            return LocalizedStrings.signalDisabled.rawValue
-        }
-        guard vpn.data.result else {
-            return LocalizedStrings.notDetected.rawValue
-        }
-        if vpn.data.methods.auxiliaryMobile {
-            return .init(localized: "Device has VPN enabled")
+        guard let vpn = smartSignalsResponse.products.vpn else { return LocalizedStrings.signalDisabled.rawValue }
+        guard vpn.data.result else { return LocalizedStrings.notDetected.rawValue }
+
+        let confidence = String(localized: "Confidence: \(vpn.data.confidence)")
+        var detectedBy = String(localized: "Detected")
+        let methods = vpn.data.methods
+        let method: String?
+
+        if methods.publicVPN {
+            method = .init(localized: "Public VPN")
+        } else if methods.timezoneMismatch {
+            method = .init(localized: "Timezone mismatch")
+        } else if methods.relay {
+            method = .init(localized: "Relay")
+        } else if methods.auxiliaryMobile {
+            method = .init(localized: "Auxiliary mobile")
         } else {
-            return .init(localized: "VPN usage suspected, device timezone is \(vpn.data.originTimezone)")
+            method = nil
         }
+
+        if let method {
+            detectedBy += " (\(method))"
+        }
+
+        return .init("\(detectedBy) - \(confidence)")
     }
 
     var proxyItemValue: AttributedString {
