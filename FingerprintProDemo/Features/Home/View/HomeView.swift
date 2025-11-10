@@ -25,7 +25,7 @@ struct HomeView: View {
                     startupView
                 case .deviceFingerprint:
                     DeviceFingerprintView(
-                        presentation: .extendedResponse,
+                        presenter: ResponseEventPresenter(),
                         viewModel: deviceFingerprintViewModel
                     )
                 }

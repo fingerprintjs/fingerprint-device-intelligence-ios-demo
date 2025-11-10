@@ -418,7 +418,7 @@ private extension EventDetailsView {
 #Preview("Loading") {
     ScrollView {
         EventDetailsView(
-            presentation: .basicResponse,
+            presentation: ResponseEventPresenter(),
             state: .constant(.loading)
         )
         .padding(.top, 38.0)
@@ -429,7 +429,7 @@ private extension EventDetailsView {
 #Preview("Presenting") {
     ScrollView {
         EventDetailsView(
-            presentation: .basicResponse,
+            presentation: ResponseEventPresenter(),
             state: .constant(
                 .presenting(
                     itemValue: { key in
@@ -442,10 +442,7 @@ private extension EventDetailsView {
                             "Yes"
                         case .confidence:
                             "100%"
-                        case .vpn, .factoryReset,
-                            .jailbreak, .frida,
-                            .geolocationSpoofing, .highActivity,
-                            .tampering, .mitmAttack:
+                        default:
                             ""
                         }
                     },
@@ -457,8 +454,7 @@ private extension EventDetailsView {
                         "visitorFound" : true,
                         "confidence" : 1
                         }
-                        """
-                )
+                        """)
             )
         )
         .padding(.top, 38.0)
@@ -468,7 +464,7 @@ private extension EventDetailsView {
 
 #Preview("Error") {
     EventDetailsView(
-        presentation: .basicResponse,
+        presentation: ResponseEventPresenter(),
         state: .constant(
             .error(
                 .init(

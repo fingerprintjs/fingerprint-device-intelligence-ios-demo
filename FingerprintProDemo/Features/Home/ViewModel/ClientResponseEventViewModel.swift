@@ -16,8 +16,7 @@ extension ClientResponseEventViewModel {
 
     func itemValue<Key: PresentableItemKey>(forKey key: Key) -> AttributedString {
         switch key {
-        case let key as BasicResponseEventPresentability.ItemKey: itemValue(forKey: key)
-        case let key as ExtendedResponseEventPresentability.ItemKey: itemValue(forKey: key)
+        case let key as ResponseEventPresenter.ItemKey: itemValue(forKey: key)
         default: ""
         }
     }
@@ -43,27 +42,7 @@ extension ClientResponseEventViewModel {
 
 private extension ClientResponseEventViewModel {
 
-    func itemValue(forKey key: BasicResponseEventPresentability.ItemKey) -> AttributedString {
-        switch key {
-        case .requestId: requestIdItemValue
-        case .visitorId: visitorIdItemValue
-        case .visitorFound: visitorFoundItemValue
-        case .confidence: confidenceItemValue
-        case .vpn: vpnItemValue
-        case .factoryReset: factoryResetItemValue
-        case .jailbreak: jailbreakItemValue
-        case .frida: fridaItemValue
-        case .geolocationSpoofing: geolocationSpoofingItemValue
-        case .highActivity: highActivityItemValue
-        case .tampering: tamperingItemValue
-        case .mitmAttack: mitmAttackItemValue
-        }
-    }
-}
-
-private extension ClientResponseEventViewModel {
-
-    func itemValue(forKey key: ExtendedResponseEventPresentability.ItemKey) -> AttributedString {
+    func itemValue(forKey key: ResponseEventPresenter.ItemKey) -> AttributedString {
         switch key {
         case .requestId:
             return requestIdItemValue
@@ -76,14 +55,11 @@ private extension ClientResponseEventViewModel {
         case .ipAddress:
             return .init(fingerprintResponse.ipAddress ?? "")
         case .ipLocation:
-            guard
-                let location = fingerprintResponse.ipLocation,
-                let countryName = location.country?.name
-            else {
-                return ""
-            }
-            guard let cityName = location.city?.name else { return .init(countryName) }
-            return .init("\(cityName), \(countryName)")
+            return ipLocationValue
+        case .ipNetworkProvider:
+            return ipNetworkProviderValue
+        case .ipBlocklist:
+            return ipBlocklistValue
         case .firstSeenAt:
             guard let date = fingerprintResponse.firstSeenAt?.subscription else { return "" }
             return .init(Format.Date.iso8601FullWithRelativeDate(from: date))
@@ -92,6 +68,8 @@ private extension ClientResponseEventViewModel {
             return .init(Format.Date.iso8601FullWithRelativeDate(from: date))
         case .vpn:
             return vpnItemValue
+        case .proxy:
+            return proxyItemValue
         case .factoryReset:
             return factoryResetItemValue
         case .jailbreak:
@@ -131,6 +109,39 @@ private extension ClientResponseEventViewModel {
 
     var smartSignalsResponse: SmartSignalsResponse? { event.smartSignalsResponse }
 
+    var ipLocationValue: AttributedString {
+        if let location = fingerprintResponse.ipLocation, let countryName = location.country?.name {
+            guard let cityName = location.city?.name else { return .init(countryName) }
+            return .init("\(cityName), \(countryName)")
+        }
+
+        if let smartSignalsResponse,
+            let city = smartSignalsResponse.products.ipInfo?.data.v4.geolocation.city.name,
+            let country = smartSignalsResponse.products.ipInfo?.data.v4.geolocation.country.name
+        {
+            return .init("\(city), \(country)")
+        }
+
+        return ""
+    }
+
+    var ipNetworkProviderValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let ipInfo = smartSignalsResponse.products.ipInfo else { return LocalizedStrings.notDetected.rawValue }
+        let name = ipInfo.data.v4.asn.name
+        let asn = ipInfo.data.v4.asn.asn
+
+        return .init("\(name) - \(asn)")
+    }
+
+    var ipBlocklistValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let ipBlocklist = smartSignalsResponse.products.ipBlocklist else {
+            return LocalizedStrings.notDetected.rawValue
+        }
+        return LocalizedStrings.smartSignalValue(from: ipBlocklist.data.result)
+    }
+
     var vpnItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
         guard let vpn = smartSignalsResponse.products.vpn else {
@@ -143,6 +154,20 @@ private extension ClientResponseEventViewModel {
             return .init(localized: "Device has VPN enabled")
         } else {
             return .init(localized: "VPN usage suspected, device timezone is \(vpn.data.originTimezone)")
+        }
+    }
+
+    var proxyItemValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let proxy = smartSignalsResponse.products.proxy else { return LocalizedStrings.signalDisabled.rawValue }
+        guard proxy.data.result, let proxyType = proxy.data.details?.proxyType else {
+            return LocalizedStrings.notDetected.rawValue
+        }
+
+        if proxyType == .dataCenter {
+            return .init(localized: "Proxy Detected (Data Center IP)")
+        } else {
+            return .init(localized: "Proxy Detected (Residential IP)")
         }
     }
 
@@ -219,7 +244,6 @@ private extension ClientResponseEventViewModel {
         }
         return LocalizedStrings.smartSignalValue(from: mitmAttack.data.result)
     }
-
 }
 
 private extension ClientResponseEventViewModel {

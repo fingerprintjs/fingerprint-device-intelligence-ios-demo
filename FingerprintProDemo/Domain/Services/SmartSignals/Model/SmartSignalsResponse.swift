@@ -13,6 +13,9 @@ struct SmartSignalsResponse: Decodable, Equatable, Sendable {
         let vpn: VPNSignal?
         let tampering: TamperingSignal?
         let mitmAttack: MitMAttackSignal?
+        let ipInfo: IpInfo?
+        let ipBlocklist: IpBlocklist?
+        let proxy: Proxy?
     }
 }
 
@@ -67,6 +70,104 @@ extension SmartSignalsResponse {
     typealias TamperingSignal = Result<Bool>
 
     typealias MitMAttackSignal = Result<Bool>
+
+    struct IpInfo: Codable, Equatable, Sendable {
+
+        struct Data: Codable, Equatable, Sendable {
+
+            struct V4: Codable, Equatable, Sendable {
+
+                struct Asn: Codable, Equatable, Sendable {
+                    let asn: String
+                    let name: String
+                    let network: String
+                }
+
+                struct DataCenter: Codable, Equatable, Sendable {
+                    let name: String
+                    let result: Bool
+                }
+
+                struct Geolocation: Codable, Equatable, Sendable {
+
+                    struct City: Codable, Equatable, Sendable {
+                        let name: String
+                    }
+
+                    struct Country: Codable, Equatable, Sendable {
+                        let code: String
+                        let name: String
+                    }
+
+                    struct Continent: Codable, Equatable, Sendable {
+                        let code: String
+                        let name: String
+                    }
+
+                    let accuracyRadius: Int
+                    let latitude: Double
+                    let longitude: Double
+                    let postalCode: String
+                    let timezone: String
+                    let city: City
+                    let country: Country
+                    let continent: Continent
+                }
+
+                let asn: Asn
+                let datacenter: DataCenter
+                let geolocation: Geolocation
+            }
+
+            let v4: V4
+        }
+
+        let data: Data
+    }
+
+    struct IpBlocklist: Codable, Equatable, Sendable {
+
+        struct Data: Codable, Equatable, Sendable {
+
+            struct Details: Codable, Equatable, Sendable {
+
+                let emailSpam: Bool
+                let attackSource: Bool
+            }
+
+            let result: Bool
+            let details: Details
+        }
+
+        let data: Data
+    }
+
+    struct Proxy: Codable, Equatable, Sendable {
+
+        struct Data: Codable, Equatable, Sendable {
+
+            struct Details: Codable, Equatable, Sendable {
+
+                enum ProxyType: String, Codable, Equatable, Sendable {
+
+                    case residential, dataCenter
+
+                    enum CodingKeys: String, CodingKey {
+                        case dataCenter = "data_center"
+                    }
+                }
+
+                let proxyType: ProxyType
+                let lastSeenAs: Date?
+            }
+
+            let result: Bool
+            let confidence: String
+            let details: Details?
+        }
+
+        let data: Data
+    }
 }
 
 extension SmartSignalsResponse {
@@ -92,5 +193,8 @@ private extension SmartSignalsResponse.Products {
         case vpn
         case tampering
         case mitmAttack
+        case ipInfo
+        case ipBlocklist
+        case proxy
     }
 }

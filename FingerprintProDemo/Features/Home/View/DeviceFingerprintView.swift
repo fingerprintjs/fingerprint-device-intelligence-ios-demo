@@ -11,11 +11,11 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
 
     @State private var state: VisualState = .loading
 
-    private let presentation: Presentation
+    private let presenter: Presentation
     @ObservedObject private var viewModel: ViewModel
 
-    init(presentation: Presentation, viewModel: ViewModel) {
-        self.presentation = presentation
+    init(presenter: Presentation, viewModel: ViewModel) {
+        self.presenter = presenter
         self.viewModel = viewModel
     }
 
@@ -23,7 +23,7 @@ struct DeviceFingerprintView<Presentation: EventPresentability>: View {
         GeometryReader { geometry in
             ScrollView {
                 EventDetailsView(
-                    presentation: presentation,
+                    presentation: presenter,
                     state: $state
                 )
                 .frame(maxWidth: .infinity, minHeight: geometry.size.height)
@@ -86,12 +86,8 @@ private extension DeviceFingerprintView {
 
 #if DEBUG
 
-#Preview("Basic Response") {
-    DeviceFingerprintView(presentation: .basicResponse, viewModel: .preview)
-}
-
-#Preview("Extended Response") {
-    DeviceFingerprintView(presentation: .extendedResponse, viewModel: .preview)
+#Preview("Response") {
+    DeviceFingerprintView(presenter: ResponseEventPresenter(), viewModel: .preview)
 }
 
 #endif

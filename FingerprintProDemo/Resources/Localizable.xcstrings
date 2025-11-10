@@ -331,6 +331,9 @@
         }
       }
     },
+    "IP BLOCKLIST MATCH" : {
+
+    },
     "IP LOCATION" : {
       "localizations" : {
         "en" : {
@@ -340,6 +343,9 @@
           }
         }
       }
+    },
+    "IP NETWORK PROVIDER" : {
+
     },
     "JAILBREAK" : {
       "localizations" : {
@@ -480,6 +486,15 @@
           }
         }
       }
+    },
+    "PROXY" : {
+
+    },
+    "Proxy Detected (Data Center IP)" : {
+
+    },
+    "Proxy Detected (Residential IP)" : {
+
     },
     "Public API Key" : {
       "localizations" : {
