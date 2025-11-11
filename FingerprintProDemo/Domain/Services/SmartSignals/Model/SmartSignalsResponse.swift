@@ -59,6 +59,7 @@ extension SmartSignalsResponse {
             }
 
             let result: Bool
+            let confidence: String
             let originTimezone: String
             let originCountry: String
             let methods: Methods

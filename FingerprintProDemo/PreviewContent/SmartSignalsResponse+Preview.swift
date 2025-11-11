@@ -38,6 +38,7 @@ extension SmartSignalsResponse {
                     vpn: .init(
                         data: .init(
                             result: true,
+                            confidence: "high",
                             originTimezone: "America/Anchorage",
                             originCountry: "US",
                             methods: .init(
