@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -51,7 +51,6 @@
 		156D06902B272E3B0015A456 /* ClientResponseEventPresentability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D068F2B272E3B0015A456 /* ClientResponseEventPresentability.swift */; };
 		156D06922B27503B0015A456 /* String+LinesCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06912B27503B0015A456 /* String+LinesCount.swift */; };
 		156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06932B276E6F0015A456 /* UIFont+Inter.swift */; };
-		156D06972B2B1E560015A456 /* ConfidentialKit in Frameworks */ = {isa = PBXBuildFile; productRef = 156D06962B2B1E560015A456 /* ConfidentialKit */; };
 		156D069C2B2B217F0015A456 /* ConfigVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D069B2B2B217F0015A456 /* ConfigVariable.swift */; };
 		1589C9D82B46C8360053A9FA /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1589C9D72B46C8360053A9FA /* PrivacyInfo.xcprivacy */; };
 		1589C9FE2B5806450053A9FA /* PresentableError+CommonErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1589C9FD2B5806450053A9FA /* PresentableError+CommonErrors.swift */; };
@@ -226,12 +225,15 @@
 		ADC463442E168350009D6B2E /* JSONSyntaxHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSyntaxHighlighter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		354A68552ECCC5B9000A7A58 /* Generated */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Generated; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		156D063D2B0F5FA50015A456 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				156D06972B2B1E560015A456 /* ConfidentialKit in Frameworks */,
 				AD1C4EDF2E72E7E300DF9065 /* FirebaseCrashlytics in Frameworks */,
 				15B6D18B2B2CA2550064F033 /* FingerprintPro in Frameworks */,
 				AD1C4EDD2E72E7E300DF9065 /* FirebaseAnalytics in Frameworks */,
@@ -387,6 +389,7 @@
 		156D06422B0F5FA50015A456 /* FingerprintProDemo */ = {
 			isa = PBXGroup;
 			children = (
+				354A68552ECCC5B9000A7A58 /* Generated */,
 				156D06522B0F63F80015A456 /* Info.plist */,
 				ADAB40BF2E7564AC00639331 /* GoogleService-Info.plist */,
 				1589C9D72B46C8360053A9FA /* PrivacyInfo.xcprivacy */,
@@ -859,9 +862,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 156D064E2B0F5FA60015A456 /* Build configuration list for PBXNativeTarget "FingerprintProDemo" */;
 			buildPhases = (
+				35E25C452EEC50CD00A08A6B /* Generate logger files */,
 				15FEE4E42D3AEAD100A3CCFA /* Lint Code */,
 				156D063C2B0F5FA50015A456 /* Sources */,
 				156D063D2B0F5FA50015A456 /* Frameworks */,
+				35B83D2B2EDF4A7C00A71540 /* Embed Frameworks */,
 				156D063E2B0F5FA50015A456 /* Resources */,
 				154A1D662C4A829100D268F4 /* Set Settings Bundle Values */,
 				ADAB40C92E756B3C00639331 /* Set GoogleService-Info.plist Values */,
@@ -870,11 +875,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				156D069A2B2B1F5F0015A456 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				354A68552ECCC5B9000A7A58 /* Generated */,
 			);
 			name = FingerprintProDemo;
 			packageProductDependencies = (
-				156D06962B2B1E560015A456 /* ConfidentialKit */,
 				15B6D18A2B2CA2550064F033 /* FingerprintPro */,
 				AD1C4EDC2E72E7E300DF9065 /* FirebaseAnalytics */,
 				AD1C4EDE2E72E7E300DF9065 /* FirebaseCrashlytics */,
@@ -933,8 +939,6 @@
 			mainGroup = 156D06372B0F5FA50015A456;
 			packageReferences = (
 				15B6D1892B2CA2550064F033 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */,
-				156D06952B2B1E560015A456 /* XCRemoteSwiftPackageReference "swift-confidential" */,
-				156D06982B2B1E620015A456 /* XCRemoteSwiftPackageReference "swift-confidential-plugin" */,
 				AD1C4EDB2E72E7E300DF9065 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 156D06412B0F5FA50015A456 /* Products */;
@@ -1010,6 +1014,44 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\n\"${PROJECT_DIR}/scripts/lint_code.sh\"\n";
+		};
+		35B83D2B2EDF4A7C00A71540 /* Embed Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./scripts/embed_frameworks.sh\n";
+		};
+		35E25C452EEC50CD00A08A6B /* Generate logger files */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate logger files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./scripts/generate_logger_files.sh\n";
 		};
 		AD1C4F1E2E730E2900DF9065 /* Crashlytics Upload dSYMs */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1165,10 +1207,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		156D069A2B2B1F5F0015A456 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 156D06992B2B1F5F0015A456 /* Confidential */;
-		};
 		AD04EEF52E2CF129005E7046 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 156D063F2B0F5FA50015A456 /* FingerprintProDemo */;
@@ -1320,6 +1358,7 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.7.0;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1346,6 +1385,10 @@
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SwiftLoggerDependencies/frameworks/**",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FingerprintProDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Fingerprint Pro";
@@ -1359,9 +1402,18 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.7.0;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-framework",
+					LoggerKit,
+					"-framework",
+					LoggerUtils,
+					"-framework",
+					LoggerCore,
+				);
+				OTHER_SWIFT_FLAGS = "-load-plugin-executable $(PROJECT_DIR)/SwiftLoggerDependencies/macros/LoggerKitMacros-tool#LoggerKitMacros";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1398,12 +1450,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(PROJECT_DIR)/SwiftLoggerDependencies/libs";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = FingerprintProDemo;
@@ -1443,22 +1497,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		156D06952B2B1E560015A456 /* XCRemoteSwiftPackageReference "swift-confidential" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/securevale/swift-confidential.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.3.0;
-			};
-		};
-		156D06982B2B1E620015A456 /* XCRemoteSwiftPackageReference "swift-confidential-plugin" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/securevale/swift-confidential-plugin.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.3.0;
-			};
-		};
 		15B6D1892B2CA2550064F033 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/fingerprintjs/fingerprintjs-pro-ios";
@@ -1478,16 +1516,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		156D06962B2B1E560015A456 /* ConfidentialKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 156D06952B2B1E560015A456 /* XCRemoteSwiftPackageReference "swift-confidential" */;
-			productName = ConfidentialKit;
-		};
-		156D06992B2B1F5F0015A456 /* Confidential */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 156D06982B2B1E620015A456 /* XCRemoteSwiftPackageReference "swift-confidential-plugin" */;
-			productName = "plugin:Confidential";
-		};
 		15B6D18A2B2CA2550064F033 /* FingerprintPro */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 15B6D1892B2CA2550064F033 /* XCRemoteSwiftPackageReference "fingerprintjs-pro-ios" */;
