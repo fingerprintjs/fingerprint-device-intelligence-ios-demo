@@ -15,5 +15,10 @@ xcuserdata/
 # Preview artifacts
 *Preview.swift.plist
 
-# Swift Confidential
+# Swift Logger
 confidential.yml
+SwiftLoggerDependencies
+
+# Generated
+FingerprintProDemo/Generated/*
+
