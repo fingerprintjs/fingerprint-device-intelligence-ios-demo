@@ -16,6 +16,7 @@ struct SmartSignalsResponse: Decodable, Equatable, Sendable {
         let ipInfo: IpInfo?
         let ipBlocklist: IpBlocklist?
         let proxy: Proxy?
+        let proximity: ProximitySignal?
     }
 }
 
@@ -169,6 +170,17 @@ extension SmartSignalsResponse {
 
         let data: Data
     }
+
+    struct ProximitySignal: Codable, Equatable, Sendable {
+
+        struct Data: Codable, Equatable, Sendable {
+            let id: String
+            let precisionRadius: Int
+            let confidence: Float
+        }
+
+        let data: Data?
+    }
 }
 
 extension SmartSignalsResponse {
@@ -197,5 +209,6 @@ private extension SmartSignalsResponse.Products {
         case ipInfo
         case ipBlocklist
         case proxy
+        case proximity
     }
 }

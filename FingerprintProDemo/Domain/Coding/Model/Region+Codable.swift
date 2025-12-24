@@ -1,6 +1,6 @@
 import FingerprintPro
 
-extension Region: Swift.Codable {
+extension Region: @retroactive Swift.Codable {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

@@ -13,6 +13,9 @@ enum C {
         static var writeReview: URL {
             .init(staticString: "itms-apps://apple.com/app/id1644105278?action=write-review")
         }
+        static var proximityDetection: URL {
+            .init(staticString: "https://dev.fingerprint.com/docs/ios#proximity-detection-for-ios-devices")
+        }
 
         enum SmartSignalsOverview {
 

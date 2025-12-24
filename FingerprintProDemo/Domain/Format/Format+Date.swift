@@ -14,9 +14,9 @@ extension Format {
             if seconds < 60 {
                 relativeDate = "Just now"
             } else if months >= 1 {
-                relativeDate = shortDateFormatter.string(from: date)
+                relativeDate = shortFormatter.string(from: date)
             } else {
-                relativeDate = relativeDateFormatter.localizedString(for: date, relativeTo: now)
+                relativeDate = relativeFormatter.localizedString(for: date, relativeTo: now)
             }
 
             return iso8601Full(from: date) + " (\(relativeDate))"
@@ -43,14 +43,14 @@ private extension Format.Date {
         return dateFormatter
     }
 
-    static var relativeDateFormatter: RelativeDateTimeFormatter {
+    static var relativeFormatter: RelativeDateTimeFormatter {
         let dateFormatter = RelativeDateTimeFormatter()
         dateFormatter.unitsStyle = .full
         dateFormatter.dateTimeStyle = .numeric
         return dateFormatter
     }
 
-    static var shortDateFormatter: DateFormatter {
+    static var shortFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.setLocalizedDateFormatFromTemplate("dd MMMM")

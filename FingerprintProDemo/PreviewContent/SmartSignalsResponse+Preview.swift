@@ -75,7 +75,14 @@ extension SmartSignalsResponse {
                         data: .init(
                             result: false, confidence: "high",
                             details: .init(
-                                proxyType: .dataCenter, lastSeenAs: nil)))
+                                proxyType: .dataCenter, lastSeenAs: nil))),
+                    proximity: .init(
+                        data: .init(
+                            id: "YDQRmGzi2o4",
+                            precisionRadius: 10,
+                            confidence: 0.02
+                        )
+                    )
                 )
             )
         }
