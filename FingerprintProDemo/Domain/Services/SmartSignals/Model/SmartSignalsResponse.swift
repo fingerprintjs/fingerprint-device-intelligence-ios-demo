@@ -29,7 +29,7 @@ extension SmartSignalsResponse {
             let timestamp: Int64
         }
 
-        let data: Data
+        let data: Data?
     }
 
     typealias FridaSignal = Result<Bool>
@@ -37,11 +37,11 @@ extension SmartSignalsResponse {
     struct HighActivitySignal: Codable, Equatable, Sendable {
 
         struct Data: Codable, Equatable, Sendable {
-            let result: Bool
+            let result: Bool?
             let dailyRequests: Int?
         }
 
-        let data: Data
+        let data: Data?
     }
 
     typealias JailbreakSignal = Result<Bool>
@@ -53,20 +53,20 @@ extension SmartSignalsResponse {
         struct Data: Codable, Equatable, Sendable {
 
             struct Methods: Codable, Equatable, Sendable {
-                let timezoneMismatch: Bool
-                let publicVPN: Bool
-                let auxiliaryMobile: Bool
-                let relay: Bool
+                let timezoneMismatch: Bool?
+                let publicVPN: Bool?
+                let auxiliaryMobile: Bool?
+                let relay: Bool?
             }
 
-            let result: Bool
-            let confidence: String
-            let originTimezone: String
-            let originCountry: String
-            let methods: Methods
+            let result: Bool?
+            let confidence: String?
+            let originTimezone: String?
+            let originCountry: String?
+            let methods: Methods?
         }
 
-        let data: Data
+        let data: Data?
     }
 
     typealias TamperingSignal = Result<Bool>
@@ -80,51 +80,51 @@ extension SmartSignalsResponse {
             struct V4: Codable, Equatable, Sendable {
 
                 struct Asn: Codable, Equatable, Sendable {
-                    let asn: String
-                    let name: String
-                    let network: String
+                    let asn: String?
+                    let name: String?
+                    let network: String?
                 }
 
                 struct DataCenter: Codable, Equatable, Sendable {
-                    let name: String
-                    let result: Bool
+                    let name: String?
+                    let result: Bool?
                 }
 
                 struct Geolocation: Codable, Equatable, Sendable {
 
                     struct City: Codable, Equatable, Sendable {
-                        let name: String
+                        let name: String?
                     }
 
                     struct Country: Codable, Equatable, Sendable {
-                        let code: String
-                        let name: String
+                        let code: String?
+                        let name: String?
                     }
 
                     struct Continent: Codable, Equatable, Sendable {
-                        let code: String
-                        let name: String
+                        let code: String?
+                        let name: String?
                     }
 
-                    let accuracyRadius: Int
-                    let latitude: Double
-                    let longitude: Double
-                    let postalCode: String
-                    let timezone: String
-                    let city: City
-                    let country: Country
-                    let continent: Continent
+                    let accuracyRadius: Int?
+                    let latitude: Double?
+                    let longitude: Double?
+                    let postalCode: String?
+                    let timezone: String?
+                    let city: City?
+                    let country: Country?
+                    let continent: Continent?
                 }
 
-                let asn: Asn
-                let datacenter: DataCenter
-                let geolocation: Geolocation
+                let asn: Asn?
+                let datacenter: DataCenter?
+                let geolocation: Geolocation?
             }
 
-            let v4: V4
+            let v4: V4?
         }
 
-        let data: Data
+        let data: Data?
     }
 
     struct IpBlocklist: Codable, Equatable, Sendable {
@@ -133,15 +133,15 @@ extension SmartSignalsResponse {
 
             struct Details: Codable, Equatable, Sendable {
 
-                let emailSpam: Bool
-                let attackSource: Bool
+                let emailSpam: Bool?
+                let attackSource: Bool?
             }
 
-            let result: Bool
-            let details: Details
+            let result: Bool?
+            let details: Details?
         }
 
-        let data: Data
+        let data: Data?
     }
 
     struct Proxy: Codable, Equatable, Sendable {
@@ -163,12 +163,12 @@ extension SmartSignalsResponse {
                 let lastSeenAs: Date?
             }
 
-            let result: Bool
-            let confidence: String
+            let result: Bool?
+            let confidence: String?
             let details: Details?
         }
 
-        let data: Data
+        let data: Data?
     }
 
     struct ProximitySignal: Codable, Equatable, Sendable {
@@ -191,7 +191,7 @@ extension SmartSignalsResponse {
             let result: T
         }
 
-        let data: Data
+        let data: Data?
     }
 }
 
