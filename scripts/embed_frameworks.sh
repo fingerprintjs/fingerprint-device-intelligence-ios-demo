@@ -18,6 +18,19 @@ die() {
   exit 1
 }
 
+sign_framework() {
+  local framework="$1"
+
+  log "  -> Signing: $(basename "$framework")"
+
+  /usr/bin/codesign \
+    --force \
+    --sign "${EXPANDED_CODE_SIGN_IDENTITY}" \
+    --preserve-metadata=identifier,entitlements \
+    "$framework"
+}
+
+
 platform_slice() {
   local platform="$1"
 
@@ -49,6 +62,7 @@ embed_xcframework() {
 
   log "  -> Copying to: ${DEST}"
   rsync -a --delete "${framework_path}" "${DEST}/"
+  sign_framework "${DEST}/${name}.framework"
 }
 
 frameworks=(

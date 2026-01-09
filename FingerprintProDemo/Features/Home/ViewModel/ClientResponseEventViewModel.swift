@@ -84,6 +84,8 @@ private extension ClientResponseEventViewModel {
             return tamperingItemValue
         case .mitmAttack:
             return mitmAttackItemValue
+        case .proximity:
+            return proximityItemValue
         }
     }
 }
@@ -217,17 +219,7 @@ private extension ClientResponseEventViewModel {
         guard let locationSpoofing = smartSignalsResponse.products.locationSpoofing else {
             return LocalizedStrings.signalDisabled.rawValue
         }
-        guard hasLocationPermission else {
-            let text = String(localized: "Requires location permission")
-            guard
-                let url = C.URLs.appSettings,
-                let value = try? AttributedString(markdown: "[\(text)](\(url))")
-            else {
-                return .init(text)
-            }
-            return value
-        }
-        return LocalizedStrings.smartSignalValue(from: locationSpoofing.data.result)
+        return requiresLocationPermissionString ?? LocalizedStrings.smartSignalValue(from: locationSpoofing.data.result)
     }
 
     var highActivityItemValue: AttributedString {
@@ -257,6 +249,19 @@ private extension ClientResponseEventViewModel {
             return LocalizedStrings.signalDisabled.rawValue
         }
         return LocalizedStrings.smartSignalValue(from: mitmAttack.data.result)
+    }
+
+    var proximityItemValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let proximityData = smartSignalsResponse.products.proximity?.data
+        else { return requiresLocationPermissionString ?? LocalizedStrings.notDetected.rawValue }
+        let proximityId = String(localized: "Proximity id")
+        let precisionRadius = String(localized: "precision radius")
+        let confidence = String(localized: "confidence")
+        var itemValue = "\(proximityId): \(proximityData.id) "
+        itemValue += "(\(precisionRadius): \(proximityData.precisionRadius), "
+        itemValue += "\(confidence): \(proximityData.confidence))"
+        return .init(itemValue)
     }
 }
 
@@ -297,5 +302,19 @@ private extension ClientResponseEventViewModel {
         static func smartSignalValue(from boolean: Bool) -> AttributedString {
             (boolean ? Self.detected : Self.notDetected).rawValue
         }
+    }
+
+    var requiresLocationPermissionString: AttributedString? {
+        guard hasLocationPermission else {
+            let text = String(localized: "Requires location permission")
+            guard
+                let url = C.URLs.appSettings,
+                let value = try? AttributedString(markdown: "[\(text)](\(url))")
+            else {
+                return .init(text)
+            }
+            return value
+        }
+        return nil
     }
 }

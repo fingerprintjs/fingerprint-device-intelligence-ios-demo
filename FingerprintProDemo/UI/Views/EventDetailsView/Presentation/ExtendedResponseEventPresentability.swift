@@ -22,6 +22,7 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
         case mitmAttack = "MITM ATTACK"
         case tampering = "TAMPERED REQUEST"
         case vpn = "VPN"
+        case proximity = "PROXIMITY DETECTION"
     }
 
     let foremostItemKey: ItemKey = .visitorId
@@ -53,6 +54,8 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
             return .link(title, destination: C.URLs.SmartSignalsOverview.ipGeolocation)
         case .ipBlocklist:
             return .link(title, destination: C.URLs.SmartSignalsOverview.ipBlocklistMatching)
+        case .proximity:
+            return .link(String(localized: "MORE INFO"), destination: C.URLs.proximityDetection)
         default:
             return .none
         }
@@ -71,6 +74,7 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
         case .firstSeenAt, .lastSeenAt, .factoryReset: .placeholder(length: 24)
         case .vpn: .placeholder(length: 32)
         case .proxy: .placeholder(length: 32)
+        case .proximity: .placeholder(length: 32)
         }
     }
 
