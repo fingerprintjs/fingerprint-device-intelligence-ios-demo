@@ -112,19 +112,26 @@ private extension ClientResponseEventViewModel {
     var smartSignalsResponse: SmartSignalsResponse? { event.smartSignalsResponse }
 
     var ipLocationValue: AttributedString {
-        if let location = fingerprintResponse.ipLocation, let countryName = location.country?.name {
-            guard let cityName = location.city?.name else { return .init(countryName) }
-            return .init("\(cityName), \(countryName)")
+        var cityName: String?
+        var countryName: String?
+        var countryCode: String?
+
+        if let location = fingerprintResponse.ipLocation, let country = location.country {
+            cityName = location.city?.name
+            countryName = country.name
+            countryCode = country.code
+        } else if let smartSignalsResponse {
+            cityName = smartSignalsResponse.products.ipInfo?.data?.v4?.geolocation?.city?.name
+            let country = smartSignalsResponse.products.ipInfo?.data?.v4?.geolocation?.country
+            countryName = country?.name
+            countryCode = country?.code
         }
 
-        if let smartSignalsResponse,
-            let city = smartSignalsResponse.products.ipInfo?.data?.v4?.geolocation?.city?.name,
-            let country = smartSignalsResponse.products.ipInfo?.data?.v4?.geolocation?.country?.name
-        {
-            return .init("\(city), \(country)")
+        if let countryCode {
+            countryName = (countryName ?? "") + " \(countryFlag(fromCountryCode: countryCode))"
         }
 
-        return ""
+        return .init([cityName, countryName].compactMap { $0 }.joined(separator: ", "))
     }
 
     var ipNetworkProviderValue: AttributedString {
@@ -156,16 +163,10 @@ private extension ClientResponseEventViewModel {
         else { return LocalizedStrings.signalDisabled.rawValue }
         guard vpnData.result ?? false else { return LocalizedStrings.notDetected.rawValue }
 
-        let confidence: String?
-        if let aConfidence = vpnData.confidence {
-            confidence = String(localized: "Confidence: \(aConfidence)")
-        } else {
-            confidence = nil
-        }
+        var detected = AttributedString(String(localized: "Detected"))
 
-        var detectedBy = String(localized: "Detected")
-        let method: String?
         let methods = vpnData.methods
+        var method: String?
         if methods?.publicVPN ?? false {
             method = .init(localized: "Public VPN")
         } else if methods?.timezoneMismatch ?? false {
@@ -174,19 +175,41 @@ private extension ClientResponseEventViewModel {
             method = .init(localized: "Relay")
         } else if methods?.auxiliaryMobile ?? false {
             method = .init(localized: "Auxiliary mobile")
-        } else {
-            method = nil
         }
 
         if let method {
-            detectedBy += " (\(method))"
+            detected.append(AttributedString(" (\(method))"))
         }
 
-        if let confidence {
-            return .init("\(detectedBy) - \(confidence)")
-        } else {
-            return .init(detectedBy)
+        if let confidence = vpnData.confidence {
+            let confidenceLevel = String(localized: "Confidence: \(confidence)")
+            detected.append(AttributedString("\n\(confidenceLevel)"))
         }
+
+        if let countryCode = vpnData.originCountry {
+            let countryName = Locale.current.localizedString(forRegionCode: countryCode) ?? ""
+            let flag = countryFlag(fromCountryCode: countryCode)
+
+            let infoText = String(localized: "Origin Country:")
+            let country = AttributedString("\n" + infoText + " \(countryName)" + " \(flag)")
+
+            var note = AttributedString("\n\(String(localized: "Note: works without location permissions"))")
+            note.foregroundColor = .gray400
+            note.font = .systemFont(ofSize: 12)
+
+            detected.append(country)
+            detected.append(note)
+        }
+
+        return detected
+    }
+
+    func countryFlag(fromCountryCode countryCode: String) -> String {
+        let unicodeFlagOffset: UInt32 = 127397
+        return countryCode.uppercased()
+            .unicodeScalars
+            .compactMap { UnicodeScalar(unicodeFlagOffset + $0.value) }
+            .reduce(into: "") { $0.unicodeScalars.append($1) }
     }
 
     var proxyItemValue: AttributedString {

@@ -422,6 +422,9 @@
         }
       }
     },
+    "Note: works without location permissions" : {
+
+    },
     "Off" : {
       "localizations" : {
         "en" : {
@@ -441,6 +444,9 @@
           }
         }
       }
+    },
+    "Origin Country:" : {
+
     },
     "Other" : {
       "localizations" : {
