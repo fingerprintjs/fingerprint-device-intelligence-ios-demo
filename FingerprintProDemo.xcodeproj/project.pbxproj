@@ -864,6 +864,7 @@
 			buildPhases = (
 				35E25C452EEC50CD00A08A6B /* Generate logger files */,
 				15FEE4E42D3AEAD100A3CCFA /* Lint Code */,
+				35CE760B2F6D3E3C005A230C /* Symlink logger */,
 				156D063C2B0F5FA50015A456 /* Sources */,
 				156D063D2B0F5FA50015A456 /* Frameworks */,
 				35B83D2B2EDF4A7C00A71540 /* Embed Frameworks */,
@@ -1033,6 +1034,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./scripts/embed_frameworks.sh\n";
+		};
+		35CE760B2F6D3E3C005A230C /* Symlink logger */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Symlink logger";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./scripts/symlink_frameworks.sh\n";
 		};
 		35E25C452EEC50CD00A08A6B /* Generate logger files */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1387,7 +1406,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftLoggerDependencies/frameworks/**",
+					"$(BUILD_DIR)/FrameworkStaging",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FingerprintProDemo/Info.plist;
