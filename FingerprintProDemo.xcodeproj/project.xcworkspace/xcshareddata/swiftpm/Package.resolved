@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/fingerprintjs/fingerprintjs-pro-ios",
       "state" : {
-        "revision" : "21bcfcfd2e1bce943f668a7748f8a7e1154f0ac2",
-        "version" : "2.13.0"
+        "revision" : "86b7ed034477d1ba08b1e0839222946e6e861c0f",
+        "version" : "2.14.0"
       }
     },
     {
