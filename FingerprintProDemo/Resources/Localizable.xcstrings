@@ -11,52 +11,12 @@
         }
       }
     },
-    "A public key is required to get a visitor ID." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A public key is required to get a visitor ID."
-          }
-        }
-      }
-    },
-    "A secret key is required to fetch Smart Signals." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A secret key is required to fetch Smart Signals."
-          }
-        }
-      }
-    },
     "An unexpected error occurred..." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "An unexpected error occurred..."
-          }
-        }
-      }
-    },
-    "API key is tied to your service account. It does not unlock any paid features." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "API key is tied to your service account. It does not unlock any paid features."
-          }
-        }
-      }
-    },
-    "API Keys" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "API Keys"
           }
         }
       }
@@ -121,16 +81,6 @@
     "Confidence: %@" : {
 
     },
-    "Continue editing" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continue editing"
-          }
-        }
-      }
-    },
     "Detected" : {
       "localizations" : {
         "en" : {
@@ -151,33 +101,12 @@
         }
       }
     },
-    "Device has VPN enabled" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Device has VPN enabled"
-          }
-        }
-      }
-    },
     "Device intelligence powered by\nFingerprint iOS SDK %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Device intelligence powered by\nFingerprint iOS SDK %@"
-          }
-        }
-      }
-    },
-    "Discard changes" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Discard changes"
           }
         }
       }
@@ -282,16 +211,6 @@
         }
       }
     },
-    "Go to API Keys" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Go to API Keys"
-          }
-        }
-      }
-    },
     "Hang tight," : {
       "localizations" : {
         "en" : {
@@ -318,16 +237,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Home"
-          }
-        }
-      }
-    },
-    "Invalid keys!" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invalid keys!"
           }
         }
       }
@@ -425,26 +334,6 @@
     "Note: works without location permissions" : {
 
     },
-    "Off" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Off"
-          }
-        }
-      }
-    },
-    "On" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "On"
-          }
-        }
-      }
-    },
     "Origin Country:" : {
 
     },
@@ -528,26 +417,6 @@
     "Proxy Detected (Residential IP)" : {
 
     },
-    "Public API Key" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Public API Key"
-          }
-        }
-      }
-    },
-    "Public Key" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Public Key"
-          }
-        }
-      }
-    },
     "Public VPN" : {
 
     },
@@ -563,16 +432,6 @@
     },
     "Relay" : {
 
-    },
-    "Request" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Request"
-          }
-        }
-      }
     },
     "REQUEST ID" : {
       "localizations" : {
@@ -594,42 +453,12 @@
         }
       }
     },
-    "Secret API Key" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Secret API Key"
-          }
-        }
-      }
-    },
-    "Secret Key" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Secret Key"
-          }
-        }
-      }
-    },
     "Server cannot be reached" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Server cannot be reached"
-          }
-        }
-      }
-    },
-    "Server Region" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Server Region"
           }
         }
       }
@@ -660,16 +489,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SMART SIGNAL"
-          }
-        }
-      }
-    },
-    "Specify the server region of your Fingerprint app." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Specify the server region of your Fingerprint app."
           }
         }
       }
@@ -797,16 +616,6 @@
         }
       }
     },
-    "Use your API keys" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Use your API keys"
-          }
-        }
-      }
-    },
     "VISITOR FOUND" : {
       "localizations" : {
         "en" : {
@@ -837,27 +646,6 @@
         }
       }
     },
-    "VPN usage suspected, device timezone is %@" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "VPN usage suspected, device timezone is %@"
-          }
-        }
-      }
-    },
-    "When enabled, the app will use your API keys to make requests through your service account. By default, the app is configured with a PRO API key for initial access. Need help? Contact our support team at [fingerprint.com/support](%@)" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "When enabled, the app will use your API keys to make requests through your service account. By default, the app is configured with a PRO API key for initial access. Need help? Contact our support team at [fingerprint.com/support](%@)"
-          }
-        }
-      }
-    },
     "Write a Review" : {
       "localizations" : {
         "en" : {
@@ -874,16 +662,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yes"
-          }
-        }
-      }
-    },
-    "Your changes will not be saved. The app will continue to use the previously saved API keys." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your changes will not be saved. The app will continue to use the previously saved API keys."
           }
         }
       }

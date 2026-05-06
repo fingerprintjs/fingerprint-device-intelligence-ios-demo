@@ -75,8 +75,6 @@ extension DeviceFingerprintViewModel {
 
 private extension DeviceFingerprintViewModel {
 
-    var hasApiKeysConfig: Bool { (try? settingsContainer.apiKeysConfig) != nil }
-
     var fingerprintCount: Int {
         get {
             (try? settingsContainer.fingerprintCount) ?? .zero
