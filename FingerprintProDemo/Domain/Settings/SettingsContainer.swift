@@ -1,8 +1,6 @@
 import Foundation
 
 enum SettingKey: String, PersistableValueKey {
-    case apiKeys = "settings.requests.api_keys"
-    case apiKeysEnabled = "settings.requests.api_keys.enabled"
     case fingerprintCount = "settings.actions.fingerprint.count"
 }
 
@@ -16,9 +14,7 @@ extension SettingsContainer {
             persistenceStrategy: .init(
                 backingStorageForKey: { key in
                     switch key {
-                    case .apiKeys:
-                        KeychainStorage()
-                    case .apiKeysEnabled, .fingerprintCount:
+                    case .fingerprintCount:
                         UserDefaults.standard
                     }
                 },
@@ -31,18 +27,6 @@ extension SettingsContainer {
 
 extension ReadOnlySettingsContainer {
 
-    var apiKeysEnabled: Bool {
-        get throws {
-            try loadValue(forKey: .apiKeysEnabled)
-        }
-    }
-
-    var apiKeysConfig: ApiKeysConfig {
-        get throws {
-            try loadValue(forKey: .apiKeys)
-        }
-    }
-
     var fingerprintCount: Int {
         get throws {
             try loadValue(forKey: .fingerprintCount)
@@ -51,18 +35,6 @@ extension ReadOnlySettingsContainer {
 }
 
 extension SettingsContainer {
-
-    func setApiKeysEnabled(_ value: Bool) throws {
-        try storeValue(value, forKey: .apiKeysEnabled)
-    }
-
-    func setApiKeysConfig(_ value: ApiKeysConfig?) throws {
-        guard let value else {
-            try removeValue(forKey: .apiKeys)
-            return
-        }
-        try storeValue(value, forKey: .apiKeys)
-    }
 
     func setFingerprintCount(_ value: Int) throws {
         try storeValue(value, forKey: .fingerprintCount)

@@ -12,6 +12,7 @@
       }
     },
     "A public key is required to get a visitor ID." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -22,6 +23,7 @@
       }
     },
     "A secret key is required to fetch Smart Signals." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -42,6 +44,7 @@
       }
     },
     "API key is tied to your service account. It does not unlock any paid features." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -52,6 +55,7 @@
       }
     },
     "API Keys" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -122,6 +126,7 @@
 
     },
     "Continue editing" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -173,6 +178,7 @@
       }
     },
     "Discard changes" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -283,6 +289,7 @@
       }
     },
     "Go to API Keys" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -323,6 +330,7 @@
       }
     },
     "Invalid keys!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -426,6 +434,7 @@
 
     },
     "Off" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -436,6 +445,7 @@
       }
     },
     "On" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -529,6 +539,7 @@
 
     },
     "Public API Key" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -539,6 +550,7 @@
       }
     },
     "Public Key" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -565,6 +577,7 @@
 
     },
     "Request" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -595,6 +608,7 @@
       }
     },
     "Secret API Key" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -605,6 +619,7 @@
       }
     },
     "Secret Key" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -625,6 +640,7 @@
       }
     },
     "Server Region" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -665,6 +681,7 @@
       }
     },
     "Specify the server region of your Fingerprint app." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -798,6 +815,7 @@
       }
     },
     "Use your API keys" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -849,6 +867,7 @@
       }
     },
     "When enabled, the app will use your API keys to make requests through your service account. By default, the app is configured with a PRO API key for initial access. Need help? Contact our support team at [fingerprint.com/support](%@)" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -879,6 +898,7 @@
       }
     },
     "Your changes will not be saved. The app will continue to use the previously saved API keys." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

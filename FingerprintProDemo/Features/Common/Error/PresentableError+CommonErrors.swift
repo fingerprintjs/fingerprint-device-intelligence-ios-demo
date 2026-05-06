@@ -22,7 +22,7 @@ extension PresentableError {
                     The public key has expired.
                     """
             ),
-            actionKind: .editApiKeys
+            actionKind: .retry
         )
     }
 
@@ -36,7 +36,7 @@ extension PresentableError {
                     entered correctly.
                     """
             ),
-            actionKind: .editApiKeys
+            actionKind: .retry
         )
     }
 
@@ -50,7 +50,7 @@ extension PresentableError {
                     public and secret API keys belong to the same application.
                     """
             ),
-            actionKind: .editApiKeys
+            actionKind: .retry
         )
     }
 
@@ -64,7 +64,7 @@ extension PresentableError {
                     Please double-check that the key was entered correctly.
                     """
             ),
-            actionKind: .editApiKeys
+            actionKind: .retry
         )
     }
 
@@ -77,7 +77,7 @@ extension PresentableError {
                     The application is not active for the provided public API key.
                     """
             ),
-            actionKind: .editApiKeys
+            actionKind: .retry
         )
     }
 
@@ -104,7 +104,7 @@ extension PresentableError {
                     Visit Settings to change the region.
                     """
             ),
-            actionKind: .editApiKeys
+            actionKind: .retry
         )
     }
 
