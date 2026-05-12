@@ -6,7 +6,6 @@ extension FingerprintServerAPI {
     enum Endpoint: URLConvertibleEndpoint {
 
         case demoEvent(requestId: String)
-        case subscriptionEvent(apiKey: String, region: Region, requestId: String)
 
         var baseURL: URL {
             get throws {
@@ -16,8 +15,6 @@ extension FingerprintServerAPI {
                         throw NetworkingError.invalidURL(url: self)
                     }
                     return url
-                case let .subscriptionEvent(_, region, _):
-                    return try region.description.asURL()
                 }
             }
         }
@@ -25,13 +22,12 @@ extension FingerprintServerAPI {
         var path: String {
             switch self {
             case let .demoEvent(requestId): "/event/\(requestId)"
-            case let .subscriptionEvent(_, _, requestId): "/events/\(requestId)"
             }
         }
 
         var method: HTTPMethod {
             switch self {
-            case .demoEvent, .subscriptionEvent: .get
+            case .demoEvent: .get
             }
         }
 
@@ -41,9 +37,6 @@ extension FingerprintServerAPI {
             ]
             if let origin = ConfigVariable.SmartSignals.origin.map(HTTPHeaderField.origin) {
                 fields.insert(origin)
-            }
-            if case let .subscriptionEvent(apiKey, _, _) = self {
-                fields.insert(.custom(name: "Auth-API-Key", value: apiKey))
             }
 
             return fields

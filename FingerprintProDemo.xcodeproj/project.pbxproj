@@ -15,7 +15,6 @@
 		154A1D712C4FFBC900D268F4 /* UIFont+Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D702C4FFBC900D268F4 /* UIFont+Weight.swift */; };
 		154A1D762C5003D800D268F4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D752C5003D800D268F4 /* SettingsView.swift */; };
 		154A1D782C50048500D268F4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D772C50048500D268F4 /* RootView.swift */; };
-		154A1D7B2C5268A100D268F4 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154A1D7A2C5268A100D268F4 /* KeychainStorage.swift */; };
 		154B2F9E2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */; };
 		154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */; };
 		154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */; };
@@ -25,10 +24,7 @@
 		154CDBAD2BC40AB400D5C3AF /* SmartSignalsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBAC2BC40AB400D5C3AF /* SmartSignalsService.swift */; };
 		154CDBAF2BC40D1A00D5C3AF /* SmartSignalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBAE2BC40D1A00D5C3AF /* SmartSignalsResponse.swift */; };
 		154CDBB12BC4124400D5C3AF /* SmartSignalsService+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154CDBB02BC4124400D5C3AF /* SmartSignalsService+Default.swift */; };
-		155B712C2CD0FE3400F14EA8 /* CustomApiKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B712A2CD0FE0800F14EA8 /* CustomApiKeysView.swift */; };
 		155B71322CD14F2E00F14EA8 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B71302CD14F2C00F14EA8 /* SettingButton.swift */; };
-		155B71362CD241DB00F14EA8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B71352CD241D700F14EA8 /* SettingsViewModel.swift */; };
-		155B713B2CD24B3D00F14EA8 /* SettingsViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B713A2CD24B3800F14EA8 /* SettingsViewModel+Preview.swift */; };
 		156866532BFF62CF00E01772 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156866522BFF62CF00E01772 /* Badge.swift */; };
 		156866572BFFCDF800E01772 /* URL+WithFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156866562BFFCDF800E01772 /* URL+WithFragment.swift */; };
 		156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156D06432B0F5FA50015A456 /* FingerprintProDemoApp.swift */; };
@@ -69,18 +65,12 @@
 		159A2DE02BBEB50500A470F1 /* URLConvertibleEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DDF2BBEB50500A470F1 /* URLConvertibleEndpoint.swift */; };
 		159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE22BBEB59600A470F1 /* HTTPMethod.swift */; };
 		159A2DE52BBEB5E400A470F1 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */; };
-		159F97662CD921CB00EBABED /* CustomApiKeysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F97642CD921C200EBABED /* CustomApiKeysViewModel.swift */; };
-		159F976E2CD95F8900EBABED /* CustomApiKeysViewModel+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F976D2CD95F8400EBABED /* CustomApiKeysViewModel+Preview.swift */; };
 		159F98202CDA3C5100EBABED /* NavigationDestinationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F981F2CDA3C4E00EBABED /* NavigationDestinationHandler.swift */; };
-		159F98232CDA3D6700EBABED /* SettingsNavigationDestinationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F98222CDA3D6500EBABED /* SettingsNavigationDestinationHandler.swift */; };
-		159F98262CDA3DE100EBABED /* SettingsNavigationDestinationHandler+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F98252CDA3DD700EBABED /* SettingsNavigationDestinationHandler+Preview.swift */; };
 		159F982A2CDA473100EBABED /* Region+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F98292CDA472B00EBABED /* Region+Codable.swift */; };
-		159F982D2CDA47B300EBABED /* ApiKeysConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F982C2CDA47B100EBABED /* ApiKeysConfig.swift */; };
 		15AB322F2CE5117D00D23C17 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB322E2CE5117A00D23C17 /* Route.swift */; };
 		15AB32312CE5134E00D23C17 /* DeepLinkNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB32302CE5134B00D23C17 /* DeepLinkNavigator.swift */; };
 		15AB32342CE5215900D23C17 /* View+OnDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB32332CE5215300D23C17 /* View+OnDeepLink.swift */; };
 		15AB32362CE5225300D23C17 /* EnvironmentValues+DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB32352CE5224E00D23C17 /* EnvironmentValues+DeepLink.swift */; };
-		15AB32382CE52B1300D23C17 /* SettingsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB32372CE52B0F00D23C17 /* SettingsRoute.swift */; };
 		15AB323A2CE52B9F00D23C17 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB32392CE52B9B00D23C17 /* AppRoute.swift */; };
 		15B16C1C2BC8030100A6D8A2 /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C1B2BC8030100A6D8A2 /* GeolocationService.swift */; };
 		15B16C1F2BC80D7600A6D8A2 /* GeolocationService+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B16C1E2BC80D7600A6D8A2 /* GeolocationService+Default.swift */; };
@@ -129,7 +119,6 @@
 		154A1D702C4FFBC900D268F4 /* UIFont+Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Weight.swift"; sourceTree = "<group>"; };
 		154A1D752C5003D800D268F4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		154A1D772C50048500D268F4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		154A1D7A2C5268A100D268F4 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		154B2F9D2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceIdentificationService+Preview.swift"; sourceTree = "<group>"; };
 		154B2F9F2B7A4B5F004E79AC /* FingerprintResponse+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintResponse+Preview.swift"; sourceTree = "<group>"; };
 		154B2FA22B7CDAA1004E79AC /* CallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToActionView.swift; sourceTree = "<group>"; };
@@ -139,10 +128,7 @@
 		154CDBAC2BC40AB400D5C3AF /* SmartSignalsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsService.swift; sourceTree = "<group>"; };
 		154CDBAE2BC40D1A00D5C3AF /* SmartSignalsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartSignalsResponse.swift; sourceTree = "<group>"; };
 		154CDBB02BC4124400D5C3AF /* SmartSignalsService+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmartSignalsService+Default.swift"; sourceTree = "<group>"; };
-		155B712A2CD0FE0800F14EA8 /* CustomApiKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomApiKeysView.swift; sourceTree = "<group>"; };
 		155B71302CD14F2C00F14EA8 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
-		155B71352CD241D700F14EA8 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		155B713A2CD24B3800F14EA8 /* SettingsViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Preview.swift"; sourceTree = "<group>"; };
 		156866522BFF62CF00E01772 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		156866562BFFCDF800E01772 /* URL+WithFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+WithFragment.swift"; sourceTree = "<group>"; };
 		156D06402B0F5FA50015A456 /* FingerprintProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FingerprintProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,18 +171,12 @@
 		159A2DDF2BBEB50500A470F1 /* URLConvertibleEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertibleEndpoint.swift; sourceTree = "<group>"; };
 		159A2DE22BBEB59600A470F1 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		159A2DE42BBEB5E400A470F1 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		159F97642CD921C200EBABED /* CustomApiKeysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomApiKeysViewModel.swift; sourceTree = "<group>"; };
-		159F976D2CD95F8400EBABED /* CustomApiKeysViewModel+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomApiKeysViewModel+Preview.swift"; sourceTree = "<group>"; };
 		159F981F2CDA3C4E00EBABED /* NavigationDestinationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDestinationHandler.swift; sourceTree = "<group>"; };
-		159F98222CDA3D6500EBABED /* SettingsNavigationDestinationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationDestinationHandler.swift; sourceTree = "<group>"; };
-		159F98252CDA3DD700EBABED /* SettingsNavigationDestinationHandler+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsNavigationDestinationHandler+Preview.swift"; sourceTree = "<group>"; };
 		159F98292CDA472B00EBABED /* Region+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+Codable.swift"; sourceTree = "<group>"; };
-		159F982C2CDA47B100EBABED /* ApiKeysConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeysConfig.swift; sourceTree = "<group>"; };
 		15AB322E2CE5117A00D23C17 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		15AB32302CE5134B00D23C17 /* DeepLinkNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkNavigator.swift; sourceTree = "<group>"; };
 		15AB32332CE5215300D23C17 /* View+OnDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnDeepLink.swift"; sourceTree = "<group>"; };
 		15AB32352CE5224E00D23C17 /* EnvironmentValues+DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+DeepLink.swift"; sourceTree = "<group>"; };
-		15AB32372CE52B0F00D23C17 /* SettingsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRoute.swift; sourceTree = "<group>"; };
 		15AB32392CE52B9B00D23C17 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		15B16C1B2BC8030100A6D8A2 /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
 		15B16C1E2BC80D7600A6D8A2 /* GeolocationService+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeolocationService+Default.swift"; sourceTree = "<group>"; };
@@ -278,8 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				15D043A12CD3A456009C357F /* Region */,
-				159F98212CDA3CD200EBABED /* Navigation */,
-				155B71342CD241CD00F14EA8 /* ViewModel */,
 				154A1D742C5003C800D268F4 /* View */,
 			);
 			path = Settings;
@@ -288,18 +266,9 @@
 		154A1D742C5003C800D268F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				155B712A2CD0FE0800F14EA8 /* CustomApiKeysView.swift */,
 				154A1D752C5003D800D268F4 /* SettingsView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		154A1D792C52688600D268F4 /* Keychain */ = {
-			isa = PBXGroup;
-			children = (
-				154A1D7A2C5268A100D268F4 /* KeychainStorage.swift */,
-			);
-			path = Keychain;
 			sourceTree = "<group>";
 		};
 		154B2F9B2B7A4241004E79AC /* PreviewContent */ = {
@@ -338,25 +307,6 @@
 				155B71302CD14F2C00F14EA8 /* SettingButton.swift */,
 			);
 			path = Controls;
-			sourceTree = "<group>";
-		};
-		155B71342CD241CD00F14EA8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				159F97642CD921C200EBABED /* CustomApiKeysViewModel.swift */,
-				155B71352CD241D700F14EA8 /* SettingsViewModel.swift */,
-				155B71382CD24B0100F14EA8 /* Preview */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		155B71382CD24B0100F14EA8 /* Preview */ = {
-			isa = PBXGroup;
-			children = (
-				159F976D2CD95F8400EBABED /* CustomApiKeysViewModel+Preview.swift */,
-				155B713A2CD24B3800F14EA8 /* SettingsViewModel+Preview.swift */,
-			);
-			path = Preview;
 			sourceTree = "<group>";
 		};
 		156866512BFF628B00E01772 /* Badge */ = {
@@ -597,7 +547,6 @@
 		159A2DBA2BB60AAC00A470F1 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				154A1D792C52688600D268F4 /* Keychain */,
 				159A2DC02BB60C7100A470F1 /* UserDefaults */,
 				159A2DBE2BB60C1400A470F1 /* BackingStorage.swift */,
 				159A2DBC2BB60B8D00A470F1 /* PersistenceContainer.swift */,
@@ -680,28 +629,9 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		159F98212CDA3CD200EBABED /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				15AB32372CE52B0F00D23C17 /* SettingsRoute.swift */,
-				159F98222CDA3D6500EBABED /* SettingsNavigationDestinationHandler.swift */,
-				159F98242CDA3DAB00EBABED /* Preview */,
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
-		159F98242CDA3DAB00EBABED /* Preview */ = {
-			isa = PBXGroup;
-			children = (
-				159F98252CDA3DD700EBABED /* SettingsNavigationDestinationHandler+Preview.swift */,
-			);
-			path = Preview;
-			sourceTree = "<group>";
-		};
 		159F982B2CDA47A100EBABED /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				159F982C2CDA47B100EBABED /* ApiKeysConfig.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1122,7 +1052,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				159F97662CD921CB00EBABED /* CustomApiKeysViewModel.swift in Sources */,
 				15B16C1C2BC8030100A6D8A2 /* GeolocationService.swift in Sources */,
 				15B6D1B52B3324F10064F033 /* PresentableError.swift in Sources */,
 				15AB322F2CE5117D00D23C17 /* Route.swift in Sources */,
@@ -1137,8 +1066,6 @@
 				154CDBB12BC4124400D5C3AF /* SmartSignalsService+Default.swift in Sources */,
 				15B6D19A2B30AE750064F033 /* Format.swift in Sources */,
 				154B2F9E2B7A42AD004E79AC /* DeviceIdentificationService+Preview.swift in Sources */,
-				159F98232CDA3D6700EBABED /* SettingsNavigationDestinationHandler.swift in Sources */,
-				155B712C2CD0FE3400F14EA8 /* CustomApiKeysView.swift in Sources */,
 				154B2FA02B7A4B5F004E79AC /* FingerprintResponse+Preview.swift in Sources */,
 				15AB323A2CE52B9F00D23C17 /* AppRoute.swift in Sources */,
 				1589CA012B5806AA0053A9FA /* PresentableError+FromError.swift in Sources */,
@@ -1146,7 +1073,6 @@
 				15B6D1AB2B3210EE0064F033 /* DeviceIdentificationService.swift in Sources */,
 				156D06902B272E3B0015A456 /* ClientResponseEventPresentability.swift in Sources */,
 				156D069C2B2B217F0015A456 /* ConfigVariable.swift in Sources */,
-				154A1D7B2C5268A100D268F4 /* KeychainStorage.swift in Sources */,
 				156D06882B25F8AF0015A456 /* EventPresentability.swift in Sources */,
 				154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */,
 				15AB32312CE5134E00D23C17 /* DeepLinkNavigator.swift in Sources */,
@@ -1170,9 +1096,6 @@
 				15DB47DE2CEB657A00F391A3 /* FingerprintServerAPI+ResponseError.swift in Sources */,
 				159A2DCE2BB7085600A470F1 /* SettingsContainer+Preview.swift in Sources */,
 				159A2DC72BB6E31300A470F1 /* DataEncoder.swift in Sources */,
-				155B71362CD241DB00F14EA8 /* SettingsViewModel.swift in Sources */,
-				159F982D2CDA47B300EBABED /* ApiKeysConfig.swift in Sources */,
-				15AB32382CE52B1300D23C17 /* SettingsRoute.swift in Sources */,
 				156D065B2B1657D40015A456 /* HomeView.swift in Sources */,
 				15DB47D42CEB5C2600F391A3 /* FingerprintServerAPI+Client.swift in Sources */,
 				159A2DE32BBEB59600A470F1 /* HTTPMethod.swift in Sources */,
@@ -1190,12 +1113,10 @@
 				15B6D1B82B334A230064F033 /* DeviceFingerprintViewModel.swift in Sources */,
 				156D068C2B2726800015A456 /* EventDetailsView+VisualState.swift in Sources */,
 				155B71322CD14F2E00F14EA8 /* SettingButton.swift in Sources */,
-				159F976E2CD95F8900EBABED /* CustomApiKeysViewModel+Preview.swift in Sources */,
 				159A2DCA2BB7043700A470F1 /* SettingsContainer.swift in Sources */,
 				156D067C2B20994E0015A456 /* EventDetailsView.swift in Sources */,
 				15DB47D92CEB621900F391A3 /* FingerprintServerAPI+Endpoints.swift in Sources */,
 				159F98202CDA3C5100EBABED /* NavigationDestinationHandler.swift in Sources */,
-				155B713B2CD24B3D00F14EA8 /* SettingsViewModel+Preview.swift in Sources */,
 				159A2DBD2BB60B8D00A470F1 /* PersistenceContainer.swift in Sources */,
 				154CDBA92BBF08F700D5C3AF /* HTTPHeaderField.swift in Sources */,
 				159A2DD82BBEB2D500A470F1 /* URLConvertible.swift in Sources */,
@@ -1207,7 +1128,6 @@
 				ADC463452E16835A009D6B2E /* JSONSyntaxHighlighter.swift in Sources */,
 				153560322BC55F0400BAD949 /* ConfigVariable+SmartSignals.swift in Sources */,
 				156D067A2B1E49390015A456 /* DefaultButtonStyle.swift in Sources */,
-				159F98262CDA3DE100EBABED /* SettingsNavigationDestinationHandler+Preview.swift in Sources */,
 				156D068E2B2728A10015A456 /* ExtendedResponseEventPresentability.swift in Sources */,
 				156D06642B1772AB0015A456 /* URL+StaticString.swift in Sources */,
 				156D06442B0F5FA50015A456 /* FingerprintProDemoApp.swift in Sources */,
@@ -1360,7 +1280,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Settings/Navigation/Preview FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/PreviewContent FingerprintProDemo/Features/Settings/ViewModel/Preview";
+				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/PreviewContent";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1400,7 +1320,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Settings/Navigation/Preview FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/PreviewContent FingerprintProDemo/Features/Settings/ViewModel/Preview";
+				DEVELOPMENT_ASSET_PATHS = "FingerprintProDemo/Features/Home/ViewModel/Preview FingerprintProDemo/PreviewContent";
 				DEVELOPMENT_TEAM = AQ93X82PXZ;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;

@@ -1,6 +1,6 @@
 enum AppRoute: Route {
     case home
-    case settings(SettingsRoute?)
+    case settings
 }
 
 extension Route where Self == AppRoute {
@@ -8,7 +8,7 @@ extension Route where Self == AppRoute {
     var childRoute: (any Route)? {
         switch self {
         case .home: .none
-        case let .settings(settingsRoute): settingsRoute
+        case .settings: .none
         }
     }
 }
