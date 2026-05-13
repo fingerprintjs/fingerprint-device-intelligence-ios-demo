@@ -46,6 +46,10 @@ extension FingerprintServerAPI {
                 fields.insert(.basicAuthorization(basicAuthToken))
             }
 
+            if let basicAuthToken = ConfigVariable.SmartSignals.basicAuthToken {
+                fields.insert(.basicAuthorization(basicAuthToken))
+            }
+
             return fields
         }
     }
