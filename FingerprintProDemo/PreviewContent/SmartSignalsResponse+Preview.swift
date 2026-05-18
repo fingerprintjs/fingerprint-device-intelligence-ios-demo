@@ -55,7 +55,8 @@ extension SmartSignalsResponse {
                     ipEvents: .init(fiveMinutes: 1, oneHour: 4, twentyFourHours: 30)), vpn: false,
                 vpnConfidence: "medium", vpnOriginTimezone: "Europe/Prague", vpnOriginCountry: "CZ",
                 vpnMethods: .init(timezoneMismatch: false, publicVPN: false, auxiliaryMobile: false, relay: false),
-                highActivityDevice: false)
+                highActivityDevice: false,
+                simulator: false)
         }
     }
 }

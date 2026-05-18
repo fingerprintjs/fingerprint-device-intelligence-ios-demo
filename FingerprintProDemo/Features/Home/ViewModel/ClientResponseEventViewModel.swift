@@ -70,6 +70,8 @@ private extension ClientResponseEventViewModel {
             return vpnItemValue
         case .proxy:
             return proxyItemValue
+        case .simulator:
+            return simulatorItemValue
         case .factoryReset:
             return factoryResetItemValue
         case .jailbreak:
@@ -229,6 +231,15 @@ private extension ClientResponseEventViewModel {
         } else {
             return .init(localized: "Proxy Detected (Residential IP)")
         }
+    }
+
+    var simulatorItemValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let simulatorDetected = smartSignalsResponse.simulator else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+
+        return LocalizedStrings.smartSignalValue(from: simulatorDetected)
     }
 
     var factoryResetItemValue: AttributedString {

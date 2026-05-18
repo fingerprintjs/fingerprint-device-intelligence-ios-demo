@@ -483,6 +483,16 @@
         }
       }
     },
+    "SIMULATOR" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SIMULATOR"
+          }
+        }
+      }
+    },
     "SMART SIGNAL" : {
       "localizations" : {
         "en" : {
