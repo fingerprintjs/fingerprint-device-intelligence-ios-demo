@@ -92,6 +92,15 @@
 		15DB47D42CEB5C2600F391A3 /* FingerprintServerAPI+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47D32CEB5C1B00F391A3 /* FingerprintServerAPI+Client.swift */; };
 		15DB47D92CEB621900F391A3 /* FingerprintServerAPI+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47D82CEB621000F391A3 /* FingerprintServerAPI+Endpoints.swift */; };
 		15DB47DE2CEB657A00F391A3 /* FingerprintServerAPI+ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */; };
+		351722052F7D3F680079A4BB /* IPInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722042F7D3F680079A4BB /* IPInfo.swift */; };
+		351722072F7D3F970079A4BB /* SDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722062F7D3F970079A4BB /* SDK.swift */; };
+		351722092F7D3FA10079A4BB /* Identification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722082F7D3FA10079A4BB /* Identification.swift */; };
+		3517220B2F7D3FFC0079A4BB /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517220A2F7D3FFC0079A4BB /* Proxy.swift */; };
+		3517220D2F7D40170079A4BB /* Tampering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517220C2F7D40170079A4BB /* Tampering.swift */; };
+		3517220F2F7D40370079A4BB /* Velocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517220E2F7D40370079A4BB /* Velocity.swift */; };
+		351722112F7D40690079A4BB /* VPN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722102F7D40690079A4BB /* VPN.swift */; };
+		351722132F7D40800079A4BB /* IPBlocklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722122F7D40800079A4BB /* IPBlocklist.swift */; };
+		351722152F7D40900079A4BB /* Proximity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722142F7D40900079A4BB /* Proximity.swift */; };
 		AD04EF192E2CFE58005E7046 /* FingerprintProDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD04EF162E2CFE58005E7046 /* FingerprintProDemoUITests.swift */; };
 		AD1C4EDD2E72E7E300DF9065 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = AD1C4EDC2E72E7E300DF9065 /* FirebaseAnalytics */; };
 		AD1C4EDF2E72E7E300DF9065 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = AD1C4EDE2E72E7E300DF9065 /* FirebaseCrashlytics */; };
@@ -197,6 +206,15 @@
 		15DB47D32CEB5C1B00F391A3 /* FingerprintServerAPI+Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+Client.swift"; sourceTree = "<group>"; };
 		15DB47D82CEB621000F391A3 /* FingerprintServerAPI+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+Endpoints.swift"; sourceTree = "<group>"; };
 		15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+ResponseError.swift"; sourceTree = "<group>"; };
+		351722042F7D3F680079A4BB /* IPInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPInfo.swift; sourceTree = "<group>"; };
+		351722062F7D3F970079A4BB /* SDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDK.swift; sourceTree = "<group>"; };
+		351722082F7D3FA10079A4BB /* Identification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identification.swift; sourceTree = "<group>"; };
+		3517220A2F7D3FFC0079A4BB /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		3517220C2F7D40170079A4BB /* Tampering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tampering.swift; sourceTree = "<group>"; };
+		3517220E2F7D40370079A4BB /* Velocity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Velocity.swift; sourceTree = "<group>"; };
+		351722102F7D40690079A4BB /* VPN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPN.swift; sourceTree = "<group>"; };
+		351722122F7D40800079A4BB /* IPBlocklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPBlocklist.swift; sourceTree = "<group>"; };
+		351722142F7D40900079A4BB /* Proximity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proximity.swift; sourceTree = "<group>"; };
 		AD04EEEE2E2CF128005E7046 /* FingerprintProDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FingerprintProDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD04EF162E2CFE58005E7046 /* FingerprintProDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintProDemoUITests.swift; sourceTree = "<group>"; };
 		AD04EF1D2E2D0004005E7046 /* FingerprintProDemo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FingerprintProDemo.xctestplan; sourceTree = "<group>"; };
@@ -297,6 +315,15 @@
 			isa = PBXGroup;
 			children = (
 				154CDBAE2BC40D1A00D5C3AF /* SmartSignalsResponse.swift */,
+				351722142F7D40900079A4BB /* Proximity.swift */,
+				351722102F7D40690079A4BB /* VPN.swift */,
+				3517220E2F7D40370079A4BB /* Velocity.swift */,
+				3517220C2F7D40170079A4BB /* Tampering.swift */,
+				3517220A2F7D3FFC0079A4BB /* Proxy.swift */,
+				351722082F7D3FA10079A4BB /* Identification.swift */,
+				351722062F7D3F970079A4BB /* SDK.swift */,
+				351722042F7D3F680079A4BB /* IPInfo.swift */,
+				351722122F7D40800079A4BB /* IPBlocklist.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -565,7 +592,6 @@
 		159A2DC82BB703E700A470F1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				159F982B2CDA47A100EBABED /* Model */,
 				159A2DC92BB7043700A470F1 /* SettingsContainer.swift */,
 			);
 			path = Settings;
@@ -627,13 +653,6 @@
 				15AB32322CE5213900D23C17 /* DeepLinking */,
 			);
 			path = Navigation;
-			sourceTree = "<group>";
-		};
-		159F982B2CDA47A100EBABED /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		15AB32322CE5213900D23C17 /* DeepLinking */ = {
@@ -1059,6 +1078,9 @@
 				159A2DE52BBEB5E400A470F1 /* HTTPClient.swift in Sources */,
 				154A1D782C50048500D268F4 /* RootView.swift in Sources */,
 				159A2DE02BBEB50500A470F1 /* URLConvertibleEndpoint.swift in Sources */,
+				351722132F7D40800079A4BB /* IPBlocklist.swift in Sources */,
+				351722052F7D3F680079A4BB /* IPInfo.swift in Sources */,
+				351722112F7D40690079A4BB /* VPN.swift in Sources */,
 				156D06672B1772FF0015A456 /* Constants.swift in Sources */,
 				156D06942B276E6F0015A456 /* UIFont+Inter.swift in Sources */,
 				15DB47D12CEB56B400F391A3 /* FingerprintServerAPI.swift in Sources */,
@@ -1075,22 +1097,28 @@
 				156D069C2B2B217F0015A456 /* ConfigVariable.swift in Sources */,
 				156D06882B25F8AF0015A456 /* EventPresentability.swift in Sources */,
 				154B2FA32B7CDAA1004E79AC /* CallToActionView.swift in Sources */,
+				351722152F7D40900079A4BB /* Proximity.swift in Sources */,
 				15AB32312CE5134E00D23C17 /* DeepLinkNavigator.swift in Sources */,
 				15B16C212BC811AD00A6D8A2 /* GeolocationService+Preview.swift in Sources */,
 				153560372BC5BDF600BAD949 /* ClientResponseEvent.swift in Sources */,
 				15AB32362CE5225300D23C17 /* EnvironmentValues+DeepLink.swift in Sources */,
 				154A1D762C5003D800D268F4 /* SettingsView.swift in Sources */,
+				3517220F2F7D40370079A4BB /* Velocity.swift in Sources */,
 				15B6D1A32B30C49F0064F033 /* DateEncodingStrategy+ISO8601Full.swift in Sources */,
 				159026522B6919B400D3FF36 /* AppInfo.swift in Sources */,
+				3517220D2F7D40170079A4BB /* Tampering.swift in Sources */,
 				15B6D19D2B30AEAC0064F033 /* Format+Date.swift in Sources */,
 				159A2DBF2BB60C1400A470F1 /* BackingStorage.swift in Sources */,
 				156D06922B27503B0015A456 /* String+LinesCount.swift in Sources */,
 				156D06732B18A7B10015A456 /* Font+Inter.swift in Sources */,
+				3517220B2F7D3FFC0079A4BB /* Proxy.swift in Sources */,
 				1535603C2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift in Sources */,
 				1589C9FE2B5806450053A9FA /* PresentableError+CommonErrors.swift in Sources */,
+				351722072F7D3F970079A4BB /* SDK.swift in Sources */,
 				15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */,
 				15B16C1F2BC80D7600A6D8A2 /* GeolocationService+Default.swift in Sources */,
 				154CDBAF2BC40D1A00D5C3AF /* SmartSignalsResponse.swift in Sources */,
+				351722092F7D3FA10079A4BB /* Identification.swift in Sources */,
 				156866572BFFCDF800E01772 /* URL+WithFragment.swift in Sources */,
 				159F982A2CDA473100EBABED /* Region+Codable.swift in Sources */,
 				15DB47DE2CEB657A00F391A3 /* FingerprintServerAPI+ResponseError.swift in Sources */,

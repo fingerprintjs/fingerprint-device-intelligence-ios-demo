@@ -121,10 +121,10 @@ private extension ClientResponseEventViewModel {
             countryName = country.name
             countryCode = country.code
         } else if let smartSignalsResponse {
-            cityName = smartSignalsResponse.products.ipInfo?.data?.v4?.geolocation?.city?.name
-            let country = smartSignalsResponse.products.ipInfo?.data?.v4?.geolocation?.country
-            countryName = country?.name
-            countryCode = country?.code
+            let geolocation = smartSignalsResponse.ipInfo?.v4?.geolocation
+            cityName = geolocation?.cityName
+            countryName = geolocation?.countryName
+            countryCode = geolocation?.countryCode
         }
 
         if let countryCode {
@@ -136,9 +136,10 @@ private extension ClientResponseEventViewModel {
 
     var ipNetworkProviderValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let ipInfo = smartSignalsResponse.products.ipInfo else { return LocalizedStrings.notDetected.rawValue }
-        let name = ipInfo.data?.v4?.asn?.name
-        let asn = ipInfo.data?.v4?.asn?.asn
+        guard let ipInfo = smartSignalsResponse.ipInfo?.v4 else { return LocalizedStrings.notDetected.rawValue }
+
+        let name = ipInfo.asnName
+        let asn = ipInfo.asn
 
         if let name, let asn {
             return .init("\(name) - \(asn)")
@@ -151,21 +152,25 @@ private extension ClientResponseEventViewModel {
 
     var ipBlocklistValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let ipBlocklistData = smartSignalsResponse.products.ipBlocklist?.data else {
+        guard let ipBlocklistData = smartSignalsResponse.ipBlocklist else {
             return LocalizedStrings.notDetected.rawValue
         }
-        return LocalizedStrings.smartSignalValue(from: ipBlocklistData.result ?? false)
+        let attackSource = ipBlocklistData.attackSource ?? false
+        let emailSpam = ipBlocklistData.emailSpam ?? false
+        let torNode = ipBlocklistData.torNode ?? false
+
+        return LocalizedStrings.smartSignalValue(from: attackSource || emailSpam || torNode)
     }
 
     var vpnItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let vpnData = smartSignalsResponse.products.vpn?.data
-        else { return LocalizedStrings.signalDisabled.rawValue }
-        guard vpnData.result ?? false else { return LocalizedStrings.notDetected.rawValue }
+
+        guard let vpnDetected = smartSignalsResponse.vpn else { return LocalizedStrings.signalDisabled.rawValue }
+        guard vpnDetected else { return LocalizedStrings.notDetected.rawValue }
 
         var detected = AttributedString(String(localized: "Detected"))
 
-        let methods = vpnData.methods
+        let methods = smartSignalsResponse.vpnMethods
         var method: String?
         if methods?.publicVPN ?? false {
             method = .init(localized: "Public VPN")
@@ -181,12 +186,12 @@ private extension ClientResponseEventViewModel {
             detected.append(AttributedString(" (\(method))"))
         }
 
-        if let confidence = vpnData.confidence {
+        if let confidence = smartSignalsResponse.vpnConfidence {
             let confidenceLevel = String(localized: "Confidence: \(confidence)")
             detected.append(AttributedString("\n\(confidenceLevel)"))
         }
 
-        if let countryCode = vpnData.originCountry {
+        if let countryCode = smartSignalsResponse.vpnOriginCountry {
             let countryName = Locale.current.localizedString(forRegionCode: countryCode) ?? ""
             let flag = countryFlag(fromCountryCode: countryCode)
 
@@ -214,9 +219,8 @@ private extension ClientResponseEventViewModel {
 
     var proxyItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let proxyData = smartSignalsResponse.products.proxy?.data
-        else { return LocalizedStrings.signalDisabled.rawValue }
-        guard proxyData.result ?? false, let proxyType = proxyData.details?.proxyType else {
+        guard let proxyDetected = smartSignalsResponse.proxy else { return LocalizedStrings.signalDisabled.rawValue }
+        guard proxyDetected, let proxyType = smartSignalsResponse.proxyDetails?.proxyType else {
             return LocalizedStrings.notDetected.rawValue
         }
 
@@ -229,79 +233,96 @@ private extension ClientResponseEventViewModel {
 
     var factoryResetItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let factoryResetData = smartSignalsResponse.products.factoryReset?.data else {
+        guard let factoryResetTimestamp = smartSignalsResponse.factoryResetTimestamp else {
             return LocalizedStrings.signalDisabled.rawValue
         }
-        guard factoryResetData.timestamp > 0 else {
+        guard factoryResetTimestamp > 0 else {
             return LocalizedStrings.notDetected.rawValue
         }
-        return .init(Format.Date.iso8601FullWithRelativeDate(from: factoryResetData.time))
+
+        let date = Date(timeIntervalSince1970: .init(factoryResetTimestamp))
+        return .init(Format.Date.iso8601FullWithRelativeDate(from: date))
     }
 
     var jailbreakItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let jailbreakData = smartSignalsResponse.products.jailbreak?.data else {
+        guard let jailbroken = smartSignalsResponse.jailbroken else {
             return LocalizedStrings.signalDisabled.rawValue
         }
-        return LocalizedStrings.smartSignalValue(from: jailbreakData.result)
+        return LocalizedStrings.smartSignalValue(from: jailbroken)
     }
 
     var fridaItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let fridaData = smartSignalsResponse.products.frida?.data else {
+        guard let frida = smartSignalsResponse.frida else {
             return LocalizedStrings.signalDisabled.rawValue
         }
-        return LocalizedStrings.smartSignalValue(from: fridaData.result)
+        return LocalizedStrings.smartSignalValue(from: frida)
     }
 
     var geolocationSpoofingItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let locationSpoofingData = smartSignalsResponse.products.locationSpoofing?.data else {
+        guard let locationSpoofing = smartSignalsResponse.locationSpoofing else {
             return LocalizedStrings.signalDisabled.rawValue
         }
-        return requiresLocationPermissionString ?? LocalizedStrings.smartSignalValue(from: locationSpoofingData.result)
+        return requiresLocationPermissionString ?? LocalizedStrings.smartSignalValue(from: locationSpoofing)
     }
 
     var highActivityItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let highActivityData = smartSignalsResponse.products.highActivity?.data else {
+        guard let isHighActivity = smartSignalsResponse.highActivityDevice else {
             return LocalizedStrings.signalDisabled.rawValue
         }
-        let isHighActivity = highActivityData.result ?? false
-        let dailyRequests = highActivityData.dailyRequests
-        guard isHighActivity, let dailyRequests else {
+        guard isHighActivity else {
             return LocalizedStrings.smartSignalValue(from: isHighActivity)
         }
-        return .init(localized: "\(dailyRequests) requests per day")
+        if let dailyRequests = smartSignalsResponse.velocity?.events?.twentyFourHours {
+            return .init(localized: "\(dailyRequests) requests per day")
+        }
+        return LocalizedStrings.smartSignalValue(from: isHighActivity)
     }
 
     var tamperingItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let tamperingData = smartSignalsResponse.products.tampering?.data else {
+        guard let tampering = smartSignalsResponse.tampering else {
             return LocalizedStrings.signalDisabled.rawValue
         }
-        return LocalizedStrings.smartSignalValue(from: tamperingData.result)
+        return LocalizedStrings.smartSignalValue(from: tampering)
     }
 
     var mitmAttackItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let mitmAttackData = smartSignalsResponse.products.mitmAttack?.data else {
+        guard let mitmAttack = smartSignalsResponse.mitmAttack else {
             return LocalizedStrings.signalDisabled.rawValue
         }
-        return LocalizedStrings.smartSignalValue(from: mitmAttackData.result)
+        return LocalizedStrings.smartSignalValue(from: mitmAttack)
     }
 
     var proximityItemValue: AttributedString {
         guard let smartSignalsResponse else { return "" }
-        guard let proximityData = smartSignalsResponse.products.proximity?.data
+        guard let proximity = smartSignalsResponse.proximity
         else { return requiresLocationPermissionString ?? LocalizedStrings.notDetected.rawValue }
         let proximityId = String(localized: "Proximity id")
         let precisionRadius = String(localized: "precision radius")
         let confidence = String(localized: "confidence")
-        var itemValue = "\(proximityId): \(proximityData.id) "
-        itemValue += "(\(precisionRadius): \(proximityData.precisionRadius), "
-        itemValue += "\(confidence): \(proximityData.confidence))"
-        return .init(itemValue)
+        var parts: [String] = []
+
+        if let idValue = proximity.id {
+            parts.append("\(proximityId): \(idValue)")
+        }
+
+        var detailParts: [String] = []
+        if let precisionRadiusValue = proximity.precisionRadius {
+            detailParts.append("\(precisionRadius): \(precisionRadiusValue)")
+        }
+        if let confidenceValue = proximity.confidence {
+            detailParts.append("\(confidence): \(confidenceValue)")
+        }
+        if !detailParts.isEmpty {
+            parts.append("(\(detailParts.joined(separator: ", ")))")
+        }
+
+        return .init(parts.joined(separator: " "))
     }
 }
 
