@@ -23,6 +23,7 @@ enum C {
                 .init(staticString: "https://dev.fingerprint.com/docs/smart-signals-overview")
             }
 
+            static var simulator: URL { baseURL.withFragment("ios-simulator-detection") }
             static var factoryReset: URL { baseURL.withFragment("factory-reset-detection") }
             static var frida: URL { baseURL.withFragment("frida-detection") }
             static var highActivity: URL { baseURL.withFragment("high-activity-device") }
