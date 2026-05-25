@@ -7,7 +7,7 @@ protocol FingerprintClientFactory {
 }
 
 protocol DeviceIdentificationServiceProtocol: Sendable {
-    func fingerprintDevice() async throws -> FingerprintResponse
+    func fingerprintDevice(with tag: String) async throws -> FingerprintResponse
 }
 
 struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: DeviceIdentificationServiceProtocol {
@@ -25,8 +25,10 @@ struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: Dev
         self.client = ClientFactory.getInstance(configuration)
     }
 
-    func fingerprintDevice() async throws -> FingerprintResponse {
-        let response = try await client.getVisitorIdResponse()
+    func fingerprintDevice(with tag: String) async throws -> FingerprintResponse {
+        var metadata = Metadata()
+        metadata.setTag(tag, forKey: "secret")
+        let response = try await client.getVisitorIdResponse(metadata)
         return response
     }
 }

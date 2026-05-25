@@ -47,7 +47,8 @@ extension DeviceFingerprintViewModel {
         fingerprintingState = .executing
 
         async let throttleTask: Void = Task.sleep(for: .milliseconds(500))
-        async let fingerprintTask = identificationService.fingerprintDevice()
+        let tag = requestTag()
+        async let fingerprintTask = identificationService.fingerprintDevice(with: tag)
 
         try? await throttleTask
 
@@ -59,7 +60,7 @@ extension DeviceFingerprintViewModel {
             )
 
             let smartSignalsResponse = try await smartSignalsService?
-                .fetchSignals(for: fingerprintResponse.requestId)
+                .fetchSignals(for: fingerprintResponse.requestId, with: tag)
 
             setFingerprintingState(
                 fingerprintResponse: fingerprintResponse,
@@ -97,5 +98,9 @@ private extension DeviceFingerprintViewModel {
                 hasLocationPermission: geolocationService.hasLocationPermission
             )
         )
+    }
+
+    func requestTag() -> String {
+        .init(UInt32.random(in: 0 ... UInt32.max), radix: 16, uppercase: false)
     }
 }

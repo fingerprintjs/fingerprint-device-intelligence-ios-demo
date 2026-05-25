@@ -1,6 +1,6 @@
 struct SmartSignalsServicePreviewFixture: SmartSignalsServiceProtocol {
 
-    func fetchSignals(for requestId: String) async throws -> SmartSignalsResponse { .preview }
+    func fetchSignals(for requestId: String, with tag: String) async throws -> SmartSignalsResponse { .preview }
 }
 
 extension SmartSignalsServiceProtocol where Self == SmartSignalsServicePreviewFixture {

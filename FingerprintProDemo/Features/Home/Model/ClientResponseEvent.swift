@@ -15,6 +15,6 @@ extension ClientResponseEvent: Encodable {
     func encode(to encoder: any Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(fingerprintResponse, forKey: .fingerprintResponse)
-        try container.encodeIfPresent(smartSignalsResponse?.products, forKey: .smartSignalsResponse)
+        try container.encodeIfPresent(smartSignalsResponse, forKey: .smartSignalsResponse)
     }
 }

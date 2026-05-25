@@ -1,5 +1,5 @@
 protocol SmartSignalsServiceProtocol: Sendable {
-    func fetchSignals(for requestId: String) async throws -> SmartSignalsResponse
+    func fetchSignals(for requestId: String, with tag: String) async throws -> SmartSignalsResponse
 }
 
 struct SmartSignalsService: SmartSignalsServiceProtocol {
@@ -10,7 +10,7 @@ struct SmartSignalsService: SmartSignalsServiceProtocol {
         self.client = client
     }
 
-    func fetchSignals(for requestId: String) async throws -> SmartSignalsResponse {
-        return try await client.request(.demoEvent(requestId: requestId))
+    func fetchSignals(for requestId: String, with tag: String) async throws -> SmartSignalsResponse {
+        return try await client.request(.proxyEvent(requestId: requestId, tag: tag))
     }
 }
