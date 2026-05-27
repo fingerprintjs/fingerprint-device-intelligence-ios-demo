@@ -34,4 +34,5 @@ struct SmartSignalsResponse: Codable, Equatable, Sendable {
     let vpnMethods: VPNMethods?
     let highActivityDevice: Bool?
     let simulator: Bool?
+    let developerTools: Bool?
 }

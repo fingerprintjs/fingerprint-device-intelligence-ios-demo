@@ -88,6 +88,8 @@ private extension ClientResponseEventViewModel {
             return mitmAttackItemValue
         case .proximity:
             return proximityItemValue
+        case .developerTools:
+            return developerToolsItemValue
         }
     }
 }
@@ -334,6 +336,15 @@ private extension ClientResponseEventViewModel {
         }
 
         return .init(parts.joined(separator: " "))
+    }
+
+    var developerToolsItemValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let developerToolsDetected = smartSignalsResponse.developerTools else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+
+        return LocalizedStrings.smartSignalValue(from: developerToolsDetected)
     }
 }
 

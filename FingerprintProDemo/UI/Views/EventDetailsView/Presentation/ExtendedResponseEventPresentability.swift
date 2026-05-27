@@ -24,6 +24,7 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
         case tampering = "TAMPERED REQUEST"
         case vpn = "VPN"
         case proximity = "PROXIMITY DETECTION"
+        case developerTools = "DEVELOPER TOOLS"
     }
 
     let foremostItemKey: ItemKey = .visitorId
@@ -59,6 +60,8 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
             return .link(title, destination: C.URLs.SmartSignalsOverview.ipBlocklistMatching)
         case .proximity:
             return .link(String(localized: "MORE INFO"), destination: C.URLs.proximityDetection)
+        case .developerTools:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.developerTools)
         default:
             return .none
         }
@@ -67,7 +70,7 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
     func valuePlaceholder(for key: ItemKey) -> String {
         switch key {
         case .visitorFound: .placeholder(length: 3)
-        case .confidence, .simulator: .placeholder(length: 4)
+        case .confidence, .simulator, .developerTools: .placeholder(length: 4)
         case .jailbreak, .frida, .geolocationSpoofing, .tampering, .mitmAttack: .placeholder(length: 12)
         case .ipAddress: .placeholder(length: 15)
         case .ipNetworkProvider: .placeholder(length: 32)
