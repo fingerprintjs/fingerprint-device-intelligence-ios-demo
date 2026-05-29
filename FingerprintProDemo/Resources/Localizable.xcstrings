@@ -91,6 +91,16 @@
         }
       }
     },
+    "DEVELOPER TOOLS" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DEVELOPER TOOLS"
+          }
+        }
+      }
+    },
     "device" : {
       "localizations" : {
         "en" : {
