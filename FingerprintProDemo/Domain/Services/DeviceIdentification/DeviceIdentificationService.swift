@@ -7,52 +7,28 @@ protocol FingerprintClientFactory {
 }
 
 protocol DeviceIdentificationServiceProtocol: Sendable {
-    func fingerprintDevice() async throws -> FingerprintResponse
-}
-
-enum FingerprintClientError: Error {
-    case clientNotCreated
+    func fingerprintDevice(with tag: String) async throws -> FingerprintResponse
 }
 
 struct DeviceIdentificationService<ClientFactory: FingerprintClientFactory>: DeviceIdentificationServiceProtocol {
 
-    private let client: (any FingerprintClient)?
+    private let client: any FingerprintClient
 
-    init(settingsContainer: any ReadOnlySettingsContainer) {
-        self.client = try? Self.makeFingerprintClient(settingsContainer: settingsContainer)
-    }
-
-    func fingerprintDevice() async throws -> FingerprintResponse {
-        guard let client else { throw FingerprintClientError.clientNotCreated }
-        let response = try await client.getVisitorIdResponse()
-        return response
-    }
-}
-
-private extension DeviceIdentificationService {
-
-    static func makeFingerprintClient(settingsContainer: any ReadOnlySettingsContainer) throws -> FingerprintClient {
-        let apiKey: String
-        let region: Region
-        if apiKeysEnabled(for: settingsContainer) {
-            let config = try settingsContainer.apiKeysConfig
-            apiKey = config.publicKey
-            region = config.region
-        } else {
-            apiKey = ConfigVariable.apiKey
-            region = ConfigVariable.region
-        }
+    init() {
         let configuration = Configuration(
-            apiKey: apiKey,
-            region: region,
+            apiKey: ConfigVariable.apiKey,
+            region: ConfigVariable.region,
             extendedResponseFormat: true,
             allowUseOfLocationData: true
         )
 
-        return ClientFactory.getInstance(configuration)
+        self.client = ClientFactory.getInstance(configuration)
     }
 
-    static func apiKeysEnabled(for settingsContainer: any ReadOnlySettingsContainer) -> Bool {
-        (try? settingsContainer.apiKeysEnabled) ?? false
+    func fingerprintDevice(with tag: String) async throws -> FingerprintResponse {
+        var metadata = Metadata()
+        metadata.setTag(tag, forKey: "secret")
+        let response = try await client.getVisitorIdResponse(metadata)
+        return response
     }
 }

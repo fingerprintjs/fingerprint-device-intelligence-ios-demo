@@ -33,6 +33,7 @@ extension FingerprintServerAPI.Client {
         decoder: Decoder = {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             return decoder
         }()
     ) async throws -> Response {

@@ -5,33 +5,35 @@ extension FingerprintServerAPI {
 
     enum Endpoint: URLConvertibleEndpoint {
 
-        case demoEvent(requestId: String)
-        case subscriptionEvent(apiKey: String, region: Region, requestId: String)
+        case proxyEvent(requestId: String, tag: String)
 
         var baseURL: URL {
             get throws {
                 switch self {
-                case .demoEvent:
+                case .proxyEvent:
                     guard let url = ConfigVariable.SmartSignals.baseURL else {
                         throw NetworkingError.invalidURL(url: self)
                     }
                     return url
-                case let .subscriptionEvent(_, region, _):
-                    return try region.description.asURL()
                 }
             }
         }
 
         var path: String {
             switch self {
-            case let .demoEvent(requestId): "/event/\(requestId)"
-            case let .subscriptionEvent(_, _, requestId): "/events/\(requestId)"
+            case let .proxyEvent(requestId, _): "event/v4/\(requestId)"
+            }
+        }
+
+        var queryItems: [URLQueryItem] {
+            switch self {
+            case let .proxyEvent(_, tag): [.init(name: "secret", value: tag)]
             }
         }
 
         var method: HTTPMethod {
             switch self {
-            case .demoEvent, .subscriptionEvent: .get
+            case .proxyEvent: .get
             }
         }
 
@@ -39,11 +41,9 @@ extension FingerprintServerAPI {
             var fields: Set<HTTPHeaderField> = [
                 .accept("application/json")
             ]
-            if let origin = ConfigVariable.SmartSignals.origin.map(HTTPHeaderField.origin) {
-                fields.insert(origin)
-            }
-            if case let .subscriptionEvent(apiKey, _, _) = self {
-                fields.insert(.custom(name: "Auth-API-Key", value: apiKey))
+
+            if let basicAuthToken = ConfigVariable.SmartSignals.basicAuthToken {
+                fields.insert(.basicAuthorization(basicAuthToken))
             }
 
             return fields

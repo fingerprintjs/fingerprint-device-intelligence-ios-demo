@@ -70,7 +70,6 @@ private extension DeviceFingerprintView {
                     error,
                     action: {
                         switch error.actionKind {
-                        case .editApiKeys: { deepLink(to: .settings(.apiKeys)) }
                         case .retry: { Task { await viewModel.fingerprintDevice() } }
                         }
                     }()

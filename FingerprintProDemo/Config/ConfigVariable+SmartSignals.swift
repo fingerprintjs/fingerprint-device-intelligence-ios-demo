@@ -20,11 +20,11 @@ extension ConfigVariable {
             #endif
         }
 
-        static var origin: String? {
+        static var basicAuthToken: String? {
             #if DEBUG
-            Developer.origin
+            nil
             #else
-            ObfuscatedLiterals.$smartSignalsOrigin
+            ObfuscatedLiterals.$basicAuthToken
             #endif
         }
 

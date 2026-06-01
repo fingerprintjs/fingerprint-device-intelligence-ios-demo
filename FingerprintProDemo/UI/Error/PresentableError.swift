@@ -10,7 +10,6 @@ extension PresentableError {
 
     enum ActionKind: LocalizedStringResource {
 
-        case editApiKeys = "Go to API Keys"
         case retry = "Try again"
 
         var localizedString: String { .init(localized: rawValue) }

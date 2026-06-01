@@ -2,7 +2,7 @@ import FingerprintPro
 
 struct DeviceIdentificationServicePreviewFixture: DeviceIdentificationServiceProtocol {
 
-    func fingerprintDevice() async throws -> FingerprintResponse { .preview }
+    func fingerprintDevice(with tag: String) async throws -> FingerprintResponse { .preview }
 }
 
 extension DeviceIdentificationServiceProtocol where Self == DeviceIdentificationServicePreviewFixture {

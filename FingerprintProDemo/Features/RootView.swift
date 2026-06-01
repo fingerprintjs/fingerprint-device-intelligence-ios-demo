@@ -10,10 +10,7 @@ extension RootView where Home == HomeView, Settings == SettingsView {
                 geolocationService: .default
             )
         )
-        settings = .init(
-            viewModel: .init(),
-            navigationDestinationHandler: .default
-        )
+        settings = .init()
     }
 }
 
@@ -73,10 +70,7 @@ struct RootView<Home, Settings>: View where Home: View, Settings: View {
             HomeView(deviceFingerprintViewModel: .preview)
         },
         settings: {
-            SettingsView(
-                viewModel: .preview,
-                navigationDestinationHandler: .preview
-            )
+            SettingsView()
         }
     )
 }
