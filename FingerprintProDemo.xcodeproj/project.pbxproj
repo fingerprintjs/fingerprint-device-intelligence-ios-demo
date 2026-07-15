@@ -1327,7 +1327,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.1.0;
+				MARKETING_VERSION = 4.1.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1371,7 +1371,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.1.0;
+				MARKETING_VERSION = 4.1.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					LoggerKit,
