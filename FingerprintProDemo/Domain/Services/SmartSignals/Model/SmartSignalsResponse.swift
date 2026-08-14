@@ -35,4 +35,5 @@ struct SmartSignalsResponse: Codable, Equatable, Sendable {
     let highActivityDevice: Bool?
     let simulator: Bool?
     let developerTools: Bool?
+    let activeCall: Bool?
 }

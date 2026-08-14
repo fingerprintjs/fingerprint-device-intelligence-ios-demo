@@ -57,7 +57,8 @@ extension SmartSignalsResponse {
                 vpnMethods: .init(timezoneMismatch: false, publicVPN: false, auxiliaryMobile: false, relay: false),
                 highActivityDevice: false,
                 simulator: false,
-                developerTools: false)
+                developerTools: false,
+                activeCall: false)
         }
     }
 }

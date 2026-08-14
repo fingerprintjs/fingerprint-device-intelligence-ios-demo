@@ -11,6 +11,16 @@
         }
       }
     },
+    "ACTIVE CALL" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ACTIVE CALL"
+          }
+        }
+      }
+    },
     "An unexpected error occurred..." : {
       "localizations" : {
         "en" : {
