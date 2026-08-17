@@ -25,6 +25,7 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
         case vpn = "VPN"
         case proximity = "PROXIMITY DETECTION"
         case developerTools = "DEVELOPER TOOLS"
+        case activeCall = "ACTIVE CALL"
     }
 
     let foremostItemKey: ItemKey = .visitorId
@@ -62,6 +63,8 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
             return .link(String(localized: "MORE INFO"), destination: C.URLs.proximityDetection)
         case .developerTools:
             return .link(title, destination: C.URLs.SmartSignalsOverview.developerTools)
+        case .activeCall:
+            return .link(title, destination: C.URLs.SmartSignalsOverview.activeCall)
         default:
             return .none
         }
@@ -70,7 +73,7 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
     func valuePlaceholder(for key: ItemKey) -> String {
         switch key {
         case .visitorFound: .placeholder(length: 3)
-        case .confidence, .simulator, .developerTools: .placeholder(length: 4)
+        case .confidence, .simulator, .developerTools, .activeCall: .placeholder(length: 4)
         case .jailbreak, .frida, .geolocationSpoofing, .tampering, .mitmAttack: .placeholder(length: 12)
         case .ipAddress: .placeholder(length: 15)
         case .ipNetworkProvider: .placeholder(length: 32)

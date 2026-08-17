@@ -36,6 +36,7 @@ enum C {
             static var ipBlocklistMatching: URL { baseURL.withFragment("ip-blocklist-matching") }
             static var proxy: URL { baseURL.withFragment("proxy-detection") }
             static var developerTools: URL { baseURL.withFragment("developer-tools-detection-for-mobile-devices") }
+            static var activeCall: URL { baseURL.withFragment("active-call-detection") }
         }
     }
 }

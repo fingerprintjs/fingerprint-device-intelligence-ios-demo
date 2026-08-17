@@ -90,6 +90,8 @@ private extension ClientResponseEventViewModel {
             return proximityItemValue
         case .developerTools:
             return developerToolsItemValue
+        case .activeCall:
+            return activeCallValue
         }
     }
 }
@@ -345,6 +347,14 @@ private extension ClientResponseEventViewModel {
         }
 
         return LocalizedStrings.smartSignalValue(from: developerToolsDetected)
+    }
+
+    var activeCallValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let activeCall = smartSignalsResponse.activeCall else {
+            return LocalizedStrings.signalDisabled.rawValue
+        }
+        return LocalizedStrings.smartSignalValue(from: activeCall)
     }
 }
 
