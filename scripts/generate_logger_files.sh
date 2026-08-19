@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-FOLDER="${PROJECT_DIR}/FingerprintProDemo/Generated"
+FOLDER="${PROJECT_DIR}/FingerprintDemo/Generated"
 FILE="${FOLDER}/Confidential.generated.swift"
 
 if [[ "${CONFIGURATION:-}" == "Release" ]]; then

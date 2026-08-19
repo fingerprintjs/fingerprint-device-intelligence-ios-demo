@@ -13,10 +13,10 @@
     <img src="https://github.com/fingerprintjs/fingerprint-device-intelligence-ios-demo/actions/workflows/ci.yml/badge.svg" alt="CI status">
   </a>
   <a href="https://developer.apple.com/xcode/">
-    <img src="https://img.shields.io/badge/Xcode-16.0%20%7C%2015.4-blue" alt="Supported Xcode versions">
+    <img src="https://img.shields.io/badge/Xcode-16.0-blue" alt="Supported Xcode versions">
   </a>
   <a href="https://www.swift.org/download/">
-    <img src="https://img.shields.io/badge/Swift-6.0%20%7C%205.10-red" alt="Supported Swift versions">
+    <img src="https://img.shields.io/badge/Swift-6.0-red" alt="Supported Swift versions">
   </a>
   <a href="https://www.apple.com/ios/">
     <img src="https://img.shields.io/badge/iOS-16.0+-lightgrey" alt="Supported iOS versions">
@@ -38,9 +38,9 @@
   </a>
 </p>
 
-[Fingerprint’s Device Intelligence platform for iOS](https://dev.fingerprint.com/docs/ios) helps you to accurately identify the devices on which your mobile app is being used. The platform also provides high-quality [Smart Signals](https://dev.fingerprint.com/docs/smart-signals-overview#smart-signals-for-mobile-devices) that will help you identify risky transactions before they happen. The Fingerprint Pro Demo App for iOS allows you to effortlessly experience the capabilities of our device intelligence platform.
+[Fingerprint’s Device Intelligence platform for iOS](https://dev.fingerprint.com/docs/ios) helps you to accurately identify the devices on which your mobile app is being used. The platform also provides high-quality [Smart Signals](https://dev.fingerprint.com/docs/smart-signals-overview#smart-signals-for-mobile-devices) that will help you identify risky transactions before they happen. The Fingerprint Demo App for iOS allows you to effortlessly experience the capabilities of our device intelligence platform.
 
-## Fingerprint Pro Demo App in the App Store
+## Fingerprint Demo App in the App Store
 
 [<img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" width="175" />](https://apps.apple.com/us/app/fingerprint-pro/id1644105278)
 
@@ -55,7 +55,7 @@
 
 # About
 
-This repository contains the source code for the Fingerprint Pro Demo App for iOS. It shall serve as a good example
+This repository contains the source code for the Fingerprint Demo App for iOS. It shall serve as a good example
 
 - For integrating the Fingerprint Identification SDK in your iOS app;
 - For best practices to follow when using the Fingerprint Identification SDK in your app;
@@ -79,14 +79,14 @@ Get the app up and running in a few simple steps:
 > [!NOTE]
 > In line with the shift-left security approach, the installed pre-commit hook uses [gitleaks](https://github.com/gitleaks/gitleaks) to prevent your API keys from being inadvertently committed to the repository.
 
-3. Open the Xcode project (`FingerprintProDemo.xcodeproj`):
+3. Open the Xcode project (`FingerprintDemo.xcodeproj`):
     ```sh
     xed .
     ```
 
-4. Open up the `FingerprintProDemo/Config/ConfigVariable.swift` file (`⇧ + ⌘ + O` to Open Quickly) and assign your Public API Key + [Region](https://dev.fingerprint.com/docs/ios-sdk#region) to `Developer.apiKey` and `Developer.region` static fields respectively. You can find the API key in your [dashboard](https://dashboard.fingerprint.com/) at `App Settings` > `API Keys`.
+4. Open up the `FingerprintDemo/Config/ConfigVariable.swift` file (`⇧ + ⌘ + O` to Open Quickly) and assign your Public API Key + [Region](https://dev.fingerprint.com/docs/ios-sdk#region) to `Developer.apiKey` and `Developer.region` static fields respectively. You can find the API key in your [dashboard](https://dashboard.fingerprint.com/) at `App Settings` > `API Keys`.
 
-5. Go to `FingerprintProDemo` target settings, click *Signing & Capabilities*, and select your development team. 
+5. Go to `FingerprintDemo` target settings, click *Signing & Capabilities*, and select your development team. 
 
 6. Build and run the app on the selected simulated or real device (`⌘ + R`).
 
@@ -96,19 +96,19 @@ Following up on the information provided in our [Getting Started Guide](https://
 
 ## Getting the response
 
-The SDK configuration code and `getVisitorIdResponse()` call are abstracted away by the `DeviceIdentificationService<ClientFactory>` struct (see [FingerprintProDemo/Domain/Services/DeviceIdentification](./FingerprintProDemo/Domain/Services/DeviceIdentification)), a concrete implementation of the `DeviceIdentificationServiceProtocol` protocol. While creating such an abstraction layer is not mandatory, it is a good practice that improves code maintainability and testability.
+The SDK configuration code and `getVisitorIdResponse()` call are abstracted away by the `DeviceIdentificationService<ClientFactory>` struct (see [FingerprintDemo/Domain/Services/DeviceIdentification](./FingerprintDemo/Domain/Services/DeviceIdentification)), a concrete implementation of the `DeviceIdentificationServiceProtocol` protocol. While creating such an abstraction layer is not mandatory, it is a good practice that improves code maintainability and testability.
 
 ## Examining the response
 
-The `DeviceIdentificationService<ClientFactory>.fingerprintDevice()` method is called by the `DeviceFingerprintViewModel`, which further passes the obtained `FingerprintResponse` instance to the `ClientResponseEventViewModel`. This is where the individual field values are being extracted from the response and prepared for presentation inside the `EventDetailsView<Presentation, Actions>`. The view models can be found in [FingerprintProDemo/Features/Home/ViewModel](./FingerprintProDemo/Features/Home/ViewModel).
+The `DeviceIdentificationService<ClientFactory>.fingerprintDevice()` method is called by the `DeviceFingerprintViewModel`, which further passes the obtained `FingerprintResponse` instance to the `ClientResponseEventViewModel`. This is where the individual field values are being extracted from the response and prepared for presentation inside the `EventDetailsView<Presentation, Actions>`. The view models can be found in [FingerprintDemo/Features/Home/ViewModel](./FingerprintDemo/Features/Home/ViewModel).
 
 ## Handling the errors
 
-Any errors thrown by the SDK are handled by the `DeviceFingerprintViewModel.fingerprintDevice()` method, which calls the `PresentableError.init(from:)` initializer to convert the captured error to its user-friendly equivalent. The error mapping code can be found in the [PresentableError+FromError.swift](./FingerprintProDemo/Features/Common/Error/PresentableError+FromError.swift) file. You can use this kind of approach to map the SDK errors to domain-specific errors in your code.
+Any errors thrown by the SDK are handled by the `DeviceFingerprintViewModel.fingerprintDevice()` method, which calls the `PresentableError.init(from:)` initializer to convert the captured error to its user-friendly equivalent. The error mapping code can be found in the [PresentableError+FromError.swift](./FingerprintDemo/Features/Common/Error/PresentableError+FromError.swift) file. You can use this kind of approach to map the SDK errors to domain-specific errors in your code.
 
 ## Stubbing the response for SwiftUI previews and/or testing
 
-To make the most out of [SwiftUI previews in Xcode](https://developer.apple.com/documentation/swiftui/previews-in-xcode), you should have full control over the data that describes the view's state. See [FingerprintProDemo/PreviewContent](./FingerprintProDemo/PreviewContent) for an example of how you can create and use a stubbed `FingerprintResponse` for your previews. Likewise, the same technique can be used for writing the automated tests.
+To make the most out of [SwiftUI previews in Xcode](https://developer.apple.com/documentation/swiftui/previews-in-xcode), you should have full control over the data that describes the view's state. See [FingerprintDemo/PreviewContent](./FingerprintDemo/PreviewContent) for an example of how you can create and use a stubbed `FingerprintResponse` for your previews. Likewise, the same technique can be used for writing the automated tests.
 
 # License
 

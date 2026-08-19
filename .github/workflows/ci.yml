@@ -47,8 +47,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - macos: 14
-            xcode: '15.4'  # Swift 5.10
           - macos: 15
             xcode: '16.1'  # Swift 6.0
 
@@ -68,7 +66,7 @@ jobs:
       - name: Build Project
         run: |
           xcodebuild clean build \
-              -project FingerprintProDemo.xcodeproj \
-              -scheme FingerprintProDemo \
+              -project FingerprintDemo.xcodeproj \
+              -scheme FingerprintDemo \
               CODE_SIGNING_ALLOWED=NO \
               | xcbeautify

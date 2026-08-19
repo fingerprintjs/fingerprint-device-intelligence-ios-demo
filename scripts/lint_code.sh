@@ -9,7 +9,7 @@ readonly OPTION_STRICT="--strict"
 readonly PROJECT_ROOT_PATH="$SCRIPT_ABS_PATH/.."
 
 readonly SWIFT_FORMAT_CONFIG_PATH="./.swift-format"
-readonly SWIFT_FORMAT_INPUT_FILENAMES="./FingerprintProDemo"
+readonly SWIFT_FORMAT_INPUT_FILENAMES="./FingerprintDemo"
 
 STRICT_MODE=false
 
