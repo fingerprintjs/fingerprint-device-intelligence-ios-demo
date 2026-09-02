@@ -4,8 +4,8 @@ set -Eeuo pipefail
 
 readonly SCRIPT_ABS_PATH="$(cd "$(dirname "$0")" &>/dev/null && pwd -P)"
 
-readonly XCODE_PROJECT="$SCRIPT_ABS_PATH/../FingerprintProDemo.xcodeproj"
-readonly XCODE_SCHEME="FingerprintProDemo"
+readonly XCODE_PROJECT="$SCRIPT_ABS_PATH/../FingerprintDemo.xcodeproj"
+readonly XCODE_SCHEME="FingerprintDemo"
 
 readonly SIMULATOR="iPhone 16 Pro"
 readonly PLATFORM_IOS="iOS Simulator,name=$SIMULATOR"
