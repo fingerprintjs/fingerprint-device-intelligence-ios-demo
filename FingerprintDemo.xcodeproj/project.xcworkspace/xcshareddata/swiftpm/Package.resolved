@@ -1,5 +1,5 @@
 {
-  "originHash" : "2b793d7ff58277a6fe30ab27e7a89ee82001c432cb576a4e47cc2ebfe36715fb",
+  "originHash" : "783aa5374a8c2810b36908f207df8bdfc7e38873eafc6904d4658ea33ad64558",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/fingerprintjs/fingerprint-ios",
       "state" : {
-        "revision" : "87e1988e78ae9beba9372e4a5916cc74b7f91dbd",
-        "version" : "4.0.0"
+        "revision" : "3a12909c4672d1a67454866fcf9aa69f48dcb31e",
+        "version" : "4.1.0"
       }
     },
     {

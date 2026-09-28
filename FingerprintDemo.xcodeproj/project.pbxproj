@@ -1335,7 +1335,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.2.0;
+				MARKETING_VERSION = 4.3.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1379,7 +1379,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.2.0;
+				MARKETING_VERSION = 4.3.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					LoggerKit,
@@ -1477,7 +1477,7 @@
 			repositoryURL = "https://github.com/fingerprintjs/fingerprint-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 4.0.0;
+				version = 4.1.0;
 			};
 		};
 		AD1C4EDB2E72E7E300DF9065 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
