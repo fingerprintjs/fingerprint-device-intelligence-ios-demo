@@ -2,7 +2,7 @@ enum AppRoute: Route {
     case home
     case settings
 }
-
+//
 extension Route where Self == AppRoute {
 
     var childRoute: (any Route)? {
