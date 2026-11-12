@@ -64,6 +64,10 @@ private extension ClientResponseEventViewModel {
             return date(fromMilliseconds: identification?.firstSeenAt)
         case .lastSeenAt:
             return date(fromMilliseconds: identification?.lastSeenAt)
+        case .device:
+            return deviceItemValue
+        case .osVersion:
+            return osVersionItemValue
         case .vpn:
             return vpnItemValue
         case .proxy:
@@ -125,6 +129,25 @@ private extension ClientResponseEventViewModel {
         guard let milliseconds else { return "" }
         let date = Date(timeIntervalSince1970: .init(milliseconds) / 1000.0)
         return .init(Format.Date.iso8601FullWithRelativeDate(from: date))
+    }
+
+    var deviceItemValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        let deviceDetails = smartSignalsResponse.deviceDetails
+        let device = [deviceDetails?.deviceManufacturer, deviceDetails?.deviceModel]
+            .compactMap { $0 }
+            .filter { !$0.isEmpty }
+            .joined(separator: " ")
+        guard !device.isEmpty else { return LocalizedStrings.notDetected.rawValue }
+        return .init(device)
+    }
+
+    var osVersionItemValue: AttributedString {
+        guard let smartSignalsResponse else { return "" }
+        guard let osVersion = smartSignalsResponse.deviceDetails?.osVersion, !osVersion.isEmpty else {
+            return LocalizedStrings.notDetected.rawValue
+        }
+        return .init(osVersion)
     }
 
     var ipLocationValue: AttributedString {
