@@ -93,6 +93,7 @@
 		15DB47DE2CEB657A00F391A3 /* FingerprintServerAPI+ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */; };
 		351722052F7D3F680079A4BB /* IPInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722042F7D3F680079A4BB /* IPInfo.swift */; };
 		351722072F7D3F970079A4BB /* SDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722062F7D3F970079A4BB /* SDK.swift */; };
+		DD1E7A022F80000000A1B2C3 /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E7A012F80000000A1B2C3 /* DeviceDetails.swift */; };
 		351722092F7D3FA10079A4BB /* Identification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722082F7D3FA10079A4BB /* Identification.swift */; };
 		3517220B2F7D3FFC0079A4BB /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517220A2F7D3FFC0079A4BB /* Proxy.swift */; };
 		3517220D2F7D40170079A4BB /* Tampering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517220C2F7D40170079A4BB /* Tampering.swift */; };
@@ -208,6 +209,7 @@
 		15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+ResponseError.swift"; sourceTree = "<group>"; };
 		351722042F7D3F680079A4BB /* IPInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPInfo.swift; sourceTree = "<group>"; };
 		351722062F7D3F970079A4BB /* SDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDK.swift; sourceTree = "<group>"; };
+		DD1E7A012F80000000A1B2C3 /* DeviceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetails.swift; sourceTree = "<group>"; };
 		351722082F7D3FA10079A4BB /* Identification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identification.swift; sourceTree = "<group>"; };
 		3517220A2F7D3FFC0079A4BB /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
 		3517220C2F7D40170079A4BB /* Tampering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tampering.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				3517220A2F7D3FFC0079A4BB /* Proxy.swift */,
 				351722082F7D3FA10079A4BB /* Identification.swift */,
 				351722062F7D3F970079A4BB /* SDK.swift */,
+				DD1E7A012F80000000A1B2C3 /* DeviceDetails.swift */,
 				351722042F7D3F680079A4BB /* IPInfo.swift */,
 				351722122F7D40800079A4BB /* IPBlocklist.swift */,
 			);
@@ -1123,6 +1126,7 @@
 				1535603C2BC6F83B00BAD949 /* SmartSignalsResponse+Preview.swift in Sources */,
 				1589C9FE2B5806450053A9FA /* PresentableError+CommonErrors.swift in Sources */,
 				351722072F7D3F970079A4BB /* SDK.swift in Sources */,
+				DD1E7A022F80000000A1B2C3 /* DeviceDetails.swift in Sources */,
 				15B6D1952B30A1460064F033 /* FingerprintResponse+Encodable.swift in Sources */,
 				15B16C1F2BC80D7600A6D8A2 /* GeolocationService+Default.swift in Sources */,
 				154CDBAF2BC40D1A00D5C3AF /* SmartSignalsResponse.swift in Sources */,

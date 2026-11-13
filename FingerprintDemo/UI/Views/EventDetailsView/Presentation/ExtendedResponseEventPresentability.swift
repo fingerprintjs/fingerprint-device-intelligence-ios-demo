@@ -6,6 +6,8 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
         case eventId = "EVENT ID"
         case visitorId = "VISITOR ID"
         case visitorFound = "VISITOR FOUND"
+        case device = "DEVICE"
+        case osVersion = "OS VERSION"
         case confidence = "CONFIDENCE"
         case ipAddress = "IP ADDRESS"
         case ipLocation = "IP LOCATION"
@@ -73,13 +75,13 @@ struct ResponseEventPresenter: ClientResponseEventPresentability {
     func valuePlaceholder(for key: ItemKey) -> String {
         switch key {
         case .visitorFound: .placeholder(length: 3)
-        case .confidence, .simulator, .developerTools, .activeCall: .placeholder(length: 4)
+        case .osVersion, .confidence, .simulator, .developerTools, .activeCall: .placeholder(length: 4)
         case .jailbreak, .frida, .geolocationSpoofing, .tampering, .mitmAttack: .placeholder(length: 12)
         case .ipAddress: .placeholder(length: 15)
         case .ipNetworkProvider: .placeholder(length: 32)
         case .ipBlocklist: .placeholder(length: 3)
         case .highActivity: .placeholder(length: 18)
-        case .eventId, .visitorId, .ipLocation: .placeholder(length: 20)
+        case .eventId, .visitorId, .ipLocation, .device: .placeholder(length: 20)
         case .firstSeenAt, .lastSeenAt, .factoryReset: .placeholder(length: 24)
         case .vpn: .placeholder(length: 32)
         case .proxy: .placeholder(length: 32)

@@ -58,7 +58,11 @@ extension SmartSignalsResponse {
                 highActivityDevice: false,
                 simulator: false,
                 developerTools: false,
-                activeCall: false)
+                activeCall: false,
+                deviceDetails: .init(
+                    deviceManufacturer: "Apple",
+                    deviceModel: "V59AP",
+                    osVersion: "26.4.0"))
         }
     }
 }

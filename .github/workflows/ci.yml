@@ -24,7 +24,7 @@ concurrency:
 jobs:
   lint:
     name: Lint
-    runs-on: macos-14
+    runs-on: macos-15
     env:
       DEVELOPER_DIR: "/Applications/Xcode_16.1.app/Contents/Developer"
 
