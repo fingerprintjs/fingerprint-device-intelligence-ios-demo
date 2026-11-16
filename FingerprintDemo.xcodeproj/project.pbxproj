@@ -93,7 +93,6 @@
 		15DB47DE2CEB657A00F391A3 /* FingerprintServerAPI+ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */; };
 		351722052F7D3F680079A4BB /* IPInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722042F7D3F680079A4BB /* IPInfo.swift */; };
 		351722072F7D3F970079A4BB /* SDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722062F7D3F970079A4BB /* SDK.swift */; };
-		DD1E7A022F80000000A1B2C3 /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E7A012F80000000A1B2C3 /* DeviceDetails.swift */; };
 		351722092F7D3FA10079A4BB /* Identification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351722082F7D3FA10079A4BB /* Identification.swift */; };
 		3517220B2F7D3FFC0079A4BB /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517220A2F7D3FFC0079A4BB /* Proxy.swift */; };
 		3517220D2F7D40170079A4BB /* Tampering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3517220C2F7D40170079A4BB /* Tampering.swift */; };
@@ -108,6 +107,7 @@
 		AD1C4EE82E72EAA900DF9065 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C4EE72E72EAA400DF9065 /* AppDelegate.swift */; };
 		ADAB40C02E7564AC00639331 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADAB40BF2E7564AC00639331 /* GoogleService-Info.plist */; };
 		ADC463452E16835A009D6B2E /* JSONSyntaxHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC463442E168350009D6B2E /* JSONSyntaxHighlighter.swift */; };
+		DD1E7A022F80000000A1B2C3 /* DeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E7A012F80000000A1B2C3 /* DeviceDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,7 +209,6 @@
 		15DB47DD2CEB657500F391A3 /* FingerprintServerAPI+ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FingerprintServerAPI+ResponseError.swift"; sourceTree = "<group>"; };
 		351722042F7D3F680079A4BB /* IPInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPInfo.swift; sourceTree = "<group>"; };
 		351722062F7D3F970079A4BB /* SDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDK.swift; sourceTree = "<group>"; };
-		DD1E7A012F80000000A1B2C3 /* DeviceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetails.swift; sourceTree = "<group>"; };
 		351722082F7D3FA10079A4BB /* Identification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identification.swift; sourceTree = "<group>"; };
 		3517220A2F7D3FFC0079A4BB /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
 		3517220C2F7D40170079A4BB /* Tampering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tampering.swift; sourceTree = "<group>"; };
@@ -223,6 +222,7 @@
 		AD1C4EE72E72EAA400DF9065 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAB40BF2E7564AC00639331 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ADC463442E168350009D6B2E /* JSONSyntaxHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSyntaxHighlighter.swift; sourceTree = "<group>"; };
+		DD1E7A012F80000000A1B2C3 /* DeviceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -1339,7 +1339,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.4.0;
+				MARKETING_VERSION = 4.5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingerprintjs.FingerprintProDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1383,7 +1383,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.4.0;
+				MARKETING_VERSION = 4.5.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					LoggerKit,
@@ -1481,7 +1481,7 @@
 			repositoryURL = "https://github.com/fingerprintjs/fingerprint-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 4.2.0;
+				version = 4.3.0;
 			};
 		};
 		AD1C4EDB2E72E7E300DF9065 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
